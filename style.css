@@ -1,0 +1,156 @@
+/* Reset และ Font */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'Kanit', sans-serif;
+    background: linear-gradient(to bottom right, #0b1c2c, #112D4E, #1F4287); /* Premium Blue Gradient */
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Container จัดกึ่งกลาง */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Header Section --- */
+.main-header {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 40px 0;
+    margin-bottom: 30px;
+    color: white;
+}
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-left: 50px;
+}
+.header-text h1 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.student-id {
+    font-size: 1.2rem;
+    color: #4db8ff; /* ฟ้าสว่าง */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.degree {
+    font-size: 1rem;
+    opacity: 0.9;
+    max-width: 600px;
+}
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    margin-left: -350px; 
+}
+
+/* --- Layout Grid (ซ้าย-ขวา) --- */
+.main-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr; /* ซ้าย 300px, ขวา auto */
+    gap: 25px;
+    padding-bottom: 50px;
+}
+
+/* Responsive: จอมือถือให้เรียงลงมา */
+@media (max-width: 768px) {
+    .main-layout { grid-template-columns: 1fr; }
+    .header-content { flex-direction: column-reverse; text-align: center; }
+}
+
+/* --- Cards Style --- */
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* หัวข้อในการ์ด */
+h2 { color: #112D4E; font-size: 1.5rem; margin-bottom: 15px; border-left: 5px solid #112D4E; padding-left: 10px; }
+h3 { color: #3F72AF; font-size: 1.2rem; margin-bottom: 10px; }
+
+/* Sidebar Style */
+.contact-card p { margin-bottom: 8px; font-size: 0.95rem; }
+.skill-list li {
+    list-style-type: none;
+    background: #F9F7F7;
+    border-left: 4px solid #3F72AF;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    border-radius: 0 5px 5px 0;
+}
+
+/* Content Style */
+.highlight-gold h2 { border-left-color: #FFD700; color: #b8860b; }
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 15px 0;
+}
+.tech-stack span {
+    background: #DBE2EF;
+    color: #112D4E;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Image Placeholders (ช่องว่างสำหรับใส่รูป) */
+.image-placeholder {
+    width: 100%;
+    min-height: 200px;
+    background-color: #f0f0f0;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    margin-top: 15px;
+    overflow: hidden;
+}
+.image-placeholder img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Project List */
+.project-list { padding-left: 20px; }
+.project-list li { margin-bottom: 10px; font-size: 0.95rem; }
+
+/* --- Animations --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
