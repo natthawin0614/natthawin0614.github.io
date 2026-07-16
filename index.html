@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Natthawin Tamprasert · AI / ML Engineer</title>
+<meta name="description" content="Natthawin Tamprasert — AI & ML Engineer, Data Scientist, IoT Systems Engineer. Super AI Engineer S5 Bronze Medalist. Winner of 4 national AI hackathons.">
+<meta name="author" content="Natthawin Tamprasert">
+<meta property="og:title" content="Natthawin Tamprasert · AI / ML Engineer">
+<meta property="og:description" content="Super AI Engineer S5 Bronze Medalist · 4× National Hackathon Winner · Time-Series, NLP, Computer Vision, RAG/LLM.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="image/superai_ss5_Bronze.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <a href="#top" class="brand">
+      <svg class="spike" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1l2.2 7.1L21 6l-4.5 5.8L23 15l-7.4-.6L12 23l-3.6-8.6L1 15l6.5-3.2L3 6l6.8 2.1z"/></svg>
+      Natthawin
+    </a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#hackathons">Hackathons</a>
+      <a href="#projects">Projects</a>
+      <a href="#stack">Stack</a>
+      <a href="#certs">Awards</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <a href="#contact" class="btn btn-primary" style="height:40px;">Get in touch</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile sheet -->
+<div class="mobile-sheet" id="mobileSheet">
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#hackathons">Hackathons</a>
+  <a href="#projects">Projects</a>
+  <a href="#stack">Stack</a>
+  <a href="#certs">Awards</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<span id="top"></span>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <span class="hero-badge"><span class="dot"></span> Super AI Engineer S5 · 🥉 Bronze Medalist</span>
+        <h1>Natthawin<br>Tamprasert<span class="accent">.</span></h1>
+        <div class="hero-role">
+          <span>AI &amp; ML Engineer</span>
+          <span>Data Scientist</span>
+          <span>IoT Systems Engineer</span>
+        </div>
+        <p class="hero-desc">I build AI systems that ship and make impact — from <strong>time-series forecasting</strong> and <strong>NLP</strong> to <strong>computer vision</strong> and <strong>RAG / LLM</strong> pipelines. Dual-degree student in Industrial Physics &amp; IoT Engineering @ KMITL.</p>
+        <div class="hero-cta">
+          <a href="https://github.com/natthawin0614" target="_blank" rel="noopener" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.32 6.84 9.67.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.49-1.11-1.49-.91-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.36-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.36 9.36 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .27.18.58.69.48A10.02 10.02 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"/></svg>
+            GitHub
+          </a>
+          <a href="#projects" class="btn btn-secondary">View my work</a>
+        </div>
+        <div class="hero-meta">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Pathum Thani, TH</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg> natwin1313@gmail.com</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6l2 5-3 2a13 13 0 006 6l2-3 5 2v6a2 2 0 01-2 2A19 19 0 013 5a2 2 0 012-2z"/></svg> 098-832-5128</span>
+        </div>
+      </div>
+      <div class="hero-visual reveal">
+        <div class="hero-photo">
+          <img src="image/Claim_Reward_superai.jpg" alt="Natthawin receiving the Bronze Medal at Super AI Engineer Season 5" loading="eager">
+        </div>
+        <div class="hero-float medal">
+          <span class="emoji">🥉</span>
+          <div><div class="lbl" style="color:var(--muted)">Individual</div><div style="font-weight:600;color:var(--ink);font-size:14px">Bronze Medal</div></div>
+        </div>
+        <div class="hero-float wins">
+          <div class="big">4/7</div>
+          <div class="lbl">National<br>hackathon wins</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ TRUST STRIP ============ -->
+<div class="trust">
+  <div class="container trust-inner">
+    <span class="trust-label">Recognized by</span>
+    <span class="trust-item">AIAT</span>
+    <span class="trust-item">CP AXTRA</span>
+    <span class="trust-item">BOL</span>
+    <span class="trust-item">Chula</span>
+    <span class="trust-item">CPALL · 7-Eleven</span>
+    <span class="trust-item">Sony</span>
+    <span class="trust-item">Dhipaya Insurance</span>
+    <span class="trust-item">KMITL</span>
+  </div>
+</div>
+
+<!-- ============ STATS ============ -->
+<section class="section-tight">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card reveal"><div class="stat-num">4<span class="unit">/7</span></div><div class="stat-label">National hackathon wins with Team Pangpuriye</div></div>
+      <div class="stat-card reveal"><div class="stat-num">🥉</div><div class="stat-label">Bronze Medal — Super AI Engineer Season 5 (AIAT)</div></div>
+      <div class="stat-card reveal"><div class="stat-num">119K<span class="unit">+</span></div><div class="stat-label">Insurance claims analyzed in Vision-AI internship</div></div>
+      <div class="stat-card reveal"><div class="stat-num">6<span class="unit">+</span></div><div class="stat-label">Domains: Time-Series · NLP · CV · RAG · LLM · IoT</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="code-window reveal">
+        <div class="code-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="fname">about_me.py</span></div>
+        <pre class="code-body"><span class="kw">class</span> <span class="cls">NatthawinTamprasert</span>:
+    <span class="kw">def</span> <span class="fn">__init__</span>(<span class="self">self</span>):
+        <span class="self">self</span>.role     = <span class="str">"Data Scientist &amp; AI Developer"</span>
+        <span class="self">self</span>.degree   = <span class="str">"Physics + IoT Eng (Dual)"</span>
+        <span class="self">self</span>.school   = <span class="str">"KMITL"</span>
+        <span class="self">self</span>.medal    = <span class="str">"🥉 Bronze · Super AI S5"</span>
+        <span class="self">self</span>.record   = <span class="str">"Won 4 of 7 hackathons"</span>
+        <span class="self">self</span>.interests = [
+            <span class="str">"Time-Series"</span>, <span class="str">"NLP"</span>,
+            <span class="str">"Computer Vision"</span>,
+            <span class="str">"RAG / LLM"</span>, <span class="str">"IoT + AI"</span>,
+        ]
+
+    <span class="kw">def</span> <span class="fn">philosophy</span>(<span class="self">self</span>):
+        <span class="cm"># The best model is the one that</span>
+        <span class="cm"># ships and makes impact.</span>
+        <span class="kw">return</span> <span class="self">self</span>.build_and_deploy()</pre>
+      </div>
+      <div class="about-text reveal">
+        <span class="eyebrow">About me</span>
+        <h2 class="section-title">AI engineer who turns research into shipped systems.</h2>
+        <p>I'm <strong>Natthawin Tamprasert (ณัฐวินท์ แต้มประเสริฐ)</strong>, a dual-degree student in <strong>Industrial Physics</strong> and <strong>IoT Systems Engineering</strong> at KMITL, and a Bronze Medalist of the national <strong>Super AI Engineer Season 5</strong> program.</p>
+        <p>Across seven national hackathons with Team Pangpuriye I won four — spanning demand forecasting, Thai legal NLP, and medical imaging — and interned building an explainable Vision-AI pipeline for vehicle-damage assessment on 119K+ insurance claims.</p>
+        <div class="about-focus">
+          <span class="chip">Time-Series Forecasting</span>
+          <span class="chip">NLP</span>
+          <span class="chip">Computer Vision</span>
+          <span class="chip">RAG / LLM Systems</span>
+          <span class="chip">IoT + AI Integration</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section class="section" id="experience">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Experience</span>
+      <h2 class="section-title">AI Research Internship</h2>
+      <p class="section-lead">An explainable, end-to-end Vision-AI system built during my internship — designed to make insurance claims fairer and more transparent.</p>
+    </div>
+    <div class="exp-card reveal">
+      <div class="exp-left">
+        <div class="exp-tag">🏢 Vehicle Damage Assessment · 2025</div>
+        <h3>AI Research Intern</h3>
+        <div class="exp-org">Dhipaya Insurance (ทิพยประกันภัย)</div>
+        <p class="exp-desc">Developed an explainable <strong>4-stage Vision-AI pipeline</strong> addressing a <strong>17.5% valuation discrepancy</strong> across <strong>119,212 insurance claims</strong> — pairing deep-learning detectors with an LLM report generator for plain-language, auditable output.</p>
+        <div class="exp-impact">
+          <span class="pill">↑ Transparency</span>
+          <span class="pill">↑ Negotiation leverage</span>
+          <span class="pill coral">↓ Claim costs</span>
+        </div>
+        <div class="exp-arch" data-full="image/Architecture_superai_ss5.png" data-cap="4-Stage Vehicle Damage Assessment Pipeline">
+          <img src="image/Architecture_superai_ss5.png" alt="Architecture diagram of the 4-stage vehicle damage assessment pipeline" loading="lazy">
+        </div>
+        <div class="exp-arch-cap">System architecture — click to zoom</div>
+      </div>
+      <div class="exp-right">
+        <div class="pipeline">
+          <div class="pipe-step"><span class="n">1</span><div><div class="st-title">Car / Non-Car Filter</div><div class="st-tech">CLIP Prompt Ensembling · zero-shot</div></div></div>
+          <div class="pipe-step"><span class="n">2</span><div><div class="st-title">Damage Localization</div><div class="st-tech">DINOv2 + Top-K Attention Pooling · Hamming 0.84</div></div></div>
+          <div class="pipe-step"><span class="n">3</span><div><div class="st-title">Damage Classification</div><div class="st-tech">ResNet-101 + DCN + FPN · 20+ classes</div></div></div>
+          <div class="pipe-step"><span class="n">4</span><div><div class="st-title">Damage % Estimation</div><div class="st-tech">Geometric: A_crop = A_full / Z²</div></div></div>
+          <div class="pipe-step"><span class="n">✦</span><div><div class="st-title">Report Generation</div><div class="st-tech">LLaMA 3.1-8B (4-bit) · plain-language output</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HACKATHONS ============ -->
+<section class="section" id="hackathons">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Hackathons</span>
+      <h2 class="section-title">Super AI Engineer S5 — 4 / 7 wins</h2>
+      <p class="section-lead">Competed nationally with <strong>Team Pangpuriye</strong> across forecasting, NLP, and medical AI — plus corporate innovation challenges with 7-Eleven, Sony, and KMITL.</p>
+    </div>
+    <div class="hack-grid">
+
+      <article class="hack-card reveal">
+        <a class="hack-cert" data-full="image/Certificate_Demand_Forecasting_Hackathon.png" data-cap="1st Place — Demand Forecasting Hackathon (AIAT × CPAXTRA)">
+          <img src="image/Certificate_Demand_Forecasting_Hackathon.png" alt="Demand Forecasting Hackathon certificate" loading="lazy">
+          <span class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>View</span>
+        </a>
+        <div class="hack-body">
+          <div class="hack-top">
+            <div class="medal-badge"><span class="m">🥇</span> 1st Place</div>
+            <span class="rank-pill gold">AIAT × CPAXTRA</span>
+          </div>
+          <h3>Demand Forecasting</h3>
+          <div class="hack-meta">19–23 May 2025</div>
+          <ul>
+            <li>Led EDA revealing category-specific demand; shifted strategy from <strong>global → category-wise</strong> modeling</li>
+            <li>Fine-tuned <strong>Chronos</strong> time-series models with custom post-processing</li>
+            <li><strong>PCA + KMeans</strong> clustering to capture seasonal patterns &amp; variability</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="hack-card reveal">
+        <a class="hack-cert" data-full="image/Certificate_Crime_Charges_Analysis.png" data-cap="1st Place — Crime Charges Analysis, NLP (AIAT × BOL)">
+          <img src="image/Certificate_Crime_Charges_Analysis.png" alt="Crime Charges Analysis certificate" loading="lazy">
+          <span class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>View</span>
+        </a>
+        <div class="hack-body">
+          <div class="hack-top">
+            <div class="medal-badge"><span class="m">🥇</span> 1st Place</div>
+            <span class="rank-pill gold">AIAT × BOL</span>
+          </div>
+          <h3>Crime Charges Analysis · NLP</h3>
+          <div class="hack-meta">12–16 May 2025</div>
+          <ul>
+            <li>End-to-end pipeline with <strong>XLM-RoBERTa-Large</strong> for Thai legal document classification</li>
+            <li><strong>NER</strong> name-masking for bias reduction</li>
+            <li><strong>RAG</strong> (FAISS + cosine) with BERT + LLM hardness-routing fallback</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="hack-card reveal">
+        <a class="hack-cert" data-full="image/Certificate_Liver_Fibrosis_Severity_Prediction.jpg" data-cap="1st Place — Liver Fibrosis Severity Prediction (AIAT × CHULA)">
+          <img src="image/Certificate_Liver_Fibrosis_Severity_Prediction.jpg" alt="Liver Fibrosis Severity Prediction certificate" loading="lazy">
+          <span class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>View</span>
+        </a>
+        <div class="hack-body">
+          <div class="hack-top">
+            <div class="medal-badge"><span class="m">🥇</span> 1st Place</div>
+            <span class="rank-pill gold">AIAT × CHULA</span>
+          </div>
+          <h3>Liver Fibrosis Severity Prediction</h3>
+          <div class="hack-meta">2–6 Jun 2025</div>
+          <ul>
+            <li>Multi-modal AI combining ultrasound images + clinical tabular data</li>
+            <li><strong>AutoGluon + ResNetV2_50x</strong> for latent feature extraction</li>
+            <li>Domain-aware post-processing → MAE improved <strong>2.9 → 2.4</strong></li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="hack-card reveal">
+        <a class="hack-cert" data-full="image/Certificate_Sales_Forecasting_Product_Optimization.png" data-cap="1st Runner-up — Sales Forecasting & Product Optimization (AIAT × CPAXTRA)">
+          <img src="image/Certificate_Sales_Forecasting_Product_Optimization.png" alt="Sales Forecasting certificate" loading="lazy">
+          <span class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>View</span>
+        </a>
+        <div class="hack-body">
+          <div class="hack-top">
+            <div class="medal-badge"><span class="m">🥈</span> 1st Runner-up</div>
+            <span class="rank-pill silver">AIAT × CPAXTRA</span>
+          </div>
+          <h3>Sales Forecasting &amp; Product Optimization</h3>
+          <div class="hack-meta">5–9 May 2025</div>
+          <ul>
+            <li>Multi-tiered modeling: statistics for sparse products, ML for data-rich segments</li>
+            <li>Novel <strong>signal-based demand movement</strong> classification</li>
+            <li>Memory optimization via batch processing + stratified sampling</li>
+          </ul>
+        </div>
+      </article>
+
+      <div class="hack-sub">Other challenges</div>
+
+      <article class="hack-card reveal">
+        <a class="hack-cert" data-full="image/Certificate_CAI_Club_Hackathon_7-11xAI.jpg" data-cap="CAI Club Hackathon 2025 · 7-Eleven × AI (CPALL × Creative AI Club)">
+          <img src="image/Certificate_CAI_Club_Hackathon_7-11xAI.jpg" alt="CAI Club Hackathon certificate" loading="lazy">
+          <span class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>View</span>
+        </a>
+        <div class="hack-body">
+          <div class="hack-top">
+            <div class="medal-badge"><span class="m">🏪</span> LIFT</div>
+            <span class="rank-pill">CPALL × Creative AI Club</span>
+          </div>
+          <h3>CAI Club Hackathon · 7-Eleven × AI</h3>
+          <div class="hack-meta">2025 · Partner: Wisesight</div>
+          <ul>
+            <li>Built <strong>LIFT</strong> — social-listening system monitoring Thai news to predict demand spikes at 7-Eleven</li>
+            <li>News ingestion → LLM summarization → <strong>Typhoon API</strong> sentiment → high-demand flagging</li>
+            <li>Estimated <strong>฿42.5M</strong> opportunity-cost savings from preventing a viral-product stockout</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="hack-card reveal">
+        <a class="hack-cert" data-full="image/Certificate_Smart_Factory_Hackathon.jpg" data-cap="Top 10 — SMART FACTORY Hackathon 2025 (Sony)">
+          <img src="image/Certificate_Smart_Factory_Hackathon.jpg" alt="Smart Factory Hackathon certificate" loading="lazy">
+          <span class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>View</span>
+        </a>
+        <div class="hack-body">
+          <div class="hack-top">
+            <div class="medal-badge"><span class="m">🏭</span> Top 10</div>
+            <span class="rank-pill">Sony · KMITL</span>
+          </div>
+          <h3>Smart Factory Hackathon 2025</h3>
+          <div class="hack-meta">Supply-Chain AI System</div>
+          <ul>
+            <li>End-to-end AI for inventory analysis, risk assessment &amp; automated procurement</li>
+            <li><strong>GMM</strong> unsupervised clustering to surface anomalies without labels</li>
+            <li>Deployed <strong>Qwen 2.5 GGUF</strong> fully on-premise — zero data leakage</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section class="section" id="projects">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Projects</span>
+      <h2 class="section-title">Selected work</h2>
+      <p class="section-lead">Open-source projects and research systems — full code and write-ups on GitHub.</p>
+    </div>
+    <div class="proj-grid">
+
+      <article class="proj-card reveal">
+        <div class="proj-head"><div class="proj-icon">🌾</div><span class="proj-lang"><span class="dot" style="background:#DA5B0B"></span>Jupyter</span></div>
+        <h3>csiro-image2biomass</h3>
+        <p>Top <strong>10.1% Kaggle</strong> solution using <strong>DINOv3 + FiLM</strong> for pasture biomass prediction from imagery.</p>
+        <div class="proj-tags"><span>DINOv3</span><span>FiLM</span><span>CV</span><span>Regression</span></div>
+        <div class="proj-foot">
+          <a class="proj-link" href="https://github.com/natthawin0614/csiro-image2biomass" target="_blank" rel="noopener">View repo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+          <span class="proj-star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>1</span>
+        </div>
+      </article>
+
+      <article class="proj-card reveal">
+        <div class="proj-head"><div class="proj-icon">🌊</div><span class="proj-lang"><span class="dot" style="background:#DA5B0B"></span>Jupyter</span></div>
+        <h3>chaophraya-water-quality</h3>
+        <p>IoT-based water-quality forecasting benchmarking <strong>XGBoost · CatBoost · LSTM · GRU · Transformer</strong> on 10-year time-series.</p>
+        <div class="proj-tags"><span>Time-Series</span><span>IoT</span><span>Benchmark</span></div>
+        <div class="proj-foot">
+          <a class="proj-link" href="https://github.com/natthawin0614/chaophraya-water-quality" target="_blank" rel="noopener">View repo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+          <span class="proj-star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>1</span>
+        </div>
+      </article>
+
+      <article class="proj-card reveal">
+        <div class="proj-head"><div class="proj-icon">🎙️</div><span class="proj-lang"><span class="dot" style="background:#DA5B0B"></span>Jupyter</span></div>
+        <h3>SpExNote</h3>
+        <p>Intelligent lecture-recording pipeline: Silero-VAD → <strong>SpEx+</strong> speaker extraction → Thai ASR → <strong>Qwen-RAG</strong> summarization.</p>
+        <div class="proj-tags"><span>Speech</span><span>Thai ASR</span><span>RAG</span><span>IoT</span></div>
+        <div class="proj-foot">
+          <a class="proj-link" href="https://github.com/natthawin0614/SpExNote" target="_blank" rel="noopener">View repo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+        </div>
+      </article>
+
+      <article class="proj-card reveal">
+        <div class="proj-head"><div class="proj-icon">🤖</div><span class="proj-lang"><span class="dot" style="background:#3178c6"></span>TypeScript</span></div>
+        <h3>NongAuanIoT</h3>
+        <p>Thai multi-agent <strong>RAG chatbot</strong> for KMITL IoTE — Intent Classifier routes to Academic · TCAS · General agents on <strong>Typhoon-S 8B</strong>, fully CPU-based.</p>
+        <div class="proj-tags"><span>Multi-Agent</span><span>RAG</span><span>LLM</span><span>Thai</span></div>
+        <div class="proj-foot">
+          <a class="proj-link" href="https://github.com/natthawin0614/NongAuanIoT" target="_blank" rel="noopener">View repo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+        </div>
+      </article>
+
+      <article class="proj-card reveal">
+        <div class="proj-head"><div class="proj-icon">💬</div><span class="proj-lang"><span class="dot" style="background:#DA5B0B"></span>Jupyter</span></div>
+        <h3>Chat-bot-Jar-neng</h3>
+        <p>Thai-language chatbot with synthetic <strong>data generation</strong> and a <strong>fine-tuned LLM + RAG</strong> retrieval stack.</p>
+        <div class="proj-tags"><span>LLM Fine-tune</span><span>RAG</span><span>Thai</span></div>
+        <div class="proj-foot">
+          <a class="proj-link" href="https://github.com/natthawin0614/Chat-bot-Jar-neng" target="_blank" rel="noopener">View repo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+          <span class="proj-star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>2</span>
+        </div>
+      </article>
+
+      <article class="proj-card reveal">
+        <div class="proj-head"><div class="proj-icon">🌧️</div><span class="proj-lang"><span class="dot" style="background:#DA5B0B"></span>Jupyter</span></div>
+        <h3>Predict-rain</h3>
+        <p>Binary rain-prediction model trained on weather-station data (2014–2022), achieving <strong>67% accuracy</strong>.</p>
+        <div class="proj-tags"><span>Classification</span><span>Weather</span><span>ML</span></div>
+        <div class="proj-foot">
+          <a class="proj-link" href="https://github.com/natthawin0614/-Predict-rain" target="_blank" rel="noopener">View repo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+          <span class="proj-star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>1</span>
+        </div>
+      </article>
+
+    </div>
+    <div style="text-align:center;margin-top:40px" class="reveal">
+      <a href="https://github.com/natthawin0614" target="_blank" rel="noopener" class="btn btn-secondary">See all repositories on GitHub</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TECH STACK ============ -->
+<section class="section" id="stack">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Tech stack</span>
+      <h2 class="section-title">Tools I build with</h2>
+    </div>
+    <div class="tech-wrap">
+      <div class="tech-group reveal"><h4>🧠 Data Science &amp; ML</h4><div class="tech-tags"><span>Python</span><span>PyTorch</span><span>TensorFlow</span><span>scikit-learn</span><span>Pandas</span><span>NumPy</span><span>XGBoost</span><span>LightGBM</span></div></div>
+      <div class="tech-group reveal"><h4>✨ LLM &amp; Generative AI</h4><div class="tech-tags"><span>Hugging Face</span><span>AutoGluon</span><span>FAISS</span><span>RAG Architecture</span><span>LLaMA 3.1</span><span>Qwen 2.5 GGUF</span><span>Typhoon</span></div></div>
+      <div class="tech-group reveal"><h4>👁️ Computer Vision</h4><div class="tech-tags"><span>OpenCV</span><span>DINOv2 / v3</span><span>YOLO v5/v8</span><span>ResNet-101</span><span>CLIP</span><span>Florence-2</span></div></div>
+      <div class="tech-group reveal"><h4>🔌 IoT &amp; Hardware</h4><div class="tech-tags"><span>Arduino</span><span>Node-RED</span><span>MQTT</span><span>NB-IoT</span><span>Sensors</span></div></div>
+      <div class="tech-group reveal"><h4>⚙️ DevOps &amp; Tools</h4><div class="tech-tags"><span>Docker</span><span>Google Cloud</span><span>Firebase</span><span>Redis</span><span>Git</span><span>MATLAB</span></div></div>
+      <div class="tech-group reveal"><h4>&lt;/&gt; Languages</h4><div class="tech-tags"><span>Python</span><span>C++</span><span>C</span><span>JavaScript</span><span>TypeScript</span><span>Node.js</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CERTIFICATES / AWARDS ============ -->
+<section class="section" id="certs">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Awards &amp; Certificates</span>
+      <h2 class="section-title">Proof of work</h2>
+      <p class="section-lead">Competition certificates sit on each hackathon card above. Below are training programs, credentials, and moments from the journey. Click any image to view full size.</p>
+    </div>
+
+    <h3 class="awards-sub"><span class="n">✦</span> Programs &amp; Certifications</h3>
+    <div class="masonry">
+      <div class="gcard" data-full="image/Super_AI_Engineer_Season5_Exhibition_Certificate.jpg" data-cap="Super AI Engineer Season 5 — Exhibition Certificate"><img src="image/Super_AI_Engineer_Season5_Exhibition_Certificate.jpg" alt="Super AI Engineer S5 Exhibition certificate" loading="lazy"><div class="gcap">🎓 Super AI Engineer S5 — Exhibition</div></div>
+      <div class="gcard" data-full="image/Super_AI_Engineer_2024_Certificate.jpg" data-cap="Super AI Engineer 2024 — Certificate"><img src="image/Super_AI_Engineer_2024_Certificate.jpg" alt="Super AI Engineer 2024 certificate" loading="lazy"><div class="gcap">🎓 Super AI Engineer 2024</div></div>
+      <div class="gcard" data-full="image/Certificate_of_Completion_AI_Builders_Program.jpg" data-cap="Certificate of Completion — AI Builders Program (2023)"><img src="image/Certificate_of_Completion_AI_Builders_Program.jpg" alt="AI Builders Program completion certificate" loading="lazy"><div class="gcap">📜 AI Builders Program — Completion</div></div>
+      <div class="gcard" data-full="image/Certificate_of_Accomplishment_Brain_Code_101_AI_Builders_Advanced.jpg" data-cap="Certificate of Accomplishment — Brain Code 101, AI Builders Advanced (2023)"><img src="image/Certificate_of_Accomplishment_Brain_Code_101_AI_Builders_Advanced.jpg" alt="Brain Code 101 certificate" loading="lazy"><div class="gcap">📜 Brain Code 101 — Advanced</div></div>
+    </div>
+
+    <h3 class="awards-sub"><span class="n">✦</span> Moments</h3>
+    <div class="masonry">
+      <div class="gcard" data-full="image/Claim_Reward_superai.jpg" data-cap="Receiving the Bronze Medal on stage — Super AI Engineer S5"><img src="image/Claim_Reward_superai.jpg" alt="Receiving Bronze Medal on stage" loading="lazy"><div class="gcap">🏆 Bronze Medal ceremony — Super AI Engineer</div></div>
+      <div class="gcard" data-full="image/superai_ss5_Bronze.png" data-cap="Super AI Engineer S5 · Exhibition with AI for Vehicle Damage Assessment poster"><img src="image/superai_ss5_Bronze.png" alt="Natthawin with the Vehicle Damage Assessment poster and Bronze medal" loading="lazy"><div class="gcap">🥉 Super AI S5 — Exhibition &amp; Poster</div></div>
+      <div class="gcard" data-full="image/Team_at_Smart_Factory_Hackathon.jpg" data-cap="Team on stage — Top 10, Sony Smart Factory Hackathon 2025"><img src="image/Team_at_Smart_Factory_Hackathon.jpg" alt="Team at Smart Factory Hackathon" loading="lazy"><div class="gcap">🏭 Smart Factory Hackathon — Top 10 team</div></div>
+      <div class="gcard" data-full="image/Speaker_CAI_Club_Hackathon_2025_7-11xAI.png" data-cap="Speaker — CAI Club Hackathon 2025, 7-Eleven × AI"><img src="image/Speaker_CAI_Club_Hackathon_2025_7-11xAI.png" alt="Speaker at CAI Club Hackathon" loading="lazy"><div class="gcap">🎤 Speaker — CAI Club Hackathon</div></div>
+      <div class="gcard" data-full="image/AI_Builder_You_with_the_poster.jpg" data-cap="AI Builders — presenting project poster"><img src="image/AI_Builder_You_with_the_poster.jpg" alt="AI Builders poster presentation" loading="lazy"><div class="gcap">📊 AI Builders — Poster presentation</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EDUCATION ============ -->
+<section class="section-tight">
+  <div class="container">
+    <div class="section-head reveal" style="margin-bottom:40px">
+      <span class="eyebrow">Education</span>
+      <h2 class="section-title">Academic background</h2>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <div class="edu-icon">🎓</div>
+        <div>
+          <h3>King Mongkut's Institute of Technology Ladkrabang (KMITL)</h3>
+          <div class="deg">BSc Industrial Physics + BEng IoT Systems Engineering · <strong>Dual Degree</strong></div>
+          <div class="yr">2025 – Present</div>
+        </div>
+      </div>
+      <div class="edu-card reveal">
+        <div class="edu-icon">🏫</div>
+        <div>
+          <h3>Chitralada School</h3>
+          <div class="deg">Science–Mathematics Program · Science GPA <strong>3.50</strong></div>
+          <div class="yr">2020 – 2023</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT / CTA ============ -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="cta-band reveal">
+      <h2>Let's build something that ships.</h2>
+      <p>Open to AI / ML engineering roles, research collaborations, and hackathon teams. Let's talk.</p>
+      <div class="cta-actions">
+        <a href="mailto:natwin1313@gmail.com" class="btn btn-on-coral">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+          natwin1313@gmail.com
+        </a>
+        <a href="https://github.com/natthawin0614" target="_blank" rel="noopener" class="btn btn-coral-ghost">GitHub</a>
+        <a href="https://kaggle.com/nattahwintampaesert" target="_blank" rel="noopener" class="btn btn-coral-ghost">Kaggle</a>
+        <a href="https://linkedin.com/in/natthawin" target="_blank" rel="noopener" class="btn btn-coral-ghost">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand"><svg class="spike" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1l2.2 7.1L21 6l-4.5 5.8L23 15l-7.4-.6L12 23l-3.6-8.6L1 15l6.5-3.2L3 6l6.8 2.1z"/></svg> Natthawin Tamprasert</div>
+        <p>AI &amp; ML Engineer · Data Scientist · IoT Systems Engineer. Super AI Engineer S5 Bronze Medalist based in Pathum Thani, Thailand.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h5>Navigate</h5>
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#hackathons">Hackathons</a>
+          <a href="#projects">Projects</a>
+          <a href="#certs">Awards</a>
+        </div>
+        <div class="footer-col">
+          <h5>Connect</h5>
+          <a href="https://github.com/natthawin0614" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://kaggle.com/nattahwintampaesert" target="_blank" rel="noopener">Kaggle</a>
+          <a href="https://linkedin.com/in/natthawin" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:natwin1313@gmail.com">Email</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Natthawin Tamprasert. All rights reserved.</span>
+      <span>“The best model is the one that ships and makes impact.”</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lbClose" aria-label="Close">✕</button>
+  <button class="lightbox-nav prev" id="lbPrev" aria-label="Previous">‹</button>
+  <img id="lbImg" src="" alt="">
+  <button class="lightbox-nav next" id="lbNext" aria-label="Next">›</button>
+  <div class="lightbox-cap" id="lbCap"></div>
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
