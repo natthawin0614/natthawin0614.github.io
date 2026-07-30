@@ -4,12 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>🎀 Happy 4 Month Anniversary 🫰🏻</title>
-  <meta name="description" content="หนังสั้นครบรอบสี่เดือน — ธนูที่ยิงไปหาหัวใจ, เวลาที่เดินผ่านมาด้วยกัน, ความทรงจำที่เก็บไว้ และคำว่ารักแฟนมากนะ" />
   <meta name="theme-color" content="#f7e7dc" />
+
+  <!-- The link card in a chat app should give away the title and nothing else.
+       There is deliberately no description: an empty og:description is stated
+       outright rather than just omitted, because a scraper with nothing to read
+       falls back to sniffing the page body — which here is the closing message,
+       and putting that in the preview would spoil the whole thing before she
+       even opens it. No og:image for the same reason: every photo is a reveal. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://natthawin0614.github.io/anniversary/" />
+  <meta property="og:title" content="🎀 Happy 4 Month Anniversary 🫰🏻" />
+  <meta property="og:description" content="" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="🎀 Happy 4 Month Anniversary 🫰🏻" />
+  <meta name="twitter:description" content="" />
+
   <!-- Private gift on a public host. Crawling is deliberately left open so the
-       robots directive below is actually read — a robots.txt Disallow would
-       block the crawl and the noindex with it, and it lives at the domain root
-       where it would also speak for the portfolio site next door. -->
+       robots directive is actually read — a robots.txt Disallow would block the
+       crawl and the noindex with it, and it lives at the domain root where it
+       would also speak for the portfolio site next door. -->
   <meta name="robots" content="noindex, nofollow, noarchive, noimageindex" />
   <link rel="icon" type="image/png" href="./media/favicon.png" />
 
@@ -354,11 +368,12 @@
     </div>
   </main>
 
-  <!-- Accessible equivalent for reduced-motion + screen readers. -->
-  <p class="sr-only">
-    สุขสันต์วันครบรอบสี่เดือนนะ รู้จักกันมาเก้าเดือน เป็นคนคุยกันมาห้าเดือน
-    และเป็นแฟนกันมาสี่เดือนแล้ว ยิ่งเวลาผ่านไป เรายิ่งรักเธอมากขึ้นทุกวัน รักแฟนมากนะ
-  </p>
+  <!-- Accessible equivalent for reduced-motion + screen readers. Filled in by
+       anniversary.js rather than written here: a link-preview scraper reads raw
+       HTML, and this paragraph is the only prose on the page, so in the source
+       it is the exact text a chat app would put under the title. Screen readers
+       read the live DOM and still get it. -->
+  <p class="sr-only" id="srSummary"></p>
 
   <!-- No bundler: GSAP ships a UMD build, so the page is plain static files and
        can be opened straight off the disk or dropped on any host as-is. -->

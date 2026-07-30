@@ -1270,6 +1270,14 @@ window.addEventListener('resize', () => { if (resizeRAF) return; resizeRAF = req
 
 resize();
 
+/* The spoken version of the whole film, for reduced motion and screen readers.
+   It is written in here rather than in the HTML so that a chat app's link
+   scraper — which only ever sees the raw source — has no prose to lift into the
+   preview card underneath the title. */
+$('srSummary').textContent =
+  'สุขสันต์วันครบรอบสี่เดือนนะ รู้จักกันมาเก้าเดือน เป็นคนคุยกันมาห้าเดือน ' +
+  'และเป็นแฟนกันมาสี่เดือนแล้ว ยิ่งเวลาผ่านไป เรายิ่งรักเธอมากขึ้นทุกวัน รักแฟนมากนะ';
+
 /* The memories are ~15s into the film and every polaroid starts hidden, so the
    browser has both the time and no reason to fetch them. Warm the cache during
    Act 1 instead of letting a chapter open onto blank white cards. */
