@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>🎀 Happy 4 Month Anniversary 🫰🏻</title>
+  <meta name="description" content="หนังสั้นครบรอบสี่เดือน — ธนูที่ยิงไปหาหัวใจ, เวลาที่เดินผ่านมาด้วยกัน, ความทรงจำที่เก็บไว้ และคำว่ารักแฟนมากนะ" />
+  <meta name="theme-color" content="#f7e7dc" />
+  <!-- Private gift on a public host. Crawling is deliberately left open so the
+       robots directive below is actually read — a robots.txt Disallow would
+       block the crawl and the noindex with it, and it lives at the domain root
+       where it would also speak for the portfolio site next door. -->
+  <meta name="robots" content="noindex, nofollow, noarchive, noimageindex" />
+  <link rel="icon" type="image/png" href="./media/favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Mali:ital,wght@0,400;0,600;0,700;1,400&family=Charmonman:wght@700&display=swap" rel="stylesheet" />
+
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="stylesheet" href="./anniversary.css" />
+</head>
+<body>
+  <main class="scene">
+
+    <!-- The tree world (Act 5). One canvas; it stays transparent until the
+         chapters hand off, then it draws its own warm sky + blossom tree. -->
+    <canvas id="tree" class="tree" aria-label="ต้นไม้ที่ค่อย ๆ โตแล้วผลิดอกออกมาเป็นรูปหัวใจ" role="img"></canvas>
+
+    <!-- ACT 1 — THE INVITATION ------------------------------------------------
+         A single beating heart on a warm field. It is the only thing the
+         visitor has to do: draw the bow. Real control so it is tappable +
+         keyboard focusable; everything decorative around it is aria-hidden. -->
+    <section class="hero" id="hero" aria-label="ดึงคันธนูเพื่อเปิดการ์ด">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__motes" id="motes" aria-hidden="true"></div>
+
+      <p class="hero__eyebrow" id="eyebrow">มีอะไรจะบอก&hellip; สำหรับเธอคนเดียว</p>
+
+      <!-- THE TARGET — the heart the arrow flies to (GSAP animates .target) -->
+      <div class="targetWrap" aria-hidden="true">
+        <div class="target" id="target">
+          <span class="heart__glow" aria-hidden="true"></span>
+          <span class="target__heart" id="targetHeart">
+            <svg class="heart__svg" viewBox="0 0 100 92" aria-hidden="true">
+              <defs>
+                <radialGradient id="hg" cx="38%" cy="30%" r="80%">
+                  <stop offset="0%"  stop-color="#ffd9e4" />
+                  <stop offset="42%" stop-color="#ff6f97" />
+                  <stop offset="82%" stop-color="#d81e57" />
+                  <stop offset="100%" stop-color="#9d0f3e" />
+                </radialGradient>
+                <linearGradient id="hsheen" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%"  stop-color="rgba(255,255,255,.85)" />
+                  <stop offset="34%" stop-color="rgba(255,255,255,0)" />
+                </linearGradient>
+              </defs>
+              <path d="M50 86.5C26 68 10.5 53.6 10.5 34.6 10.5 20.4 21 11 33.2 11c8.6 0 14.2 4.7 16.8 11.4C52.6 15.7 58.2 11 66.8 11 79 11 89.5 20.4 89.5 34.6 89.5 53.6 74 68 50 86.5Z" fill="url(#hg)" />
+              <path d="M50 86.5C26 68 10.5 53.6 10.5 34.6 10.5 20.4 21 11 33.2 11c8.6 0 14.2 4.7 16.8 11.4C52.6 15.7 58.2 11 66.8 11 79 11 89.5 20.4 89.5 34.6 89.5 53.6 74 68 50 86.5Z" fill="url(#hsheen)" opacity=".7" />
+              <ellipse cx="34" cy="30" rx="8.5" ry="5.4" fill="#fff" opacity=".72" style="mix-blend-mode:screen" />
+            </svg>
+          </span>
+        </div>
+      </div>
+
+      <!-- THE BOW + ARROW — draw the string back, release to fire. The rig is
+           placed lower-left and rotated by JS to aim at the heart, so the shot
+           travels on a diagonal. A real control: role=button + keyboard drag. -->
+      <div class="archery" id="archery" role="button" tabindex="0"
+           aria-label="ดึงคันธนูแล้วปล่อย เพื่อส่งลูกศรไปที่หัวใจ">
+
+          <!-- aim line, inside the rig so it points straight at the heart -->
+          <div class="aim" id="aim" aria-hidden="true"></div>
+
+          <!-- realistic recurve bow: wooden limbs, leather grip, a live string -->
+          <svg class="bow" id="bow" viewBox="0 0 460 300" aria-hidden="true">
+            <defs>
+              <linearGradient id="limb" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0"   stop-color="#4a2a1a" />
+                <stop offset=".18" stop-color="#6b3f24" />
+                <stop offset=".5"  stop-color="#8a5127" />
+                <stop offset=".82" stop-color="#6b3f24" />
+                <stop offset="1"   stop-color="#4a2a1a" />
+              </linearGradient>
+              <linearGradient id="limbHi" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="rgba(255,214,160,.8)" />
+                <stop offset="1" stop-color="rgba(255,214,160,0)" />
+              </linearGradient>
+              <linearGradient id="grip" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#2a1a10" />
+                <stop offset=".5" stop-color="#5a3822" />
+                <stop offset="1" stop-color="#2a1a10" />
+              </linearGradient>
+            </defs>
+            <!-- limb body (taper faked with two stacked strokes) -->
+            <path class="bow__limb" d="M34 96 C 118 168, 168 240, 230 252 C 292 240, 342 168, 426 96"
+                  fill="none" stroke="url(#limb)" stroke-width="13" stroke-linecap="round" />
+            <path class="bow__limbHi" d="M34 96 C 118 168, 168 240, 230 252 C 292 240, 342 168, 426 96"
+                  fill="none" stroke="url(#limbHi)" stroke-width="3" stroke-linecap="round" opacity=".7" />
+            <!-- recurve tip hooks -->
+            <path d="M34 96 C 22 82, 26 70, 40 66" fill="none" stroke="url(#limb)" stroke-width="8" stroke-linecap="round" />
+            <path d="M426 96 C 438 82, 434 70, 420 66" fill="none" stroke="url(#limb)" stroke-width="8" stroke-linecap="round" />
+            <!-- leather grip over the belly -->
+            <rect x="216" y="206" width="28" height="70" rx="9" fill="url(#grip)" />
+            <path d="M219 220h22 M219 236h22 M219 252h22" stroke="rgba(0,0,0,.35)" stroke-width="2" />
+            <!-- the string: two segments meeting at the nock (JS animates the nock).
+                 A warm taupe so the taut string actually reads against the cream. -->
+            <line class="bow__str" id="strL" x1="40" y1="70" x2="230" y2="96" stroke="#9a8068" stroke-width="2.2" stroke-linecap="round" />
+            <line class="bow__str" id="strR" x1="420" y1="70" x2="230" y2="96" stroke="#9a8068" stroke-width="2.2" stroke-linecap="round" />
+            <circle class="bow__serving" id="serving" cx="230" cy="96" r="4.5" fill="#6f5137" />
+          </svg>
+
+          <!-- the arrow: winged golden heart tip (Cupid), gold feather fletching -->
+          <svg class="arrow" id="arrow" viewBox="0 0 64 220" aria-hidden="true">
+            <defs>
+              <linearGradient id="shaft" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#4a2c14" />
+                <stop offset=".5" stop-color="#8a5a2c" />
+                <stop offset="1" stop-color="#3e2410" />
+              </linearGradient>
+              <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ffe38c" />
+                <stop offset=".45" stop-color="#f4a626" />
+                <stop offset="1" stop-color="#a85f0e" />
+              </linearGradient>
+              <linearGradient id="feath" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ff7f9c" />
+                <stop offset=".5" stop-color="#e6396a" />
+                <stop offset="1" stop-color="#a8154a" />
+              </linearGradient>
+              <linearGradient id="wing" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#ffffff" />
+                <stop offset="1" stop-color="#ffe0c4" />
+              </linearGradient>
+            </defs>
+
+            <!-- shaft (dark wood so it reads against the cream) -->
+            <rect x="29.4" y="30" width="5.2" height="168" rx="2.6" fill="url(#shaft)" />
+
+            <!-- angel wings flanking the heart tip -->
+            <g class="arrow__wings">
+              <path class="wingL" d="M31 30 C 10 16, 2 20, 4 34 C 12 30, 20 32, 31 40 Z" fill="url(#wing)" stroke="rgba(196,132,58,.72)" stroke-width="1.2"/>
+              <path class="wingR" d="M33 30 C 54 16, 62 20, 60 34 C 52 30, 44 32, 33 40 Z" fill="url(#wing)" stroke="rgba(196,132,58,.72)" stroke-width="1.2"/>
+            </g>
+
+            <!-- golden heart arrowhead (Cupid's love arrow) -->
+            <path class="arrow__head" d="M32 12 C 30 7, 22 6.5, 21.5 13 C 21 18, 27 22, 32 27 C 37 22, 43 18, 42.5 13 C 42 6.5, 34 7, 32 12 Z" fill="url(#gold)" stroke="#a5701a" stroke-width=".8" />
+            <ellipse cx="27" cy="13" rx="2.6" ry="1.7" fill="#fff" opacity=".8" style="mix-blend-mode:screen" />
+
+            <!-- gold feather fletching -->
+            <g class="arrow__fletch">
+              <path d="M32 150 C 16 156, 10 178, 15 200 C 24 194, 30 184, 32 176 Z" fill="url(#feath)" />
+              <path d="M32 150 C 48 156, 54 178, 49 200 C 40 194, 34 184, 32 176 Z" fill="url(#feath)" opacity=".92" />
+              <path d="M28 160l4 3 M26 170l6 3 M25 180l7 3" stroke="rgba(130,12,48,.45)" stroke-width="1" />
+              <path d="M36 160l-4 3 M38 170l-6 3 M39 180l-7 3" stroke="rgba(130,12,48,.45)" stroke-width="1" />
+            </g>
+            <!-- nock -->
+            <path d="M29 200 L32 205 L35 200" fill="none" stroke="#c9a25a" stroke-width="2" stroke-linecap="round"/>
+            <!-- invisible tip marker: JS measures it to land the head on the heart -->
+            <circle id="tip" cx="32" cy="9" r="0.6" fill="none" />
+          </svg>
+      </div>
+
+      <p class="hero__hint" id="hint">ดึงแล้วปล่อย</p>
+    </section>
+
+    <!-- ACT 2 — THE FLOOD -----------------------------------------------------
+         The heart bursts into this circle at its landing point, and it swallows
+         the frame in rose. No cross-fade anywhere — the colour just arrives. -->
+    <div class="flood" id="flood" aria-hidden="true"></div>
+
+    <!-- ACT 2b — THE TITLE (kinetic type on the flood) ------------------------
+         Lives inside the flood's own colour, revealed by it. Every glyph hinges
+         up out of its mask — nothing fades. -->
+    <div class="field" id="field" aria-hidden="true">
+      <div class="blob blob--1"></div>
+      <div class="blob blob--2"></div>
+      <div class="blob blob--3"></div>
+      <div class="fgrid" id="fgrid"></div>
+      <div class="fvignette"></div>
+
+      <div class="camera" id="camera">
+        <p class="kEyebrow" id="kEyebrow">ถึงเธอ&hellip; คนที่เรารักที่สุด</p>
+        <h2 class="headline" id="headline">
+          <span class="hl__line"><span class="mask"><span class="hl__word" id="wLine1">Happy</span></span></span>
+          <span class="hl__line"><span class="mask"><span class="hl__word" id="wLine2">4 Months</span></span></span>
+        </h2>
+        <svg class="uline" id="uline" viewBox="0 0 300 26" fill="none" aria-hidden="true">
+          <path class="uline__path" d="M8 16C56 7 132 4 178 6c30 1 78 5 114 12-40 3-108 4-176 3"
+                stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <p class="kSub" id="kSub">🎀 anniversary with you 🫰🏻</p>
+      </div>
+
+      <div class="bar bar--top" id="barTop"></div>
+      <div class="bar bar--bot" id="barBot"></div>
+    </div>
+
+    <!-- ACT 3 — THE COUNT ----------------------------------------------------
+         The same rose world, but the type stops shouting and starts counting.
+         Three numbers roll up out of their masks; the last one lands, and the
+         line underneath says the thing the numbers were really about. -->
+    <div class="chrono" id="chrono" aria-hidden="true">
+      <div class="chrono__glow"></div>
+      <div class="chrono__hearts" id="chronoHearts"></div>
+
+      <div class="chrono__inner">
+        <p class="chrono__eyebrow" id="chEyebrow">ถ้านับดี ๆ นะ&hellip;</p>
+
+        <ul class="chrono__list">
+          <li class="chrono__row" data-to="9">
+            <span class="chrono__figure"><span class="chrono__num">0</span><span class="chrono__unit">เดือน</span></span>
+            <span class="chrono__cap">ที่เราได้รู้จักกัน</span>
+          </li>
+          <li class="chrono__row" data-to="5">
+            <span class="chrono__figure"><span class="chrono__num">0</span><span class="chrono__unit">เดือน</span></span>
+            <span class="chrono__cap">ที่เราเป็นคนคุยกัน</span>
+          </li>
+          <li class="chrono__row chrono__row--hero" data-to="4">
+            <span class="chrono__figure"><span class="chrono__num">0</span><span class="chrono__unit">เดือน</span></span>
+            <span class="chrono__cap">ที่เธอเป็นแฟนของเรา</span>
+          </li>
+        </ul>
+
+        <p class="chrono__note" id="chNote">อีกไม่กี่เดือน ก็จะครบหนึ่งปีที่เรารู้จักกันแล้วนะ</p>
+        <p class="chrono__line" id="chLine">ยิ่งเวลาผ่านไป เรายิ่งรักเธอ<br />ยิ่งผูกพัน และยิ่งอยากอยู่กับเธอนาน ๆ</p>
+      </div>
+    </div>
+
+    <!-- ACT 4 — THE MEMORIES -------------------------------------------------
+         Three chapters. In each one the polaroids fly in and settle into a
+         loose pile, the title writes itself, then the whole pile drifts off
+         and takes the chapter with it. -->
+    <div class="gallery" id="gallery" aria-hidden="true">
+      <div class="gal__glow"></div>
+
+      <section class="gal__ch" data-ch="1">
+        <div class="gal__stage">
+          <figure class="pola" style="--x:30%; --y:46%; --r:-7deg; --z:1">
+            <img src="./media/photos/cutie-1.jpg" alt="" decoding="async" fetchpriority="low" />
+          </figure>
+          <figure class="pola" style="--x:70%; --y:44%; --r:6deg; --z:2">
+            <img src="./media/photos/cutie-2.jpg" alt="" decoding="async" fetchpriority="low" />
+          </figure>
+          <figure class="pola" style="--x:50%; --y:57%; --r:-2deg; --z:3">
+            <img src="./media/photos/barefaced.jpg" alt="" decoding="async" fetchpriority="low" />
+          </figure>
+        </div>
+        <div class="gal__copy">
+          <h3 class="gal__title">เธอน่ารักตั้งแต่วันแรก</h3>
+          <p class="gal__sub">แต่งเต็มก็สวย หน้าสดก็สวย — เรามองเธอไม่เคยเบื่อเลยสักครั้ง</p>
+        </div>
+      </section>
+
+      <section class="gal__ch" data-ch="2">
+        <div class="gal__stage">
+          <figure class="pola" style="--x:24%; --y:40%; --r:-9deg; --z:1">
+            <img src="./media/photos/caught-1.jpg" alt="" decoding="async" fetchpriority="low" />
+          </figure>
+          <figure class="pola" style="--x:76%; --y:39%; --r:8deg; --z:2">
+            <img src="./media/photos/caught-2.jpg" alt="" decoding="async" fetchpriority="low" />
+          </figure>
+          <figure class="pola" style="--x:34%; --y:60%; --r:5deg; --z:3">
+            <img src="./media/photos/caught-3.jpg" alt="" decoding="async" fetchpriority="low" />
+          </figure>
+          <figure class="pola" style="--x:66%; --y:61%; --r:-6deg; --z:4">
+            <img src="./media/photos/caught-4.jpg" alt="" decoding="async" fetchpriority="low" />
+          </figure>
+          <figure class="pola" style="--x:50%; --y:50%; --r:-1deg; --z:5">
+            <img src="./media/photos/ramen.jpg" alt="" decoding="async" fetchpriority="low" />
+          </figure>
+        </div>
+        <div class="gal__copy">
+          <h3 class="gal__title">แล้วเราก็ได้เห็นเธอ<br />ในมุมที่คนอื่นไม่เห็น</h3>
+          <p class="gal__sub">หน้าตลก ๆ ตอนโดนแอบถ่าย หน้าจริงจังตอนกินราเมง — เราชอบหมดทุกมุมเลย</p>
+        </div>
+      </section>
+
+      <section class="gal__ch" data-ch="3">
+        <div class="gal__stage">
+          <figure class="pola" style="--x:34%; --y:47%; --r:-6deg; --z:1">
+            <img src="./media/photos/phone-time.jpg" alt="" decoding="async" fetchpriority="low" />
+          </figure>
+          <figure class="pola" style="--x:66%; --y:51%; --r:5deg; --z:2">
+            <img src="./media/photos/video-call.jpg" alt="" decoding="async" fetchpriority="low" />
+          </figure>
+        </div>
+        <div class="gal__copy">
+          <h3 class="gal__title">ถึงไม่ได้อยู่ด้วยกัน<br />แต่เธอก็อยู่ตรงนั้นเสมอ</h3>
+          <p class="gal__sub">ตีหนึ่งสิบเจ็ด เธอหลับไปแล้ว แต่สายยังไม่วาง — เราชอบช่วงเวลานี้ที่สุดเลย</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- The gold light that bridges one act into the next. -->
+    <div class="bloom" id="bloom" aria-hidden="true"></div>
+
+    <!-- ACT 5 — THE HAND-LETTERED LINE (over the tree) ----------------------- -->
+    <div class="wish" id="wish" aria-hidden="true">
+      <p class="wish__eyebrow" id="wEyebrow">สี่เดือนที่ผ่านมา&hellip;</p>
+      <div class="wish__heroWrap"><h1 class="wish__hero" id="wHero">Thank you</h1></div>
+      <span class="wish__rule" id="wRule"></span>
+      <p class="wish__sub" id="wSub">ขอบคุณที่ทำให้ทุกวันของเราดีขึ้น</p>
+    </div>
+
+    <!-- ACT 6 — THE ENDING ---------------------------------------------------
+         One photo of two pairs of shoes standing side by side, and the only
+         sentence this whole film was ever trying to say. -->
+    <div class="finale" id="finale" aria-hidden="true">
+      <div class="fin__hearts" id="finHearts"></div>
+
+      <div class="fin__inner">
+        <figure class="fin__frame">
+          <img class="fin__photo" src="./media/photos/side-by-side.jpg" alt="" decoding="async" fetchpriority="low" />
+          <figcaption class="fin__cap">เดินข้าง ๆ กันแบบนี้แหละ</figcaption>
+        </figure>
+
+        <h2 class="fin__hero" id="finHero">รักแฟนมากนะ</h2>
+        <p class="fin__sub" id="finSub">ขอบคุณที่เข้ามาในชีวิตเรา<br />อยู่ข้าง ๆ กันแบบนี้ไปนาน ๆ นะ ♡</p>
+        <p class="fin__sig" id="finSig">🎀 Happy 4 Month Anniversary with you 🫰🏻</p>
+      </div>
+
+      <!-- a second, sparser layer of hearts drifting in *front* of the card, so
+           the storm has depth instead of sitting flat behind everything -->
+      <div class="fin__hearts fin__hearts--front" id="finHeartsFront"></div>
+    </div>
+
+    <!-- Play the film again once it has settled. -->
+    <button class="replay" id="replay" type="button" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true" width="15" height="15">
+        <path d="M12 5V2L7 6l5 4V7a5 5 0 1 1-5 5H5a7 7 0 1 0 7-7z" fill="currentColor" />
+      </svg>
+      ดูอีกรอบ
+    </button>
+
+    <!-- Music. Browsers block autoplay, so the first draw of the bow starts it;
+         this toggle is here so it can also be muted at any time. -->
+    <button class="sound" id="sound" type="button" aria-pressed="false" aria-label="เปิดเสียงเพลง">
+      <svg class="sound__on" viewBox="0 0 24 24" aria-hidden="true" width="16" height="16">
+        <path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" />
+        <path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+      </svg>
+      <svg class="sound__off" viewBox="0 0 24 24" aria-hidden="true" width="16" height="16">
+        <path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" />
+        <path d="M16.5 9.5l5 5m0-5l-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+      </svg>
+    </button>
+    <audio id="bgm" src="./media/audio/song.mp3" loop preload="auto"></audio>
+
+    <!-- One lens over the whole film: vignette + fine grain. -->
+    <div class="grade" aria-hidden="true">
+      <div class="grade__vignette"></div>
+      <div class="grade__grain"></div>
+    </div>
+  </main>
+
+  <!-- Accessible equivalent for reduced-motion + screen readers. -->
+  <p class="sr-only">
+    สุขสันต์วันครบรอบสี่เดือนนะ รู้จักกันมาเก้าเดือน เป็นคนคุยกันมาห้าเดือน
+    และเป็นแฟนกันมาสี่เดือนแล้ว ยิ่งเวลาผ่านไป เรายิ่งรักเธอมากขึ้นทุกวัน รักแฟนมากนะ
+  </p>
+
+  <!-- No bundler: GSAP ships a UMD build, so the page is plain static files and
+       can be opened straight off the disk or dropped on any host as-is. -->
+  <script src="./vendor/gsap.min.js"></script>
+  <script src="./anniversary.js"></script>
+</body>
+</html>

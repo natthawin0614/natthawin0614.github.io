@@ -1,0 +1,759 @@
+/* ============================================================
+   HAPPY 4 MONTH ANNIVERSARY — a love letter in six acts
+   Vanilla + GSAP. One page, one continuous piece:
+     1. a beating heart you open by drawing a bow
+     2. it falls, and bursts into a flood of rose
+     3. the rose counts: nine months, five months, four
+     4. the memories fly in and settle into a pile
+     5. a gold light blooms, and a tree grows into a heart
+     6. two pairs of shoes, side by side, under a sky of hearts
+   One grain + vignette lens sits over all of it.
+   ============================================================ */
+
+:root{
+  /* --- warm paper (Act 1 + the tree's dawn) --- */
+  --paper-0:  #fff6ee;
+  --paper-1:  #f9e2d2;
+  --paper-2:  #f2c9b8;
+
+  /* --- rose flood (Acts 2–3) --- */
+  --rose-deep: #a80f43;
+  --rose:      #d4235c;
+  --rose-lift: #ff5f86;
+  --wine:      #6e0a31;
+
+  /* --- accents / ink --- */
+  --gold-1:    #ffcf6a;
+  --gold-2:    #e8a23d;
+  --ink:       #7a4a55;   /* dusty rose ink        */
+  --ink-soft:  #a9808a;   /* muted eyebrow / sub   */
+  --cream:     #fff3ea;
+
+  --ease-out:  cubic-bezier(.2,.7,.2,1);
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+html, body{ height:100%; }
+
+body{
+  background:#12060c;                 /* seam colour under everything */
+  overflow:hidden;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  cursor:auto;
+}
+
+.scene{ position:fixed; inset:0; overflow:hidden; }
+
+.sr-only{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+}
+
+/* ============================================================
+   THE TREE CANVAS (Act 4) — z0, transparent until it plays
+   ============================================================ */
+.tree{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  display:block;
+  z-index:1;
+}
+
+/* ============================================================
+   ACT 1 — THE INVITATION
+   ============================================================ */
+.hero{
+  position:absolute; inset:0;
+  z-index:3;
+  overflow:hidden;
+}
+/* the warm field the heart sits on */
+.hero__bg{
+  position:absolute; inset:0;
+  background:
+    radial-gradient(120% 88% at 50% 24%, #fff8f1 0%, var(--paper-0) 38%, var(--paper-1) 74%, var(--paper-2) 100%);
+}
+.hero__bg::after{               /* a soft warm pool of light behind the heart */
+  content:""; position:absolute; left:50%; top:44%;
+  width:min(78vw,720px); aspect-ratio:1; transform:translate(-50%,-50%);
+  background:radial-gradient(circle, rgba(255,190,150,.55), rgba(255,150,170,.16) 46%, transparent 70%);
+  filter:blur(6px);
+}
+
+/* drifting light motes (JS fills this with a few spans) */
+.hero__motes{ position:absolute; inset:0; pointer-events:none; }
+.mote{
+  position:absolute; border-radius:50%;
+  background:radial-gradient(circle, rgba(255,236,214,.9), rgba(255,206,180,.15) 55%, transparent 72%);
+  will-change:transform, opacity;
+}
+
+.hero__eyebrow{
+  position:absolute; top:13%; left:0; right:0;
+  text-align:center;
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-style:italic; font-weight:600;
+  font-size:clamp(15px, 3.6vw, 26px);
+  letter-spacing:.06em;
+  color:#a85069;
+  text-shadow:0 1px 10px rgba(255,248,241,.9);
+  opacity:0;                          /* GSAP reveals */
+}
+
+/* ---- the target heart (GSAP animates .target on the hit → fall → burst) ---- */
+.targetWrap{
+  position:absolute; top:33%; left:0; right:0;
+  display:flex; justify-content:center;
+  transform:translateY(-50%);         /* centre at 33% — wrap is NOT animated */
+  pointer-events:none;
+}
+.target{
+  position:relative;
+  width:clamp(120px, 27vw, 208px);
+  aspect-ratio:100/92;
+  will-change:transform;
+  transform-origin:50% 60%;
+}
+.target__heart{ position:absolute; inset:0; display:block; }
+
+/* radial bloom behind the heart — swells on the beat */
+.heart__glow{
+  position:absolute; left:50%; top:52%;
+  width:230%; aspect-ratio:1; transform:translate(-50%,-50%) scale(1);
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(255,120,150,.55), rgba(255,90,130,.18) 42%, transparent 68%);
+  filter:blur(4px);
+  pointer-events:none;
+  will-change:transform, opacity;
+}
+.heart__svg{
+  width:100%; height:100%; display:block;
+  transform-origin:50% 60%;           /* the beat scales THIS, not the wrapper */
+  filter:
+    drop-shadow(0 10px 22px rgba(168,15,64,.34))
+    drop-shadow(0 3px 6px rgba(120,10,48,.30));
+  will-change:transform;
+}
+
+/* ---- the bow + arrow rig ----
+   Placed lower-left and rotated by JS to aim at the heart, so the shot travels
+   on a DIAGONAL. The whole rig (left/top + rotation around the grip) is set in
+   JS from measured geometry; everything below is in the rig's own space. */
+.archery{
+  position:absolute; top:0; left:0;    /* JS sets left/top so the grip anchors */
+  width:clamp(100px, 18vw, 168px);     /* smaller, daintier bow — delicate against the heart */
+  cursor:grab;
+  -webkit-tap-highlight-color:transparent;
+  touch-action:none;                   /* we own the drag gesture */
+  will-change:transform;
+}
+.archery:active{ cursor:grabbing; }
+.archery:focus-visible{ outline:none; }
+.archery:focus-visible .bow{ filter:drop-shadow(0 0 0 3px rgba(255,255,255,.85)) drop-shadow(0 10px 18px rgba(120,50,20,.4)); }
+.bow{
+  display:block; width:100%; height:auto;
+  filter:drop-shadow(0 12px 18px rgba(90,40,15,.3));
+  overflow:visible;
+}
+
+/* the aim line rides inside the rig, so it points straight at the heart */
+.aim{
+  position:absolute; left:50%; bottom:32%;
+  width:2px; height:190%; margin-left:-1px;
+  transform-origin:bottom center;
+  background:linear-gradient(0deg, rgba(255,214,150,.6) 0%, rgba(255,150,170,.22) 52%, transparent 78%);
+  opacity:0; pointer-events:none;
+}
+
+/* the arrow overlaps the bow at the nock and flies to the heart */
+.arrow{
+  position:absolute; left:0; right:0; margin-inline:auto;
+  bottom:36%;                          /* JS re-anchors the tail to the nock */
+  width:17.5%; height:auto;
+  overflow:visible;
+  will-change:transform;
+  filter:drop-shadow(0 5px 7px rgba(90,40,15,.36));
+}
+.arrow__wings{ transform-box:fill-box; transform-origin:50% 90%; }
+.arrow__wings .wingL,
+.arrow__wings .wingR{ transform-box:fill-box; }
+.wingL{ transform-origin:88% 60%; animation:flapL 2.6s ease-in-out infinite; }
+.wingR{ transform-origin:12% 60%; animation:flapR 2.6s ease-in-out infinite; }
+@keyframes flapL{ 0%,100%{ transform:rotate(0deg); } 50%{ transform:rotate(-11deg); } }
+@keyframes flapR{ 0%,100%{ transform:rotate(0deg); } 50%{ transform:rotate(11deg); } }
+
+/* ---- the draw / release hint ---- */
+.hero__hint{
+  position:absolute; bottom:8.5%; left:0; right:0;
+  text-align:center;
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-weight:600; font-style:italic;
+  font-size:clamp(13px, 3.1vw, 19px);
+  letter-spacing:.16em; text-transform:uppercase;
+  color:#b06a7c;
+  opacity:0;                          /* GSAP reveals */
+}
+.hero__ring{ display:none; }
+
+/* ============================================================
+   ACT 2 — THE FLOOD (the burst circle)
+   ============================================================ */
+.flood{
+  position:absolute; left:50%; top:50%;
+  width:140px; height:140px; margin:-70px 0 0 -70px;
+  border-radius:50%;
+  background:radial-gradient(circle at 40% 34%, var(--rose-lift), var(--rose) 46%, var(--rose-deep) 100%);
+  z-index:5;
+  opacity:0; transform:scale(.001);
+  will-change:transform, opacity;
+  pointer-events:none;
+}
+
+/* ============================================================
+   ACT 3 — THE WISH FIELD (rose world + kinetic type)
+   ============================================================ */
+.field{
+  position:absolute; inset:0;
+  z-index:4;                          /* below the flood; revealed once it covers */
+  opacity:0;
+  /* purely decorative — must never intercept the tap on the heart beneath it.
+     An opacity:0 element is still hit-testable, so without this the invisible
+     field (z4, above the hero z3) swallows every Act-1 tap. */
+  pointer-events:none;
+  overflow:hidden;
+  background:
+    radial-gradient(120% 100% at 50% 8%, #d5265f 0%, var(--rose) 42%, var(--rose-deep) 78%, var(--wine) 100%);
+  color:#fff;
+}
+.blob{
+  position:absolute; border-radius:50%;
+  filter:blur(46px); opacity:0;
+  mix-blend-mode:screen;
+  will-change:transform, opacity;
+}
+.blob--1{ width:58vmax; height:58vmax; left:-18vmax; top:-16vmax;
+  background:radial-gradient(circle, rgba(255,130,160,.9), transparent 62%); }
+.blob--2{ width:46vmax; height:46vmax; right:-14vmax; top:22vmax;
+  background:radial-gradient(circle, rgba(255,90,120,.75), transparent 64%); }
+.blob--3{ width:52vmax; height:52vmax; left:24vmax; bottom:-22vmax;
+  background:radial-gradient(circle, rgba(180,20,70,.8), transparent 66%); }
+
+/* faint grid — a hair of parallax gives the flood depth, not flatness */
+.fgrid{
+  position:absolute; inset:-6%;
+  background-image:
+    linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size:clamp(38px,7vw,74px) clamp(38px,7vw,74px);
+  will-change:transform;
+}
+.fvignette{
+  position:absolute; inset:0;
+  background:radial-gradient(128% 96% at 50% 44%, transparent 50%, rgba(70,6,28,.5) 100%);
+}
+
+/* the camera — everything on the flood rides a slow continuous push */
+.camera{
+  position:absolute; inset:0;
+  display:flex; flex-direction:column; justify-content:center; align-items:center;
+  gap:clamp(4px,1.2vh,12px);
+  padding:0 6vw; text-align:center;
+  will-change:transform;
+}
+.kEyebrow{
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-style:italic; font-weight:500;
+  font-size:clamp(15px, 3.6vw, 27px);
+  letter-spacing:.08em;
+  color:#ffd7c8;
+  opacity:0; transform:translateY(10px);
+  margin-bottom:clamp(2px,1vh,10px);
+}
+
+.headline{ font-family:"Fraunces", Georgia, serif; line-height:.92; }
+.hl__line{ display:block; }
+/* the mask each headline word hinges out of. Padded to clear ascenders +
+   descenders so glyphs never peek past the clip edge when parked. */
+.mask{
+  display:inline-block; overflow:hidden;
+  padding:.14em .06em;
+  margin:-.14em -.06em;
+}
+.hl__word{
+  display:inline-block;
+  font-weight:900;
+  font-size:clamp(52px, 15vw, 168px);
+  letter-spacing:-.02em;
+  color:#fff6f1;
+  text-shadow:0 6px 34px rgba(60,4,24,.34), 0 2px 3px rgba(90,8,36,.42);
+}
+/* each glyph hinges up on its own bottom edge, under its own perspective */
+.hl__ch{ display:inline-block; will-change:transform; }
+
+/* gold hand-drawn underline under the second word */
+.uline{
+  width:clamp(150px, 40vw, 380px); height:auto;
+  margin-top:clamp(4px,1.4vh,14px);
+  color:var(--gold-1);
+  filter:drop-shadow(0 2px 8px rgba(255,180,90,.5));
+}
+.kSub{
+  margin-top:clamp(12px,2.4vh,26px);
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-weight:500; font-style:italic;
+  font-size:clamp(14px, 3.4vw, 24px);
+  letter-spacing:.05em;
+  color:#ffdfd2;
+  opacity:0; transform:translateY(10px);
+}
+
+/* cinema bars — closed = black, they open as the wish lands */
+.bar{
+  position:absolute; left:0; right:0; height:16vh;
+  background:#12040b; z-index:3; will-change:transform; pointer-events:none;
+}
+.bar--top{ top:0; }
+.bar--bot{ bottom:0; }
+
+/* ============================================================
+   THE HANDOFF BLOOM (rose wish → dawn of the tree)
+   ============================================================ */
+.bloom{
+  position:absolute; left:50%; top:50%;
+  width:60px; height:60px; margin:-30px 0 0 -30px;
+  border-radius:50%;
+  background:radial-gradient(circle, #fff 0%, #fff2d6 30%, rgba(255,214,150,.85) 55%, rgba(255,190,150,0) 74%);
+  z-index:8; opacity:0; transform:scale(.001);
+  will-change:transform, opacity; pointer-events:none;
+}
+
+/* ============================================================
+   ACT 4 — THE HAND-LETTERED WISH (over the tree)
+   ============================================================ */
+.wish{
+  position:absolute;
+  left:5.5%; bottom:10%;
+  /* Thai runs without spaces, so a 46% column (fine for English) broke lines
+     mid-word — "ดีขึ้น" split across two lines. Give it room to stay whole. */
+  max-width:min(64%, 36ch);
+  z-index:6;
+  pointer-events:none;
+  color:var(--ink);
+  /* hard gate: wish__hero keeps opacity:1 (its clip-path drives the write-on),
+     so without this its clipped sliver + drop-shadow would leak into Acts 1–3. */
+  visibility:hidden;
+}
+.wish.is-in{ visibility:visible; }
+.wish::before{
+  content:""; position:absolute; inset:-18% -24% -24% -16%;
+  background:radial-gradient(84% 98% at 34% 52%, rgba(255,250,243,.94), rgba(255,250,243,.6) 48%, rgba(255,250,243,0) 80%);
+  z-index:-1; opacity:0; transition:opacity 1s ease;
+}
+.wish.is-in::before{ opacity:1; }
+.wish__eyebrow{
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-style:italic; font-weight:600;
+  font-size:clamp(13px, 3.2vw, 24px);
+  letter-spacing:.05em; color:#9c4f63;
+  text-shadow:0 1px 2px #fff8f1, 0 0 8px rgba(255,248,241,.95);
+}
+.wish__heroWrap{ position:relative; display:inline-block; }
+.wish__heroWrap::before{
+  content:""; position:absolute; left:-12%; right:-12%; top:-26%; bottom:-22%;
+  background:radial-gradient(60% 70% at 46% 52%, rgba(255,214,168,.5), rgba(255,150,150,.2) 52%, transparent 74%);
+  filter:blur(14px); z-index:-1; opacity:0; pointer-events:none;
+}
+.wish__heroWrap::after{
+  content:"\2726";
+  position:absolute; right:-1%; top:-14%;
+  font-size:clamp(15px, 3.6vw, 32px);
+  color:#ffe1a0; text-shadow:0 0 12px rgba(255,205,120,.95);
+  opacity:0; pointer-events:none;
+}
+.wish__hero{
+  font-family:"Great Vibes", cursive; font-weight:400;
+  font-size:clamp(40px, 9.6vw, 86px);
+  line-height:.98; margin:-.02em 0 .06em;
+  /* one consistent rose, top-lit — every letter reads the same (no per-glyph
+     colour shift, which is what made the old rose→gold version look messy).
+     Deep enough to hold up against the tree's bright bloom behind it. */
+  background:linear-gradient(180deg, #e85a83 0%, #c41f52 50%, #9c0f42 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  /* a crisp cream edge for legibility over the tree + one soft drop */
+  filter:
+    drop-shadow(0 1px 1px rgba(255,252,248,.98))
+    drop-shadow(0 2px 6px rgba(130,18,55,.45));
+  clip-path:inset(0 100% -28% -10%);
+  transform-origin:8% 60%;             /* breathe from the start of the line */
+}
+.wish__rule{
+  display:block; width:clamp(46px, 13vw, 110px); height:2px;
+  margin:.12em 0 .48em;
+  background:linear-gradient(90deg, var(--gold-2), rgba(232,162,61,0));
+  box-shadow:0 0 8px rgba(255,247,240,.9);
+  transform-origin:left center;
+}
+.wish__sub{
+  font-family:"Cormorant Garamond", Georgia, serif;
+  font-weight:600; font-size:clamp(12px, 2.9vw, 20px);
+  letter-spacing:.03em; color:#6e3f4a;
+  text-shadow:0 1px 2px #fff8f1, 0 0 8px rgba(255,248,241,.98);
+}
+.wish__eyebrow, .wish__rule, .wish__sub{
+  opacity:0; transform:translateY(12px); filter:blur(5px);
+  transition:opacity .8s ease, transform .9s var(--ease-out), filter .8s ease;
+}
+.wish__rule{ transform:translateY(12px) scaleX(.3); }
+.wish.is-in .wish__eyebrow,
+.wish.is-in .wish__sub{ opacity:1; transform:translateY(0); filter:blur(0); }
+.wish.is-in .wish__rule{ opacity:1; transform:translateY(0) scaleX(1); }
+.wish.is-in .wish__rule{ transition-delay:1.35s; }
+.wish.is-in .wish__sub{  transition-delay:1.55s; }
+.wish.is-in .wish__hero{
+  animation:write 1.2s cubic-bezier(.62,.04,.24,1) .35s forwards,
+            wishBreath 4s ease-in-out 1.9s infinite;
+}
+/* a gentle living breath — transform only, so it can never wash the fill out */
+@keyframes wishBreath{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.02); } }
+.wish.is-in .wish__heroWrap::before{ animation:hlin .8s ease .3s forwards, hlpulse 3.4s ease-in-out 1.7s infinite; }
+.wish.is-in .wish__heroWrap::after{ animation:twk 2.6s ease-in-out 1.6s infinite; }
+@keyframes write{ from{ clip-path:inset(0 100% -28% -10%); } to{ clip-path:inset(0 -10% -28% -10%); } }
+@keyframes sheen{ 0%,18%{ background-position:0% 50%; } 60%,100%{ background-position:100% 50%; } }
+@keyframes hlin{ from{ opacity:0; transform:scale(.86); } to{ opacity:.92; transform:scale(1); } }
+@keyframes hlpulse{ 0%,100%{ opacity:.72; } 50%{ opacity:1; } }
+@keyframes twk{ 0%,100%{ opacity:0; transform:scale(.5) rotate(-12deg); } 45%{ opacity:1; transform:scale(1.05) rotate(16deg); } }
+
+/* ============================================================
+   REPLAY
+   ============================================================ */
+.replay{
+  position:absolute; right:20px; bottom:18px; z-index:7;
+  display:inline-flex; align-items:center; gap:7px;
+  padding:9px 15px 9px 12px; border-radius:999px;
+  font:600 12.5px/1 "Cormorant Garamond", Georgia, serif; letter-spacing:.12em; text-transform:uppercase;
+  color:#8a4a5a; background:rgba(255,248,242,.72);
+  border:1px solid rgba(150,60,80,.18);
+  box-shadow:0 6px 20px -8px rgba(120,20,50,.4);
+  backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+  cursor:pointer; opacity:0; transform:translateY(8px);
+  transition:opacity .5s ease, transform .5s var(--ease-out), background .3s ease;
+}
+.replay.is-shown{ opacity:1; transform:translateY(0); }
+.replay:hover{ background:rgba(255,252,248,.92); }
+.replay svg{ opacity:.8; }
+
+/* ============================================================
+   THE LENS — grain + vignette over every act
+   ============================================================ */
+.grade{ position:absolute; inset:0; z-index:9; pointer-events:none; }
+.grade__vignette{
+  position:absolute; inset:0;
+  background:radial-gradient(125% 95% at 50% 42%, transparent 54%, rgba(60,18,30,.14) 84%, rgba(40,12,22,.3) 100%);
+  mix-blend-mode:multiply;
+}
+.grade__grain{
+  position:absolute; inset:0;
+  background:url('./media/textures/grain.png') repeat;
+  background-size:300px; opacity:.05; mix-blend-mode:overlay;
+}
+
+/* ============================================================
+   THAI TYPE
+   The Latin faces (Cormorant, Fraunces, Great Vibes) carry no Thai glyphs, so
+   every string that mixes the two needs a Thai face *behind* them in the stack:
+   the browser resolves per glyph, Latin from the first face that has it, Thai
+   from Mali. Charmonman is the handwritten one — headings only.
+   ============================================================ */
+:root{
+  --f-thai:  "Mali", "Noto Sans Thai", "Leelawadee UI", system-ui, sans-serif;
+  --f-hand:  "Charmonman", "Mali", cursive;
+  --f-serif: "Cormorant Garamond", Georgia, serif;
+}
+.hero__eyebrow, .hero__hint,
+.kEyebrow, .kSub,
+.wish__eyebrow, .wish__sub,
+.replay{
+  font-family:var(--f-serif), var(--f-thai);
+}
+/* Thai has taller ascenders + lower descenders than Latin — give it the room */
+.hero__eyebrow, .kEyebrow, .kSub, .wish__sub{ line-height:1.55; }
+
+/* ============================================================
+   ACT 3 — THE COUNT
+   Same rose world as the flood, so the cut between them is invisible; the type
+   just stops shouting and starts counting.
+   ============================================================ */
+.chrono{
+  position:absolute; inset:0;
+  z-index:6;
+  opacity:0; visibility:hidden;                  /* GSAP autoAlpha drives both */
+  pointer-events:none; overflow:hidden;
+  background:
+    radial-gradient(120% 100% at 50% 8%, #d5265f 0%, var(--rose) 42%, var(--rose-deep) 78%, var(--wine) 100%);
+  color:#fff;
+}
+/* a warm pool of light under the numbers, so they sit in something */
+.chrono__glow{
+  position:absolute; left:50%; top:50%;
+  width:min(150vw,1100px); aspect-ratio:1; transform:translate(-50%,-50%);
+  background:radial-gradient(circle, rgba(255,170,190,.5), rgba(255,110,150,.14) 46%, transparent 70%);
+  filter:blur(10px);
+}
+.chrono__hearts{ position:absolute; inset:0; pointer-events:none; }
+
+.chrono__inner{
+  position:absolute; inset:0;
+  display:flex; flex-direction:column; justify-content:center; align-items:center;
+  padding:6vh clamp(18px,7vw,60px); text-align:center;
+}
+.chrono__eyebrow{
+  font-family:var(--f-serif), var(--f-thai);
+  font-style:italic; font-weight:500;
+  font-size:clamp(15px,3.8vw,26px); letter-spacing:.06em;
+  color:#ffd7c8; line-height:1.5;
+  margin-bottom:clamp(16px,3.4vh,36px);
+  opacity:0;                                     /* GSAP reveals */
+}
+
+.chrono__list{ list-style:none; width:100%; max-width:min(92vw,620px); }
+.chrono__row{
+  display:grid;
+  grid-template-columns:minmax(0,auto) minmax(0,1fr);
+  align-items:center;
+  gap:clamp(12px,3.4vw,28px);
+  padding:clamp(9px,1.7vh,17px) 0;
+  text-align:left;
+  border-bottom:1px solid rgba(255,214,200,.22);
+  opacity:0;                                     /* GSAP reveals row by row */
+}
+.chrono__row:last-child{ border-bottom:0; }
+
+.chrono__figure{ display:flex; align-items:baseline; gap:.28em; white-space:nowrap; }
+.chrono__num{
+  font-family:"Fraunces", Georgia, serif; font-weight:900;
+  font-size:clamp(40px,11.5vw,88px); line-height:.9;
+  /* a tight line-height crops the padding box, and background-clip:text paints
+     only inside it — which sliced the top off the gold four. Pad the box back
+     out and pull the layout in by the same amount. */
+  padding:.14em 0 .08em; margin:-.14em 0 -.08em;
+  letter-spacing:-.02em; color:#fff6f1;
+  font-variant-numeric:tabular-nums;             /* no width jitter while counting */
+  text-shadow:0 6px 26px rgba(60,4,24,.34), 0 2px 3px rgba(90,8,36,.4);
+}
+.chrono__unit{
+  font-family:var(--f-thai); font-weight:600;
+  font-size:clamp(13px,3.2vw,21px); color:#ffcfc2;
+}
+.chrono__cap{
+  font-family:var(--f-thai); font-weight:400;
+  font-size:clamp(13px,3.4vw,20px); line-height:1.6;
+  color:#ffe4da;
+}
+
+/* the four — the one the whole page is about — burns gold instead of cream */
+.chrono__row--hero .chrono__num{
+  background:linear-gradient(180deg, #fff0c2 0%, var(--gold-1) 42%, var(--gold-2) 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  filter:drop-shadow(0 3px 14px rgba(255,190,90,.5));
+  text-shadow:none;
+}
+.chrono__row--hero .chrono__cap{ color:#fff; font-weight:600; }
+.chrono__row--hero .chrono__unit{ color:var(--gold-1); }
+
+.chrono__note{
+  margin-top:clamp(16px,3vh,30px);
+  font-family:var(--f-thai); font-size:clamp(12px,3vw,17px);
+  color:#ffc9bb; letter-spacing:.01em; line-height:1.6;
+  opacity:0;
+}
+.chrono__line{
+  margin-top:clamp(12px,2.4vh,22px);
+  font-family:var(--f-hand); font-weight:700;
+  font-size:clamp(19px,5.2vw,38px); line-height:1.6;
+  color:#fff4ee;
+  text-shadow:0 4px 22px rgba(60,4,24,.4);
+  opacity:0;
+}
+
+/* ============================================================
+   ACT 4 — THE MEMORIES
+   Three chapters of polaroids. Each pile flies in, settles, then drifts off
+   and takes its chapter with it.
+   ============================================================ */
+.gallery{
+  position:absolute; inset:0;
+  z-index:6;
+  opacity:0; visibility:hidden;
+  pointer-events:none; overflow:hidden;
+  background:
+    radial-gradient(115% 95% at 50% 12%, #c81e56 0%, #a80f43 46%, #7c0b36 78%, var(--wine) 100%);
+  color:#fff;
+}
+.gal__glow{
+  position:absolute; left:50%; top:38%;
+  width:min(160vw,1200px); aspect-ratio:1; transform:translate(-50%,-50%);
+  background:radial-gradient(circle, rgba(255,180,190,.42), rgba(255,120,150,.1) 48%, transparent 70%);
+  filter:blur(12px);
+}
+
+.gal__ch{ position:absolute; inset:0; opacity:0; visibility:hidden; }
+
+/* the pile lives in a centred column so the collage stays together on a wide
+   desktop instead of flinging its corners to the screen edges */
+.gal__stage{
+  position:absolute; left:50%; top:4%; bottom:34%;
+  width:min(100%, 640px); transform:translateX(-50%);
+}
+.pola{
+  position:absolute; left:var(--x); top:var(--y); z-index:var(--z,1);
+  /* sized off the shorter axis too — on a landscape laptop a width-only clamp
+     made the pile taller than the stage and cropped it against the top edge */
+  width:clamp(104px, min(33vw, 27vh), 232px);
+  padding:7px 7px clamp(24px,4.2vw,34px);
+  border-radius:3px;
+  background:linear-gradient(180deg,#fffdfa,#fff3e9);
+  box-shadow:
+    0 20px 44px -16px rgba(50,2,20,.72),
+    0 3px 10px rgba(50,2,20,.34);
+  /* JS animates a wrapper-free transform, so the resting pose lives here and
+     GSAP is told about it via the same custom properties */
+  transform:translate(-50%,-50%) rotate(var(--r,0deg));
+  will-change:transform, opacity;
+}
+.pola img{
+  display:block; width:100%; aspect-ratio:3/4;
+  object-fit:cover; background:#f2ded4;
+  border-radius:1px;
+}
+
+.gal__copy{
+  position:absolute; left:0; right:0; bottom:clamp(22px,6vh,64px);
+  padding:0 clamp(20px,8vw,70px); text-align:center;
+}
+.gal__title{
+  font-family:var(--f-hand); font-weight:700;
+  font-size:clamp(23px,6.2vw,44px); line-height:1.45;
+  color:#fff5ef;
+  text-shadow:0 4px 24px rgba(50,2,20,.5);
+}
+.gal__sub{
+  margin:clamp(8px,1.4vh,14px) auto 0; max-width:34ch;
+  font-family:var(--f-thai); font-weight:400;
+  font-size:clamp(12.5px,3.3vw,18px); line-height:1.75;
+  color:#ffd5c9;
+}
+
+/* ============================================================
+   ACT 6 — THE ENDING
+   Cream and pink — it carries the tree's dawn forward rather than cutting
+   back to the rose, so the film ends lighter than it started.
+   ============================================================ */
+.finale{
+  position:absolute; inset:0;
+  z-index:7;
+  opacity:0; visibility:hidden;
+  pointer-events:none; overflow:hidden;
+  background:
+    radial-gradient(125% 100% at 50% 16%, #fffaf4 0%, #ffeef0 34%, #ffd8e0 68%, #ffc3d1 100%);
+}
+.fin__hearts{ position:absolute; inset:0; z-index:0; pointer-events:none; }
+.fin__hearts--front{ z-index:3; opacity:.5; }
+
+.fin__inner{
+  position:absolute; inset:0; z-index:1;
+  display:flex; flex-direction:column; justify-content:center; align-items:center;
+  gap:clamp(9px,1.8vh,20px);
+  padding:5vh clamp(20px,7vw,60px); text-align:center;
+}
+.fin__frame{
+  position:relative;
+  width:clamp(136px, 42vw, 232px);
+  /* the bottom lip has to clear the handwritten caption at every width, not
+     just the wide one — on a phone 5vw was not enough and it sat on the photo */
+  padding:9px 9px clamp(38px,7vw,50px);
+  border-radius:4px;
+  background:linear-gradient(180deg,#fffdfa,#fff4ec);
+  box-shadow:
+    0 28px 54px -20px rgba(150,40,80,.55),
+    0 4px 12px rgba(150,40,80,.2);
+  transform:rotate(-2.2deg);
+}
+.fin__photo{ display:block; width:100%; aspect-ratio:3/4; object-fit:cover; background:#f2ded4; }
+.fin__cap{
+  position:absolute; left:0; right:0; bottom:clamp(8px,1.6vw,13px);
+  font-family:var(--f-hand); font-weight:700;
+  font-size:clamp(11.5px,2.9vw,16px); color:#b4607a;
+}
+.fin__hero{
+  font-family:var(--f-hand); font-weight:700;
+  font-size:clamp(33px, 9.4vw, 74px); line-height:1.3;
+  /* same reason as .chrono__num: give background-clip:text room for the tone
+     marks and descenders Charmonman hangs outside the line box */
+  padding:.1em .06em; margin:-.1em -.06em;
+  background:linear-gradient(180deg,#ff759a 0%, var(--rose) 52%, var(--rose-deep) 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  filter:
+    drop-shadow(0 1px 1px rgba(255,255,255,.95))
+    drop-shadow(0 6px 20px rgba(180,40,80,.28));
+}
+.fin__sub{
+  font-family:var(--f-thai); font-weight:400;
+  font-size:clamp(13px,3.4vw,20px); line-height:1.9;
+  color:#8b4b5c;
+}
+.fin__sig{
+  margin-top:clamp(4px,1vh,10px);
+  font-family:var(--f-serif), var(--f-thai);
+  font-style:italic; font-weight:600;
+  font-size:clamp(11.5px,2.9vw,17px); letter-spacing:.05em;
+  color:#b8798a;
+}
+
+/* the rising hearts (JS fills both layers) */
+.fh{ position:absolute; will-change:transform, opacity; }
+.fh svg{ display:block; width:100%; height:100%; }
+
+/* ============================================================
+   THE SOUND TOGGLE
+   Autoplay is blocked until a gesture, so the first draw of the bow starts the
+   song; this only ever has to *stop* it — but it doubles as the way back in.
+   ============================================================ */
+.sound{
+  position:absolute; left:20px; top:18px; z-index:10;
+  display:grid; place-items:center;
+  width:38px; height:38px; padding:0;
+  border-radius:50%;
+  color:#8a4a5a;
+  background:rgba(255,248,242,.72);
+  border:1px solid rgba(150,60,80,.18);
+  box-shadow:0 6px 20px -8px rgba(120,20,50,.4);
+  backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+  cursor:pointer;
+  transition:background .3s ease, transform .3s var(--ease-out), opacity .4s ease;
+}
+.sound:hover{ background:rgba(255,252,248,.94); transform:scale(1.06); }
+.sound:focus-visible{ outline:2px solid rgba(212,35,92,.6); outline-offset:3px; }
+.sound__on{ display:none; }
+.sound[aria-pressed="true"] .sound__on{ display:block; }
+.sound[aria-pressed="true"] .sound__off{ display:none; }
+/* while the song is playing, a soft pulse so it reads as live */
+.sound[aria-pressed="true"]{ animation:soundPulse 2.8s ease-in-out infinite; }
+@keyframes soundPulse{
+  0%,100%{ box-shadow:0 6px 20px -8px rgba(120,20,50,.4), 0 0 0 0 rgba(255,120,160,.4); }
+  50%    { box-shadow:0 6px 20px -8px rgba(120,20,50,.4), 0 0 0 7px rgba(255,120,160,0); }
+}
+
+/* ============================================================
+   REDUCED MOTION — skip the film, hand over the finished tree
+   ============================================================ */
+@media (prefers-reduced-motion: reduce){
+  .hero, .flood, .field, .bloom, .hero__ring,
+  .chrono, .gallery{ display:none !important; }
+  .sound{ animation:none; }
+  .wish__eyebrow, .wish__rule, .wish__sub{ opacity:1; transform:none; filter:none; transition:none; }
+  .wish__hero{ clip-path:none; filter:drop-shadow(0 0 5px rgba(255,252,248,.98)) drop-shadow(0 2px 4px rgba(130,18,55,.5)) drop-shadow(0 4px 14px rgba(150,28,70,.32)); }
+  .wish.is-in .wish__hero{ animation:none; }
+  .wish.is-in .wish__heroWrap::before{ animation:none; opacity:.9; }
+  .wish.is-in .wish__heroWrap::after{ animation:none; opacity:0; }
+}
