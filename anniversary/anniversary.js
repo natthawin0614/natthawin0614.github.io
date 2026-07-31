@@ -1092,36 +1092,87 @@ function startFinale(){
 
 /* ============================================================
    THE SONG
-   Autoplay is blocked until a real gesture, so drawing the bow starts it and
-   this toggle only ever has to stop it — or let it back in.
+   The song should be playing the moment the page opens. Browsers do not allow
+   that on a cold visit — audible playback needs a user gesture first — so this
+   asks anyway, and if it is refused it starts on the very first touch of the
+   page, wherever it lands, instead of waiting for the bow.
    ============================================================ */
 let musicStarted = false;
+let musicMuted   = false;      // set only by the toggle: an explicit "off" is honoured
 
 function setSoundUI(on){
   soundBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
   soundBtn.setAttribute('aria-label', on ? 'ปิดเสียงเพลง' : 'เปิดเสียงเพลง');
 }
 
+/* Volume is faded on a timer, not on GSAP. GSAP rides requestAnimationFrame,
+   which the browser suspends outright whenever the tab is not being painted —
+   and a suspended fade leaves the song playing at volume 0, audible to nobody.
+   setInterval gets throttled in the background but it always finishes. */
+const VOLUME = 0.5;
+let fadeTimer = 0;
+
+function fadeVolume(to, ms, thenPause){
+  clearInterval(fadeTimer);
+  const from = bgm.volume, t0 = performance.now();
+  fadeTimer = setInterval(() => {
+    const k = Math.min(1, (performance.now() - t0) / ms);
+    bgm.volume = from + (to - from) * k;
+    if (k === 1){
+      clearInterval(fadeTimer); fadeTimer = 0;
+      if (thenPause) bgm.pause();
+    }
+  }, 40);
+}
+
 function playMusic(){
   bgm.volume = 0;
   const done = () => {
     musicStarted = true;
+    musicMuted = false;
     setSoundUI(true);
-    gsap.to(bgm, { volume: 0.5, duration: 2.6, ease: 'power1.out' });
+    dropFirstTouchArm();
+    fadeVolume(VOLUME, 2600);
   };
   const p = bgm.play();
   if (p && typeof p.then === 'function') p.then(done).catch(() => setSoundUI(false));
   else done();
+  return p;
 }
 
 function stopMusic(){
-  gsap.killTweensOf(bgm);
-  gsap.to(bgm, { volume: 0, duration: 0.45, onComplete(){ bgm.pause(); } });
+  musicMuted = true;
   setSoundUI(false);
+  fadeVolume(0, 450, true);
 }
 
-/* the first draw of the bow is the gesture the browser was waiting for */
-function armMusic(){ if (!musicStarted) playMusic(); }
+/* --- the fallback: the first gesture anywhere on the page ------------------ */
+const FIRST_TOUCH = ['pointerdown', 'touchstart', 'mousedown', 'keydown'];
+
+function onFirstTouch(){
+  // the toggle speaks for itself; don't fight a deliberate "off"
+  if (musicStarted || musicMuted) { dropFirstTouchArm(); return; }
+  playMusic();
+}
+
+function dropFirstTouchArm(){
+  FIRST_TOUCH.forEach((e) => document.removeEventListener(e, onFirstTouch, true));
+}
+
+function armFirstTouch(){
+  // capture phase, so it fires even for gestures a handler below would swallow
+  FIRST_TOUCH.forEach((e) => document.addEventListener(e, onFirstTouch, true));
+}
+
+/* Ask for autoplay outright. It is granted more often than people assume — a
+   returning visitor, a desktop browser, anyone who has played media on the site
+   before — and when it is refused nothing is lost but a rejected promise. */
+function armMusic(){
+  if (musicStarted || musicMuted) return;
+  const p = playMusic();
+  if (p && typeof p.catch === 'function') p.catch(armFirstTouch);
+  else armFirstTouch();
+}
 
 soundBtn.addEventListener('click', () => {
   if (bgm.paused) playMusic(); else stopMusic();
@@ -1157,7 +1208,6 @@ function autoFire(){
 
 archery.addEventListener('pointerdown', (e) => {
   if (played) return;
-  armMusic();                       // a real gesture — the song is allowed to start
   drawing = true;
   try { archery.setPointerCapture(e.pointerId); } catch (_) {}
   startPX = e.clientX; startPY = e.clientY; startDraw = curDraw;
@@ -1179,7 +1229,7 @@ archery.addEventListener('pointerup', endDraw);
 archery.addEventListener('pointercancel', endDraw);
 archery.addEventListener('keydown', (e) => {
   if (played) return;
-  if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); armMusic(); autoFire(); }
+  if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); autoFire(); }
 });
 
 /* boot Act 1: reveal the target + bow + hint, then start the beat */
@@ -1289,6 +1339,11 @@ function preloadPhotos(){
     warm.src = img.currentSrc || img.src;
   });
 }
+
+// the song is meant to be on from the first second, so ask for it here rather
+// than waiting for the bow; if the browser says no, armMusic leaves a one-shot
+// listener behind and the first touch anywhere starts it instead
+armMusic();
 
 if (reduceMotion){
   drawFinal();

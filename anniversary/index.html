@@ -347,8 +347,11 @@
       ดูอีกรอบ
     </button>
 
-    <!-- Music. Browsers block autoplay, so the first draw of the bow starts it;
-         this toggle is here so it can also be muted at any time. -->
+    <!-- Music. It is asked to autoplay both here and from JS: the attribute gets
+         the earliest possible start, before the script has even parsed, and the
+         script handles the far more likely case of being refused. This toggle
+         can stop it — and an explicit stop is remembered, so the first-touch
+         fallback will not turn it back on behind the visitor's back. -->
     <button class="sound" id="sound" type="button" aria-pressed="false" aria-label="เปิดเสียงเพลง">
       <svg class="sound__on" viewBox="0 0 24 24" aria-hidden="true" width="16" height="16">
         <path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor" />
@@ -359,7 +362,7 @@
         <path d="M16.5 9.5l5 5m0-5l-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
       </svg>
     </button>
-    <audio id="bgm" src="./media/audio/song.mp3" loop preload="auto"></audio>
+    <audio id="bgm" src="./media/audio/song.mp3" loop autoplay preload="auto"></audio>
 
     <!-- One lens over the whole film: vignette + fine grain. -->
     <div class="grade" aria-hidden="true">
