@@ -1100,6 +1100,11 @@ function startFinale(){
 let musicStarted = false;
 let musicMuted   = false;      // set only by the toggle: an explicit "off" is honoured
 
+/* The toggle reports whether the song is ON for this page — not whether audio is
+   flowing this instant. Those differ for the couple of seconds before the first
+   touch, when the browser is still withholding playback, and reporting the
+   literal truth there put a crossed-out speaker on the opening frame: it read as
+   "this page has no music", which is the opposite of what is about to happen. */
 function setSoundUI(on){
   soundBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
   soundBtn.setAttribute('aria-label', on ? 'ปิดเสียงเพลง' : 'เปิดเสียงเพลง');
@@ -1135,7 +1140,9 @@ function playMusic(){
     fadeVolume(VOLUME, 2600);
   };
   const p = bgm.play();
-  if (p && typeof p.then === 'function') p.then(done).catch(() => setSoundUI(false));
+  // a refusal here is the browser saying "not until they touch something", not
+  // the visitor saying no — leave the toggle alone so it keeps reading as on
+  if (p && typeof p.then === 'function') p.then(done).catch(() => {});
   else done();
   return p;
 }
@@ -1149,9 +1156,13 @@ function stopMusic(){
 /* --- the fallback: the first gesture anywhere on the page ------------------ */
 const FIRST_TOUCH = ['pointerdown', 'touchstart', 'mousedown', 'keydown'];
 
-function onFirstTouch(){
+function onFirstTouch(e){
   // the toggle speaks for itself; don't fight a deliberate "off"
   if (musicStarted || musicMuted) { dropFirstTouchArm(); return; }
+  // a press on the toggle is the one gesture that must NOT start the song here —
+  // its own handler is about to decide, and starting first would blip a second
+  // of music out of a button the visitor pressed to keep things quiet
+  if (e && e.target && soundBtn.contains(e.target)) return;
   playMusic();
 }
 
@@ -1169,13 +1180,23 @@ function armFirstTouch(){
    before — and when it is refused nothing is lost but a rejected promise. */
 function armMusic(){
   if (musicStarted || musicMuted) return;
+  setSoundUI(true);            // on from the opening frame; it only awaits a touch
   const p = playMusic();
   if (p && typeof p.catch === 'function') p.catch(armFirstTouch);
   else armFirstTouch();
 }
 
+/* Follow what the button SAYS, not what the audio element is doing. In the
+   waiting state those disagree — it reads "on" while playback is still withheld
+   — and going by bgm.paused there would turn the song ON for someone who pressed
+   a speaker-on icon to shut it up. */
 soundBtn.addEventListener('click', () => {
-  if (bgm.paused) playMusic(); else stopMusic();
+  if (soundBtn.getAttribute('aria-pressed') === 'true') { stopMusic(); return; }
+  // turning it back on goes through the same door as page load, so that a
+  // refusal here also lands back in the waiting state with the fallback armed,
+  // instead of leaving a dead crossed-out button and no way forward
+  musicMuted = false;
+  armMusic();
 });
 
 /* --- draw / release interaction -------------------------------------------- */
