@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Erosion / Dilation / Skeletonization</title>
+<style>
+  :root{ --bg:#f6f8fa; --card:#fff; --line:#d8dee4; --tx:#1f2328; --dim:#59636e; --ac:#2f6fed; }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#0d1117; --card:#161b22; --line:#30363d; --tx:#e6edf3; --dim:#9198a1; --ac:#589bff; }
+  }
+  *{ box-sizing:border-box; }
+  body{ margin:0; padding:32px 20px 64px; background:var(--bg); color:var(--tx);
+        font-family:"Segoe UI","Noto Sans Thai",Tahoma,sans-serif; line-height:1.7; }
+  .wrap{ max-width:820px; margin:0 auto; }
+  h1{ font-size:1.9rem; margin:0 0 6px; }
+  .sub{ color:var(--dim); margin:0 0 28px; }
+  h2{ font-size:1.15rem; margin:34px 0 10px; padding-top:18px; border-top:1px solid var(--line); }
+  .card{ background:var(--card); border:1px solid var(--line); border-radius:10px; padding:18px 20px; }
+  pre{ background:var(--card); border:1px solid var(--line); border-radius:8px;
+       padding:12px 14px; overflow-x:auto; font-size:.9rem; }
+  code{ font-family:Consolas,"Cascadia Mono",monospace; }
+  ul{ padding-left:22px; }
+  a{ color:var(--ac); }
+  .files{ display:grid; gap:8px; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); margin:0; padding:0; list-style:none; }
+  .files a{ display:block; background:var(--card); border:1px solid var(--line); border-radius:8px;
+            padding:10px 14px; text-decoration:none; color:var(--tx); }
+  .files a:hover{ border-color:var(--ac); }
+  .files b{ color:var(--ac); font-family:Consolas,monospace; }
+  .files span{ display:block; color:var(--dim); font-size:.85rem; }
+  .note{ border-left:3px solid var(--ac); padding:2px 0 2px 14px; color:var(--dim); margin:14px 0; }
+  table{ border-collapse:collapse; width:100%; margin:10px 0; }
+  th,td{ border:1px solid var(--line); padding:7px 10px; text-align:left; font-size:.93rem; }
+  th{ background:var(--card); }
+  .scroll{ overflow-x:auto; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Erosion / Dilation / Skeletonization</h1>
+  <p class="sub">โปรแกรมช่วยคำนวณและตรวจคำตอบวิชา Computer Vision — วาดวัตถุลงตารางเอง
+     หรืออัปโหลดภาพโจทย์แล้วให้ OpenCV อ่านตารางให้อัตโนมัติ</p>
+
+  <div class="card">
+    <b>เป็นโปรแกรมที่ต้องรันบนเครื่องตัวเอง ไม่ได้รันในเว็บ</b>
+    <p style="margin:8px 0 0">เขียนด้วย Python + Tkinter ต้องโหลดไฟล์ไปรันในคอมพิวเตอร์
+       ทำตาม 3 ขั้นตอนข้างล่างได้เลย</p>
+  </div>
+
+  <h2>1) ติดตั้ง Python</h2>
+  <p>โหลดจาก <a href="https://www.python.org/downloads/" target="_blank" rel="noopener">python.org</a>
+     เวอร์ชัน 3.8 ขึ้นไป <b>ตอนติดตั้งให้ติ๊ก “Add Python to PATH” ด้วย</b></p>
+
+  <h2>2) โหลดไฟล์</h2>
+  <p>คลิกขวาที่แต่ละไฟล์แล้วเลือก “Save link as…” เก็บไว้ในโฟลเดอร์เดียวกันทั้งหมด</p>
+  <ul class="files">
+    <li><a href="morph_skel.py" download><b>morph_skel.py</b><span>โปรแกรมหลัก — ไฟล์ที่ใช้รัน</span></a></li>
+    <li><a href="grid_reader.py" download><b>grid_reader.py</b><span>ตรรกะ OpenCV อ่านตารางจากภาพ</span></a></li>
+    <li><a href="image_import.py" download><b>image_import.py</b><span>หน้าต่างอัปโหลดภาพ</span></a></li>
+    <li><a href="requirements.txt" download><b>requirements.txt</b><span>รายชื่อไลบรารี</span></a></li>
+    <li><a href="test_all.py" download><b>test_all.py</b><span>ชุดทดสอบ (ไม่บังคับ)</span></a></li>
+    <li><a href="test_grid.png" download><b>test_grid.png</b><span>ภาพตัวอย่างไว้ลองอ่านภาพ</span></a></li>
+  </ul>
+
+  <h2>3) เปิดโปรแกรม</h2>
+  <p>เปิด Command Prompt ในโฟลเดอร์นั้น แล้วพิมพ์</p>
+<pre><code>pip install -r requirements.txt
+python morph_skel.py</code></pre>
+  <div class="note">ถ้าไม่อยากติดตั้งอะไรเพิ่ม ข้ามบรรทัด <code>pip install</code> ได้เลย
+     โปรแกรมยังใช้ได้ปกติ เพียงแต่ปุ่ม “อ่านตารางจากภาพ” จะใช้ไม่ได้</div>
+
+  <h2>ทำอะไรได้บ้าง</h2>
+  <ul>
+    <li><b>เลือก Structuring Element</b> — ป็อปอัพตาราง 3×3 คลิกเลือกช่องที่เป็นสีดำ</li>
+    <li><b>วาดวัตถุลงตาราง 13 × 10</b> — คลิกซ้ายระบายดำ คลิกขวาลบ ปรับขนาดตารางได้</li>
+    <li><b>Erosion, Dilation, Opening, Closing</b> — แสดงขั้นกลางให้เห็นด้วย</li>
+    <li><b>Skeletonization</b> — Pass one / Pass two / ทั้งสอง / วนจนได้เส้นกระดูก
+        พร้อมจุดแดงบอกว่ารอบนั้นลบจุดไหน</li>
+    <li><b>อ่านตารางจากภาพ</b> — อัปโหลดภาพถ่ายหรือภาพสแกน แล้วระบายสีให้อัตโนมัติ</li>
+    <li><b>คัดลอกเป็นโค้ด MATLAB</b> — เอาไปวางตรวจคำตอบต่อได้</li>
+  </ul>
+
+  <h2>สูตรที่ใช้</h2>
+  <p><b>Erosion</b> ผลเป็น 1 เมื่อจุดที่เป็น 1 ของ SE ชนกับวัตถุ<b>ทุกจุด</b><br>
+     <b>Dilation</b> ผลเป็น 1 เมื่อจุดที่เป็น 1 ของ SE ชนกับวัตถุ<b>อย่างน้อยหนึ่งจุด</b></p>
+
+  <div class="note">ถ้า SE มีจุดกึ่งกลางเป็น 0 เช่น <code>[0 1 0; 1 0 0; 0 1 0]</code> ในแบบฝึกหัด
+     ผล Erosion จะ <b>งอกจุดใหม่นอกรูปเดิมได้</b> เพราะการตัดสินแต่ละช่องไม่ได้ดูตัวช่องนั้นเลย
+     กฎ “Erosion ต้องเล็กลงเสมอ” ใช้ได้เฉพาะตอน SE มีจุดกึ่งกลางเป็น 1
+     ผลตรงกับ <code>imerode</code> ของ MATLAB และ <code>scipy</code></div>
+
+  <p><b>Skeletonization</b> ใช้ Zhang-Suen ตามสไลด์ เลขเพื่อนบ้านเรียงตามเข็มนาฬิกา</p>
+<pre><code>8 1 2
+7 P 3
+6 5 4</code></pre>
+  <div class="scroll">
+  <table>
+    <tr><th></th><th>Pass one</th><th>Pass two</th></tr>
+    <tr><td>1)</td><td>8-Connected 2 ถึง 6</td><td>8-Connected 2 ถึง 6</td></tr>
+    <tr><td>2)</td><td>Crossing index = 1</td><td>Crossing index = 1</td></tr>
+    <tr><td>3)</td><td><code>n3·n5·n7 = 0</code> และ <code>n1·n3·n5 = 0</code></td>
+        <td><code>n1·n5·n7 = 0</code> และ <code>n1·n3·n7 = 0</code></td></tr>
+  </table>
+  </div>
+  <p style="color:var(--dim)">เงื่อนไขข้อ 3 คือ “ถ้าสามจุดด้านใดด้านหนึ่งเป็น foreground หมด จะลบจุดนั้นไม่ได้”</p>
+
+  <h2>ผลทดสอบ</h2>
+  <div class="scroll">
+  <table>
+    <tr><th>หัวข้อ</th><th>ผล</th></tr>
+    <tr><td>Erosion / Dilation เทียบกับ <code>scipy.ndimage</code></td><td>ตรงกัน 1000 / 1000</td></tr>
+    <tr><td>Skeletonization เทียบกับ Zhang-Suen อ้างอิง</td><td>ตรงกัน 300 / 300</td></tr>
+    <tr><td>อ่านตารางจากภาพ 11 สถานการณ์ × 40 เคส</td><td>ถูกต้อง 99.5%</td></tr>
+  </table>
+  </div>
+  <p style="color:var(--dim);font-size:.9rem">รันเองได้ด้วย <code>python test_all.py</code></p>
+
+</div>
+</body>
+</html>
