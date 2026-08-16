@@ -224,11 +224,107 @@ footer{padding:36px 0 70px;color:var(--muted);font-size:.9rem}
 .kbd{font-family:"Cascadia Mono",Consolas,ui-monospace,monospace;font-size:.86rem;color:var(--muted)}
 
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-@media (max-width:640px){
-  .topin{padding:9px 16px}
-  .wrap{padding:0 16px}
-  nav.pages a{font-size:.8rem;padding:5px 10px}
+/* ============================================================
+   RESPONSIVE — มือถือ / iPad
+   ============================================================ */
+
+/* กันหน้าเลื่อนซ้ายขวาทั้งหน้า และกัน iOS ขยายตัวอักษรเองตอนหมุนจอ */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:calc(var(--hdr,64px) + 12px)}
+body{overflow-x:hidden;overflow-wrap:break-word}
+img,svg,video{max-width:100%;height:auto}
+
+/* บล็อกที่กว้างเกินจอ ต้องเลื่อนในกล่องตัวเอง ไม่ใช่ดันทั้งหน้า */
+.eq,.tscroll{-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+
+/* จอสัมผัส — ปุ่มต้องกดโดนง่าย */
+@media (hover:none){
+  button.tool{min-height:38px}
+  nav.pages a{min-height:36px;display:inline-flex;align-items:center}
+  .chk input{width:22px;height:22px}
+  .prob>summary{padding-top:18px;padding-bottom:18px}
 }
+
+/* ---------- iPad แนวตั้ง และจอเล็กกว่านั้น ---------- */
+@media (max-width:1024px){
+  html{font-size:calc(17px * var(--fs))}
+  .wrap{padding:0 20px}
+  .topin{padding:10px 20px;gap:12px}
+  .hero{padding:36px 0 26px}
+}
+
+/* ---------- แถบเมนู 9 ลิงก์: เลื่อนแนวนอนแถวเดียว ไม่ตัดบรรทัด ---------- */
+@media (max-width:860px){
+  .topin{gap:10px;padding:9px 16px;flex-wrap:nowrap;align-items:center}
+  .brand{font-size:.78rem;flex:0 0 auto}
+  nav.pages{
+    flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;
+    padding-bottom:2px;min-width:0;
+  }
+  nav.pages::-webkit-scrollbar{display:none}
+  nav.pages a{white-space:nowrap;flex:0 0 auto}
+  .tools{flex:0 0 auto}
+  #fsLabel{display:none}
+}
+
+/* ---------- โทรศัพท์ ---------- */
+@media (max-width:640px){
+  html{font-size:calc(16px * var(--fs))}
+  .wrap{padding:0 14px}
+  .topin{padding:8px 14px}
+  nav.pages a{font-size:.8rem;padding:6px 10px}
+  button.tool{font-size:.78rem;padding:6px 10px}
+
+  .hero{padding:28px 0 22px}
+  section{padding:26px 0}
+
+  /* สูตรเป็นบล็อกกว้าง — ย่อให้เห็นได้มากขึ้นต่อหน้าจอ แล้วเลื่อนเอา */
+  .eq{font-size:.82rem;padding:12px 13px;line-height:1.85;border-radius:7px}
+  .fnode{font-size:.9rem;padding:11px 13px}
+
+  /* หัวข้อโจทย์: ให้ชื่อเรื่องขึ้นบรรทัดเต็ม ป้ายกำกับไปอยู่แถวล่าง */
+  .prob>summary{padding:14px 15px;gap:9px}
+  .ptitle{min-width:100%;order:2;font-size:.99rem}
+  .pid{order:1}
+  .psrc{order:3;white-space:normal}
+  .chk{order:4;margin-left:auto}
+  .pbody{padding:15px}
+  .given,.step,.ans,.trap,.call{padding-left:14px;padding-right:14px}
+  .step h5{font-size:.96rem}
+
+  /* การ์ดเรียงเป็นคอลัมน์เดียว ไม่ให้ล้นจอแคบ */
+  .grid.g2,.grid.g3{grid-template-columns:1fr}
+  .tocgrid{grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:6px}
+
+  .searchbar input{font-size:16px}   /* 16px ขึ้นไป กัน iOS ซูมอัตโนมัติตอนแตะช่องค้นหา */
+}
+
+/* ---------- จอแคบมาก (iPhone SE) ---------- */
+@media (max-width:400px){
+  html{font-size:calc(15.5px * var(--fs))}
+  .wrap{padding:0 11px}
+  .eq{font-size:.76rem;padding:10px 11px}
+  .brand{font-size:.72rem}
+  h1{font-size:1.55rem}
+}
+
+/* ---------- เผื่อขอบจอมีรอยบาก (iPhone แนวนอน) ---------- */
+@media (max-width:640px){
+  @supports(padding:max(0px)){
+    .wrap,.topin{
+      padding-left:max(14px,env(safe-area-inset-left));
+      padding-right:max(14px,env(safe-area-inset-right));
+    }
+  }
+}
+
+/* ตารางบนจอเล็ก: ปล่อยให้ข้อความไทยตัดบรรทัดได้ตามปกติ (อ่านง่ายกว่าเลื่อนยาว)
+   แต่คอลัมน์ตัวเลขห้ามตัด และถ้ายังกว้างเกิน .tscroll จะเลื่อนในกล่องให้เอง */
+@media (max-width:640px){
+  .tscroll th,.tscroll td{padding-left:10px;padding-right:10px;font-size:.9rem}
+  .tscroll td.n,.tscroll th.n{white-space:nowrap}
+}
+
 @media print{
   header.top,.searchbar,.tools,.chk,.tocgrid{display:none!important}
   body{background:#fff;color:#000;font-size:10.5pt}
