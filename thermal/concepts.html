@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>สรุปคอนเซปต์ + วิธีวิเคราะห์โจทย์ — Thermal Physics</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="topin">
+    <a class="brand" href="index.html">05366031 · MIDTERM</a>
+    <nav class="pages">
+      <a href="index.html">หน้าแรก</a>
+      <a href="story.html">เรื่องเล่า</a>
+      <a href="theory.html">เก็งทฤษฎี</a>
+      <a href="plan.html">แผนอ่าน</a>
+      <a href="scope.html">ขอบเขต+สูตร</a>
+      <a href="formulas.html">สูตร+ตัวอย่าง</a>
+      <a href="concepts.html">สรุปคอนเซปต์</a>
+      <a href="hints.html">ใบ้ 34 ข้อ</a>
+      <a href="solutions.html">เฉลยเต็ม</a>
+    </nav>
+    <div class="tools">
+      <button class="tool sq" id="fsDown" type="button" title="ตัวอักษรเล็กลง">A−</button>
+      <button class="tool sq" id="fsUp" type="button" title="ตัวอักษรใหญ่ขึ้น">A+</button>
+      <span class="kbd" id="fsLabel">100%</span>
+      <button class="tool" id="themeBtn" type="button">ตามระบบ</button>
+      <button class="tool" id="printBtn" type="button">พิมพ์</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<div class="hero">
+  <p class="eyebrow">หน้าที่ 1 · อ่านก่อนเป็นอันดับแรก</p>
+  <h1>สรุปคอนเซปต์ และวิธีวิเคราะห์โจทย์</h1>
+  <p class="lede">หน้านี้ไม่ได้สอนให้จำสูตร แต่สอนให้<b>อ่านโจทย์แล้วรู้ว่าต้องทำอะไรต่อ</b> — เริ่มจากตารางแปลคำสำคัญ ตามด้วยผังตัดสินใจของแต่ละหัวข้อ</p>
+</div>
+
+<!-- ============ 5 STEPS ============ -->
+<section id="method">
+  <div class="shead"><span class="stag">วิธี</span><h2>ขั้นตอนมาตรฐาน 5 ขั้น ใช้ได้กับทุกข้อ</h2></div>
+  <p class="snote">เวลาสอบอย่ารีบแทนสูตร ให้เดินตามห้าขั้นนี้เสมอ จะช้ากว่าตอนแรกแต่แทบไม่ผิดเลย</p>
+
+  <div class="flow">
+    <div class="fnode q">① วาดรูประบบ แล้วลากเส้นล้อมว่า “ระบบ” คืออะไร<br><span class="kbd">อะไรอยู่ในเส้น = ระบบ · อะไรอยู่นอกเส้น = สิ่งแวดล้อม · พลังงานข้ามเส้นตรงไหนบ้าง</span></div>
+    <div class="farr">↓</div>
+    <div class="fnode q">② เขียนสถานะ 1 และสถานะ 2 เป็นตาราง<br><span class="kbd">P, v, T, u, h, s, x — เติมที่รู้ ปล่อยว่างที่ไม่รู้ จะเห็นทันทีว่าขาดอะไร</span></div>
+    <div class="farr">↓</div>
+    <div class="fnode q">③ แปลคำสำคัญในโจทย์เป็นเงื่อนไขทางฟิสิกส์<br><span class="kbd">“ถังแข็ง” = V คงที่ · “หุ้มฉนวน” = Q = 0 · ดูตารางถัดไป</span></div>
+    <div class="farr">↓</div>
+    <div class="fnode q">④ ระบุชนิดสาร — แก๊สอุดมคติ หรือ สารบริสุทธิ์ที่ต้องเปิดตาราง<br><span class="kbd">อากาศ ฮีเลียม ไนโตรเจน → ใช้สูตร &nbsp;·&nbsp; น้ำ ไอน้ำ R-134a → เปิดตาราง</span></div>
+    <div class="farr">↓</div>
+    <div class="fnode r">⑤ เลือกสมการจากสิ่งที่โจทย์ถาม แล้วค่อยแทนตัวเลข<br><span class="kbd">ตรวจหน่วยและเครื่องหมายก่อนเขียนคำตอบสุดท้ายเสมอ</span></div>
+  </div>
+</section>
+
+<!-- ============ KEYWORD TABLE ============ -->
+<section id="keywords">
+  <div class="shead"><span class="stag">สำคัญที่สุด</span><h2>ตารางแปลคำสำคัญในโจทย์</h2></div>
+  <p class="snote">โจทย์เทอร์โมไดนามิกส์ซ่อนเงื่อนไขไว้ในคำพูดธรรมดา ถ้าแปลคำเหล่านี้ออก โจทย์จะแก้ได้ทันทีเกินครึ่ง</p>
+
+  <div class="tscroll">
+    <table>
+      <thead><tr><th>คำที่เจอในโจทย์</th><th>แปลว่า</th><th>ผลที่ตามมาทันที</th></tr></thead>
+      <tbody>
+        <tr><td><b>ถังแข็ง</b> / rigid tank / ภาชนะปิดสนิท</td><td class="n">V = คงที่</td><td><b>W = 0</b> และ v₁ = v₂ ใช้เป็นสมการเชื่อมสองสถานะได้เลย</td></tr>
+        <tr><td><b>หุ้มฉนวนอย่างดี</b> / insulated / adiabatic</td><td class="n">Q = 0</td><td>ΔU = W ทั้งหมด · ถ้าเป็นแก๊สอุดมคติ quasistatic ใช้ PV<sup>γ</sup> = คงที่</td></tr>
+        <tr><td><b>ขยายตัวสู่สุญญากาศ</b> / free expansion</td><td class="n">W = 0 และ Q = 0</td><td><b>ΔU = 0</b> → แก๊สอุดมคติ T ไม่เปลี่ยน แต่ <b>ΔS &gt; 0</b> (ผันกลับไม่ได้)</td></tr>
+        <tr><td><b>ลูกสูบเคลื่อนที่ได้อย่างอิสระ</b> / มีน้ำหนักกดคงที่</td><td class="n">P = คงที่</td><td>W = −PΔV ตรง ๆ · และ <b>Q = ΔH</b> ใช้ h แทน u ได้</td></tr>
+        <tr><td><b>อ่างความร้อน</b> / reservoir / แช่ในน้ำแข็ง</td><td class="n">T = คงที่</td><td>แก๊สอุดมคติ ΔU = 0 → Q = −W · ΔS = nR ln(V₂/V₁)</td></tr>
+        <tr><td><b>ช้ามาก</b> / quasistatic / ผันกลับได้</td><td>ระบบสมดุลตลอดเวลา</td><td>ใช้ W = −∫P dV ได้ · ถ้า reversible ด้วย → ΔS<sub>จักรวาล</sub> = 0</td></tr>
+        <tr><td><b>ของเหลวและไออยู่ร่วมกัน</b> / กำลังเดือด / ของผสมอิ่มตัว</td><td class="n">สถานะอิ่มตัว</td><td><b>T กับ P ผูกกัน</b> รู้อย่างหนึ่งได้อีกอย่าง · ต้องหา x</td></tr>
+        <tr><td><b>ไออิ่มตัว</b> / saturated vapor</td><td class="n">x = 1</td><td>อ่านคอลัมน์ g ได้เลยทุกค่า</td></tr>
+        <tr><td><b>ของเหลวอิ่มตัว</b> / saturated liquid</td><td class="n">x = 0</td><td>อ่านคอลัมน์ f ได้เลยทุกค่า</td></tr>
+        <tr><td><b>ของเหลวอัดตัว</b> / compressed liquid / subcooled</td><td class="n">P &gt; P<sub>sat</sub>(T)</td><td>ประมาณด้วยค่า f ที่ <b>อุณหภูมิเดียวกัน</b> — แม่นมากสำหรับน้ำ</td></tr>
+        <tr><td><b>วัฏจักร</b> / cycle / กลับสู่สถานะเดิม</td><td class="n">ΔU = 0, ΔS = 0</td><td><b>Q<sub>สุทธิ</sub> = W<sub>สุทธิ</sub></b> และงานสุทธิ = พื้นที่ในวงบนกราฟ P-V</td></tr>
+        <tr><td><b>ใบพัดกวน</b> / ขดลวดไฟฟ้า / paddle wheel</td><td>งานเข้าระบบ</td><td>W เป็นบวก (ทำต่อระบบ) · เป็นกระบวนการ<b>ผันกลับไม่ได้</b>เสมอ</td></tr>
+        <tr><td><b>สภาวะคงตัว</b> / steady state</td><td>ไม่มีอะไรสะสม</td><td>อัตราการไหลเข้า = อัตราการไหลออก · ใช้กับโจทย์นำความร้อนทุกข้อ</td></tr>
+        <tr><td><b>ตามเข็มนาฬิกา</b> บนกราฟ P-V</td><td>เครื่องยนต์</td><td>ผลิตงานสุทธิออกมา · ทวนเข็ม = ตู้เย็น/ปั๊มความร้อน</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="call key">
+    <span class="ctitle">ถ้าจำได้อย่างเดียวจากหน้านี้</span>
+    <p style="margin-bottom:0">คำว่า <b>“ถังแข็ง”</b> และ <b>“หุ้มฉนวน”</b> ปรากฏในการบ้านรวมกัน 6 ข้อ และมักปรากฏคู่กัน — เจอเมื่อไรให้เขียน <code>V คงที่ , W = 0 , Q = 0 , ΔU = 0</code> ลงกระดาษทันทีก่อนอ่านโจทย์ต่อ</p>
+  </div>
+</section>
+
+<!-- ============ FLOW 1: PHASE ============ -->
+<section id="flow-phase">
+  <div class="shead"><span class="stag">ผัง 1</span><h2>โจทย์เกี่ยวกับน้ำ / ไอน้ำ — ตัดสินเฟสอย่างไร</h2></div>
+  <p class="snote">ครอบคลุมการบ้าน 11 ข้อ และเป็นหัวข้อที่อาจารย์แจกตารางให้ในห้องสอบ</p>
+
+  <div class="flow">
+    <div class="fnode q">โจทย์ให้ข้อมูลอะไรมาบ้าง</div>
+    <div class="farr">↓</div>
+    <div class="fbranch">
+      <div class="fnode"><span class="blabel">ให้ T และ P มาทั้งคู่</span>เทียบ P กับ P<sub>sat</sub>(T) จากตาราง A-4<br><br>
+        <span class="kbd">P &gt; P<sub>sat</sub> → ของเหลวอัดตัว<br>P &lt; P<sub>sat</sub> → ไอร้อนยวดยิ่ง<br>P = P<sub>sat</sub> → ของผสม</span></div>
+      <div class="fnode"><span class="blabel">ให้ T (หรือ P) กับ v, u, h, s</span>เปิด A-4 (ถ้ามี T) หรือ A-5 (ถ้ามี P) แล้วอ่านค่า f และ g<br><br>
+        <span class="kbd">ค่า &lt; f → ของเหลวอัดตัว<br>f ≤ ค่า ≤ g → ของผสม<br>ค่า &gt; g → ไอร้อนยวดยิ่ง</span></div>
+      <div class="fnode"><span class="blabel">บอกเฟสมาให้เลย</span>“ของเหลวอิ่มตัว” → x = 0 อ่านคอลัมน์ f<br>“ไออิ่มตัว” → x = 1 อ่านคอลัมน์ g<br><br><span class="kbd">อ่านทุกค่าได้ทันทีจากแถวเดียว</span></div>
+    </div>
+    <div class="farr">↓</div>
+    <div class="fnode r"><b>ถ้าเป็นของผสม</b> → หา x = (ค่าที่ให้ − ค่า f)/(ค่า fg) แล้วใช้ x ตัวเดียวกันหาค่าอื่นได้ทั้งหมด<br>
+      <b>ถ้าเป็นไอร้อนยวดยิ่ง</b> → ไปตาราง A-6 ต้องใช้ทั้ง T และ P (สองค่านี้อิสระต่อกันแล้ว)<br>
+      <b>ถ้าเป็นของเหลวอัดตัว</b> → ใช้ค่า f ที่ T เดียวกันประมาณ (หรือ A-7 ถ้าต้องการความแม่นสูง)</div>
+  </div>
+
+  <div class="eq">สูตรเดียวใช้ได้กับทุกสมบัติของของผสมอิ่มตัว :
+
+    y = y_f + x · y_fg        โดย y แทน v, u, h หรือ s
+
+    v = v_f + x·v_fg      u = u_f + x·u_fg
+    h = h_f + x·h_fg      s = s_f + x·s_fg
+
+ย้อนกลับหา x :   x = (y − y_f) / y_fg</div>
+
+  <div class="call warn">
+    <span class="ctitle">สองข้อผิดพลาดที่พบบ่อยที่สุด</span>
+    <p><b>1.</b> ใช้ตารางผิดเล่ม — A-4 เรียงตาม<b>อุณหภูมิ</b> ส่วน A-5 เรียงตาม<b>ความดัน</b> เนื้อหาเหมือนกันทุกประการ ใช้เล่มไหนก็ได้ แต่ต้องตรงกับค่าที่โจทย์ให้มาจะได้ไม่ต้องเทียบบัญญัติไตรยางศ์</p>
+    <p style="margin-bottom:0"><b>2.</b> ลืมว่า u<sub>fg</sub> = u<sub>g</sub> − u<sub>f</sub> — บางตารางให้คอลัมน์ fg มาแล้ว บางทีต้องลบเอง ดูหัวตารางให้ดี</p>
+  </div>
+
+  <p><b>สไลด์อ้างอิง:</b>
+    <span class="slideref">Cengel Ch.3 น.4–7 การเปลี่ยนเฟส</span>
+    <span class="slideref">Cengel Ch.3 น.8–13 แผนภาพ T-v, P-v, P-T</span>
+    <span class="slideref">Cengel Ch.3 น.14–22 การใช้ตาราง</span>
+  </p>
+</section>
+
+<!-- ============ FLOW 2: FIRST LAW ============ -->
+<section id="flow-first">
+  <div class="shead"><span class="stag">ผัง 2</span><h2>โจทย์กฎข้อที่หนึ่ง — เลือกสูตรงานอย่างไร</h2></div>
+
+  <div class="flow">
+    <div class="fnode q">กระบวนการนี้อะไรคงที่</div>
+    <div class="farr">↓</div>
+    <div class="fbranch">
+      <div class="fnode"><span class="blabel">V คงที่ · Isochoric</span><b>W = 0</b><br>Q = ΔU = nC<sub>v</sub>ΔT<br><br><span class="kbd">เส้นดิ่งบนกราฟ P-V</span></div>
+      <div class="fnode"><span class="blabel">P คงที่ · Isobaric</span><b>W = −PΔV</b><br>Q = ΔH = nC<sub>p</sub>ΔT<br><br><span class="kbd">เส้นนอนบนกราฟ P-V</span></div>
+      <div class="fnode"><span class="blabel">T คงที่ · Isothermal</span><b>ΔU = 0</b> (แก๊สอุดมคติ)<br>W = −nRT ln(V₂/V₁)<br>Q = −W<br><span class="kbd">เส้นโค้งไฮเพอร์โบลา</span></div>
+      <div class="fnode"><span class="blabel">Q = 0 · Adiabatic</span><b>ΔU = W</b><br>PV<sup>γ</sup> = คงที่<br>TV<sup>γ−1</sup> = คงที่<br><span class="kbd">โค้งชันกว่า isothermal</span></div>
+    </div>
+    <div class="farr">↓</div>
+    <div class="fnode r">ไม่เข้าสี่แบบข้างบน → ใช้ <b>W = −∫P dV</b> ตรง ๆ หรืออ่าน<b>พื้นที่ใต้กราฟ</b><br>
+      ถ้าเป็นวัฏจักรครบรอบ → <b>ΔU = 0</b> ใช้เป็นสมการช่วยได้เสมอ</div>
+  </div>
+
+  <div class="call tip">
+    <span class="ctitle">ทางลัดที่ประหยัดเวลาสอบมาก</span>
+    <p style="margin-bottom:0">สำหรับแก๊สอุดมคติ <code>U = (f/2)nRT = (f/2)PV</code> — <b>แทน PV ลงไปตรง ๆ ได้เลย ไม่ต้องหา n และ T ก่อน</b> ประหยัดเวลาไปหนึ่งขั้นทุกครั้ง<br>
+    ตัวอย่าง: ΔU = (3/2)(P₂V₂ − P₁V₁) สำหรับแก๊สอะตอมเดี่ยว</p>
+  </div>
+
+  <div class="call">
+    <span class="ctitle">เทคนิคเดินอ้อม — ใช้บ่อยมากในข้อวัฏจักร</span>
+    <p style="margin-bottom:0">ถ้าเจอขั้นที่ข้อมูลไม่ครบ (เช่น อะเดียแบติกที่ไม่รู้งาน) ให้<b>เดินอ้อมไปทางอื่นแทน</b> เพราะ U และ S เป็น<b>ฟังก์ชันสถานะ</b> ค่าจึงขึ้นกับจุดต้นและจุดปลายเท่านั้น ไม่ขึ้นกับเส้นทาง — เทคนิคนี้ใช้แก้ HW1-07 และ HW1-08 ได้ทั้งข้อ</p>
+  </div>
+
+  <p><b>สไลด์อ้างอิง:</b>
+    <span class="slideref">Energy น.14 กฎข้อที่หนึ่ง</span>
+    <span class="slideref">Energy น.20 W = −∫P dV</span>
+    <span class="slideref">Energy น.21 Isothermal / Adiabatic</span>
+    <span class="slideref">Energy น.25 C<sub>v</sub> และ C<sub>p</sub></span>
+    <span class="slideref">Energy น.27 สรุปสมการ</span>
+  </p>
+</section>
+
+<!-- ============ FLOW 3: ENTROPY ============ -->
+<section id="flow-entropy">
+  <div class="shead"><span class="stag">ผัง 3</span><h2>โจทย์ถาม ΔS — เลือกสูตรอย่างไร</h2></div>
+
+  <div class="flow">
+    <div class="fnode q">สารอะไร</div>
+    <div class="farr">↓</div>
+    <div class="fbranch">
+      <div class="fnode"><span class="blabel">แก๊สอุดมคติ</span>ใช้สูตร เลือกคู่ตัวแปรที่โจทย์ให้มา<br><br>
+        <span class="kbd">รู้ T, V → สูตรที่มี C<sub>v</sub><br>รู้ T, P → สูตรที่มี C<sub>p</sub></span></div>
+      <div class="fnode"><span class="blabel">น้ำ / ไอน้ำ / สารบริสุทธิ์</span>เปิดตารางอ่าน s₁ และ s₂ ตรง ๆ<br><br>
+        <span class="kbd">ΔS = m(s₂ − s₁)<br>ของผสมใช้ s = s<sub>f</sub> + x·s<sub>fg</sub></span></div>
+      <div class="fnode"><span class="blabel">ของแข็ง / ของเหลว</span>ปริมาตรแทบไม่เปลี่ยน เหลือแค่พจน์อุณหภูมิ<br><br>
+        <span class="kbd">ΔS = m c ln(T₂/T₁)</span></div>
+    </div>
+    <div class="farr">↓</div>
+    <div class="fnode r">ถ้ากระบวนการ<b>ผันกลับไม่ได้</b> (ขยายสู่สุญญากาศ, ใบพัดกวน, ผสมของร้อนกับเย็น)<br>
+      → <b>ห้ามใช้ ΔS = Q/T กับกระบวนการจริง</b> ให้สมมติเส้นทางผันกลับได้ใด ๆ ที่เชื่อมสถานะเดิมกับสถานะปลายเดียวกัน แล้วคำนวณบนเส้นทางนั้นแทน</div>
+  </div>
+
+  <div class="eq">แก๊สอุดมคติ (เลือกใช้ได้ทั้งสองสูตร ผลเท่ากัน) :
+    ΔS = n C_v ln(T₂/T₁) + n R ln(V₂/V₁)
+    ΔS = n C_p ln(T₂/T₁) − n R ln(P₂/P₁)
+
+กรณีพิเศษที่ออกสอบบ่อย :
+    อุณหภูมิคงที่ :  ΔS = n R ln(V₂/V₁)
+    ปริมาตรคงที่ :  ΔS = n C_v ln(T₂/T₁)
+    ความดันคงที่ :  ΔS = n C_p ln(T₂/T₁)
+    สถานะเดิมทุกประการ (T และ V เท่าเดิม) :  ΔS = 0</div>
+
+  <div class="call warn">
+    <span class="ctitle">คำถามที่ข้อสอบชอบถามมากที่สุดเรื่องเอนโทรปี</span>
+    <p style="margin-bottom:0">“ทำไม Q = 0 แต่ ΔS &gt; 0 ได้” → เพราะ <b>เอนโทรปีสร้างขึ้นเองได้</b>ในกระบวนการผันกลับไม่ได้ โดยไม่ต้องมีความร้อนไหลเข้าเลย · นิยาม dS = δQ<sub>rev</sub>/T ใช้ได้เฉพาะกับเส้นทาง<b>ผันกลับได้</b>เท่านั้น</p>
+  </div>
+
+  <p><b>สไลด์อ้างอิง:</b>
+    <span class="slideref">Entropy น.2 นิยาม state function</span>
+    <span class="slideref">Entropy น.3 reversible / irreversible</span>
+    <span class="slideref">Entropy น.4 เทคนิคแทนเส้นทาง</span>
+    <span class="slideref">Entropy น.5 กฎข้อที่สอง</span>
+    <span class="slideref">Entropy น.11–13 ตัวอย่าง Ex02, Ex03</span>
+  </p>
+</section>
+
+<!-- ============ FLOW 4: ENGINES ============ -->
+<section id="flow-engine">
+  <div class="shead"><span class="stag">ผัง 4</span><h2>โจทย์เครื่องยนต์ / ตู้เย็น — ง่ายที่สุดในชุด</h2></div>
+
+  <div class="call tip">
+    <span class="ctitle">ทั้งสามอุปกรณ์ใช้สมการสมดุลพลังงานเดียวกันหมด</span>
+    <div class="eq"><b>Q_H = W + Q_C</b>       ← จำอันเดียวพอ ที่เหลือคือ "อะไรคือสิ่งที่เราต้องการ"
+
+เครื่องยนต์  อยากได้ W   →  η     = W/Q_H  = 1 − Q_C/Q_H
+ตู้เย็น       อยากได้ Q_C →  COP_R  = Q_C/W = Q_C/(Q_H − Q_C)
+ปั๊มความร้อน  อยากได้ Q_H →  COP_HP = Q_H/W = COP_R + 1
+
+ถ้าเป็นคาร์โนต์ (ผันกลับได้) แทน Q ด้วย T ได้เลย :
+    η_Carnot = 1 − T_C/T_H          COP_R,Carnot = T_C/(T_H − T_C)
+    ** T ต้องเป็นเคลวินเสมอ **</div>
+  </div>
+
+  <div class="call warn">
+    <span class="ctitle">ต้องเข้าใจ ไม่ใช่แค่จำ</span>
+    <p style="margin-bottom:0"><b>COP มีค่ามากกว่า 1 ได้</b> และไม่ขัดกับกฎข้อที่หนึ่ง เพราะ COP <b>ไม่ใช่ประสิทธิภาพ</b> — ตู้เย็นไม่ได้ “สร้าง” ความเย็น แต่ <b>ย้าย</b> ความร้อนจากที่เย็นไปที่ร้อน โดยใช้งานเป็นตัวช่วย จึงย้ายความร้อนได้มากกว่าพลังงานที่ป้อนเข้า · คำถามนี้ออกสอบบ่อยมากในรูปข้อเขียน</p>
+  </div>
+
+  <p><b>สไลด์อ้างอิง:</b>
+    <span class="slideref">Entropy น.6–7 วัฏจักรและประสิทธิภาพคาร์โนต์</span>
+    <span class="slideref">Entropy น.9 ตู้เย็น</span>
+    <span class="slideref">Entropy น.14 Ex04 Carnot refrigerator</span>
+    <span class="slideref">Entropy น.16–17 สรุป</span>
+  </p>
+</section>
+
+<!-- ============ FLOW 5: HEAT TRANSFER ============ -->
+<section id="flow-heat">
+  <div class="shead"><span class="stag">ผัง 5</span><h2>โจทย์การนำความร้อน — เลือกสูตรตามรูปทรง</h2></div>
+  <p class="snote">สูตรต่างกันเพราะพื้นที่หน้าตัดที่ความร้อนไหลผ่านเปลี่ยนไปตามรูปทรง</p>
+
+  <div class="eq">กฎฟูริเยร์ตั้งต้น :  Q̇ = −k A (dT/dx)
+
+ผนังแบน       A คงที่          Q̇ = k A (T₁ − T₂)/L
+ทรงกระบอก     A = 2πrL         Q̇ = 2π L k (T_a − T_b)/ln(b/a)
+ทรงกลม        A = 4πr²         Q̇ = 4π k r₁ r₂ (T₂ − T₁)/(r₂ − r₁)
+
+ความต้านทานความร้อน (คิดแบบวงจรไฟฟ้า) :
+    R_th = ΔT/Q̇        ผนังแบน R = L/(kA)
+    ต่ออนุกรม  R_รวม = R₁ + R₂ + ⋯     ← ความร้อนไหลผ่านเท่ากัน
+    ต่อขนาน    1/R_รวม = 1/R₁ + 1/R₂   ← ผลต่างอุณหภูมิเท่ากัน</div>
+
+  <div class="call">
+    <span class="ctitle">กุญแจของโจทย์ “แท่งสองชนิดต่อกัน”</span>
+    <p style="margin-bottom:0">สภาวะคงตัวแปลว่า <b>ความร้อนไหลผ่านทั้งสองแท่งเท่ากัน</b> (ถ้าไม่เท่าจะมีความร้อนสะสมที่รอยต่อ อุณหภูมิก็จะยังเปลี่ยนอยู่) ตั้งสมการ Q̇₁ = Q̇₂ แล้วแก้หาอุณหภูมิรอยต่อได้ทันที<br>
+    <b>ตรวจคำตอบ:</b> วัสดุที่นำความร้อนดีกว่าจะมีอุณหภูมิตกคร่อมน้อยกว่า → รอยต่อจะเยื้องไปทางปลายของวัสดุที่นำดีกว่า</p>
+  </div>
+
+  <div class="call warn">
+    <span class="ctitle">ระวังหน่วย k</span>
+    <p style="margin-bottom:0">โจทย์ Serway บางข้อให้ k เป็น <code>cal/(s·cm·°C)</code> ต้องแปลงเป็น <code>W/(m·K)</code> ก่อนเสมอ<br>
+    <code>× 4.186 J/cal × 100 cm/m</code> — ลืมจุดนี้คำตอบจะผิดไป 418 เท่า</p>
+  </div>
+
+  <p><b>อ้างอิง:</b> อินโฟกราฟิก <b>“การนำความร้อน (Heat Conduction)”</b> ในไฟล์ <code>รูปภาพ.pdf</code> หน้า 1 — มีครบทั้งสูตร ค่า k ของวัสดุ และการต่ออนุกรม/ขนาน</p>
+</section>
+
+<!-- ============ SLIDE MAP ============ -->
+<section id="slidemap">
+  <div class="shead"><span class="stag">แผนที่</span><h2>หัวข้อไหนอยู่สไลด์หน้าไหน</h2></div>
+  <p class="snote">เลขหน้าจริงจากไฟล์ PDF ในโฟลเดอร์ นับหน้าที่ 1 = หน้าปก</p>
+
+  <h3>ENERGY IN THERMAL PHYSICS.pdf <span class="kbd">(27 หน้า)</span></h3>
+  <div class="tscroll">
+    <table>
+      <thead><tr><th class="n">หน้า</th><th>หัวข้อ</th><th>ใช้กับการบ้านข้อ</th></tr></thead>
+      <tbody>
+        <tr><td class="n">3</td><td>1.1 สมดุลความร้อน · กฎข้อที่ศูนย์</td><td>ทฤษฎี</td></tr>
+        <tr><td class="n">4</td><td>1.1 มาตราอุณหภูมิ Celsius / Fahrenheit / Kelvin</td><td>ทฤษฎี, ทุกข้อที่ต้องแปลงหน่วย</td></tr>
+        <tr><td class="n">7</td><td>1.2 กฎแก๊สอุดมคติ PV = nRT = NkT</td><td class="n">02, 03, 05, 09, 20, 25</td></tr>
+        <tr><td class="n">8</td><td>1.2 ทฤษฎีจลน์ · ที่มาของความดัน</td><td class="n">04</td></tr>
+        <tr><td class="n">10</td><td>1.3 ทฤษฎี Equipartition</td><td class="n">04, 05, 06, 09</td></tr>
+        <tr><td class="n">11</td><td>1.3 Degrees of Freedom ของแต่ละโมเลกุล</td><td class="n">06, 09, 26, 27</td></tr>
+        <tr><td class="n">12</td><td>1.3 ความจุความร้อนจาก Equipartition · C<sub>v</sub> = (f/2)R</td><td class="n">06, 26, 27</td></tr>
+        <tr><td class="n">14</td><td><b>1.4 กฎข้อที่หนึ่ง ΔU = Q + W</b></td><td class="n">05, 06, 07, 08, 09, 20</td></tr>
+        <tr><td class="n">15–19</td><td>ตัวอย่างลายมืออาจารย์ · Cooling of a Hot Fluid in a Tank</td><td>แนวข้อสอบ</td></tr>
+        <tr><td class="n">20</td><td><b>1.5 งานจากการอัดแก๊ส W = −∫P dV</b></td><td class="n">05, 06, 26, 27</td></tr>
+        <tr><td class="n">21</td><td><b>1.5 Isothermal และ Adiabatic</b></td><td class="n">09, 26</td></tr>
+        <tr><td class="n">25</td><td>1.6 C<sub>v</sub> และ C<sub>p</sub> · C<sub>p</sub> − C<sub>v</sub> = nR</td><td class="n">10, 26, 27</td></tr>
+        <tr><td class="n">27</td><td><b>สรุปสมการสำคัญ Key Equations Recap</b></td><td>ทบทวนก่อนเข้าห้องสอบ</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Entropy-The_Second_Law_Thermodynamics.pdf <span class="kbd">(17 หน้า)</span></h3>
+  <div class="tscroll">
+    <table>
+      <thead><tr><th class="n">หน้า</th><th>หัวข้อ</th><th>ใช้กับการบ้านข้อ</th></tr></thead>
+      <tbody>
+        <tr><td class="n">2</td><td><b>นิยามเอนโทรปี · เป็นฟังก์ชันสถานะ</b></td><td>ทฤษฎี</td></tr>
+        <tr><td class="n">3</td><td>20-1 Entropy · reversible กับ irreversible</td><td class="n">20, 25, 28</td></tr>
+        <tr><td class="n">4</td><td><b>20-1 Change in Entropy · เทคนิคแทนด้วยเส้นทางผันกลับได้</b></td><td class="n">25, 29, 30</td></tr>
+        <tr><td class="n">5</td><td>20-1 กฎข้อที่สองของเทอร์โมไดนามิกส์</td><td>ทฤษฎี</td></tr>
+        <tr><td class="n">6</td><td>20-2 วัฏจักรคาร์โนต์บนกราฟ P-V</td><td class="n">26, 27</td></tr>
+        <tr><td class="n">7</td><td><b>20-2 ประสิทธิภาพของเครื่องยนต์คาร์โนต์</b></td><td class="n">26, 27, 31, 32</td></tr>
+        <tr><td class="n">8</td><td>20-2 เครื่องยนต์สเตอร์ลิง</td><td>แนวข้อสอบ</td></tr>
+        <tr><td class="n">9</td><td><b>20-3 ตู้เย็นและ COP</b></td><td class="n">33, 34</td></tr>
+        <tr><td class="n">10</td><td>Ex01 เอนโทรปีของยางยืด</td><td>แนวข้อสอบ</td></tr>
+        <tr><td class="n">11</td><td>Ex02 ΔS จากการเปลี่ยนอุณหภูมิ (ทังสเตน)</td><td class="n">คล้ายกับ 13</td></tr>
+        <tr><td class="n">12–13</td><td><b>Ex03 ΔS ของแก๊สอุดมคติ · free expansion</b></td><td class="n">25</td></tr>
+        <tr><td class="n">14</td><td>Ex04 ตู้เย็นคาร์โนต์</td><td class="n">33, 34</td></tr>
+        <tr><td class="n">15</td><td>Ex05 เครื่องยนต์ดีเซล</td><td>แนวข้อสอบ</td></tr>
+        <tr><td class="n">16–17</td><td><b>สรุปทั้งบท พร้อมเลขสมการ</b></td><td>ทบทวนก่อนเข้าห้องสอบ</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Y-cengel-Phase-diagram.pdf <span class="kbd">(51 หน้า — Cengel บทที่ 3 เต็มบท)</span></h3>
+  <div class="tscroll">
+    <table>
+      <thead><tr><th class="n">หน้า</th><th>หัวข้อ</th><th>ใช้กับการบ้านข้อ</th></tr></thead>
+      <tbody>
+        <tr><td class="n">2–3</td><td>3-1 สารบริสุทธิ์ · 3-2 เฟสของสารบริสุทธิ์</td><td>ทฤษฎี</td></tr>
+        <tr><td class="n">4–7</td><td><b>3-3 กระบวนการเปลี่ยนเฟส · saturated / superheated / compressed</b></td><td class="n">15, 16, 17, 18, 19</td></tr>
+        <tr><td class="n">8–13</td><td><b>3-4 แผนภาพสมบัติ T-v, P-v, P-T และพื้นผิว P-v-T</b></td><td class="n">19 (d)</td></tr>
+        <tr><td class="n">14–22</td><td><b>3-5 การใช้ตารางสมบัติ · เอนทัลปี · ความชื้น x</b></td><td class="n">15, 16, 17, 19, 29, 30</td></tr>
+        <tr><td class="n">24–27</td><td>3-6 สมการแก๊สอุดมคติ</td><td class="n">20, 21, 22, 23</td></tr>
+        <tr><td class="n">28–30</td><td><b>3-7 ตัวประกอบการอัดตัว Z · แผนภูมิทั่วไป</b></td><td class="n">21, 22</td></tr>
+        <tr><td class="n">31–35</td><td><b>3-8 สมการสถานะอื่น · แวนเดอร์วาลส์ · บีตตี-บริดจ์แมน</b></td><td class="n">03, 23</td></tr>
+        <tr><td class="n">42–51</td><td>โจทย์ท้ายบททั้งหมด (ต้นฉบับของการบ้าน)</td><td>เทียบโจทย์ต้นฉบับ</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>รูปภาพ.pdf <span class="kbd">(5 หน้า — อินโฟกราฟิกสรุป)</span></h3>
+  <div class="tscroll">
+    <table>
+      <thead><tr><th class="n">หน้า</th><th>เรื่อง</th><th>ใช้กับการบ้านข้อ</th></tr></thead>
+      <tbody>
+        <tr><td class="n">1</td><td><b>การนำความร้อน (Heat Conduction)</b> — กฎฟูริเยร์ ค่า k ความต้านทานความร้อน</td><td class="n">11, 12, 13, 14</td></tr>
+        <tr><td class="n">2</td><td>Thermoelectric Effect — Seebeck, Peltier, Thomson</td><td>หัวข้อประยุกต์</td></tr>
+        <tr><td class="n">3</td><td>การแพร่ (Diffusion) — กฎของฟิก, mean free path</td><td class="n">04, 11</td></tr>
+        <tr><td class="n">4</td><td><b>Virial Expansion และ Van der Waals</b></td><td class="n">03, 21, 22, 23</td></tr>
+        <tr><td class="n">5</td><td>ความหนืด (Viscosity) — กฎของนิวตัน, Reynolds</td><td>หัวข้อประยุกต์</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ EXAM CHECKLIST ============ -->
+<section id="checklist">
+  <div class="shead"><span class="stag">ก่อนส่ง</span><h2>เช็กลิสต์ก่อนส่งกระดาษคำตอบ</h2></div>
+  <div class="call warn">
+    <ul style="margin-bottom:0">
+      <li><b>เครื่องหมาย W</b> ใช้ระบบเดียวกันทั้งฉบับหรือไม่ และเขียนกำกับไว้ตอนต้นแล้วหรือยัง</li>
+      <li><b>แปลง °C เป็น K</b> แล้วทุกที่ที่ต้องใช้ — ทุกสูตรที่มีการหาร T, คูณ T, หรือ ln T</li>
+      <li><b>หน่วยความดัน</b> สอดคล้องกันหรือไม่ (kPa กับ Pa กับ atm กับ MPa)</li>
+      <li><b>หน่วยของ a และ b</b> ในสมการแวนเดอร์วาลส์เป็นหน่วยโมลาร์เสมอ ต้องแปลง v เป็น v̄ ก่อน</li>
+      <li><b>ตอบตรงคำถาม</b> — โจทย์ถาม “อัตรา” (ต่อวินาที/ต่อชั่วโมง) หรือ “ปริมาณ” เขียนหน่วยให้ถูก</li>
+      <li><b>ข้อพิสูจน์</b> เขียนที่มาทีละบรรทัด อย่ากระโดดข้ามขั้น เพราะคะแนนอยู่ที่ขั้นตอนไม่ใช่คำตอบ</li>
+      <li><b>ตรวจด้วยสามัญสำนึก</b> — อุณหภูมิติดลบเคลวินไหม ประสิทธิภาพเกิน 100% ไหม เอนโทรปีของระบบโดดเดี่ยวลดลงไหม</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <p>หน้าถัดไป: <a href="hints.html"><b>ใบ้ 34 ข้อ</b></a> — ลองทำเองก่อน ติดตรงไหนค่อยเปิดใบ้ทีละขั้น</p>
+</footer>
+
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

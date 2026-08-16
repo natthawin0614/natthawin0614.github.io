@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>เฉลยเต็ม 34 ข้อ — Thermal Physics</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="topin">
+    <a class="brand" href="index.html">05366031 · MIDTERM</a>
+    <nav class="pages">
+      <a href="index.html">หน้าแรก</a>
+      <a href="story.html">เรื่องเล่า</a>
+      <a href="theory.html">เก็งทฤษฎี</a>
+      <a href="plan.html">แผนอ่าน</a>
+      <a href="scope.html">ขอบเขต+สูตร</a>
+      <a href="formulas.html">สูตร+ตัวอย่าง</a>
+      <a href="concepts.html">สรุปคอนเซปต์</a>
+      <a href="hints.html">ใบ้ 34 ข้อ</a>
+      <a href="solutions.html">เฉลยเต็ม</a>
+    </nav>
+    <div class="tools">
+      <button class="tool sq" id="fsDown" type="button">A−</button>
+      <button class="tool sq" id="fsUp" type="button">A+</button>
+      <span class="kbd" id="fsLabel">100%</span>
+      <button class="tool" id="themeBtn" type="button">ตามระบบ</button>
+      <button class="tool" id="toggleAll" type="button">พับทั้งหมด</button>
+      <button class="tool" id="printBtn" type="button">พิมพ์</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<div class="hero">
+  <p class="eyebrow">หน้าที่ 3 · เฉลยละเอียด</p>
+  <h1>เฉลยเต็มครบ 34 ข้อ</h1>
+  <p class="lede">เรียงตามหมายเลขการบ้าน 01 ถึง 34 พร้อม<b>รหัสโจทย์ต้นฉบับ</b>กำกับทุกข้อ (เช่น P3-21 Cengel) เอาไปค้นเฉลยจากอินเทอร์เน็ตเทียบได้ทันที · ติ๊กช่อง “ทำแล้ว” เว็บจะจำให้</p>
+  <p style="margin-top:14px"><b>ความคืบหน้า: <span id="progCount" class="mono">0 / 34</span></b></p>
+</div>
+
+<div class="searchbar">
+  <input type="search" id="searchBox" placeholder="ค้นหา… เช่น  เอนโทรปี · Carnot · P3-21 · ถังแข็ง · แวนเดอร์วาลส์   (กด / เพื่อโฟกัส)">
+</div>
+
+<section id="toc" style="padding-top:24px">
+  <div class="shead"><span class="stag">สารบัญ</span><h2>ไปยังข้อที่ต้องการ</h2></div>
+  <p class="snote">ข้อที่ติ๊กว่าทำแล้วจะเปลี่ยนเป็นสีเขียว</p>
+  <div class="tocgrid">
+    <a href="#hw01">HW1-01</a><a href="#hw02">HW1-02</a><a href="#hw03">HW1-03</a><a href="#hw04">HW1-04</a>
+    <a href="#hw05">HW1-05</a><a href="#hw06">HW1-06</a><a href="#hw07">HW1-07</a><a href="#hw08">HW1-08</a>
+    <a href="#hw09">HW1-09</a><a href="#hw10">HW1-10</a><a href="#hw11">HW1-11</a><a href="#hw12">HW1-12</a>
+    <a href="#hw13">HW1-13</a><a href="#hw14">HW1-14</a><a href="#hw15">HW1-15</a><a href="#hw16">HW1-16</a>
+    <a href="#hw17">HW1-17</a><a href="#hw18">HW1-18</a><a href="#hw19">HW1-19</a><a href="#hw20">HW1-20</a>
+    <a href="#hw21">HW1-21</a><a href="#hw22">HW1-22</a><a href="#hw23">HW1-23</a><a href="#hw24">HW1-24</a>
+    <a href="#hw25">HW1-25</a><a href="#hw26">HW1-26</a><a href="#hw27">HW1-27</a><a href="#hw28">HW1-28</a>
+    <a href="#hw29">HW1-29</a><a href="#hw30">HW1-30</a><a href="#hw31">HW1-31</a><a href="#hw32">HW1-32</a>
+    <a href="#hw33">HW1-33</a><a href="#hw34">HW1-34</a>
+  </div>
+</section>
+
+<section id="probs" data-group>
+
+<!-- ===================== HW1-01 ===================== -->
+<details class="prob" id="hw01" open>
+  <summary><span class="pid">HW1-01</span><span class="ptitle">สัมประสิทธิ์การขยายตัวทางความร้อน และพิสูจน์ β = 3α</span><span class="psrc">P1.8 · Schroeder</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>นิยาม α ≡ (ΔL/L)/ΔT · (a) สะพานเหล็กกล้ายาว 1 km, α = 1.1×10⁻⁵ K⁻¹ หาการเปลี่ยนความยาวระหว่างคืนหนาวกับวันร้อน (b) เทอร์มอมิเตอร์แถบโลหะคู่ทำงานอย่างไร (c) พิสูจน์ β = α<sub>x</sub> + α<sub>y</sub> + α<sub>z</sub></div>
+
+    <div class="step"><h5>(a) สะพานเหล็กกล้า</h5>
+      <p>โจทย์ไม่ได้ให้ ΔT มา ต้องสมมติเอง — คืนหนาว −10 °C ถึงวันร้อนอบอ้าว 30 °C → ΔT ≈ 40 K</p>
+      <div class="eq">ΔL = α L ΔT = (1.1×10⁻⁵)(1000 m)(40 K) = <b>0.44 m ≈ 44 cm</b></div>
+      <p>นี่คือเหตุผลที่สะพานและรางรถไฟต้องมี <b>รอยต่อขยายตัว (expansion joint)</b> ไม่เช่นนั้นโครงสร้างจะโก่งหรือแตกร้าว</p>
+    </div>
+
+    <div class="step"><h5>(b) เทอร์มอมิเตอร์แถบโลหะคู่ (bimetallic strip)</h5>
+      <p>นำโลหะสองชนิดที่มี α ต่างกันมาประกบติดกันตลอดความยาว เมื่ออุณหภูมิเพิ่ม โลหะที่ α มากกว่าจะยืดยาวกว่า แต่ถูกยึดติดกับอีกด้านจึงยืดอิสระไม่ได้ ผลคือ <b>แถบโค้งงอไปทางโลหะที่ขยายตัวน้อยกว่า</b> ปริมาณการโค้งแปรตามอุณหภูมิ นำไปขับเข็มชี้บนหน้าปัดได้ (หลักการเดียวกับเทอร์โมสตัท)</p>
+    </div>
+
+    <div class="step"><h5>(c) พิสูจน์ β = α<sub>x</sub> + α<sub>y</sub> + α<sub>z</sub></h5>
+      <div class="eq">V = L_x L_y L_z
+ใส่ลอการิทึมทั้งสองข้าง :  ln V = ln L_x + ln L_y + ln L_z
+หาอนุพันธ์เทียบ T :
+  (1/V)(dV/dT) = (1/L_x)(dL_x/dT) + (1/L_y)(dL_y/dT) + (1/L_z)(dL_z/dT)
+       β       =      α_x         +       α_y        +       α_z
+
+ของแข็งไอโซทรอปิก : α_x = α_y = α_z = α  →  <b>β = 3α</b></div>
+      <p><b>ตรวจสอบด้วยวิธีตรง:</b> (1+αΔT)³ = 1 + 3αΔT + 3α²ΔT² + α³ΔT³ ≈ 1 + 3αΔT เมื่อ αΔT ≪ 1 ได้ผลเดียวกัน</p>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span>(a) <b>≈ 44 cm</b> (ขึ้นกับ ΔT ที่สมมติ) · (c) <b>β = 3α</b></div>
+  </div>
+</details>
+
+<!-- ===================== HW1-02 ===================== -->
+<details class="prob" id="hw02" open>
+  <summary><span class="pid">HW1-02</span><span class="ptitle">สมการบารอเมตริก — บรรยากาศแบบเอกซ์โพเนนเชียล</span><span class="psrc">P1.16 · Schroeder</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>(a) หา dP/dz ในเทอมของความหนาแน่น (b) แสดงว่า dP/dz = −(mg/kT)P (c) แก้สมการหา P(z) และแสดงว่าความหนาแน่นมีรูปเดียวกัน</div>
+
+    <div class="step"><h5>(a) สมดุลแรงของชั้นอากาศบาง ๆ</h5>
+      <p>พิจารณาแผ่นอากาศพื้นที่ A หนา dz ที่ความสูง z อยู่นิ่ง → แรงลัพธ์เป็นศูนย์</p>
+      <div class="eq">แรงดันขึ้นจากด้านล่าง = แรงดันลงจากด้านบน + น้ำหนักของชั้นอากาศ
+    P(z)·A          =      P(z+dz)·A       +  ρ·A·dz·g
+
+[P(z) − P(z+dz)]A = ρ A g dz
+−dP = ρ g dz
+
+<b>dP/dz = −ρ g</b></div>
+    </div>
+
+    <div class="step"><h5>(b) แทนความหนาแน่นด้วยกฎแก๊สอุดมคติ</h5>
+      <div class="eq">ρ = มวลรวม/ปริมาตร = N·m/V
+จาก PV = NkT  →  N/V = P/(kT)
+∴ ρ = m P/(kT)
+
+แทนกลับ :  <b>dP/dz = −(mg/kT) P</b></div>
+    </div>
+
+    <div class="step"><h5>(c) แก้สมการเชิงอนุพันธ์</h5>
+      <p>สมมติ T ไม่ขึ้นกับความสูง (ไม่จริงนัก แต่พอใช้ประมาณได้)</p>
+      <div class="eq">dP/P = −(mg/kT) dz
+∫ dP/P = −(mg/kT) ∫ dz
+ln P = −(mg/kT) z + C
+
+<b>P(z) = P(0) e^(−mgz/kT)</b>
+
+และเนื่องจาก ρ = mP/(kT) แปรผันตรงกับ P ที่ T คงที่ :
+<b>ρ(z) = ρ(0) e^(−mgz/kT)</b>   ← รูปแบบเดียวกัน</div>
+      <p><b>ความสูงลักษณะเฉพาะ</b> z₀ = kT/mg ≈ 8.5 km สำหรับอากาศที่ 300 K — ทุก ๆ 8.5 km ความดันลดลงเหลือ 1/e ของเดิม</p>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span><b>P(z) = P(0) e<sup>−mgz/kT</sup></b> และความหนาแน่นมีรูปแบบเดียวกัน</div>
+    <div class="trap"><span class="ctitle">เชื่อมโยง</span>เลขชี้กำลัง mgz/kT คือ <b>ตัวประกอบโบลต์ซมันน์</b> e<sup>−E/kT</sup> โดย E = mgz คือพลังงานศักย์โน้มถ่วง — เป็นตัวอย่างแรกของสถิติโบลต์ซมันน์ที่จะเรียนหลังสอบกลางภาค</div>
+  </div>
+</details>
+
+<!-- ===================== HW1-03 ===================== -->
+<details class="prob" id="hw03" open>
+  <summary><span class="pid">HW1-03</span><span class="ptitle">สัมประสิทธิ์วิเรียล B(T) ของไนโตรเจน และการเชื่อมกับแวนเดอร์วาลส์</span><span class="psrc">P1.17 · Schroeder</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>ให้ค่า B(T) ของ N₂ ที่ 100–600 K · (a) หา B/(V/n) ที่ 1 atm (b) อธิบายเหตุผลเชิงแรงระหว่างโมเลกุล (c) หา B และ C จากสมการแวนเดอร์วาลส์ (d) หา a, b จากข้อมูล</div>
+
+    <div class="step"><h5>(a) คำนวณ B(T)/(V/n) ที่ความดัน 1 atm</h5>
+      <p>ประมาณ V/n ด้วยแก๊สอุดมคติ: V/n = RT/P</p>
+      <div class="tscroll"><table>
+        <thead><tr><th class="n">T (K)</th><th class="n">B (cm³/mol)</th><th class="n">V/n (cm³/mol)</th><th class="n">B/(V/n)</th></tr></thead>
+        <tbody>
+          <tr><td class="n">100</td><td class="n">−160</td><td class="n">8 205</td><td class="n">−0.0195</td></tr>
+          <tr><td class="n">200</td><td class="n">−35</td><td class="n">16 411</td><td class="n">−0.00213</td></tr>
+          <tr><td class="n">300</td><td class="n">−4.2</td><td class="n">24 616</td><td class="n">−0.00017</td></tr>
+          <tr><td class="n">400</td><td class="n">9.0</td><td class="n">32 821</td><td class="n">0.00027</td></tr>
+          <tr><td class="n">500</td><td class="n">16.9</td><td class="n">41 026</td><td class="n">0.00041</td></tr>
+          <tr><td class="n">600</td><td class="n">21.3</td><td class="n">49 232</td><td class="n">0.00043</td></tr>
+        </tbody>
+      </table></div>
+      <p><b>สรุป:</b> ทุกค่ามีขนาดน้อยกว่า 2% และส่วนใหญ่น้อยกว่า 0.05% → พจน์แก้ไขเล็กมาก กฎแก๊สอุดมคติใช้ได้ดีที่ 1 atm โดยเฉพาะที่อุณหภูมิห้องขึ้นไป</p>
+    </div>
+
+    <div class="step"><h5>(b) ทำไม B ติดลบที่ T ต่ำ แต่เป็นบวกที่ T สูง</h5>
+      <ul>
+        <li><b>T ต่ำ:</b> โมเลกุลเคลื่อนที่ช้า มีเวลาอยู่ในระยะที่แรงดึงดูดออกฤทธิ์ แรงดึงดูดดึงโมเลกุลเข้าหากัน ทำให้ชนผนังน้อยลง → P ต่ำกว่าอุดมคติ → <b>B &lt; 0</b></li>
+        <li><b>T สูง:</b> โมเลกุลเคลื่อนที่เร็ว ผ่านกันไปเร็วจนแรงดึงดูดแทบไม่มีผล เหลือแต่ผลของ<b>ปริมาตรจริงของโมเลกุล</b> ที่ทำให้พื้นที่ว่างลดลง โมเลกุลชนผนังบ่อยขึ้น → P สูงกว่าอุดมคติ → <b>B &gt; 0</b></li>
+      </ul>
+    </div>
+
+    <div class="step"><h5>(c) แปลงแวนเดอร์วาลส์ให้อยู่ในรูปวิเรียล</h5>
+      <div class="eq">P = nRT/(V − nb) − an²/V²
+  = (nRT/V) · 1/(1 − nb/V) − an²/V²
+
+ใช้ (1 − x)⁻¹ ≈ 1 + x + x² + ⋯ โดย x = nb/V :
+  = (nRT/V)[1 + nb/V + (nb/V)² + ⋯] − an²/V²
+
+ดึง (nRT/V) ออกมาเป็นตัวร่วม :
+PV = nRT[ 1 + (b − a/RT)(n/V) + b²(n/V)² + ⋯ ]
+
+เทียบกับรูปวิเรียล ได้ :
+  <b>B(T) = b − a/(RT)</b>        <b>C(T) = b²</b></div>
+    </div>
+
+    <div class="step"><h5>(d) หา a และ b จากข้อมูลจริง</h5>
+      <p>ใช้สองจุดที่ห่างกันมาก คือ T = 300 K (B = −4.2) และ T = 600 K (B = 21.3)</p>
+      <div class="eq">b − a/(R·300) = −4.2
+b − a/(R·600) = 21.3
+ลบกัน :  −a/R (1/300 − 1/600) = −25.5
+        −a/R × (1/600) = −25.5   →  a/R = 15 300 cm³·K/mol
+
+b = 21.3 + 15300/600 = <b>46.8 cm³/mol</b>
+a = 15300 × 8.314 = <b>0.127 Pa·m⁶/mol²</b></div>
+      <p><b>ตรวจสอบ:</b> ค่าจริงของ N₂ คือ a = 0.137 Pa·m⁶/mol², b = 38.7 cm³/mol — อยู่ในระดับเดียวกัน แสดงว่าแวนเดอร์วาลส์อธิบายแนวโน้มได้ดี แต่ไม่แม่นระดับตัวเลขนัก</p>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span>(c) <b>B(T) = b − a/RT , C(T) = b²</b> · (d) <b>b ≈ 46.8 cm³/mol , a ≈ 0.127 Pa·m⁶/mol²</b></div>
+  </div>
+</details>
+
+<!-- ===================== HW1-04 ===================== -->
+<details class="prob" id="hw04" open>
+  <summary><span class="pid">HW1-04</span><span class="ptitle">การไหลผ่านรูเล็ก (Effusion) — แก๊สรั่วออกจากภาชนะ</span><span class="psrc">P1.22 · Schroeder</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>(a) แสดงว่าจำนวนโมเลกุลที่ชนผนัง = PAΔt/(2m v̄<sub>x</sub>) (b) แสดงว่า √⟨v<sub>x</sub>²⟩ = √(kT/m) (c) แก้สมการหา N(t) (d) หา τ ของภาชนะ 1 L รูเจาะ 1 mm² (e) ยางจักรยานแบนใน 1 ชม. รูใหญ่เท่าใด (f) วิจารณ์นวนิยาย Round the Moon</div>
+
+    <div class="step"><h5>(a) จำนวนการชนผนัง</h5>
+      <p>คิดจากความดัน = โมเมนตัมที่ถ่ายเทต่อเวลาต่อพื้นที่ การชนแบบยืดหยุ่นแต่ละครั้งถ่ายโมเมนตัม 2m v<sub>x</sub></p>
+      <div class="eq">F·Δt = (จำนวนการชน) × 2m v̄_x
+P·A·Δt = (จำนวนการชน) × 2m v̄_x
+<b>จำนวนการชน = P A Δt/(2m v̄_x)</b></div>
+    </div>
+
+    <div class="step"><h5>(b) ความเร็วเฉลี่ยกำลังสองในแนวแกน x</h5>
+      <p>ใช้ทฤษฎีบทการแบ่งเท่าพลังงาน: การเลื่อนที่ในแนว x เป็นหนึ่งพจน์กำลังสอง</p>
+      <div class="eq">½ m ⟨v_x²⟩ = ½ kT
+⟨v_x²⟩ = kT/m
+<b>√⟨v_x²⟩ = √(kT/m)</b></div>
+    </div>
+
+    <div class="step"><h5>(c) แก้สมการเชิงอนุพันธ์</h5>
+      <p>เจาะรูพื้นที่ A โมเลกุลที่จะชนผนังตรงนั้นหลุดออกไปแทน แทน P = NkT/V ลงในผลข้อ (a)</p>
+      <div class="eq">dN/dt = −(A/2V)√(kT/m) · N
+
+แยกตัวแปร :  dN/N = −(A/2V)√(kT/m) dt
+<b>N(t) = N(0) e^(−t/τ)</b>    โดย   <b>τ = (2V/A)√(m/kT)</b></div>
+    </div>
+
+    <div class="step"><h5>(d) ภาชนะ 1 ลิตร รูขนาด 1 mm²</h5>
+      <div class="eq">m_อากาศ = 28.97×10⁻³/(6.022×10²³) = 4.81×10⁻²⁶ kg
+√(kT/m) = √[(1.381×10⁻²³)(300)/(4.81×10⁻²⁶)] = 293.5 m/s
+
+τ = 2(1×10⁻³)/[(1×10⁻⁶)(293.5)] = <b>6.8 วินาที</b></div>
+    </div>
+
+    <div class="step"><h5>(e) ยางจักรยานแบนใน 1 ชั่วโมง</h5>
+      <div class="eq">ประมาณ V ยาง ≈ 1 L,  τ ≈ 3600 s
+A = 2V/(τ √(kT/m)) = 2(10⁻³)/[(3600)(293.5)] = 1.9×10⁻⁹ m²
+รัศมี r = √(A/π) = <b>≈ 25 ไมโครเมตร</b></div>
+      <p>รูเล็กระดับเส้นผมผ่าแปดยังทำให้ยางแบนได้ในหนึ่งชั่วโมง</p>
+    </div>
+
+    <div class="step"><h5>(f) Round the Moon ของจูลส์ แวร์น</h5>
+      <p>นักเดินทางเปิดหน้าต่างเพื่อโยนซากสุนัขออกไปแล้วรีบปิด — ประมาณห้องโดยสาร V ≈ 100 m³ หน้าต่าง A ≈ 1 m²</p>
+      <div class="eq">τ = 2(100)/[(1)(293.5)] = <b>0.68 วินาที</b></div>
+      <p><b>สรุป: เป็นไปไม่ได้</b> อากาศจะหายไปเกือบหมดในเวลาไม่ถึงหนึ่งวินาที ยิ่งกว่านั้นรูขนาดหน้าต่างใหญ่กว่าระยะอิสระเฉลี่ยมาก การไหลจึงเป็นแบบไฮโดรไดนามิก (พุ่งออกเป็นก้อน) ซึ่ง<b>เร็วยิ่งกว่า</b>ที่คำนวณด้วยสูตร effusion เสียอีก</p>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span>(c) <b>τ = (2V/A)√(m/kT)</b> · (d) <b>≈ 6.8 s</b> · (e) <b>r ≈ 25 μm</b> · (f) <b>ทำไม่ได้ (τ ≈ 0.7 s)</b></div>
+  </div>
+</details>
+
+<!-- ===================== HW1-05 ===================== -->
+<details class="prob" id="hw05" open>
+  <summary><span class="pid">HW1-05</span><span class="ptitle">ฮีเลียมขยายตัวโดยความดันแปรผันตรงกับปริมาตร</span><span class="psrc">P1.31 · Schroeder</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>ฮีเลียม V₁ = 1 L, P₁ = 1 atm ขยายจนถึง V₂ = 3 L โดย P ∝ V · หา (a) กราฟ (b) W (c) ΔU (d) Q (e) ทำอย่างไรให้ P เพิ่มขณะขยายตัว</div>
+
+    <div class="step"><h5>(a) กราฟ</h5><p>P ∝ V คือเส้นตรงผ่านจุดกำเนิด ลากจาก (1 L, 1 atm) ไปยัง (3 L, 3 atm)</p></div>
+
+    <div class="step"><h5>(b) งานที่กระทำต่อแก๊ส</h5>
+      <p>ให้ P = cV โดย c = 1 atm/1 L = 1.013×10⁸ Pa/m³</p>
+      <div class="eq">W = −∫ P dV = −c ∫(1L→3L) V dV = −c [V²/2]
+  = −(1.013×10⁸)(9×10⁻⁶ − 1×10⁻⁶)/2
+  = <b>−405 J</b></div>
+      <p>เครื่องหมายลบตามระบบ Schroeder แปลว่า <b>แก๊สทำงานให้สิ่งแวดล้อม 405 J</b><br>ตรวจอีกทางด้วยพื้นที่สี่เหลี่ยมคางหมู: ½(1+3) atm × 2 L = 4 atm·L = 405 J ✓</p>
+    </div>
+
+    <div class="step"><h5>(c) การเปลี่ยนแปลงพลังงานภายใน</h5>
+      <p>He เป็นแก๊สอะตอมเดี่ยว f = 3 → U = (3/2)PV แทน PV ได้เลยไม่ต้องหา T</p>
+      <div class="eq">ΔU = (3/2)(P₂V₂ − P₁V₁) = (3/2)(3×3 − 1×1) atm·L
+   = 12 atm·L = <b>+1216 J</b></div>
+    </div>
+
+    <div class="step"><h5>(d) ความร้อน</h5>
+      <div class="eq">Q = ΔU − W = 1216 − (−405) = <b>+1621 J</b>   (ความร้อนเข้าสู่แก๊ส)</div>
+    </div>
+
+    <div class="step"><h5>(e) ทำอย่างไรให้ความดันเพิ่มขณะแก๊สขยายตัว</h5>
+      <p>ต้องให้ความร้อนเข้าไปเร็วพอ พร้อมกับค่อย ๆ <b>เพิ่ม</b>แรงกดที่ลูกสูบ เช่น วางน้ำหนักเพิ่มทีละน้อยขณะให้ความร้อน — ถ้าให้ความร้อนอย่างเดียวโดยแรงกดคงที่ ความดันจะคงที่ (isobaric)</p>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span>(b) <b>W = −405 J</b> · (c) <b>ΔU = +1216 J</b> · (d) <b>Q = +1621 J</b></div>
+  </div>
+</details>
+
+<!-- ===================== HW1-06 ===================== -->
+<details class="prob" id="hw06" open>
+  <summary><span class="pid">HW1-06</span><span class="ptitle">วัฏจักรสี่เหลี่ยมของแก๊สไดอะตอมิก — วิเคราะห์ทีละขั้น</span><span class="psrc">P1.34 · Schroeder</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>วัฏจักรสี่เหลี่ยม: A (ขึ้นที่ V₁, P₁→P₂) → B (ขวาที่ P₂, V₁→V₂) → D (ลงที่ V₂, P₂→P₁) → C (ซ้ายที่ P₁, V₂→V₁) · แก๊สไดอะตอมิก การสั่นถูกแช่แข็ง → f = 5 → U = (5/2)PV</div>
+
+    <div class="step"><h5>(a) วิเคราะห์ทั้งสี่ขั้น</h5>
+      <div class="tscroll"><table>
+        <thead><tr><th>ขั้น</th><th>ชนิด</th><th class="n">W (ต่อแก๊ส)</th><th class="n">ΔU</th><th class="n">Q</th></tr></thead>
+        <tbody>
+          <tr><td class="n">A</td><td>Isochoric ขึ้น</td><td class="n">0</td><td class="n">(5/2)V₁(P₂−P₁)</td><td class="n">(5/2)V₁(P₂−P₁)</td></tr>
+          <tr><td class="n">B</td><td>Isobaric ขยาย</td><td class="n">−P₂(V₂−V₁)</td><td class="n">(5/2)P₂(V₂−V₁)</td><td class="n">(7/2)P₂(V₂−V₁)</td></tr>
+          <tr><td class="n">D</td><td>Isochoric ลง</td><td class="n">0</td><td class="n">(5/2)V₂(P₁−P₂)</td><td class="n">(5/2)V₂(P₁−P₂)</td></tr>
+          <tr><td class="n">C</td><td>Isobaric อัด</td><td class="n">+P₁(V₂−V₁)</td><td class="n">(5/2)P₁(V₁−V₂)</td><td class="n">(7/2)P₁(V₁−V₂)</td></tr>
+        </tbody>
+      </table></div>
+      <p>ขั้น isobaric ได้ Q = (7/2)PΔV เพราะ Q = ΔU − W = (5/2)PΔV + PΔV — ตรงกับ C<sub>p</sub> = (7/2)R ของแก๊สไดอะตอมิก</p>
+    </div>
+
+    <div class="step"><h5>(b) ความหมายเชิงกายภาพของแต่ละขั้น</h5>
+      <ul>
+        <li><b>A</b> — ตรึงลูกสูบไว้ให้ปริมาตรคงที่ แล้วให้ความร้อน (เปลวไฟ/ขดลวดความร้อน) ความดันและอุณหภูมิเพิ่มขึ้น</li>
+        <li><b>B</b> — ปล่อยลูกสูบให้เลื่อนออกโดยรักษาแรงกดคงที่ พร้อมให้ความร้อนต่อ แก๊สขยายตัวและดันลูกสูบ</li>
+        <li><b>D</b> — ตรึงลูกสูบอีกครั้ง แล้วดึงความร้อนออก (สัมผัสอ่างเย็น) ความดันตก</li>
+        <li><b>C</b> — ดันลูกสูบกลับที่ความดันต่ำคงที่ พร้อมระบายความร้อนออก กลับสู่สถานะเริ่มต้น</li>
+      </ul>
+    </div>
+
+    <div class="step"><h5>(c) รวมทั้งวัฏจักร</h5>
+      <div class="eq">ΔU_รวม = 0                        ← ต้องเป็นศูนย์ เพราะกลับมาสถานะเดิม ✓
+
+W_รวม = −P₂(V₂−V₁) + P₁(V₂−V₁) = <b>−(P₂ − P₁)(V₂ − V₁)</b>   ← ค่าลบ = แก๊สทำงานสุทธิออกมา
+Q_รวม = <b>+(P₂ − P₁)(V₂ − V₁)</b>                            ← ค่าบวก = ความร้อนเข้าสุทธิ</div>
+      <p><b>เป็นไปตามที่คาด:</b> ขนาดของ W<sub>รวม</sub> เท่ากับ<b>พื้นที่ในวงสี่เหลี่ยม</b>พอดี และวัฏจักรวิ่งตามเข็มนาฬิกา → ทำหน้าที่เป็นเครื่องยนต์ความร้อน รับความร้อนแล้วผลิตงาน</p>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span><b>W<sub>net</sub> = −(P₂−P₁)(V₂−V₁) , Q<sub>net</sub> = +(P₂−P₁)(V₂−V₁) , ΔU<sub>net</sub> = 0</b></div>
+  </div>
+</details>
+
+<!-- ===================== HW1-07 ===================== -->
+<details class="prob" id="hw07" open>
+  <summary><span class="pid">HW1-07</span><span class="ptitle">หาผลต่างพลังงานภายใน E<sub>int,B</sub> − E<sub>int,A</sub></span><span class="psrc">P20.34 · Serway</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>A(0.2 m³, 1 atm) → B(0.09 m³, 3 atm) อะเดียแบติก · B → C(0.4 m³, 3 atm) ไอโซบาริก Q = +345 kJ · C → D(1.2 m³, 1 atm) ไอโซเทอร์มอล · D → A ไอโซบาริก Q = −371 kJ</div>
+
+    <div class="step"><h5>กลยุทธ์ — เดินอ้อมทางที่มีข้อมูลครบ</h5>
+      <p>เส้นทาง A→B เป็นอะเดียแบติกที่เราไม่รู้งาน แต่พลังงานภายในเป็นฟังก์ชันสถานะ จึงเดินจาก B ไป A ผ่าน C และ D แทนได้</p>
+      <p><b>ระบบ Serway:</b> ΔU = Q − W<sub>โดยแก๊ส</sub> โดย W<sub>โดยแก๊ส</sub> = PΔV สำหรับไอโซบาริก</p>
+    </div>
+
+    <div class="step"><h5>ขั้น B → C (ไอโซบาริก 3 atm, 0.09 → 0.4 m³)</h5>
+      <div class="eq">W = P ΔV = 3(101 325)(0.4 − 0.09) = 94 200 J = 94.2 kJ
+ΔU = Q − W = 345 − 94.2 = <b>+250.8 kJ</b></div>
+    </div>
+
+    <div class="step"><h5>ขั้น C → D (ไอโซเทอร์มอล)</h5>
+      <div class="eq">แก๊สอุดมคติ อุณหภูมิคงที่  →  ΔU = <b>0</b></div>
+    </div>
+
+    <div class="step"><h5>ขั้น D → A (ไอโซบาริก 1 atm, 1.2 → 0.2 m³)</h5>
+      <div class="eq">W = P ΔV = (101 325)(0.2 − 1.2) = −101 300 J = −101.3 kJ
+ΔU = Q − W = −371 − (−101.3) = <b>−269.7 kJ</b></div>
+    </div>
+
+    <div class="step"><h5>รวมเส้นทาง B → A</h5>
+      <div class="eq">U_A − U_B = 250.8 + 0 + (−269.7) = −18.9 kJ
+→ U_B − U_A = <b>+18.9 kJ</b></div>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span>E<sub>int,B</sub> − E<sub>int,A</sub> = <b>+18.9 kJ</b></div>
+    <div class="trap"><span class="ctitle">เทคนิคที่ต้องจำ</span>เมื่อเจอขั้นที่ข้อมูลไม่ครบ <b>ให้เดินอ้อมไปทางอื่นเสมอ</b> เพราะ U เป็นฟังก์ชันสถานะ ผลรวม ΔU รอบวัฏจักรต้องเป็นศูนย์ — ใช้ได้กับ HW1-08 ด้วย และเป็นแนวที่ข้อสอบชอบออกมาก</div>
+  </div>
+</details>
+
+<!-- ===================== HW1-08 ===================== -->
+<details class="prob" id="hw08" open>
+  <summary><span class="pid">HW1-08</span><span class="ptitle">วัฏจักรสี่จุดกับหลายเส้นทาง — หา Q และ W แต่ละช่วง</span><span class="psrc">P20.40 · Serway</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>A บนซ้าย, B บนขวา, C ล่างขวา, D ล่างซ้าย · ΔU<sub>A→C</sub> ตามเส้นสีน้ำเงิน = +800 J · งานที่กระทำต่อแก๊สตามเส้นทาง ABC = −500 J</div>
+
+    <div class="step"><h5>(a) ความร้อนที่เข้าสู่ระบบตามเส้นทาง A→B→C</h5>
+      <p>ΔU ขึ้นกับสถานะต้นปลายเท่านั้น ไม่ว่าเดินทางไหน ΔU<sub>A→C</sub> = +800 J เสมอ</p>
+      <div class="eq">ΔU = Q + W_ต่อระบบ
+800 = Q + (−500)
+Q = <b>+1300 J</b></div>
+    </div>
+
+    <div class="step"><h5>(b) งานที่กระทำต่อระบบช่วง C→D เมื่อ P<sub>A</sub> = 5P<sub>C</sub></h5>
+      <p>ช่วง B→C เป็นแนวดิ่ง (V คงที่) → W = 0 ดังนั้นงาน −500 J มาจากช่วง A→B ทั้งหมด</p>
+      <div class="eq">W_(A→B) = −P_A (V_B − V_A) = −500 J
+→ P_A (V_B − V_A) = 500 J
+
+ช่วง C→D อยู่ที่ P_C เดินจากขวาไปซ้าย (V_C = V_B → V_D = V_A) :
+W_(C→D) = −P_C (V_D − V_C) = +P_C (V_B − V_A)
+        = (P_A/5)(V_B − V_A) = 500/5 = <b>+100 J</b></div>
+    </div>
+
+    <div class="step"><h5>(c) ความร้อนตามเส้นทางสีเขียว C→D→A</h5>
+      <div class="eq">ΔU_(C→A) = −800 J
+W_ต่อระบบ = W_(C→D) + W_(D→A) = 100 + 0 = 100 J   (D→A เป็นแนวดิ่ง)
+Q = ΔU − W = −800 − 100 = <b>−900 J</b>   (คายความร้อนออก)</div>
+    </div>
+
+    <div class="step"><h5>(d) ถ้า ΔU<sub>D→A</sub> = +500 J หา Q ช่วง C→D</h5>
+      <div class="eq">ΔU_(C→D) = ΔU_(C→A) − ΔU_(D→A) = −800 − 500 = −1300 J
+Q_(C→D) = ΔU − W = −1300 − 100 = <b>−1400 J</b></div>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span>(a) <b>+1300 J</b> · (b) <b>+100 J</b> · (c) <b>−900 J</b> · (d) <b>−1400 J</b></div>
+    <div class="trap"><span class="ctitle">กุญแจของข้อนี้</span>เส้นแนวดิ่งบนกราฟ P-V คือ V คงที่ → <b>W = 0 เสมอ</b> ส่วนเส้นแนวนอนคือ P คงที่ → W = −PΔV ตรง ๆ จำสองอย่างนี้แล้วข้อสอบแนวนี้แก้ได้เกือบหมด</div>
+  </div>
+</details>
+
+<!-- ===================== HW1-09 ===================== -->
+<details class="prob" id="hw09" open>
+  <summary><span class="pid">HW1-09</span><span class="ptitle">สูบลมยางจักรยาน — การอัดแบบอะเดียแบติก</span><span class="psrc">P1.36 · Schroeder</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>อากาศ 1 L ที่ 1 atm ถูกอัดแบบอะเดียแบติกจนถึง 7 atm · อากาศเป็นไดอะตอมิก γ = 1.4 · หา (a) V สุดท้าย (b) งานที่ใช้ (c) T สุดท้ายถ้า T เริ่มต้น 300 K</div>
+
+    <div class="step"><h5>(a) ปริมาตรสุดท้าย</h5>
+      <div class="eq">อะเดียแบติก :  P V^γ = คงที่
+V_f = V_i (P_i/P_f)^(1/γ) = 1 × (1/7)^(1/1.4)
+    = (0.1429)^0.714 = <b>0.249 L</b></div>
+    </div>
+
+    <div class="step"><h5>(b) งานที่ใช้อัด</h5>
+      <p>อะเดียแบติก Q = 0 → W = ΔU และอากาศเป็นไดอะตอมิก f = 5 → U = (5/2)PV</p>
+      <div class="eq">W = ΔU = (5/2)(P_f V_f − P_i V_i)
+  = (5/2)[7(101 325)(0.249×10⁻³) − (101 325)(1×10⁻³)]
+  = (5/2)(176.7 − 101.3) = <b>+188 J</b></div>
+      <p>ค่าบวกถูกต้อง เพราะเราทำงาน<b>ต่อ</b>แก๊ส (อัดเข้า)</p>
+    </div>
+
+    <div class="step"><h5>(c) อุณหภูมิสุดท้าย</h5>
+      <div class="eq">PV = nRT  →  T_f/T_i = (P_f V_f)/(P_i V_i) = 176.7/101.3 = 1.744
+T_f = 300 × 1.744 = <b>523 K = 250 °C</b></div>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span>(a) <b>0.249 L</b> · (b) <b>+188 J</b> · (c) <b>523 K</b></div>
+    <div class="trap"><span class="ctitle">ความหมายเชิงกายภาพ</span>นี่คือเหตุผลที่<b>สูบลมจักรยานแล้วปลายสูบร้อน</b> — งานที่เราออกแรงกดถูกเก็บเป็นพลังงานภายในทั้งหมดเพราะระบายความร้อนไม่ทัน ข้อสอบชอบถามคำอธิบายเชิงกายภาพส่วนนี้ ไม่ใช่แค่ตัวเลข</div>
+  </div>
+</details>
+
+<!-- ===================== HW1-10 ===================== -->
+<details class="prob" id="hw10" open>
+  <summary><span class="pid">HW1-10</span><span class="ptitle">ความสัมพันธ์ระหว่าง β, κ<sub>T</sub> และ (∂P/∂T)<sub>V</sub></span><span class="psrc">P1.46 · Schroeder</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>อธิบายว่าทำไมเราวัด C<sub>p</sub> ไม่ใช่ C<sub>v</sub> สำหรับของแข็งและของเหลว โดยประมาณความดันที่ต้องใช้เพื่อรักษา V ให้คงที่ขณะ T เพิ่ม</div>
+
+    <div class="step"><h5>(a) เพิ่มอุณหภูมิที่ความดันคงที่</h5>
+      <div class="eq">β ≡ (1/V)(∂V/∂T)_P    →   <b>dV₁ = β V dT</b>  (ปริมาตรเพิ่ม)</div>
+    </div>
+
+    <div class="step"><h5>(b) อัดกลับที่อุณหภูมิคงที่</h5>
+      <div class="eq">κ_T ≡ −(1/V)(∂V/∂P)_T   →   <b>dV₂ = −κ_T V dP</b>  (ปริมาตรลด)</div>
+    </div>
+
+    <div class="step"><h5>(c) รวมสองขั้นให้ปริมาตรสุทธิไม่เปลี่ยน</h5>
+      <div class="eq">dV₁ + dV₂ = 0
+β V dT − κ_T V dP = 0
+
+<b>(∂P/∂T)_V = β/κ_T</b>
+
+เขียนกลับเป็นรูปอนุพันธ์ย่อย :
+(∂P/∂T)_V = −(∂V/∂T)_P / (∂V/∂P)_T = −(βV)/(−κ_T V) = β/κ_T  ✓</div>
+      <p>ผลนี้เป็นเอกลักษณ์ทางคณิตศาสตร์ล้วน ใช้ได้กับปริมาณสามค่าใด ๆ ที่ผูกกันจนกำหนดสองค่าแล้วได้ค่าที่สาม (triple product rule)</p>
+    </div>
+
+    <div class="step"><h5>(d) ตรวจสอบกับแก๊สอุดมคติ</h5>
+      <div class="eq">V = nRT/P
+β   = (1/V)(nR/P) = <b>1/T</b>
+κ_T = −(1/V)(−nRT/P²) = <b>1/P</b>
+(∂P/∂T)_V = nR/V = <b>P/T</b>
+
+ตรวจ :  β/κ_T = (1/T)/(1/P) = P/T ✓</div>
+    </div>
+
+    <div class="step"><h5>(e) คำนวณจริงสำหรับน้ำและปรอท</h5>
+      <div class="eq">น้ำ @25 °C :  β = 2.57×10⁻⁴ K⁻¹,  κ_T = 4.52×10⁻¹⁰ Pa⁻¹,  ΔT = 10 K
+ΔP = (β/κ_T)ΔT = (2.57×10⁻⁴/4.52×10⁻¹⁰)(10) = <b>5.7 MPa ≈ 56 atm</b>
+
+ปรอท @25 °C :  β = 1.81×10⁻⁴ K⁻¹,  κ_T = 4.04×10⁻¹¹ Pa⁻¹
+ΔP = (1.81×10⁻⁴/4.04×10⁻¹¹)(10) = <b>44.8 MPa ≈ 442 atm</b></div>
+      <p><b>สรุป:</b> การรักษาปริมาตรของเหลวให้คงที่ขณะเพิ่มอุณหภูมิเพียง 10 องศา ต้องใช้ความดันหลายสิบถึงหลายร้อยบรรยากาศ ทำได้ยากมากในห้องปฏิบัติการ จึงต้อง<b>วัด C<sub>p</sub> ที่ความดันคงที่</b>แทน</p>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span>(c) <b>(∂P/∂T)<sub>V</sub> = β/κ<sub>T</sub></b> · (e) น้ำ <b>≈ 56 atm</b>, ปรอท <b>≈ 442 atm</b> → ต้องวัดที่ <b>P คงที่</b></div>
+  </div>
+</details>
+
+<!-- ===================== HW1-11 ===================== -->
+<details class="prob" id="hw11" open>
+  <summary><span class="pid">HW1-11</span><span class="ptitle">สมการความร้อนและคำตอบเชิงเกาส์เซียน</span><span class="psrc">P1.62 · Schroeder</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>แสดงว่า T(x,t) = T₀ + (A/√t) e<sup>−x²/4Kt</sup> เป็นคำตอบของสมการความร้อน ∂T/∂t = K ∂²T/∂x² แล้วตีความเชิงฟิสิกส์</div>
+
+    <div class="step"><h5>1. หาอนุพันธ์เทียบเวลา</h5>
+      <p>ให้ u = A t<sup>−1/2</sup> e<sup>−x²/(4Kt)</sup> (T₀ เป็นค่าคงที่ หายไปเมื่อหาอนุพันธ์)</p>
+      <div class="eq">∂u/∂t = A[ −½ t^(−3/2) e^(...) + t^(−1/2) e^(...) · x²/(4Kt²) ]
+      = u · [ −1/(2t) + x²/(4Kt²) ]</div>
+    </div>
+
+    <div class="step"><h5>2. หาอนุพันธ์เทียบตำแหน่งสองครั้ง</h5>
+      <div class="eq">∂u/∂x  = u · (−x/(2Kt))
+∂²u/∂x² = u · [ x²/(4K²t²) − 1/(2Kt) ]
+
+K · ∂²u/∂x² = u · [ x²/(4Kt²) − 1/(2t) ]</div>
+    </div>
+
+    <div class="step"><h5>3. เปรียบเทียบ</h5>
+      <div class="eq">∂u/∂t     = u[ −1/(2t) + x²/(4Kt²) ]
+K ∂²u/∂x² = u[ −1/(2t) + x²/(4Kt²) ]
+
+เท่ากันทุกประการ  →  <b>เป็นคำตอบจริง ✓</b></div>
+    </div>
+
+    <div class="step"><h5>4. ตีความเชิงฟิสิกส์</h5>
+      <ul>
+        <li>รูปร่างเป็น<b>เกาส์เซียน</b>ที่มีจุดยอดอยู่ที่ x = 0 — แทนการหยดความร้อนก้อนหนึ่งลงที่จุดกึ่งกลางแท่งวัสดุที่เวลา t = 0</li>
+        <li><b>ความกว้าง</b>ของเกาส์เซียนคือ √(4Kt) ∝ <b>√t</b> — ความร้อนแพร่ออกไปโดยระยะทางเพิ่มตามรากที่สองของเวลา ไม่ใช่เชิงเส้น</li>
+        <li><b>ความสูง</b>ของยอดลดลงตาม 1/√t — ยอดเตี้ยลงขณะที่กระจายกว้างขึ้น</li>
+        <li><b>พื้นที่ใต้กราฟคงที่</b> (สูง × กว้าง ∝ 1/√t × √t = คงที่) — สอดคล้องกับกฎอนุรักษ์พลังงาน ความร้อนรวมไม่หายไปไหน แค่กระจายตัว</li>
+      </ul>
+      <p><b>ข้อสังเกตสำคัญ:</b> การแพร่ ∝ √t ต่างจากคลื่นที่เดินทาง ∝ t อย่างสิ้นเชิง นี่คือลายเซ็นของกระบวนการ<b>แพร่กระจาย (diffusive)</b> ซึ่งใช้ได้กับทั้งการนำความร้อน การแพร่ของอนุภาค และความหนืด</p>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span>พิสูจน์แล้วว่าเป็นคำตอบ · ความกว้างแพร่ตาม <b>√(4Kt)</b> · ความสูงลดตาม <b>1/√t</b> · พลังงานรวมคงที่</div>
+  </div>
+</details>
+
+<!-- ===================== HW1-12 ===================== -->
+<details class="prob" id="hw12" open>
+  <summary><span class="pid">HW1-12</span><span class="ptitle">ภาชนะทรงกลมบรรจุน้ำแข็ง — อัตราการสูญเสียความร้อนและการละลาย</span><span class="psrc">P2-107 · Cengel</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>ภาชนะทรงกลมเหล็ก เส้นผ่านศูนย์กลางภายนอก 40 cm หนา 0.4 cm บรรจุน้ำแข็งผสมน้ำที่ 0 °C · ผิวด้านนอก 3 °C · หาอัตราการสูญเสียความร้อนและอัตราการละลาย</div>
+
+    <div class="step"><h5>1. สูตรการนำความร้อนผ่านเปลือกทรงกลม</h5>
+      <p>ต่างจากผนังแบน เพราะพื้นที่หน้าตัดเปลี่ยนตามรัศมี A = 4πr²</p>
+      <div class="eq">Q̇ = 4π k r₁ r₂ (T₂ − T₁)/(r₂ − r₁)
+
+ที่มา: Q̇ = −k(4πr²)dT/dr แยกตัวแปรแล้วอินทิเกรตจาก r₁ ถึง r₂</div>
+    </div>
+
+    <div class="step"><h5>2. แทนค่า</h5>
+      <div class="eq">r₂ = 0.20 m (นอก),  r₁ = 0.20 − 0.004 = 0.196 m (ใน)
+k_เหล็ก = 80.2 W/(m·K),  ΔT = 3 − 0 = 3 K
+
+Q̇ = 4π(80.2)(0.196)(0.20)(3)/(0.004) = <b>29 600 W = 29.6 kW</b></div>
+    </div>
+
+    <div class="step"><h5>3. อัตราการละลายของน้ำแข็ง</h5>
+      <p>ความร้อนที่เข้ามาถูกใช้เปลี่ยนสถานะน้ำแข็งเป็นน้ำที่ 0 °C ทั้งหมด (อุณหภูมิไม่เปลี่ยน)</p>
+      <div class="eq">h_if = 333.7 kJ/kg   (ตาราง A-3)
+ṁ = Q̇/h_if = 29.6 ÷ 333.7 = <b>0.0888 kg/s = 5.33 kg/min</b></div>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span>Q̇ = <b>29.6 kW</b> · ṁ = <b>0.0888 kg/s</b></div>
+    <div class="trap"><span class="ctitle">ข้อสังเกต</span>เหล็กนำความร้อนดีมาก (k = 80.2) และผนังบางแค่ 4 mm จึงแทบไม่เป็นฉนวนเลย ค่า 29.6 kW จึงสูงมาก — ถ้าข้อสอบเปลี่ยนวัสดุเป็นโฟม (k = 0.03) ผลจะต่างกันราว 2700 เท่า</div>
+  </div>
+</details>
+
+<!-- ===================== HW1-13 ===================== -->
+<details class="prob" id="hw13" open>
+  <summary><span class="pid">HW1-13</span><span class="ptitle">แท่งทองคำต่อกับแท่งเงิน — หาอุณหภูมิที่รอยต่อ</span><span class="psrc">P20.55 · Serway</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>แท่ง Au ต่อกับแท่ง Ag ความยาวและพื้นที่หน้าตัดเท่ากัน ปลาย Au อยู่ที่ 80.0 °C ปลาย Ag อยู่ที่ 30.0 °C · หาอุณหภูมิที่รอยต่อเมื่อเข้าสู่สภาวะคงตัว</div>
+
+    <div class="step"><h5>1. เงื่อนไขสภาวะคงตัว — ความร้อนไหลผ่านเท่ากันทั้งสองแท่ง</h5>
+      <p>ถ้าไหลไม่เท่ากัน จะมีความร้อนสะสมหรือหายไปที่รอยต่อ อุณหภูมิก็จะยังเปลี่ยนอยู่ ขัดกับคำว่า “คงตัว”</p>
+      <div class="eq">Q̇_Au = Q̇_Ag
+k_Au A (80 − T)/L = k_Ag A (T − 30)/L
+
+A และ L เท่ากันทั้งสองแท่ง ตัดทิ้งได้ :
+k_Au (80 − T) = k_Ag (T − 30)</div>
+    </div>
+
+    <div class="step"><h5>2. แทนค่าสภาพนำความร้อน</h5>
+      <div class="eq">k_Au = 314 W/(m·K),  k_Ag = 427 W/(m·K)
+
+314(80 − T) = 427(T − 30)
+25 120 − 314T = 427T − 12 810
+37 930 = 741 T
+T = <b>51.2 °C</b></div>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span>T<sub>รอยต่อ</sub> = <b>51.2 °C</b></div>
+    <div class="trap"><span class="ctitle">ตรวจคำตอบด้วยสามัญสำนึก</span>เงินนำความร้อนดีกว่าทอง (427 &gt; 314) จึงต้านการไหลน้อยกว่า อุณหภูมิจึงตกคร่อมเงินน้อยกว่า → รอยต่อควรอยู่<b>ต่ำกว่าค่ากึ่งกลาง 55 °C</b> · คำตอบได้ 51.2 °C ✓ สอดคล้องกัน</div>
+  </div>
+</details>
+
+<!-- ===================== HW1-14 ===================== -->
+<details class="prob" id="hw14" open>
+  <summary><span class="pid">HW1-14</span><span class="ptitle">การนำความร้อนผ่านทรงกระบอก และห้องโดยสารเครื่องบิน</span><span class="psrc">P20.84 · Serway</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>(a) พิสูจน์ dQ/dt = 2πLk(T<sub>a</sub>−T<sub>b</sub>)/ln(b/a) (b) ห้องโดยสารทรงกระบอกยาว 35.0 m รัศมีใน 2.50 m ฉนวนหนา 6.00 cm, k = 4.00×10⁻⁵ cal/(s·cm·°C) · ภายใน 25.0 °C ภายนอก −35.0 °C · หากำลังไฟฟ้าที่ต้องใช้</div>
+
+    <div class="step"><h5>(a) พิสูจน์สูตร</h5>
+      <p>ความร้อนไหลในแนวรัศมีผ่านผิวทรงกระบอกที่รัศมี r ซึ่งมีพื้นที่ A = 2πrL</p>
+      <div class="eq">กฎฟูริเยร์ :  dQ/dt = −k A (dT/dr) = −k(2πrL)(dT/dr)
+
+สภาวะคงตัว dQ/dt เท่ากันทุกรัศมี แยกตัวแปร :
+(dQ/dt)(dr/r) = −2πkL dT
+
+อินทิเกรตจาก r = a (T = T_a) ถึง r = b (T = T_b) :
+(dQ/dt) ln(b/a) = −2πkL (T_b − T_a) = 2πkL (T_a − T_b)
+
+<b>dQ/dt = 2πLk(T_a − T_b)/ln(b/a)</b>  ✓</div>
+    </div>
+
+    <div class="step"><h5>(b) แทนค่า — แปลงหน่วยก่อน</h5>
+      <div class="eq">k = 4.00×10⁻⁵ cal/(s·cm·°C) × 4.186 J/cal × 100 cm/m
+  = <b>0.01674 W/(m·°C)</b>
+
+a = 2.50 m,  b = 2.50 + 0.06 = 2.56 m
+ln(b/a) = ln(1.024) = 0.02372
+ΔT = 25.0 − (−35.0) = 60.0 °C
+
+dQ/dt = 2π(35.0)(0.01674)(60.0)/0.02372 = <b>9316 W ≈ 9.32 kW</b></div>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span>(a) พิสูจน์แล้ว · (b) <b>≈ 9.32 kW</b></div>
+    <div class="trap"><span class="ctitle">ที่ต้องระวังสองจุด</span><b>1)</b> หน่วย k เป็น cal/(s·cm·°C) ต้องแปลงเป็น W/(m·K) ก่อนเสมอ — จุดนี้พลาดกันมาก <b>2)</b> ฉนวนบางเมื่อเทียบกับรัศมี (6 cm บน 250 cm) ทำให้ ln(b/a) เล็กมาก จึงต้องเก็บทศนิยมไว้หลายตำแหน่ง ปัดเร็วเกินไปคำตอบจะเพี้ยนทันที</div>
+  </div>
+</details>
+
+<!-- ===================== HW1-15 ===================== -->
+<details class="prob" id="hw15" open>
+  <summary><span class="pid">HW1-15</span><span class="ptitle">เติมตารางสมบัติของ H₂O ให้สมบูรณ์ (คอลัมน์ u)</span><span class="psrc">P3-21 · Cengel</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>เติมช่องว่างในตาราง 4 แถว โดยให้คอลัมน์ T (°C), P (kPa), u (kJ/kg) และคำอธิบายเฟส</div>
+
+    <div class="step"><h5>แถวที่ 1 — ให้ P = 400 kPa, u = 1450 kJ/kg</h5>
+      <p>เปิดตาราง A-5 ที่ 400 kPa: u<sub>f</sub> = 604.22, u<sub>g</sub> = 2553.1 kJ/kg</p>
+      <div class="eq">604.22 &lt; 1450 &lt; 2553.1   →  ของผสมอิ่มตัว
+T = T_sat @400 kPa = <b>143.61 °C</b>
+x = (1450 − 604.22)/1948.9 = <b>0.434</b></div>
+    </div>
+
+    <div class="step"><h5>แถวที่ 2 — ให้ T = 220 °C, เฟส = ไออิ่มตัว</h5>
+      <p>ไออิ่มตัวแปลว่า x = 1 อ่านค่าที่คอลัมน์ g ของตาราง A-4 ที่ 220 °C ได้ทันที</p>
+      <div class="eq">P = P_sat @220 °C = <b>2319.6 kPa</b>
+u = u_g @220 °C   = <b>2601.3 kJ/kg</b></div>
+    </div>
+
+    <div class="step"><h5>แถวที่ 3 — ให้ T = 190 °C, P = 2500 kPa</h5>
+      <div class="eq">P_sat @190 °C = 1255.2 kPa
+P = 2500 kPa &gt; 1255.2 kPa  →  <b>ของเหลวอัดตัว</b>
+ประมาณด้วยค่าของเหลวอิ่มตัวที่ T เดียวกัน :
+u ≈ u_f @190 °C = <b>806.0 kJ/kg</b></div>
+    </div>
+
+    <div class="step"><h5>แถวที่ 4 — ให้ P = 4000 kPa, u = 3040 kJ/kg</h5>
+      <p>ที่ 4000 kPa: u<sub>g</sub> = 2601.7 kJ/kg ซึ่งน้อยกว่า 3040 → เลยเส้นไออิ่มตัวไปแล้ว</p>
+      <div class="eq">→ <b>ไอร้อนยวดยิ่ง</b>  ไปตาราง A-6 ที่ P = 4.0 MPa
+  450 °C : u = 3011.0
+  500 °C : u = 3100.3
+T = 450 + 50 × (3040 − 3011.0)/(3100.3 − 3011.0) = <b>466.2 °C</b></div>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span>
+      <b>1)</b> 143.61 °C · ของผสมอิ่มตัว (x = 0.434) &nbsp;·&nbsp;
+      <b>2)</b> 2319.6 kPa · u = 2601.3 kJ/kg &nbsp;·&nbsp;
+      <b>3)</b> u ≈ 806.0 kJ/kg · ของเหลวอัดตัว &nbsp;·&nbsp;
+      <b>4)</b> 466.2 °C · ไอร้อนยวดยิ่ง</div>
+    <div class="trap"><span class="ctitle">จุดที่ข้อสอบชอบดัดแปลง</span>เปลี่ยนคอลัมน์จาก u เป็น h หรือ v — วิธีคิดเหมือนกันทุกประการ เพียงเปลี่ยนคอลัมน์ที่อ่าน อีกแบบคือให้ x มาแล้วให้หา u ย้อนกลับด้วย u = u<sub>f</sub> + x·u<sub>fg</sub></div>
+  </div>
+</details>
+
+<!-- ===================== HW1-16 ===================== -->
+<details class="prob" id="hw16" open>
+  <summary><span class="pid">HW1-16</span><span class="ptitle">เติมตารางสมบัติของ H₂O (คอลัมน์ v)</span><span class="psrc">P3-22 · Cengel</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>เติมตาราง 4 แถว คอลัมน์ T (°C), P (kPa), v (m³/kg) และเฟส</div>
+
+    <div class="step"><h5>แถวที่ 1 — T = 140 °C, v = 0.035 m³/kg</h5>
+      <div class="eq">A-4 @140 °C :  v_f = 0.001080,  v_g = 0.50850 m³/kg
+0.001080 &lt; 0.035 &lt; 0.50850  →  ของผสมอิ่มตัว
+P = P_sat @140 °C = <b>361.53 kPa</b>
+x = (0.035 − 0.001080)/(0.50850 − 0.001080) = <b>0.0669</b></div>
+    </div>
+
+    <div class="step"><h5>แถวที่ 2 — P = 550 kPa, เฟส = ของเหลวอิ่มตัว</h5>
+      <div class="eq">T = T_sat @550 kPa = <b>155.46 °C</b>
+v = v_f @550 kPa  = <b>0.001097 m³/kg</b></div>
+    </div>
+
+    <div class="step"><h5>แถวที่ 3 — T = 125 °C, P = 750 kPa</h5>
+      <div class="eq">P_sat @125 °C = 232.23 kPa
+750 kPa &gt; 232.23 kPa  →  <b>ของเหลวอัดตัว</b>
+v ≈ v_f @125 °C = <b>0.001065 m³/kg</b></div>
+    </div>
+
+    <div class="step"><h5>แถวที่ 4 — T = 300 °C, v = 0.140 m³/kg</h5>
+      <div class="eq">v_g @300 °C = 0.021659 m³/kg  ซึ่งน้อยกว่า 0.140
+→ <b>ไอร้อนยวดยิ่ง</b>  ไปตาราง A-6 ที่แถว 300 °C แล้วไล่หา P
+  1.60 MPa : v = 0.15866
+  1.80 MPa : v = 0.14025   ← ใกล้ 0.140 มาก
+  2.00 MPa : v = 0.12551
+P ≈ <b>1.80 MPa = 1800 kPa</b></div>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span>
+      <b>1)</b> 361.53 kPa · ของผสม (x = 0.0669) &nbsp;·&nbsp;
+      <b>2)</b> 155.46 °C · v = 0.001097 &nbsp;·&nbsp;
+      <b>3)</b> v ≈ 0.001065 · ของเหลวอัดตัว &nbsp;·&nbsp;
+      <b>4)</b> ≈ 1800 kPa · ไอร้อนยวดยิ่ง</div>
+    <div class="trap"><span class="ctitle">ข้อสังเกต</span>ของเหลวอัดตัวของน้ำ: v<sub>f</sub> แทบไม่ขึ้นกับความดันเลย (0.001065 ที่ 125 °C ไม่ว่าจะกี่ MPa) เพราะน้ำอัดตัวได้น้อยมาก การประมาณด้วยค่า f ที่ T เดียวกันจึงแม่นยำมาก</div>
+  </div>
+</details>
+
+<!-- ===================== HW1-17 ===================== -->
+<details class="prob" id="hw17" open>
+  <summary><span class="pid">HW1-17</span><span class="ptitle">ไอน้ำขยายตัวสู่สุญญากาศ แล้วทำให้เย็นลงถึง 3 °C</span><span class="psrc">P3-37 · Cengel</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>ไอน้ำ 1 kg ที่ 200 kPa อยู่ในห้องซ้าย V = 1.1989 m³ · ห้องขวาปริมาตรเป็น 2 เท่าและเป็นสุญญากาศ · นำฉากกั้นออก แล้วถ่ายเทความร้อนจนน้ำมีอุณหภูมิ 3 °C · หาความดันสุดท้าย</div>
+
+    <div class="step"><h5>1. หาปริมาตรจำเพาะสุดท้าย</h5>
+      <p>ปริมาตรรวม = ซ้าย + ขวา = 1.1989 + 2(1.1989) = 3(1.1989) m³ และมวลไม่เปลี่ยน</p>
+      <div class="eq">v₂ = 3 × 1.1989 / 1 kg = <b>3.5967 m³/kg</b></div>
+    </div>
+
+    <div class="step"><h5>2. เทียบกับ v_g ที่ 3 °C</h5>
+      <p>ตาราง A-4 ไม่มีแถว 3 °C ต้องเทียบบัญญัติไตรยางศ์ระหว่าง 0.01 °C กับ 5 °C</p>
+      <div class="eq">สัดส่วน f = (3 − 0.01)/(5 − 0.01) = 0.599
+v_g @3 °C ≈ 206.00 + 0.599(147.03 − 206.00) = 170.7 m³/kg
+v_f @3 °C ≈ 0.001000 m³/kg
+
+0.001 &lt; 3.5967 &lt; 170.7  →  <b>ของผสมอิ่มตัว</b></div>
+    </div>
+
+    <div class="step"><h5>3. เป็นของผสม → P คือ P_sat ที่ 3 °C</h5>
+      <div class="eq">P_sat @3 °C ≈ 0.6117 + 0.599(0.8725 − 0.6117) = <b>0.768 kPa</b></div>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span>P₂ ≈ <b>0.77 kPa</b><br><span style="font-size:.9em">เฉลยหนังสือใช้ซอฟต์แวร์ EES ได้ 0.7576 kPa ต่างกันเพราะการเทียบบัญญัติไตรยางศ์เชิงเส้น ถือว่าถูกต้อง</span></div>
+    <div class="trap"><span class="ctitle">กับดัก</span>อย่าเผลอคิดว่าปริมาตรรวมเป็น 2 เท่า — โจทย์บอกว่า “ห้องขวาปริมาตรเป็นสองเท่าของห้องซ้าย” ดังนั้นรวมกันเป็น <b>3 เท่า</b> ไม่ใช่ 2 เท่า (เทียบกับ HW1-30 ที่บอกว่าแบ่ง “เท่า ๆ กัน” ซึ่งได้ 2 เท่า)</div>
+  </div>
+</details>
+
+<!-- ===================== HW1-18 ===================== -->
+<details class="prob" id="hw18" open>
+  <summary><span class="pid">HW1-18</span><span class="ptitle">ต้มน้ำด้วยเตาไฟฟ้า 3 kW หาอัตราการระเหย</span><span class="psrc">P3-40 · Cengel</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>ต้มน้ำที่ระดับน้ำทะเล (P = 101.325 kPa) ในกระทะเส้นผ่านศูนย์กลาง 30 cm บนเตา 3 kW · 60% ของความร้อนถ่ายเทให้น้ำ · หาอัตราการระเหย</div>
+
+    <div class="step"><h5>1. ความร้อนที่เข้าสู่น้ำจริง</h5>
+      <div class="eq">Q̇ = 0.60 × 3 kW = 1.8 kW</div>
+    </div>
+
+    <div class="step"><h5>2. ที่จุดเดือด ความร้อนทั้งหมดใช้เปลี่ยนเฟส ไม่ได้เพิ่มอุณหภูมิ</h5>
+      <p>ที่ 1 atm น้ำเดือดที่ 99.97 °C และ h<sub>fg</sub> = 2256.5 kJ/kg</p>
+      <div class="eq">Q̇ = ṁ · h_fg
+ṁ = 1.8 kJ/s ÷ 2256.5 kJ/kg = 7.977 × 10⁻⁴ kg/s</div>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span>ṁ = <b>7.98 × 10⁻⁴ kg/s = 2.87 kg/h</b></div>
+    <div class="trap"><span class="ctitle">ข้อสังเกต</span>เส้นผ่านศูนย์กลาง 30 cm เป็นข้อมูลหลอก ไม่ต้องใช้เลย ข้อสอบชอบใส่ตัวเลขเกินมาเพื่อดูว่าเราเข้าใจจริงหรือแค่แทนสูตร ถ้าเปลี่ยนเป็นต้มบนภูเขา ต้องเปลี่ยน P → เปลี่ยน h<sub>fg</sub> ด้วย</div>
+  </div>
+</details>
+
+<!-- ===================== HW1-19 ===================== -->
+<details class="prob" id="hw19" open>
+  <summary><span class="pid">HW1-19</span><span class="ptitle">ลูกสูบ-กระบอกสูบ ให้ความร้อนที่ความดันคงที่ 600 kPa</span><span class="psrc">P3-51 · Cengel</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>บรรจุน้ำสถานะของเหลว 0.005 m³ และไอน้ำ 0.9 m³ สมดุลกันที่ 600 kPa · ให้ความร้อนที่ความดันคงที่จนถึง 200 °C · หา (a) T เริ่มต้น (b) มวลรวม (c) V สุดท้าย (d) วาดบน P-v</div>
+
+    <div class="step"><h5>(a) อุณหภูมิเริ่มต้น</h5>
+      <p>มีทั้งของเหลวและไออยู่ร่วมกัน = ของผสมอิ่มตัว → T ต้องเป็น T<sub>sat</sub></p>
+      <div class="eq">T₁ = T_sat @600 kPa = <b>158.83 °C</b></div>
+    </div>
+
+    <div class="step"><h5>(b) มวลรวม — คิดแยกสองเฟสแล้วบวกกัน</h5>
+      <div class="eq">@600 kPa :  v_f = 0.001101,  v_g = 0.31560 m³/kg
+
+m_ของเหลว = 0.005 / 0.001101 = 4.541 kg
+m_ไอ      = 0.900 / 0.31560  = 2.852 kg
+m_รวม     = <b>7.39 kg</b></div>
+    </div>
+
+    <div class="step"><h5>(c) ปริมาตรสุดท้าย</h5>
+      <p>ที่ 600 kPa อุณหภูมิอิ่มตัวคือ 158.83 °C แต่สถานะปลายอยู่ที่ 200 °C ซึ่งสูงกว่า → ไอร้อนยวดยิ่ง เปิด A-6</p>
+      <div class="eq">@600 kPa, 200 °C :  v₂ = 0.35212 m³/kg
+V₂ = m · v₂ = 7.39 × 0.35212 = <b>2.60 m³</b></div>
+    </div>
+
+    <div class="step"><h5>(d) แผนภาพ P-v</h5>
+      <p>เส้นแนวนอนที่ P = 600 kPa เริ่มจากจุดภายในโดมอิ่มตัว (ของผสม) วิ่งไปทางขวา ตัดผ่านเส้นไออิ่มตัว แล้วไปจบที่บริเวณไอร้อนยวดยิ่งนอกโดม</p>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span>(a) <b>158.8 °C</b> · (b) <b>7.39 kg</b> · (c) <b>2.60 m³</b></div>
+    <div class="trap"><span class="ctitle">กับดัก</span>อย่าใช้ค่าเฉลี่ยรวมกันคิดมวล ต้องแยกคิดของเหลวกับไอด้วย v<sub>f</sub> และ v<sub>g</sub> คนละตัว เพราะปริมาตรจำเพาะต่างกันเกือบ 300 เท่า</div>
+  </div>
+</details>
+
+<!-- ===================== HW1-20 ===================== -->
+<details class="prob" id="hw20" open>
+  <summary><span class="pid">HW1-20</span><span class="ptitle">แก๊สขยายตัวสู่สุญญากาศ แล้วให้ความร้อนจนความดันกลับเท่าเดิม</span><span class="psrc">P3-78 · Cengel</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>ถังแข็งแบ่งสองส่วนด้วยฉากกั้น ด้านหนึ่งมีแก๊สอุดมคติที่ 927 °C ปริมาตร V₁ อีกด้านเป็นสุญญากาศปริมาตร 2V₁ · นำฉากออก แก๊สขยายเต็มถัง · ให้ความร้อนจนความดันเท่าค่าเริ่มต้น · หา T สุดท้าย</div>
+
+    <div class="step"><h5>ขั้นที่ 1 — การขยายตัวสู่สุญญากาศ (free expansion)</h5>
+      <ul>
+        <li>ไม่มีอะไรให้ดัน (อีกฝั่งเป็นสุญญากาศ) → <b>W = 0</b></li>
+        <li>ถังแข็งและไม่มีการถ่ายเทความร้อนในช่วงนี้ → <b>Q = 0</b></li>
+        <li>ดังนั้น <b>ΔU = 0</b> และสำหรับแก๊สอุดมคติ U ขึ้นกับ T เท่านั้น → <b>T ไม่เปลี่ยน</b></li>
+      </ul>
+      <div class="eq">สถานะ 2 :  T₂ = T₁ = 927 °C = 1200.15 K
+           V₂ = 3V₁  →  P₂ = P₁/3</div>
+    </div>
+
+    <div class="step"><h5>ขั้นที่ 2 — ให้ความร้อนจน P กลับเป็น P₁ (ปริมาตรคงที่ 3V₁)</h5>
+      <div class="eq">P₁V₁/T₁ = P₃V₃/T₃
+T₃ = T₁ × (P₁ · 3V₁)/(P₁ · V₁) = 1200.15 × 3 = <b>3600 K</b></div>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span>T₃ = <b>3600 K = 3327 °C</b></div>
+    <div class="trap"><span class="ctitle">แนวคิดสำคัญ</span>การขยายตัวสู่สุญญากาศเป็นกระบวนการ<b>ผันกลับไม่ได้</b>อย่างชัดเจน แม้ ΔU = 0 และ T ไม่เปลี่ยน แต่ <b>ΔS &gt; 0</b> — จุดนี้เชื่อมตรงกับ HW1-25 และมักถูกถามเป็นข้อเขียนเชิงทฤษฎี</div>
+  </div>
+</details>
+
+<!-- ===================== HW1-21 ===================== -->
+<details class="prob" id="hw21" open>
+  <summary><span class="pid">HW1-21</span><span class="ptitle">ปริมาตรจำเพาะของไอน้ำที่ 15 MPa, 350 °C — 3 วิธี</span><span class="psrc">P3-84 · Cengel</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>หา v ของไอน้ำร้อนยวดยิ่งที่ 15 MPa, 350 °C ด้วย (a) สมการแก๊สอุดมคติ (b) แผนภูมิการอัดตัวทั่วไป (c) ตารางไอน้ำ พร้อมหาความคลาดเคลื่อนของสองวิธีแรก</div>
+
+    <div class="step"><h5>(c) ค่าจริงจากตาราง — ทำก่อนเพื่อใช้เป็นฐานเทียบ</h5>
+      <p>ที่ 15 MPa มี T<sub>sat</sub> = 342.16 °C และ 350 °C &gt; 342.16 °C → ไอร้อนยวดยิ่ง เปิด A-6</p>
+      <div class="eq">v = <b>0.011481 m³/kg</b>   ← ค่าจริง</div>
+    </div>
+
+    <div class="step"><h5>(a) แก๊สอุดมคติ</h5>
+      <div class="eq">v = RT/P = (0.4615 kJ/kg·K)(623.15 K)/(15 000 kPa) = <b>0.01917 m³/kg</b>
+คลาดเคลื่อน = (0.01917 − 0.011481)/0.011481 = <b>67.0 %</b></div>
+    </div>
+
+    <div class="step"><h5>(b) แผนภูมิการอัดตัวทั่วไป</h5>
+      <p>น้ำ: T<sub>cr</sub> = 647.1 K, P<sub>cr</sub> = 22.06 MPa (ตาราง A-1)</p>
+      <div class="eq">T_R = 623.15/647.1 = 0.963
+P_R = 15/22.06   = 0.680
+เปิดแผนภูมิ Z ได้  Z ≈ 0.65
+
+v = Z · RT/P = 0.65 × 0.01917 = <b>0.01246 m³/kg</b>
+คลาดเคลื่อน = <b>8.5 %</b></div>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span>(a) 0.01917 m³/kg · คลาด <b>67.0%</b> &nbsp;·&nbsp; (b) 0.01246 m³/kg · คลาด <b>8.5%</b> &nbsp;·&nbsp; (c) <b>0.011481 m³/kg</b></div>
+    <div class="trap"><span class="ctitle">บทเรียนที่ข้อสอบต้องการ</span>ใกล้จุดวิกฤต (T<sub>R</sub> ≈ 1, P<sub>R</sub> ≈ 0.7) แก๊สอุดมคติผิดมหาศาล เพราะโมเลกุลอยู่ใกล้กันมาก แผนภูมิ Z ช่วยได้เยอะแต่ยังไม่แม่นเท่าตาราง — <b>ถ้ามีตารางให้ ใช้ตารางเสมอ</b></div>
+  </div>
+</details>
+
+<!-- ===================== HW1-22 ===================== -->
+<details class="prob" id="hw22" open>
+  <summary><span class="pid">HW1-22</span><span class="ptitle">ปริมาตรจำเพาะของไอน้ำที่ 3.5 MPa, 450 °C — 3 วิธี</span><span class="psrc">P3-86 · Cengel</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>เหมือน HW1-21 แต่เปลี่ยนสภาวะเป็น 3.5 MPa, 450 °C</div>
+
+    <div class="step"><h5>(c) ตารางไอน้ำ</h5>
+      <div class="eq">A-6 @3.5 MPa, 450 °C :  v = <b>0.09198 m³/kg</b></div>
+    </div>
+
+    <div class="step"><h5>(a) แก๊สอุดมคติ</h5>
+      <div class="eq">v = (0.4615)(723.15)/3500 = <b>0.09535 m³/kg</b>
+คลาดเคลื่อน = <b>3.7 %</b></div>
+    </div>
+
+    <div class="step"><h5>(b) แผนภูมิการอัดตัว</h5>
+      <div class="eq">T_R = 723.15/647.1 = 1.118
+P_R = 3.5/22.06   = 0.159
+Z ≈ 0.96
+v = 0.96 × 0.09535 = <b>0.09154 m³/kg</b>
+คลาดเคลื่อน = <b>0.5 %</b></div>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span>(a) คลาด <b>3.7%</b> &nbsp;·&nbsp; (b) คลาด <b>0.5%</b> &nbsp;·&nbsp; (c) <b>0.09198 m³/kg</b></div>
+    <div class="trap"><span class="ctitle">เปรียบเทียบกับ HW1-21</span>สภาวะนี้ไกลจากจุดวิกฤตกว่า (T<sub>R</sub> &gt; 1, P<sub>R</sub> เล็ก) แก๊สอุดมคติจึงผิดแค่ 3.7% แทนที่จะเป็น 67% — <b>ยิ่ง P<sub>R</sub> เล็กและ T<sub>R</sub> ใหญ่ แก๊สอุดมคติยิ่งใช้ได้ดี</b> ถ้าข้อสอบถามว่า “ควรใช้แก๊สอุดมคติได้หรือไม่” ให้ตอบผ่านการเช็ค T<sub>R</sub>, P<sub>R</sub></div>
+  </div>
+</details>
+
+<!-- ===================== HW1-23 ===================== -->
+<details class="prob" id="hw23" open>
+  <summary><span class="pid">HW1-23</span><span class="ptitle">ความดันของไนโตรเจนในถัง — อุดมคติ vs แวนเดอร์วาลส์</span><span class="psrc">P3-96 · Cengel</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>ถัง 3.27 m³ บรรจุ N₂ 100 kg ที่ 175 K · หา P ด้วย (a) แก๊สอุดมคติ (b) แวนเดอร์วาลส์ (c) บีตตี-บริดจ์แมน · เทียบกับค่าจริง 1505 kPa</div>
+
+    <div class="step"><h5>(a) แก๊สอุดมคติ</h5>
+      <div class="eq">v = 3.27/100 = 0.0327 m³/kg
+P = RT/v = (0.2968)(175)/0.0327 = <b>1588 kPa</b>
+คลาดเคลื่อน = (1588 − 1505)/1505 = <b>5.5 %</b></div>
+    </div>
+
+    <div class="step"><h5>(b) แวนเดอร์วาลส์ — ต้องหา a, b จากจุดวิกฤตก่อน</h5>
+      <p>N₂: T<sub>cr</sub> = 126.2 K, P<sub>cr</sub> = 3.39 MPa = 3390 kPa, M = 28.013 kg/kmol</p>
+      <div class="eq">a = 27 R_u² T_cr² / (64 P_cr)
+  = 27(8.314)²(126.2)² / (64 × 3390) = <b>137.0 kPa·m⁶/kmol²</b>
+
+b = R_u T_cr / (8 P_cr) = (8.314)(126.2)/(8 × 3390) = <b>0.03869 m³/kmol</b>
+
+ต้องใช้หน่วยโมลาร์ :  v̄ = v × M = 0.0327 × 28.013 = 0.91603 m³/kmol
+
+P = R_u T/(v̄ − b) − a/v̄²
+  = (8.314)(175)/(0.91603 − 0.03869) − 137.0/(0.91603)²
+  = 1658.4 − 163.3 = <b>1495 kPa</b>
+คลาดเคลื่อน = <b>0.66 %</b></div>
+    </div>
+
+    <div class="step"><h5>(c) บีตตี-บริดจ์แมน</h5>
+      <p>ใช้ค่าคงที่ 5 ตัวของ N₂ จากตาราง A-29b (ไม่อยู่ในชุดตารางที่แจก) แทนค่าแล้วได้</p>
+      <div class="eq">P ≈ <b>1505 kPa</b>   คลาดเคลื่อน ≈ <b>0.02 %</b></div>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span>(a) 1588 kPa · 5.5% &nbsp;·&nbsp; (b) 1495 kPa · 0.7% &nbsp;·&nbsp; (c) 1505 kPa · 0.02%</div>
+    <div class="trap"><span class="ctitle">ต้องจำ</span>สูตร a และ b จากจุดวิกฤตได้มาจากเงื่อนไข <code>(∂P/∂v)<sub>T</sub> = 0</code> และ <code>(∂²P/∂v²)<sub>T</sub> = 0</code> ที่จุดวิกฤต และ <b>หน่วยของ a, b เป็นหน่วยโมลาร์เสมอ</b> จึงต้องแปลง v เป็น v̄ ก่อนแทนค่า — จุดนี้พลาดกันมากที่สุด</div>
+  </div>
+</details>
+
+<!-- ===================== HW1-24 ===================== -->
+<details class="prob" id="hw24" open>
+  <summary><span class="pid">HW1-24</span><span class="ptitle">ห้องไหนมีความชื้นมากกว่ากัน</span><span class="psrc">P3-107 · Cengel</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>ห้อง A: 25 °C ความชื้นสัมพัทธ์ 40% · ห้อง B: 20 °C ความชื้นสัมพัทธ์ 55% · ปริมาณความชื้นแปรผันตรงกับความดันไอ · ห้องใดชื้นกว่า</div>
+
+    <div class="step"><h5>แนวคิด</h5>
+      <p>ความชื้นสัมพัทธ์ φ คือสัดส่วนของความดันไอจริงต่อความดันไออิ่มตัวที่อุณหภูมินั้น — ตัวเลข % เพียงอย่างเดียวเทียบกันไม่ได้ เพราะฐานที่ใช้เทียบ (P<sub>sat</sub>) ต่างกัน</p>
+      <div class="eq">P_v = φ · P_sat(T)</div>
+    </div>
+
+    <div class="step"><h5>คำนวณความดันไอจริงของทั้งสองห้อง</h5>
+      <div class="eq">ห้อง A :  P_sat @25 °C = 3.1698 kPa
+          P_v = 0.40 × 3.1698 = <b>1.268 kPa</b>
+
+ห้อง B :  P_sat @20 °C = 2.3392 kPa
+          P_v = 0.55 × 2.3392 = <b>1.287 kPa</b></div>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span><b>ห้องที่ 2 (20 °C, 55%) มีความชื้นมากกว่า</b> เพราะ P<sub>v</sub> = 1.287 &gt; 1.268 kPa แม้อุณหภูมิจะต่ำกว่า</div>
+    <div class="trap"><span class="ctitle">แนวคิดที่ข้อสอบต้องการ</span>ความชื้นสัมพัทธ์สูงไม่ได้แปลว่ามีน้ำมากกว่า — อากาศเย็นอุ้มน้ำได้น้อยกว่า จึงถึง 100% ได้ง่ายกว่า นี่คือเหตุผลที่ตอนเช้ามืดมีน้ำค้าง ทั้งที่ปริมาณไอน้ำในอากาศไม่ได้เพิ่มขึ้นเลย</div>
+  </div>
+</details>
+
+<!-- ===================== HW1-25 ===================== -->
+<details class="prob" id="hw25" open>
+  <summary><span class="pid">HW1-25</span><span class="ptitle">แก๊สไฮโดรเจนขยายตัวสู่สุญญากาศ — หา ΔS</span><span class="psrc">P22.48 · Serway</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>H₂ 1.00 โมล อยู่ด้านซ้ายของภาชนะ ด้านขวาปริมาตรเท่ากันเป็นสุญญากาศ · เปิดวาล์ว แก๊สไหลเข้าเต็มทั้งสองด้าน · หา (a) ΔS (b) T เปลี่ยนหรือไม่</div>
+
+    <div class="step"><h5>(a) เอนโทรปี</h5>
+      <p>กระบวนการจริงเป็นการขยายตัวสู่สุญญากาศ ซึ่ง<b>ผันกลับไม่ได้</b> จึงใช้ dS = δQ/T กับกระบวนการจริงไม่ได้ (δQ = 0 แต่ ΔS ≠ 0)</p>
+      <p><b>เทคนิค:</b> แทนที่ด้วยกระบวนการ<b>ผันกลับได้</b>ใด ๆ ที่เชื่อมสถานะเดิมกับสถานะปลายเดียวกัน — เลือกการขยายตัวแบบอุณหภูมิคงที่แบบผันกลับได้ เพราะสถานะต้นและปลายมี T เท่ากันและ V ต่างกัน 2 เท่า</p>
+      <div class="eq">ΔS = nR ln(V_f/V_i) = (1.00)(8.314) ln 2 = <b>+5.76 J/K</b></div>
+    </div>
+
+    <div class="step"><h5>(b) อุณหภูมิเปลี่ยนหรือไม่</h5>
+      <p><b>ไม่เปลี่ยน</b> — W = 0 (ไม่มีอะไรให้ดัน) และ Q = 0 → ΔU = 0 สำหรับแก๊สอุดมคติ U ขึ้นกับ T เท่านั้น ดังนั้น T คงเดิม</p>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span>(a) ΔS = <b>+5.76 J/K</b> · (b) <b>อุณหภูมิไม่เปลี่ยนแปลง</b></div>
+    <div class="trap"><span class="ctitle">แนวคิดที่ข้อสอบตามล่า</span>Q = 0 แต่ ΔS &gt; 0 — นี่คือหลักฐานว่า<b>เอนโทรปีสร้างขึ้นได้เอง</b>ในกระบวนการผันกลับไม่ได้ โดยไม่ต้องมีความร้อนไหลเข้า ถ้าข้อสอบถาม “ทำไม ΔS ≠ 0 ทั้งที่ Q = 0” ต้องตอบด้วยประโยคนี้</div>
+  </div>
+</details>
+
+<!-- ===================== HW1-26 ===================== -->
+<details class="prob" id="hw26" open>
+  <summary><span class="pid">HW1-26</span><span class="ptitle">วัฏจักรสามขั้นของแก๊สอะตอมเดี่ยว — งาน ความร้อน ประสิทธิภาพ</span><span class="psrc">P22.73 · Serway</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>แก๊สอุดมคติอะตอมเดี่ยว 1.00 โมล · A(5 atm, 10 L) → B(1 atm, 50 L) ไอโซเทอร์มอลผันกลับได้ · B → C(1 atm, 10 L) ไอโซบาริก · C → A ไอโซคอริก</div>
+
+    <div class="step"><h5>0. หาอุณหภูมิทั้งสามจุดก่อน</h5>
+      <div class="eq">T_A = P_A V_A/(nR) = 5(101 325)(10×10⁻³)/8.314 = 609.4 K
+T_B = 1(101 325)(50×10⁻³)/8.314 = 609.4 K   ← เท่ากับ T_A ✓ (ไอโซเทอร์มอลจริง)
+T_C = 1(101 325)(10×10⁻³)/8.314 = <b>121.9 K</b></div>
+    </div>
+
+    <div class="step"><h5>(a) งานสุทธิที่แก๊สทำ</h5>
+      <div class="eq">A→B ไอโซเทอร์มอล :  W = nRT ln(V_B/V_A) = 8.314(609.4) ln 5 = +8154 J
+B→C ไอโซบาริก    :  W = P ΔV = 101 325(10 − 50)×10⁻³ = −4053 J
+C→A ไอโซคอริก    :  W = 0
+
+W_สุทธิ = 8154 − 4053 = <b>+4100 J = 4.10 kJ</b></div>
+    </div>
+
+    <div class="step"><h5>(b) ความร้อนที่เข้าสู่ระบบ</h5>
+      <div class="eq">A→B : ไอโซเทอร์มอล ΔU = 0  →  Q = W = <b>+8154 J</b>  (เข้า)
+C→A : ไอโซคอริก  Q = n C_v ΔT = (3/2)(8.314)(609.4 − 121.9) = <b>+6080 J</b>  (เข้า)
+
+Q_เข้า = 8154 + 6080 = <b>14 233 J ≈ 14.2 kJ</b></div>
+    </div>
+
+    <div class="step"><h5>(c) ความร้อนที่ระบายออก</h5>
+      <div class="eq">B→C : ไอโซบาริก  Q = n C_p ΔT = (5/2)(8.314)(121.9 − 609.4) = <b>−10 133 J</b>
+
+Q_ออก = <b>10 133 J ≈ 10.1 kJ</b>
+ตรวจสอบ :  14 233 − 10 133 = 4100 J = W_สุทธิ ✓</div>
+    </div>
+
+    <div class="step"><h5>(d) (e) ประสิทธิภาพ และเทียบคาร์โนต์</h5>
+      <div class="eq">η = W/Q_เข้า = 4100/14 233 = <b>0.288 = 28.8 %</b>
+
+η_Carnot = 1 − T_เย็น/T_ร้อน = 1 − 121.9/609.4 = <b>0.800 = 80.0 %</b>
+อัตราส่วน = 28.8/80.0 = <b>0.36</b></div>
+      <p>วัฏจักรนี้ได้ประสิทธิภาพเพียง 36% ของค่าสูงสุดที่เป็นไปได้ เพราะมีขั้นที่ถ่ายเทความร้อนผ่านผลต่างอุณหภูมิจำกัด (ไอโซบาริกและไอโซคอริก) ซึ่งเป็นกระบวนการผันกลับไม่ได้</p>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span>(a) <b>4.10 kJ</b> · (b) <b>14.2 kJ</b> · (c) <b>10.1 kJ</b> · (d) <b>28.8%</b> · (e) คาร์โนต์ <b>80.0%</b> อัตราส่วน <b>0.36</b></div>
+  </div>
+</details>
+
+<!-- ===================== HW1-27 ===================== -->
+<details class="prob" id="hw27" open>
+  <summary><span class="pid">HW1-27</span><span class="ptitle">วัฏจักรสี่เหลี่ยมในรูปตัวแปร — ตอบเป็นสัญลักษณ์</span><span class="psrc">P22.76 · Serway</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>แก๊สอะตอมเดี่ยว 1.00 โมล · A(P<sub>i</sub>, V<sub>i</sub>) → B(3P<sub>i</sub>, V<sub>i</sub>) → C(3P<sub>i</sub>, 2V<sub>i</sub>) → D(P<sub>i</sub>, 2V<sub>i</sub>) → A · ตอบในเทอมของ R และ T<sub>i</sub></div>
+
+    <div class="step"><h5>0. หาอุณหภูมิทั้งสี่จุดจาก PV = RT (n = 1)</h5>
+      <div class="eq">T_A = P_i V_i/R    = T_i
+T_B = 3P_i V_i/R   = 3T_i
+T_C = 3P_i(2V_i)/R = 6T_i
+T_D = P_i(2V_i)/R  = 2T_i</div>
+    </div>
+
+    <div class="step"><h5>คำนวณความร้อนทั้งสี่ขั้น (อะตอมเดี่ยว C<sub>v</sub> = 3R/2, C<sub>p</sub> = 5R/2)</h5>
+      <div class="tscroll"><table>
+        <thead><tr><th>ขั้น</th><th>ชนิด</th><th class="n">Q</th><th>ทิศทาง</th></tr></thead>
+        <tbody>
+          <tr><td class="n">A→B</td><td>Isochoric</td><td class="n">C<sub>v</sub>(3T<sub>i</sub>−T<sub>i</sub>) = <b>3RT<sub>i</sub></b></td><td>เข้า</td></tr>
+          <tr><td class="n">B→C</td><td>Isobaric ขยาย</td><td class="n">C<sub>p</sub>(6T<sub>i</sub>−3T<sub>i</sub>) = <b>7.5RT<sub>i</sub></b></td><td>เข้า</td></tr>
+          <tr><td class="n">C→D</td><td>Isochoric</td><td class="n">C<sub>v</sub>(2T<sub>i</sub>−6T<sub>i</sub>) = <b>−6RT<sub>i</sub></b></td><td>ออก</td></tr>
+          <tr><td class="n">D→A</td><td>Isobaric อัด</td><td class="n">C<sub>p</sub>(T<sub>i</sub>−2T<sub>i</sub>) = <b>−2.5RT<sub>i</sub></b></td><td>ออก</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="step"><h5>(a) (b) (c) รวมผล</h5>
+      <div class="eq">Q_เข้า  = 3RT_i + 7.5RT_i = <b>10.5 R T_i</b>
+Q_ออก  = 6RT_i + 2.5RT_i = <b>8.5 R T_i</b>
+W_สุทธิ = 10.5 − 8.5 = 2 R T_i
+ตรวจด้วยพื้นที่ในวง : (3P_i − P_i)(2V_i − V_i) = 2P_iV_i = 2RT_i ✓
+
+η = 1 − Q_ออก/Q_เข้า = 1 − 8.5/10.5 = <b>0.190 = 19.0 %</b></div>
+    </div>
+
+    <div class="step"><h5>(d) เทียบคาร์โนต์</h5>
+      <div class="eq">T_สูงสุด = 6T_i (จุด C),  T_ต่ำสุด = T_i (จุด A)
+η_Carnot = 1 − T_i/6T_i = 5/6 = <b>83.3 %</b>
+อัตราส่วน = 19.0/83.3 = <b>0.229</b></div>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span>(a) <b>10.5 RT<sub>i</sub></b> · (b) <b>8.5 RT<sub>i</sub></b> · (c) <b>19.0%</b> · (d) คาร์โนต์ <b>83.3%</b> อัตราส่วน <b>0.229</b></div>
+    <div class="trap"><span class="ctitle">เทคนิคทำเร็ว</span>ข้อแบบนี้ไม่ต้องแปลงหน่วยเลย ใช้ T ในหน่วยของ T<sub>i</sub> ตลอด แล้วให้ R ติดอยู่กับคำตอบ — ประหยัดเวลาสอบได้มาก และตรวจงานสุทธิด้วย<b>พื้นที่ในวง</b>ได้ทันทีเสมอ</div>
+  </div>
+</details>
+
+<!-- ===================== HW1-28 ===================== -->
+<details class="prob" id="hw28" open>
+  <summary><span class="pid">HW1-28</span><span class="ptitle">ถังแข็งกวนด้วยใบพัด — หา ΔS ของแก๊ส</span><span class="psrc">P7-26 · Cengel</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>ถังแข็งบรรจุแก๊สอุดมคติที่ 40 °C · ใบพัดทำงาน 200 kJ ต่อแก๊ส · อุณหภูมิแก๊สคงที่ตลอด เพราะถ่ายเทความร้อนออกสู่สิ่งแวดล้อมที่ 30 °C · หา ΔS ของแก๊ส</div>
+
+    <div class="step"><h5>วิเคราะห์สถานะต้นกับปลาย</h5>
+      <ul>
+        <li>ถังแข็ง → <b>V คงที่</b></li>
+        <li>โจทย์บอกชัดว่าอุณหภูมิแก๊ส<b>คงที่</b>ตลอดกระบวนการ → <b>T คงที่</b></li>
+      </ul>
+      <p>เอนโทรปีเป็นฟังก์ชันสถานะ ขึ้นกับสถานะเท่านั้น เมื่อทั้ง T และ V ไม่เปลี่ยน แก๊สจึงกลับมาอยู่ที่สถานะเดิมทุกประการ</p>
+      <div class="eq">ΔS = m C_v ln(T₂/T₁) + m R ln(V₂/V₁)
+   = m C_v ln(1) + m R ln(1) = <b>0</b></div>
+    </div>
+
+    <div class="step"><h5>ตรวจสอบด้วยกฎข้อที่หนึ่ง</h5>
+      <div class="eq">T คงที่ + V คงที่  →  ΔU = 0
+ΔU = Q + W  →  0 = Q + 200 kJ  →  Q_ออก = 200 kJ
+งานจากใบพัดถูกระบายออกเป็นความร้อนหมดพอดี ✓</div>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span>ΔS<sub>แก๊ส</sub> = <b>0</b></div>
+    <div class="trap"><span class="ctitle">คำถามต่อยอดที่ข้อสอบชอบถาม</span>ถ้าถามหา <b>ΔS ของจักรวาล</b> ต้องบวกฝั่งสิ่งแวดล้อมด้วย: ΔS<sub>รวม</sub> = 0 + 200 kJ / 303.15 K = <b>+0.660 kJ/K &gt; 0</b> ยืนยันว่ากระบวนการนี้ผันกลับไม่ได้ (งานใบพัดเป็นตัวอย่างคลาสสิกของกระบวนการผันกลับไม่ได้)</div>
+  </div>
+</details>
+
+<!-- ===================== HW1-29 ===================== -->
+<details class="prob" id="hw29" open>
+  <summary><span class="pid">HW1-29</span><span class="ptitle">ถังแข็งหุ้มฉนวน ให้ความร้อนจนของเหลวกลายเป็นไอหมด</span><span class="psrc">P7-32 · Cengel</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>ถังแข็งหุ้มฉนวน บรรจุของผสมของเหลว-ไอน้ำอิ่มตัว 3 kg ที่ 200 kPa · เริ่มแรก 3/4 ของมวลเป็นของเหลว · ให้ความร้อนด้วยขดลวดไฟฟ้าจนของเหลวกลายเป็นไอหมด · หา ΔS</div>
+
+    <div class="step"><h5>1. สถานะที่ 1 — อ่านตาราง A-5 ที่ 200 kPa</h5>
+      <p>ของเหลว 3/4 → ไอ 1/4 → x₁ = 0.25 (x นับสัดส่วน<b>ไอ</b> ไม่ใช่ของเหลว)</p>
+      <div class="eq">@200 kPa :  v_f = 0.001061,  v_g = 0.88578 m³/kg
+            s_f = 1.5302,   s_fg = 5.5968 kJ/kg·K
+
+v₁ = 0.001061 + 0.25(0.88578 − 0.001061) = <b>0.22224 m³/kg</b>
+s₁ = 1.5302 + 0.25(5.5968) = <b>2.9294 kJ/kg·K</b></div>
+    </div>
+
+    <div class="step"><h5>2. สถานะที่ 2 — ถังแข็ง ⇒ v ไม่เปลี่ยน</h5>
+      <p>กุญแจของข้อนี้: ปริมาตรจำเพาะคงที่ และสถานะปลายเป็นไออิ่มตัวพอดี (x₂ = 1) แปลว่า v₂ ต้องเท่ากับ <b>v<sub>g</sub></b> ที่ความดันใหม่</p>
+      <div class="eq">v₂ = v₁ = 0.22224 m³/kg = v_g ที่ P₂
+
+ไล่หา P₂ ในตาราง A-5 :
+  850 kPa : v_g = 0.22690
+  900 kPa : v_g = 0.21489
+เทียบบัญญัติไตรยางศ์  →  P₂ ≈ <b>869 kPa</b>
+
+s₂ = s_g ที่ P₂ = 6.6409 + 0.388(6.6213 − 6.6409) = <b>6.6333 kJ/kg·K</b></div>
+    </div>
+
+    <div class="step"><h5>3. การเปลี่ยนแปลงเอนโทรปี</h5>
+      <div class="eq">ΔS = m(s₂ − s₁) = 3(6.6333 − 2.9294) = <b>11.1 kJ/K</b></div>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span>ΔS = <b>11.1 kJ/K</b></div>
+    <div class="trap"><span class="ctitle">กุญแจสำคัญ</span>ถังแข็ง = <b>v คงที่</b> เสมอ ใช้เงื่อนไขนี้เป็นสมการเชื่อมสถานะต้นกับปลาย เมื่อรวมกับเงื่อนไข x₂ = 1 จึงล็อกสถานะปลายได้ทั้งหมด — รูปแบบ “ถังแข็ง + รู้ x ปลาย” เป็นแนวข้อสอบที่พบบ่อยมาก</div>
+  </div>
+</details>
+
+<!-- ===================== HW1-30 ===================== -->
+<details class="prob" id="hw30" open>
+  <summary><span class="pid">HW1-30</span><span class="ptitle">น้ำอัดเหลวขยายตัวสู่สุญญากาศในถังแข็ง</span><span class="psrc">P7-35 · Cengel</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>ถังแข็งแบ่งสองส่วนเท่ากัน ด้านหนึ่งมีน้ำอัดเหลว 2.5 kg ที่ 400 kPa, 60 °C อีกด้านเป็นสุญญากาศ · นำฉากกั้นออก น้ำขยายเต็มถัง · ความดันสุดท้าย 40 kPa · หา ΔS <span class="kbd">(โจทย์ให้คำตอบไว้: 0.492 kJ/K)</span></div>
+
+    <div class="step"><h5>1. สถานะที่ 1 — ของเหลวอัดตัว ใช้ค่าอิ่มตัวที่ T เดียวกันประมาณ</h5>
+      <p>P<sub>sat</sub>@60 °C = 19.95 kPa &lt; 400 kPa → ยืนยันว่าเป็นของเหลวอัดตัว</p>
+      <div class="eq">v₁ ≈ v_f @60 °C = <b>0.001017 m³/kg</b>
+s₁ ≈ s_f @60 °C = <b>0.8313 kJ/kg·K</b></div>
+    </div>
+
+    <div class="step"><h5>2. สถานะที่ 2 — ปริมาตรเป็นสองเท่า</h5>
+      <div class="eq">v₂ = 2 v₁ = 0.002034 m³/kg
+
+@40 kPa :  v_f = 0.001026,  v_g = 3.9933 m³/kg
+0.001026 &lt; 0.002034 &lt; 3.9933  →  ของผสมอิ่มตัว
+
+x₂ = (0.002034 − 0.001026)/(3.9933 − 0.001026) = <b>0.000252</b>
+s₂ = s_f + x₂ s_fg = 1.0261 + 0.000252(6.6430) = <b>1.0278 kJ/kg·K</b></div>
+    </div>
+
+    <div class="step"><h5>3. การเปลี่ยนแปลงเอนโทรปี</h5>
+      <div class="eq">ΔS = m(s₂ − s₁) = 2.5(1.0278 − 0.8313) = <b>0.491 kJ/K</b></div>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span>ΔS = <b>0.491 kJ/K</b> ✓ ตรงกับคำตอบที่โจทย์ให้มา (0.492 kJ/K)</div>
+    <div class="trap"><span class="ctitle">ข้อสังเกต</span>ระวังคำว่า “แบ่งสองส่วนเท่า ๆ กัน” → ปริมาตรรวมเป็น <b>2 เท่า</b> ต่างจาก HW1-17 ที่บอกว่าอีกด้าน “เป็นสองเท่า” ซึ่งได้ 3 เท่า อ่านโจทย์ให้ละเอียดจุดนี้ · และสังเกตว่า x₂ เล็กมาก (0.025%) แต่ทำให้เอนโทรปีเพิ่มขึ้นชัดเจน เพราะ s<sub>fg</sub> ใหญ่</div>
+  </div>
+</details>
+
+<!-- ===================== HW1-31 ===================== -->
+<details class="prob" id="hw31" open>
+  <summary><span class="pid">HW1-31</span><span class="ptitle">เครื่องยนต์ความร้อนผลิตงานได้เท่าใด</span><span class="psrc">P6-16 · Cengel</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>ความร้อนเข้า 1.3 kJ · ประสิทธิภาพเชิงความร้อน 35% · หางานที่ผลิตได้</div>
+    <div class="eq">W = η · Q_H = 0.35 × 1.3 kJ = <b>0.455 kJ</b>
+(ความร้อนที่ทิ้ง Q_C = 1.3 − 0.455 = 0.845 kJ)</div>
+    <div class="ans"><span class="ctitle">คำตอบ</span>W = <b>0.455 kJ</b></div>
+  </div>
+</details>
+
+<!-- ===================== HW1-32 ===================== -->
+<details class="prob" id="hw32" open>
+  <summary><span class="pid">HW1-32</span><span class="ptitle">โรงไฟฟ้าพลังไอน้ำ — กำลังสุทธิและประสิทธิภาพ</span><span class="psrc">P6-17 · Cengel</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>รับความร้อนจากเตาเผา 280 GJ/h · สูญเสียสู่อากาศจากท่อ 8 GJ/h · ทิ้งให้น้ำหล่อเย็น 165 GJ/h · หา (a) กำลังสุทธิ (b) ประสิทธิภาพ</div>
+
+    <div class="step"><h5>(a) กำลังสุทธิ — สมดุลพลังงานทั้งโรงไฟฟ้า</h5>
+      <div class="eq">Ẇ = Q̇_เข้า − Q̇_สูญเสียท่อ − Q̇_น้ำหล่อเย็น
+  = 280 − 8 − 165 = 107 GJ/h
+
+แปลงเป็นกำลัง :  107 × 10⁶ kJ ÷ 3600 s = <b>29 722 kW ≈ 29.7 MW</b></div>
+    </div>
+
+    <div class="step"><h5>(b) ประสิทธิภาพเชิงความร้อน</h5>
+      <p>ตัวหารคือความร้อนที่<b>ป้อนเข้าจากเชื้อเพลิง</b>ทั้งหมด ไม่ใช่หลังหักการสูญเสีย</p>
+      <div class="eq">η = Ẇ/Q̇_เข้า = 107/280 = <b>0.382 = 38.2 %</b></div>
+    </div>
+
+    <div class="ans"><span class="ctitle">คำตอบ</span>(a) <b>29.7 MW</b> · (b) <b>38.2%</b></div>
+    <div class="trap"><span class="ctitle">จุดที่พลาดกันบ่อย</span>อย่าเอา 8 GJ/h ไปหักออกจากตัวหาร ประสิทธิภาพนิยามด้วยความร้อนที่ป้อนเข้าทั้งหมด (280) การสูญเสียที่ท่อถือเป็นความไม่สมบูรณ์ของโรงไฟฟ้าที่ต้องนับรวมในการวัดประสิทธิภาพ</div>
+  </div>
+</details>
+
+<!-- ===================== HW1-33 ===================== -->
+<details class="prob" id="hw33" open>
+  <summary><span class="pid">HW1-33</span><span class="ptitle">เครื่องปรับอากาศรถยนต์ — อัตราการระบายความร้อน</span><span class="psrc">P6-42 · Cengel</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>ให้ผลการทำความเย็น 1 kW โดยใช้กำลังไฟฟ้า 0.75 kW · หาอัตราการระบายความร้อนออก</div>
+    <div class="eq">Q̇_H = Q̇_C + Ẇ = 1 + 0.75 = <b>1.75 kW</b>
+(ค่า COP = 1/0.75 = 1.33)</div>
+    <div class="ans"><span class="ctitle">คำตอบ</span>Q̇<sub>H</sub> = <b>1.75 kW</b></div>
+    <div class="trap"><span class="ctitle">แนวคิด</span>ความร้อนที่ระบายออกจากคอนเดนเซอร์<b>มากกว่า</b>ความร้อนที่ดูดออกจากห้องโดยสารเสมอ เพราะพลังงานไฟฟ้าที่ป้อนเข้าก็กลายเป็นความร้อนไปด้วย นี่คือเหตุผลที่การเปิดตู้เย็นทิ้งไว้ทำให้ห้อง<b>ร้อนขึ้น</b> ไม่ใช่เย็นลง</div>
+  </div>
+</details>
+
+<!-- ===================== HW1-34 ===================== -->
+<details class="prob" id="hw34" open>
+  <summary><span class="pid">HW1-34</span><span class="ptitle">ตู้เย็นเก็บอาหาร — หาค่า COP</span><span class="psrc">P6-43 · Cengel</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+  <div class="pbody">
+    <div class="given"><span class="ctitle">โจทย์</span>ผลการทำความเย็น 15 000 kJ/h · ระบายความร้อนออก 22 000 kJ/h · หา COP</div>
+    <div class="eq">Ẇ = Q̇_H − Q̇_C = 22 000 − 15 000 = 7000 kJ/h
+COP_R = Q̇_C/Ẇ = 15 000/7000 = <b>2.14</b></div>
+    <div class="ans"><span class="ctitle">คำตอบ</span>COP<sub>R</sub> = <b>2.14</b></div>
+    <div class="trap"><span class="ctitle">ต้องเข้าใจ</span>COP มีค่ามากกว่า 1 ได้ และไม่ขัดกับกฎข้อที่หนึ่ง เพราะ<b>ไม่ใช่ประสิทธิภาพ</b> — ตู้เย็นไม่ได้ “สร้าง” ความเย็น แต่ <b>ย้าย</b> ความร้อนจากที่เย็นไปที่ร้อน โดยใช้งานเป็นตัวช่วย จึงย้ายความร้อนได้มากกว่าพลังงานที่ป้อนเข้า</div>
+  </div>
+</details>
+
+</section>
+
+<footer>
+  <p>รหัสโจทย์ต้นฉบับกำกับไว้ทุกข้อ (เช่น <code>P3-21 · Cengel</code>) ใช้ค้นเฉลยจากอินเทอร์เน็ตเทียบได้ · ค่าตารางทุกค่าดึงจากตาราง A-1 ถึง A-8 ฉบับเดียวกับที่จะแจกในห้องสอบ · ผลลัพธ์เชิงตัวเลขตรวจสอบด้วยการคำนวณซ้ำทุกข้อ</p>
+  <p>ข้อจำกัดที่ควรทราบ: HW1-23 (c) บีตตี-บริดจ์แมน ต้องใช้ตาราง A-29b ซึ่งไม่มีในชุดที่แจก จึงระบุแต่ผลลัพธ์ · ค่า Z ใน HW1-21, 22 อ่านจากแผนภูมิ อาจคลาดได้ ±0.02 · HW1-17 ต่างจากเฉลยหนังสือเล็กน้อยเพราะใช้การเทียบบัญญัติไตรยางศ์เชิงเส้น</p>
+</footer>
+
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

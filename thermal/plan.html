@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>แผนอ่าน 48 ชั่วโมง — Thermal and Statistics Physics</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="topin">
+    <a class="brand" href="index.html">05366031 · MIDTERM</a>
+    <nav class="pages">
+      <a href="index.html">หน้าแรก</a>
+      <a href="story.html">เรื่องเล่า</a>
+      <a href="theory.html">เก็งทฤษฎี</a>
+      <a href="plan.html">แผนอ่าน</a>
+      <a href="scope.html">ขอบเขต+สูตร</a>
+      <a href="formulas.html">สูตร+ตัวอย่าง</a>
+      <a href="concepts.html">สรุปคอนเซปต์</a>
+      <a href="hints.html">ใบ้ 34 ข้อ</a>
+      <a href="solutions.html">เฉลยเต็ม</a>
+    </nav>
+    <div class="tools">
+      <button class="tool sq" id="fsDown" type="button" title="ตัวอักษรเล็กลง (Ctrl −)">A−</button>
+      <button class="tool sq" id="fsUp" type="button" title="ตัวอักษรใหญ่ขึ้น (Ctrl +)">A+</button>
+      <span class="kbd" id="fsLabel">100%</span>
+      <button class="tool" id="themeBtn" type="button" title="สลับธีม">ตามระบบ</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<div class="hero">
+  <p class="eyebrow">เสาร์เย็น → จันทร์เช้า · 48 ชั่วโมงสุดท้าย</p>
+  <h1>เริ่มอ่านตรงไหน แล้วย้ายไปทำแบบฝึกหัดตอนไหน</h1>
+  <p class="lede">แผนนี้ถอดมาจากไฟล์อาจารย์จริงทั้งสองชุด ไม่ใช่แผนอ่านทั่วไป — ระบุถึงระดับ “เปิดไฟล์ไหน หน้าเท่าไหร่ ทำอะไร กี่นาที” ติ๊กช่องได้ เว็บจำให้</p>
+  <p style="margin-bottom:0"><span class="kbd">ความคืบหน้า <b id="progCount">0 / 0</b></span></p>
+</div>
+
+<!-- ============ THE ONE ANSWER ============ -->
+<section id="start">
+  <div class="shead"><span class="stag">คำตอบสั้นที่สุด</span><h2>หน้าแรกที่ต้องเปิด</h2></div>
+
+  <div class="call key">
+    <span class="ctitle">เปิด ENERGY IN THERMAL PHYSICS.pdf → ไปที่ “หน้า 27” ก่อนเลย</span>
+    <p>หน้า 27 คือ <b>Key Equations Recap</b> — อาจารย์สรุปสมการทั้งบทไว้ในหน้าเดียว ทั้ง <code>PV=nRT</code>, <code>U=(f/2)nRT</code>, <code>C_v=(f/2)R</code>, <code>ΔU=Q+W</code>, <code>W=−∫PdV</code>, <code>H=U+PV</code>, <code>PV^γ=const</code>, <code>Q=mL</code></p>
+    <p style="margin-bottom:0"><b>ทำไมต้องอ่านหน้าสุดท้ายก่อน:</b> คุณไม่มีเวลาอ่านเรียงหน้า การอ่านหน้าสรุปก่อนทำให้ได้ “โครง” ครบทั้งบทใน 5 นาที แล้วทุกอย่างที่อ่านต่อจากนี้จะมีที่แขวน ไม่ใช่ข้อมูลลอย ๆ</p>
+  </div>
+
+  <div class="call warn">
+    <span class="ctitle">ตามด้วยหน้า 14 และ 20 ทันที — สองหน้านี้เคลียร์เรื่องที่ทำคนตกมากที่สุด</span>
+    <div class="eq">อาจารย์ใช้ระบบนี้ (ยืนยันจากสไลด์หน้า 14 และ 20) :
+
+    ΔU = Q + W          W = งานที่กระทำ <b>ต่อ</b> ระบบ
+    W = −∫ P dV
+    ถูกอัด  (V ลด)  → W > 0   ระบบได้รับงาน
+    ขยายตัว (V เพิ่ม) → W < 0   ระบบเสียงานให้สิ่งแวดล้อม</div>
+    <p style="margin-bottom:0">นี่คือระบบของ <b>Schroeder</b> ไม่ใช่ของ Cengel/Serway — ในห้องสอบใช้ระบบนี้ระบบเดียวทั้งฉบับ และเขียนกำกับไว้บนหัวกระดาษ</p>
+  </div>
+</section>
+
+<!-- ============ 3 PHASES ============ -->
+<section id="phases">
+  <div class="shead"><span class="stag">ลำดับ</span><h2>สามเฟส — อ่าน 1 ส่วน ลงมือ 4 ส่วน</h2></div>
+  <p class="snote">อัตราส่วนนี้สำคัญกว่าเนื้อหา ถ้าคุณอ่านนานกว่า 1.5 ชั่วโมงคืนนี้ แปลว่าแผนพังแล้ว</p>
+
+  <div class="grid g3">
+    <div class="card">
+      <h4>① อ่าน · 40 นาที</h4>
+      <p>เอาแค่ “โครงสมการ + ระบบเครื่องหมาย” ไม่ต้องเข้าใจลึก ความเข้าใจจะมาตอนทำโจทย์ ไม่ใช่ตอนอ่าน</p>
+    </div>
+    <div class="card">
+      <h4>② ดูอาจารย์ทำ · 50 นาที</h4>
+      <p>ดูหน้าลายมือที่อาจารย์แก้โจทย์ให้ดูในห้อง เพื่อจับ <b>วิธีเขียนคำตอบ</b> — ข้อสอบเขียนหมด อาจารย์ตรวจตามฟอร์มที่ตัวเองสอน</p>
+    </div>
+    <div class="card">
+      <h4>③ ลงมือ · 6 ชั่วโมง</h4>
+      <p>เขียนการบ้านด้วยลายมือ ซึ่งเป็นทั้งงานส่งวันอาทิตย์ <b>และ</b> การติวสอบไปในตัว เพราะอาจารย์บอกเองว่าข้อสอบปรับมาจากชุดนี้</p>
+    </div>
+  </div>
+
+  <div class="call tip">
+    <span class="ctitle">กฎ 20 นาทีต่อข้อ — ใช้กับทุกข้อ ห้ามยืดหยุ่น</span>
+    <ol style="margin-bottom:0">
+      <li><b>0–5 นาที</b> ลองเองเปล่า ๆ ไม่เปิดอะไรเลย</li>
+      <li><b>5–10 นาที</b> ติด → เปิด <a href="hints.html">หน้าใบ้</a> ใบ้ที่ 1 แล้วลองต่อ</li>
+      <li><b>10–20 นาที</b> ยังไม่ได้ → เปิด <a href="solutions.html">เฉลย</a> แล้ว <b>ลอกด้วยลายมือให้ครบทุกบรรทัด</b></li>
+      <li>ทุกข้อ เขียน <b>1 บรรทัดบนหัวข้อ</b> ว่า “ใช้สูตรอะไร เพราะโจทย์ให้อะไรมา” ← บรรทัดนี้คือชีทติวเช้าวันจันทร์</li>
+    </ol>
+  </div>
+
+  <div class="call">
+    <span class="ctitle">ลอกเฉลยไม่ใช่การโกงตัวเอง</span>
+    <p style="margin-bottom:0">เวลาเหลือ 48 ชั่วโมง การนั่งงมข้อเดียว 50 นาทีแล้วได้ 1 ข้อ แย่กว่าการลอกเฉลยอย่างตั้งใจ 3 ข้อในเวลาเท่ากัน — <b>ลอกแล้วเข้าใจ ยังได้คะแนนสอบ ส่วนงมแล้วไม่ทันส่ง ไม่ได้อะไรเลย</b></p>
+  </div>
+</section>
+
+<!-- ============ SATURDAY ============ -->
+<section id="saturday">
+  <div class="shead"><span class="stag">คืนนี้</span><h2>วันเสาร์ 17:00 → 01:00 · จบ 8 ข้อ</h2></div>
+  <p class="snote">กดที่หัวข้อเพื่อกาง · ติ๊ก “ทำแล้ว” เมื่อจบแต่ละช่วง เว็บจะจำให้ข้ามการรีเฟรช</p>
+
+  <details class="prob" id="sat0" open>
+    <summary><span class="pid">17:00</span><span class="ptitle">Block 0 · ปักหมุดระบบเครื่องหมาย</span><span class="psrc">40 นาที</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+    <div class="pbody">
+      <div class="given"><span class="ctitle">เปิดอะไร</span><b>ENERGY IN THERMAL PHYSICS.pdf</b> → หน้า <b>27</b> ก่อน แล้วย้อนไป <b>14, 20, 21, 25</b> · จากนั้น <a href="concepts.html">concepts.html</a> อ่านเฉพาะ 2 หัวข้อ: “ขั้นตอนมาตรฐาน 5 ขั้น” และ “ตารางแปลคำสำคัญในโจทย์”</div>
+
+      <div class="step"><h5>งานที่ต้องส่งมอบจาก Block นี้ — กระดาษ A4 แผ่นที่ 1</h5>
+        <p>เขียนด้วย<b>ลายมือ</b> (พิมพ์ไม่ได้ผล มือต้องจำ) แล้ววางไว้ข้างตัวตลอดคืน ทุกครั้งที่จะเซ็นเครื่องหมาย ให้มองแผ่นนี้:</p>
+        <div class="eq">ΔU = Q + W        W = −∫ P dV        อัด → W > 0
+U = (f/2) nRT     C_v = (f/2) R      C_p − C_v = nR
+H = U + PV        PV^γ = const       Q = mL
+γ : อะตอมเดี่ยว 5/3 ≈ 1.67   ไดอะตอมิก 7/5 = 1.4
+f : monatomic 3 · diatomic 5 · diatomic ที่ T สูง 7</div>
+      </div>
+
+      <div class="trap"><span class="ctitle">ห้ามทำ</span>อย่าเพิ่งอ่าน hints.html หรือ solutions.html รอบแรก สองหน้านั้นไม่ใช่หน้า “อ่าน” แต่เป็นหน้า “เปิดตอนติด” — อ่านล่วงหน้าคือการหลอกตัวเองว่าเข้าใจแล้ว</div>
+    </div>
+  </details>
+
+  <details class="prob" id="sat1" open>
+    <summary><span class="pid">17:40</span><span class="ptitle">Block 1 · ดูอาจารย์ทำโจทย์ด้วยลายมือ ⭐</span><span class="psrc">50 นาที</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+    <div class="pbody">
+      <div class="given"><span class="ctitle">เปิดอะไร</span>เปิดเป็น<b>รูป</b> (ลายมือ ค้นหาข้อความไม่เจอ)<br><b>ENERGY IN THERMAL PHYSICS.pdf</b> → หน้า <b>6, 16, 17, 18, 19, 22, 23, 26</b><br><b>Entropy-The_Second_Law_Thermodynamics.pdf</b> → หน้า <b>8, 11, 12, 13</b></div>
+
+      <div class="step"><h5>ทำไม Block นี้สำคัญที่สุดและคนส่วนใหญ่มองข้าม</h5>
+        <p>สไลด์อาจารย์ไม่ได้มีแต่ทฤษฎี — มีหน้าที่เป็น<b>ลายมืออาจารย์แก้โจทย์ให้ดูในห้อง</b>แทรกอยู่ระหว่างสไลด์ทฤษฎี เท่าที่ดูมี: หาความดันจากกฎแก๊ส · การเย็นตัวของของไหลในถังด้วย ΔU = Q + W · งานไอโซบาริกและอะเดียแบติก · Q = mcΔT · การกาง ΔS ของแก๊สอุดมคติทีละบรรทัด · free expansion (W = 0, ΔU = 0)</p>
+        <p style="margin-bottom:0"><b>ข้อสอบให้ “เขียนหมด” ข้อละ 5 คะแนน</b> แปลว่าคะแนนอยู่ที่วิธีเขียน ไม่ใช่แค่ตัวเลขสุดท้าย — และวิธีเขียนที่อาจารย์ยอมรับ ก็คือวิธีที่อาจารย์เขียนเองในหน้าเหล่านี้</p>
+      </div>
+
+      <div class="step"><h5>ดูยังไง — อย่าพยายามทำตาม</h5>
+        <p>ตอบ 4 คำถามนี้กับตัวเองแล้วจดลงกระดาษ 5 บรรทัด:</p>
+        <p style="margin-bottom:0">① อาจารย์ขึ้น<b>บรรทัดแรก</b>ด้วยอะไร (สมการหลัก หรือ ข้อมูลที่ให้มา) · ② เขียน<b>สมมติฐาน</b>ไว้ตรงไหน · ③ ใส่<b>หน่วย</b>ตอนไหน ทุกบรรทัดหรือบรรทัดสุดท้าย · ④ ปิดท้ายด้วยอะไร</p>
+      </div>
+
+      <div class="ans"><span class="ctitle">ผลลัพธ์</span>ได้ “ฟอร์มคำตอบ” 5 บรรทัด ที่จะใช้เขียนทั้งการบ้าน 15 ข้อ และข้อสอบ 7 ข้อ</div>
+    </div>
+  </details>
+
+  <details class="prob" id="sat2" open>
+    <summary><span class="pid">18:30</span><span class="ptitle">Block 2 · บล็อกตาราง P-v-T → HW 15, 16</span><span class="psrc">2 ชั่วโมง · ทานข้าวไปด้วยได้</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+    <div class="pbody">
+      <div class="given"><span class="ctitle">เปิดอะไร</span><a href="concepts.html">concepts.html</a> หัวข้อ <b>“ตัดสินเฟสอย่างไร”</b> 10 นาทีก่อน · แล้วเปิด <b>Y-cengel-Phase-diagram.pdf</b> ไว้ข้าง ๆ <b>เฉพาะตารางที่ต้องใช้</b></div>
+
+      <div class="step"><h5>ทำไมบล็อกนี้ต้องมาก่อนและกินเวลามากที่สุด</h5>
+        <p>ตรงกับ<b>ข้อ 3 ของข้อสอบ</b> เต็ม ๆ และตาราง A-1 ถึง A-8 <b>อาจารย์แจกในห้องสอบ</b> — แปลว่านี่คือ 5 คะแนนที่ไม่ต้องท่องอะไรเลย ขอแค่เปิดตารางเป็นและเร็ว</p>
+        <div class="eq">ขั้นตอนตายตัว — ห้ามข้าม ห้ามเดาจากคำในโจทย์
+เทียบ v (หรือ u, h) กับ v_f และ v_g ที่ P หรือ T นั้น เสมอ
+
+  v < v_f          → ของเหลวอัดตัว (compressed liquid)
+  v_f ≤ v ≤ v_g    → ของผสมอิ่มตัว → x = (v − v_f)/(v_g − v_f)
+  v > v_g          → ไอร้อนยวดยิ่ง (superheated)</div>
+        <p style="margin-bottom:0"><b>ตัดสินเฟสผิด = ทั้งข้อผิด</b> ไม่มีคะแนนบางส่วน เพราะเปิดผิดตารางตั้งแต่ต้น</p>
+      </div>
+
+      <div class="step"><h5>15 แล้วต่อ 16 — ซ้ำเทคนิคกันโดยตั้งใจ</h5>
+        <p style="margin-bottom:0">ข้อ 16 <b>ต้องเร็วกว่าข้อ 15 เท่าตัว</b> ถ้าทำแล้วยังช้าเท่าเดิม แปลว่ายังไม่เข้าใจ ให้ย้อนกลับไปดูขั้นตอนตัดสินเฟสใหม่ อย่าเดินหน้าต่อ</p>
+      </div>
+
+      <div class="ans"><span class="ctitle">เป้าหมายจริงของบล็อกนี้</span>ไม่ใช่ “ได้คำตอบ” แต่คือ <b>เปิดตารางหาค่าได้ภายใน 30 วินาที</b></div>
+    </div>
+  </details>
+
+  <details class="prob" id="sat3" open>
+    <summary><span class="pid">20:30</span><span class="ptitle">Block 3 · ลูกสูบและความร้อนแฝง → HW 19, 18</span><span class="psrc">1 ชั่วโมง</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+    <div class="pbody">
+      <div class="given"><span class="ctitle">โจทย์</span><b>HW 19</b> ลูกสูบ ให้ความร้อนที่ P คงที่ · <b>HW 18</b> ต้มน้ำด้วยเตา 3 kW หาอัตราการระเหย</div>
+      <div class="step"><h5>ทั้งสองข้อใช้สูตรที่ง่ายที่สุดในชุด แต่ออกสอบบ่อยที่สุด</h5>
+        <div class="eq">P คงที่ (isobaric) :  W = −P ΔV     ← สูตรที่ใช้บ่อยที่สุดในวิชานี้
+ต้มน้ำ / ระเหย   :  Q = m·h_fg     h_fg @1 atm = 2256.5 kJ/kg
+อัตรา            :  ṁ = Q̇ / h_fg</div>
+        <p style="margin-bottom:0">18 ควรเสร็จใน 15 นาที ถ้าเกินนั้นแปลว่าไปติดเรื่องหน่วย (kW = kJ/s) ไม่ใช่ติดเรื่องฟิสิกส์</p>
+      </div>
+      <div class="call tip" style="margin:0"><span class="ctitle">21:30 พัก 15 นาที</span><p style="margin-bottom:0">ลุกเดิน ดื่มน้ำ <b>ห้ามแตะมือถือ</b> — เปิดมือถือ 15 นาที กลับมาต้องใช้เวลา 20 นาทีกว่าจะจับกระแสความคิดเดิมได้</p></div>
+    </div>
+  </details>
+
+  <details class="prob" id="sat4" open>
+    <summary><span class="pid">21:45</span><span class="ptitle">Block 4 · แก๊สจริง → HW 21, 23</span><span class="psrc">1 ชั่วโมง 15</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+    <div class="pbody">
+      <div class="given"><span class="ctitle">โจทย์</span><b>HW 21</b> หา v ของไอน้ำที่ 15 MPa, 350 °C ด้วย <b>3 วิธี</b> (ตาราง / อุดมคติ / compressibility factor Z) · <b>HW 23</b> ความดัน N₂ ในถัง — อุดมคติ vs van der Waals</div>
+      <div class="step"><h5>แก่นของข้อ 4 ในข้อสอบ</h5>
+        <p style="margin-bottom:0">ข้อ 21 ไม่ได้ต้องการเลข 3 ตัว แต่ต้องการให้คุณเห็นว่า <b>“แก๊สอุดมคติผิดไปเท่าไหร่ และผิดตอนไหน”</b> — ตอบด้วยว่า % error เท่าไหร่ และเพราะอะไรถึงผิด (ความดันสูง อุณหภูมิใกล้จุดวิกฤต) ประโยคอธิบายนี้แหละคือคะแนน</p>
+      </div>
+      <div class="trap"><span class="ctitle">ข้ามได้เลย</span><b>HW 22</b> เป็นโจทย์เดียวกับ 21 เป๊ะ แค่เปลี่ยนตัวเลข — ข้ามไปประหยัด 40 นาที เอาไปทำข้ออื่นคุ้มกว่า</div>
+    </div>
+  </details>
+
+  <details class="prob" id="sat5" open>
+    <summary><span class="pid">23:00</span><span class="ptitle">Block 5 · กฎข้อที่หนึ่ง → HW 05, 06</span><span class="psrc">1 ชั่วโมง 30</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+    <div class="pbody">
+      <div class="given"><span class="ctitle">เปิดอะไร</span><a href="concepts.html">concepts.html</a> หัวข้อ <b>“กฎข้อที่หนึ่ง — เลือกสูตรงานอย่างไร”</b> ก่อน · <b>HW 05</b> ฮีเลียมขยายตัวโดย P ∝ V · <b>HW 06</b> วัฏจักรสี่เหลี่ยมของแก๊สไดอะตอมิก</div>
+      <div class="step"><h5>บล็อกที่สบายใจที่สุดของคืนนี้</h5>
+        <p style="margin-bottom:0">ทั้งสองข้อมาจาก <b>Schroeder</b> ซึ่งใช้ระบบเครื่องหมายเดียวกับอาจารย์เป๊ะ ไม่ต้องแปลงอะไรเลย เขียนตรงตามที่อาจารย์สอนได้เลย</p>
+      </div>
+      <div class="step"><h5>สองประโยคที่ต้องติดหัวออกจากบล็อกนี้</h5>
+        <div class="eq">HW 05 : P ∝ V ไม่ใช่ P คงที่ → ต้อง <b>อินทิเกรตจริง</b> ห้ามใช้ W = −PΔV
+HW 06 : วัฏจักรปิดครบรอบ → <b>ΔU = 0 เสมอ</b> → Q_net = −W_net</div>
+        <p style="margin-bottom:0">ประโยคที่สองคือหัวใจของข้อ 5 ทั้งข้อ และใช้ต่อได้ถึงข้อ 7 เรื่องเครื่องยนต์</p>
+      </div>
+    </div>
+  </details>
+
+  <details class="prob" id="sat6" open>
+    <summary><span class="pid">00:30</span><span class="ptitle">Block 6 · ปิดวัน — อย่าข้าม</span><span class="psrc">30 นาที</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+    <div class="pbody">
+      <div class="step"><h5>เขียน A4 หนึ่งแผ่นด้วยลายมือ</h5>
+        <p>① สูตรที่ได้ใช้จริงคืนนี้ (ไม่ใช่สูตรทั้งหมดที่รู้) · ② 3 ข้อที่พลาด พลาดเพราะอะไร · ③ จุดที่ยังงงอยู่</p>
+        <p style="margin-bottom:0">แล้วไปนอน — สมองจะจัดระเบียบสิ่งที่เพิ่งเรียนตอนหลับ การฝืนต่อถึงตี 3 ได้ข้อเพิ่ม 1 ข้อ แต่เสียประสิทธิภาพวันอาทิตย์ทั้งวัน</p>
+      </div>
+      <div class="ans"><span class="ctitle">จบคืนวันเสาร์</span>ได้ <b>8 ข้อ</b> — HW 15, 16, 19, 18, 21, 23, 05, 06 · เหลือวันอาทิตย์อีก <b>7 ข้อ</b> สบายมาก</div>
+    </div>
+  </details>
+</section>
+
+<!-- ============ SUNDAY / MONDAY ============ -->
+<section id="sunday">
+  <div class="shead"><span class="stag">พรุ่งนี้</span><h2>วันอาทิตย์ และเช้าวันจันทร์</h2></div>
+
+  <details class="prob" id="sun1">
+    <summary><span class="pid">อาทิตย์</span><span class="ptitle">เช้า–บ่าย · เขียนอีก 7 ข้อ แล้วส่ง</span><span class="psrc">5–6 ชั่วโมง</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+    <div class="pbody">
+      <div class="step"><h5>ลำดับตามระดับพลังสมอง</h5>
+        <p><b>เช้า (สมองสดที่สุด)</b> → HW <b>09</b> สูบลมยางอะเดียแบติก · HW <b>25</b> ΔS ของ free expansion · HW <b>26</b> วัฏจักรสามขั้น หา W, Q, η<br>
+        <b>บ่ายต้น</b> → HW <b>28</b> ถังกวนใบพัด ΔS<br>
+        <b>บ่ายแก่ ๆ ตอนล้าแล้ว</b> → HW <b>31</b> และ <b>34</b> เครื่องยนต์/COP (สองข้อรวมไม่เกิน 30 นาที แทนสูตรตรง ๆ) · HW <b>13</b> แท่งทอง-เงิน</p>
+        <p style="margin-bottom:0">เอาข้อยากไว้ตอนสด เอาข้อแทนสูตรไว้ตอนล้า — อย่าสลับ</p>
+      </div>
+      <div class="call warn" style="margin:0"><span class="ctitle">ส่งให้เสร็จก่อนเย็น</span><p style="margin-bottom:0">Google Classroom หรือ LAB 604 (AMDEL) ตึก SC08 · <b>อย่าลากไปถึงกลางคืน</b> เพราะคืนวันอาทิตย์ต้องใช้เก็บ 10 คะแนนทฤษฎี</p></div>
+    </div>
+  </details>
+
+  <details class="prob" id="sun2">
+    <summary><span class="pid">อาทิตย์</span><span class="ptitle">เย็น · 10 คะแนนทฤษฎี ที่คนไม่เตรียม ⚠️</span><span class="psrc">2–3 ชั่วโมง</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+    <div class="pbody">
+      <div class="given"><span class="ctitle">เปิดอะไร</span><b>Entropy-The_Second_Law_Thermodynamics.pdf</b> ทั้งไฟล์ (17 หน้า) + <b>Thermal_Statistical_Physics_Summary.pdf</b> หัวข้อ <b>1–4 และ 6</b></div>
+
+      <div class="call key" style="margin-top:0"><span class="ctitle">10 คะแนน = 29% ของข้อสอบ ใช้แรงน้อยที่สุดในทั้งหมด</span><p style="margin-bottom:0">2 ข้อจาก 7 เป็นนิยาม/ทฤษฎีล้วน ไม่ต้องคำนวณ ไม่ต้องเปิดตาราง แค่<b>ท่องให้เขียนได้</b> — นี่คือคะแนนที่ถูกที่สุดในข้อสอบ แต่คนส่วนใหญ่ทุ่มเวลาไปกับ 25 คะแนนคำนวณจนไม่เหลือเวลาให้ส่วนนี้</p></div>
+
+      <div class="step"><h5>เขียนมือ 1 แผ่นต่อ 1 หัวข้อ — แต่ละหัวข้อ: นิยาม 2–3 ประโยค + สมการ 1 บรรทัด + ตัวอย่าง 1 อัน</h5>
+        <div class="eq">□ กฎข้อที่ศูนย์      สมดุลความร้อนถ่ายทอดได้ → ทำให้ “อุณหภูมิ” นิยามได้
+□ กฎข้อที่หนึ่ง      ΔU = Q + W  (อนุรักษ์พลังงาน)
+□ กฎข้อที่สอง       ต้องเขียนได้ <b>ทั้งสองแบบ</b> :
+                     Kelvin-Planck — ไม่มีเครื่องยนต์วัฏจักรใดเปลี่ยนความร้อนเป็นงานได้ 100%
+                     Clausius      — ความร้อนไม่ไหลจากเย็นไปร้อนเองโดยไม่มีงานจากภายนอก
+□ เอนโทรปี          dS = δQ_rev/T   และ   S = k ln Ω   (เขียนได้ทั้งสองนิยาม)
+□ Reversible        ผ่านสมดุลตลอด ย้อนกลับได้โดยไม่ทิ้งร่องรอย → ให้งานสูงสุด
+□ Equipartition     ½ kT ต่อ 1 พจน์กำลังสอง → U = (f/2)nRT
+□ Quality x         x = m_ไอ/m_รวม  ใช้ได้เฉพาะในโดมของผสมอิ่มตัว
+□ State vs Path     U, S, H, T, P, V เป็น state · Q, W ไม่ใช่ (จึงเขียน δQ, δW)
+□ ทฤษฎีบทคาร์โนต์   η ≤ 1 − T_C/T_H  และไม่มีเครื่องยนต์ใดชนะคาร์โนต์ได้</div>
+      </div>
+
+      <div class="step"><h5>วิธีเช็กว่าจำได้จริง</h5>
+        <p style="margin-bottom:0">ปิดกระดาษแล้ว<b>พูดออกมาดัง ๆ</b> ถ้าพูดไม่ได้ = ยังไม่จำ (แค่ “คุ้น”) ต้องเขียนได้ทันทีในห้องสอบโดยไม่ต้องคิด เพราะเวลาสอบต้องเอาไปทุ่มให้ 25 คะแนนคำนวณ</p>
+      </div>
+
+      <div class="trap"><span class="ctitle">อย่าเสียเวลากับ</span>หัวข้อ <b>5 (Statistical Mechanics)</b> ใน Summary — Maxwell-Boltzmann, Fermi-Dirac, Bose-Einstein <b>ออกปลายภาค ไม่ใช่กลางภาค</b> (ยืนยันจาก SL00 หน้า 3) · ยกเว้น <code>S = k ln Ω</code> ที่ยังต้องเขียนได้ 1 บรรทัดในฐานะนิยามเอนโทรปี</div>
+    </div>
+  </details>
+
+  <details class="prob" id="mon1">
+    <summary><span class="pid">จันทร์</span><span class="ptitle">เช้าก่อนสอบ · ห้ามเรียนของใหม่เด็ดขาด</span><span class="psrc">1 ชั่วโมง</span><label class="chk"><input type="checkbox">ทำแล้ว</label></summary>
+    <div class="pbody">
+      <div class="step"><h5>ทำ 3 อย่างนี้เท่านั้น</h5>
+        <p>① หยิบกระดาษเปล่า <b>ทำใหม่ 3 ข้อจากความจำ ไม่เปิดอะไรเลย</b> — HW 15 (ตาราง), HW 06 (วัฏจักร), HW 25 (เอนโทรปี) อย่างละ 10 นาที<br>
+        ② อ่านชีทค่าคงที่ใน <a href="index.html#constants">หน้าแรก</a><br>
+        ③ อ่านกล่องระบบเครื่องหมายด้านบนของหน้านี้ซ้ำอีกรอบ</p>
+        <p style="margin-bottom:0"><b>ห้ามเปิดข้อที่ยังไม่เคยทำ</b> เช้าวันสอบ การเจอของใหม่ที่ทำไม่ได้จะทำลายความมั่นใจ และไม่มีเวลาซ่อมแล้ว</p>
+      </div>
+      <div class="call warn" style="margin:0"><span class="ctitle">นาทีแรกในห้องสอบ</span><p style="margin-bottom:0">เขียนบนหัวกระดาษ: <b>“ใช้ ΔU = Q + W · W = −∫PdV · อัด → W &gt; 0”</b> แล้วใช้ระบบเดียวนี้ทั้งฉบับ ไม่ว่าโจทย์จะมาจากเล่มไหน</p></div>
+    </div>
+  </details>
+</section>
+
+<!-- ============ 15 PROBLEMS ============ -->
+<section id="picks">
+  <div class="shead"><span class="stag">เลือกแล้ว</span><h2>15 ข้อไหน และทำไมข้อนั้น</h2></div>
+  <p class="snote">อาจารย์ให้ส่งขั้นต่ำ 15 ข้อจาก 34 ข้อ — เลือกให้ครบทุกช่องของข้อสอบ ไม่ใช่เลือกข้อที่ทำง่าย</p>
+
+  <div class="tscroll">
+    <table>
+      <thead><tr><th class="n">ข้อสอบ</th><th>หัวข้อ</th><th>HW ที่ทำ</th><th>ข้ามได้เพราะซ้ำเทคนิค</th></tr></thead>
+      <tbody>
+        <tr><td class="n">3</td><td>ตาราง P-v-T · สมบัติสารบริสุทธิ์</td><td class="n"><b>15, 16, 19, 18</b></td><td class="n">17</td></tr>
+        <tr><td class="n">4</td><td>แก๊สจริง · สมการสถานะ</td><td class="n"><b>21, 23</b></td><td class="n">22, 24</td></tr>
+        <tr><td class="n">5</td><td>กฎข้อที่หนึ่ง · งาน · วัฏจักร P-V</td><td class="n"><b>05, 06, 09</b></td><td class="n">07, 08, 20</td></tr>
+        <tr><td class="n">6</td><td>เอนโทรปี · กฎข้อที่สอง</td><td class="n"><b>25, 26, 28</b></td><td class="n">27, 29, 30</td></tr>
+        <tr><td class="n">7</td><td>เครื่องยนต์ · ตู้เย็น · COP</td><td class="n"><b>31, 34</b></td><td class="n">32, 33</td></tr>
+        <tr><td class="n">แทรก</td><td>การนำความร้อน</td><td class="n"><b>13</b></td><td class="n">12, 14</td></tr>
+        <tr><td class="n">—</td><td>ทฤษฎีจลน์ · พิสูจน์ (ถ้ามีเวลาเหลือ)</td><td class="n">01, 02, 10</td><td class="n">03, 04, 11</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="snote" style="margin-top:14px">รวม <b>15 ข้อพอดี</b> · ครบทั้ง 7 ข้อใหญ่ของข้อสอบ · ตัดข้อที่ซ้ำเทคนิคออกแล้วประหยัดไปประมาณ 3 ชั่วโมง</p>
+</section>
+
+<!-- ============ TRAPS ============ -->
+<section id="traps">
+  <div class="shead"><span class="stag">ระวัง</span><h2>5 กับดักจากการอ่านโจทย์จริง</h2></div>
+
+  <div class="call warn">
+    <span class="ctitle">กับดัก 1 · การบ้านชุดนี้มาจาก 3 เล่ม ที่ใช้เครื่องหมายไม่ตรงกัน</span>
+    <div class="eq">Schroeder → HW 01,02,03,04,05,06,09,10,11    ΔU = Q + W        ✅ ตรงกับอาจารย์
+Serway    → HW 07,08,13,14,25,26,27          ΔE_int = Q − W    ❌ กลับข้าง
+Cengel    → HW 12,15–24,28–34                ΔU = Q − W        ❌ กลับข้าง + ต่อหน่วยมวล</div>
+    <p style="margin-bottom:0"><b>วิธีรับมือ:</b> ทำตามเล่มไปก่อน (จะได้เทียบเฉลยจากอินเทอร์เน็ตได้) แต่<b>บรรทัดสุดท้ายแปลงกลับเป็นระบบอาจารย์</b> แล้วเขียนกำกับว่า “ในระบบ ΔU = Q + W ค่านี้คือ ___” — บรรทัดนี้แหละที่แสดงว่าเข้าใจ ไม่ใช่แค่แทนสูตร</p>
+  </div>
+
+  <div class="call warn">
+    <span class="ctitle">กับดัก 2 · “ต่อโมล” ปะทะ “ต่อกิโลกรัม” — พลาดบ่อยที่สุด</span>
+    <p>Schroeder/Serway คิดทั้งก้อน ใช้ <code>n</code>, <code>R</code>, ตัวพิมพ์ใหญ่ <code>U, V, S</code><br>
+    Cengel ใช้ตัวพิมพ์<b>เล็ก</b> <code>u, h, v, s</code> = <b>ค่าต่อ 1 kg</b> เปิดตารางได้ค่าต่อ kg แล้ว<b>ต้องคูณ m ทีหลัง</b></p>
+    <p style="margin-bottom:0"><b>วิธีกันพลาด:</b> ทุกครั้งที่เปิดตาราง ให้เขียน <code>× m</code> ค้างไว้ล่วงหน้าเลย ก่อนจะได้ตัวเลขด้วยซ้ำ</p>
+  </div>
+
+  <div class="call warn">
+    <span class="ctitle">กับดัก 3 · โจทย์ Cengel ต้องตัดสินเฟสก่อน ถึงจะเปิดตารางเป็น</span>
+    <p style="margin-bottom:0">HW 15, 16, 17, 19, 29, 30 แขวนอยู่กับขั้นตอนเดียวกันหมด (ดู Block 2) · <b>ห้ามเดาจากคำในโจทย์</b> เช่นเห็นคำว่า “ไอน้ำ” แล้วเหมาว่าเป็น superheated ทันที — ต้องเทียบตัวเลขกับ v_f, v_g เสมอ · ตัดสินผิด = ทั้งข้อผิด ไม่มีคะแนนบางส่วน</p>
+  </div>
+
+  <div class="call key">
+    <span class="ctitle">กับดัก 4 · 🔑 “ขยายสู่สุญญากาศ” โผล่ 4 ข้อ (17, 20, 25, 30) — อาจารย์ให้ซ้ำขนาดนี้ = ออกสอบแน่</span>
+    <div class="eq">ขยายสู่สุญญากาศ → W = 0   (เพราะ<b>ไม่มีอะไรให้ดัน</b> ไม่ใช่เพราะ V คงที่)
++ หุ้มฉนวน      → Q = 0
+→ ΔU = 0 → แก๊สอุดมคติ : T ไม่เปลี่ยน
+
+แต่  ΔS > 0  !!  ← ตรงนี้แหละคือข้อสอบ</div>
+    <p>เพราะเป็นกระบวนการ <b>irreversible</b> จะเอา Q = 0 ไปแทนใน dS = δQ/T ตรง ๆ <b>ไม่ได้</b> ต้อง<b>สมมติเส้นทาง reversible</b> ที่เชื่อมสถานะเริ่มต้นกับสถานะสุดท้ายอันเดียวกัน แล้วคำนวณบนเส้นทางสมมตินั้นแทน (สไลด์ Entropy <b>หน้า 4</b> พูดเรื่องนี้ตรง ๆ · หน้า 13 อาจารย์เขียนลายมือกำกับว่า free expansion → W = 0, ΔU = 0)</p>
+    <p style="margin-bottom:0"><b>นี่คือจุดที่แยก “เข้าใจ” ออกจาก “ท่องสูตร” — ถ้าจะเดาว่าข้อ 6 ถามอะไร ผมเดาตรงนี้</b></p>
+  </div>
+
+  <div class="call warn">
+    <span class="ctitle">กับดัก 5 · โจทย์ Schroeder เกินครึ่งเป็น “จงพิสูจน์” ไม่ใช่ “จงหาค่า”</span>
+    <p style="margin-bottom:0">HW 01(c), 02, 03, 10, 11 ล้วนเป็นโจทย์พิสูจน์ · และ <b>Ex05 ในสไลด์ Entropy</b> ก็เป็น “จงแสดงว่า η = ...” ของวัฏจักรดีเซล · ข้อสอบ <b>“เขียนหมด ข้อละ 5 คะแนน”</b> เข้ากับโจทย์พิสูจน์มากกว่าโจทย์แทนเลข → ต้องฝึก<b>เขียนที่มาเป็นบรรทัด ๆ</b> ไม่ใช่กดเครื่องคิดเลขอย่างเดียว</p>
+  </div>
+
+  <div class="call tip">
+    <span class="ctitle">ช่องโหว่ที่ควรถามในไลน์กลุ่มคืนนี้</span>
+    <p style="margin-bottom:0">Syllabus (SL00 หน้า 3) ระบุขอบเขตก่อนกลางภาคว่ามี <b>mean free path และ transport phenomena</b> ด้วย แต่สไลด์ 2 ชุดในโฟลเดอร์<b>ไม่มีเรื่องนี้เลย</b> (มีแค่ effusion ใน HW1-04) → ถามเพื่อนว่ามีสไลด์ชุดที่ 3 ไหม ถ้าไม่มี ก็แค่จำ <code>λ = 1/(√2 nσ)</code> ไว้บรรทัดเดียวพอ</p>
+  </div>
+</section>
+
+<!-- ============ FILE VERDICT ============ -->
+<section id="files">
+  <div class="shead"><span class="stag">ไฟล์</span><h2>เปิดไฟล์ไหน · ไม่เปิดไฟล์ไหน</h2></div>
+
+  <div class="tscroll">
+    <table>
+      <thead><tr><th>ไฟล์</th><th class="n">หน้า</th><th>คำตัดสิน</th></tr></thead>
+      <tbody>
+        <tr><td><b>ENERGY IN THERMAL PHYSICS.pdf</b></td><td class="n">27</td><td>✅ <b>อ่านทั้งไฟล์</b> สไลด์อาจารย์หลัก เริ่มที่หน้า 27 · หน้าลายมือ: 6, 16–19, 22, 23, 26</td></tr>
+        <tr><td><b>Entropy-The_Second_Law.pdf</b></td><td class="n">17</td><td>✅ <b>อ่านทั้งไฟล์</b> (เย็นวันอาทิตย์) · หน้าลายมือ: 8, 11–13 · Ex01–Ex05 คือตัวเก็ง</td></tr>
+        <tr><td><b>Thermal_Statistical_Physics_Summary.pdf</b></td><td class="n">4</td><td>✅ อ่านหัวข้อ <b>1–4 และ 6</b> · ❌ <b>ข้ามหัวข้อ 5</b> (ออกปลายภาค)</td></tr>
+        <tr><td><b>Y-cengel-Phase-diagram.pdf</b></td><td class="n">51</td><td>⚠️ <b>เปิดเฉพาะตาราง</b>ตอนทำโจทย์ · ห้ามอ่านรวด</td></tr>
+        <tr><td><b>รูปภาพ.pdf</b></td><td class="n">5</td><td>⚠️ ดูตอนพัก 5 นาที เป็นอินโฟกราฟิก</td></tr>
+        <tr><td><b>SL00-Intro_to_the_Class-2026.pdf</b></td><td class="n">7</td><td>⚠️ ดูแค่<b>หน้า 3</b> เพื่อยืนยันขอบเขตสอบ</td></tr>
+        <tr><td>Schroeder เล่มเต็ม</td><td class="n">103 MB</td><td>❌ <b>ห้ามเปิด</b> ไม่มีเวลา</td></tr>
+        <tr><td>Cengel เล่มเต็ม</td><td class="n">95 MB</td><td>❌ <b>ห้ามเปิด</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid g3" style="margin-top:20px">
+    <a class="card navcard" href="concepts.html">
+      <h4>concepts.html</h4>
+      <p>หน้าเดียวที่ใช้ “อ่าน” · คืนนี้อ่าน 3 หัวข้อ: 5 ขั้น / คำสำคัญ / ตัดสินเฟส แล้วอีก 1 หัวข้อตอน Block 5</p>
+      <span class="go">เปิด →</span>
+    </a>
+    <a class="card navcard" href="hints.html">
+      <h4>hints.html</h4>
+      <p><b>ไม่ใช่หน้าอ่าน</b> เปิดเฉพาะตอนติดเกิน 5 นาที · อ่านล่วงหน้า = หลอกตัวเองว่าเข้าใจแล้ว</p>
+      <span class="go">เปิด →</span>
+    </a>
+    <a class="card navcard" href="solutions.html">
+      <h4>solutions.html</h4>
+      <p>เปิดเมื่อครบ 10 นาทีแล้วยังไม่ได้ · เปิดแล้ว<b>ลอกด้วยลายมือให้ครบทุกบรรทัด</b> ไม่ใช่อ่านผ่าน</p>
+      <span class="go">เปิด →</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>แผนนี้สร้างจากการอ่านไฟล์อาจารย์จริง — <code>SL00</code> (ขอบเขตสอบ), <code>ENERGY IN THERMAL PHYSICS</code> (27 หน้า, ระบบเครื่องหมาย + หน้าลายมือ), <code>Entropy-The_Second_Law</code> (17 หน้า, Ex01–Ex05), <code>Thermal_Statistical_Physics_Summary</code> และ <code>HW01_Thai</code> ครบ 34 ข้อพร้อมแหล่งอ้างอิงรายข้อ</p>
+  <p>ส่งการบ้านภายในวันอาทิตย์ที่ 16 สิงหาคม · Google Classroom หรือ LAB 604 (AMDEL) ตึก SC08 · <b>เขียนด้วยลายมือเท่านั้น</b></p>
+</footer>
+
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

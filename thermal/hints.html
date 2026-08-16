@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ใบ้ 34 ข้อ — Thermal Physics</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="topin">
+    <a class="brand" href="index.html">05366031 · MIDTERM</a>
+    <nav class="pages">
+      <a href="index.html">หน้าแรก</a>
+      <a href="story.html">เรื่องเล่า</a>
+      <a href="theory.html">เก็งทฤษฎี</a>
+      <a href="plan.html">แผนอ่าน</a>
+      <a href="scope.html">ขอบเขต+สูตร</a>
+      <a href="formulas.html">สูตร+ตัวอย่าง</a>
+      <a href="concepts.html">สรุปคอนเซปต์</a>
+      <a href="hints.html">ใบ้ 34 ข้อ</a>
+      <a href="solutions.html">เฉลยเต็ม</a>
+    </nav>
+    <div class="tools">
+      <button class="tool sq" id="fsDown" type="button">A−</button>
+      <button class="tool sq" id="fsUp" type="button">A+</button>
+      <span class="kbd" id="fsLabel">100%</span>
+      <button class="tool" id="themeBtn" type="button">ตามระบบ</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<div class="hero">
+  <p class="eyebrow">หน้าที่ 2 · ลองทำเองก่อน</p>
+  <h1>ใบ้ทีละขั้น ครบ 34 ข้อ</h1>
+  <p class="lede">หน้านี้<b>ไม่มีคำตอบ</b> มีแต่ใบ้ — ใบ้ที่ 1 บอกว่าเป็นหัวข้ออะไรและอยู่สไลด์หน้าไหน ใบ้ที่ 2 บอกสูตรที่ต้องใช้ ใบ้ที่ 3 บอกว่าขั้นแรกทำอะไร เปิดเท่าที่จำเป็นเท่านั้น</p>
+</div>
+
+<section id="how">
+  <div class="call tip">
+    <span class="ctitle">วิธีใช้</span>
+    <p style="margin-bottom:0">อ่านโจทย์จากไฟล์ <code>HW01_Thai.pdf</code> แล้วลองทำเอง → ติด ให้เปิด <b>ใบ้ที่ 1</b> ก่อน → ยังติด เปิด <b>ใบ้ที่ 2</b> → ถ้ายังไม่ได้จริง ๆ ค่อยกด “ดูเฉลยเต็ม” ที่ท้ายแต่ละข้อ · <b>อย่าเปิดใบ้ 3 ขั้นรวดเดียว</b> เพราะจะกลายเป็นการอ่านเฉลยไปโดยปริยาย</p>
+  </div>
+</section>
+
+<!-- ================= GROUP: ตาราง ================= -->
+<section id="hg2" data-group>
+  <div class="shead"><span class="stag">ข้อสอบ 3</span><h2>ตาราง P-v-T และสมบัติสารบริสุทธิ์</h2></div>
+  <p class="snote">HW1-15 ถึง HW1-19 · ทุกข้อใช้ผังตัดสินเฟสเดียวกัน</p>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-15 · เติมตาราง H₂O (คอลัมน์ u)</h4>
+    <p class="kbd">P3-21, Cengel</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p>การตัดสินเฟสจากคู่สมบัติที่โจทย์ให้มา และการเทียบบัญญัติไตรยางศ์ในตารางไอร้อนยวดยิ่ง</p>
+      <p style="margin-bottom:0"><span class="slideref">Cengel Ch.3 น.14–22</span><span class="slideref">ตาราง A-4, A-5, A-6</span></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <div class="eq">เทียบ u กับ u_f และ u_g ที่ความดัน(หรืออุณหภูมิ)นั้น
+  u &lt; u_f        → ของเหลวอัดตัว
+  u_f ≤ u ≤ u_g   → ของผสม  →  x = (u − u_f)/u_fg
+  u &gt; u_g        → ไอร้อนยวดยิ่ง → ไป A-6</div>
+      <p style="margin-bottom:0">แถวที่มี T และ P มาทั้งคู่ ให้เทียบ P กับ P<sub>sat</sub>(T) แทน</p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — ขั้นแรกทำอะไร</summary><div class="hintbody">
+      <p style="margin-bottom:0">แถว 1 เปิด A-5 ที่ 400 kPa · แถว 2 คำว่า “ไออิ่มตัว” แปลว่า x = 1 อ่านคอลัมน์ g ได้เลย · แถว 3 มีทั้ง T และ P ต้องเทียบกับ P<sub>sat</sub>@190 °C · แถว 4 ต้องเทียบบัญญัติไตรยางศ์ระหว่างสองแถวใน A-6</p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw15"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-16 · เติมตาราง H₂O (คอลัมน์ v)</h4>
+    <p class="kbd">P3-22, Cengel</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p>เหมือน HW1-15 ทุกประการ เปลี่ยนแค่คอลัมน์จาก u เป็น v</p>
+      <p style="margin-bottom:0"><span class="slideref">Cengel Ch.3 น.14–22</span><span class="slideref">ตาราง A-4, A-5, A-6</span></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <div class="eq">v = v_f + x·v_fg      x = (v − v_f)/v_fg
+ของเหลวอัดตัว :  v ≈ v_f ที่ T เดียวกัน</div>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — ขั้นแรกทำอะไร</summary><div class="hintbody">
+      <p style="margin-bottom:0">แถว 4 (300 °C, v = 0.140) เป็นไอร้อนยวดยิ่ง ต้อง<b>ไล่หาความดัน</b>ในตาราง A-6 โดยดูที่แถว 300 °C ของแต่ละความดัน แล้วหาว่าความดันไหนให้ v ใกล้ 0.140 ที่สุด</p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw16"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-17 · ไอน้ำขยายสู่สุญญากาศ แล้วเย็นลงถึง 3 °C</h4>
+    <p class="kbd">P3-37, Cengel</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p>ปริมาตรจำเพาะกับการตัดสินเฟส ผสมกับการเทียบบัญญัติไตรยางศ์เพราะตารางไม่มีแถว 3 °C</p>
+      <p style="margin-bottom:0"><span class="slideref">Cengel Ch.3 น.4–7</span><span class="slideref">ตาราง A-4</span></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <p>มวลไม่เปลี่ยน ปริมาตรเปลี่ยน → v ใหม่คำนวณจาก V<sub>รวม</sub>/m</p>
+      <p style="margin-bottom:0">ถ้าผลออกมาเป็น<b>ของผสมอิ่มตัว</b> ความดันคือ P<sub>sat</sub> ที่อุณหภูมินั้นทันที ไม่ต้องคำนวณอะไรอีก</p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — ขั้นแรกทำอะไร</summary><div class="hintbody">
+      <p style="margin-bottom:0"><b>อ่านโจทย์ให้ดี</b> — “ห้องด้านขวามีปริมาตรเป็นสองเท่าของห้องด้านซ้าย” แปลว่าปริมาตรรวมเป็น <b>3 เท่า</b> ไม่ใช่ 2 เท่า · จากนั้นเทียบ v ใหม่กับ v<sub>g</sub>@3 °C ที่ต้องเทียบบัญญัติไตรยางศ์ระหว่างแถว 0.01 °C กับ 5 °C</p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw17"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-18 · ต้มน้ำด้วยเตา 3 kW หาอัตราการระเหย</h4>
+    <p class="kbd">P3-40, Cengel</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p>ความร้อนแฝงของการกลายเป็นไอ ที่จุดเดือดความร้อนทั้งหมดใช้เปลี่ยนเฟส ไม่ได้เพิ่มอุณหภูมิ</p>
+      <p style="margin-bottom:0"><span class="slideref">Cengel Ch.3 น.4–7</span><span class="slideref">ตาราง A-5 ที่ 101.325 kPa</span></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <div class="eq">Q̇ = ṁ · h_fg      →      ṁ = Q̇ / h_fg</div>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — ขั้นแรกทำอะไร</summary><div class="hintbody">
+      <p style="margin-bottom:0">คูณ 3 kW ด้วย 60% ก่อน เพราะโจทย์บอกว่าความร้อนถ่ายเทให้น้ำแค่ 60% · และ<b>เส้นผ่านศูนย์กลาง 30 cm เป็นข้อมูลหลอก ไม่ต้องใช้เลย</b></p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw18"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-19 · ลูกสูบ ให้ความร้อนที่ P คงที่ 600 kPa จนถึง 200 °C</h4>
+    <p class="kbd">P3-51, Cengel</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p>สถานะอิ่มตัว การหามวลจากปริมาตรสองเฟส และการข้ามไปสู่ไอร้อนยวดยิ่ง</p>
+      <p style="margin-bottom:0"><span class="slideref">Cengel Ch.3 น.14–22</span><span class="slideref">ตาราง A-5, A-6</span></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <div class="eq">m = V/v   คิด<b>แยกสองเฟส</b>แล้วบวกกัน :
+    m_ของเหลว = V_ของเหลว / v_f
+    m_ไอ      = V_ไอ / v_g</div>
+      <p style="margin-bottom:0">สถานะปลาย: เทียบ 200 °C กับ T<sub>sat</sub>@600 kPa เพื่อตัดสินว่าอยู่เฟสไหน</p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — ขั้นแรกทำอะไร</summary><div class="hintbody">
+      <p style="margin-bottom:0">มีของเหลวและไออยู่ร่วมกัน = สถานะอิ่มตัว → T₁ คือ T<sub>sat</sub> ที่ 600 kPa อ่านจาก A-5 ได้ทันที · <b>ห้ามใช้ค่าเฉลี่ยรวมคิดมวล</b> เพราะ v<sub>f</sub> กับ v<sub>g</sub> ต่างกันเกือบ 300 เท่า</p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw19"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+</section>
+
+<!-- ================= GROUP: แก๊สจริง ================= -->
+<section id="hg3" data-group>
+  <div class="shead"><span class="stag">ข้อสอบ 4</span><h2>แก๊สจริงและสมการสถานะ</h2></div>
+  <p class="snote">HW1-03, 21, 22, 23, 24</p>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-03 · สัมประสิทธิ์วิเรียลของ N₂ และการเชื่อมกับแวนเดอร์วาลส์</h4>
+    <p class="kbd">P1.17, Schroeder</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p>การกระจายวิเรียล แรงระหว่างโมเลกุล และการขยายอนุกรมเทย์เลอร์เพื่อเชื่อมสองสมการสถานะเข้าด้วยกัน</p>
+      <p style="margin-bottom:0"><span class="slideref">รูปภาพ.pdf หน้า 4</span><span class="slideref">Cengel Ch.3 น.31–35</span></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <div class="eq">(a) ประมาณ V/n ด้วย RT/P แล้วหาอัตราส่วน B/(V/n)
+
+(c) เริ่มจาก P = nRT/(V − nb) − an²/V²
+    ใช้  (1 − x)⁻¹ ≈ 1 + x + x² + ⋯   โดย x = nb/V
+    แล้วจัดรูปให้เหมือนการกระจายวิเรียล</div>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — ขั้นแรกทำอะไร</summary><div class="hintbody">
+      <p>(b) คิดเชิงกายภาพ: ที่ T ต่ำโมเลกุลช้า → แรง<b>ดึงดูด</b>มีเวลาออกฤทธิ์ → P ต่ำกว่าอุดมคติ → B ติดลบ · ที่ T สูงเหลือแต่ผลของ<b>ปริมาตรจริง</b>ของโมเลกุล → B เป็นบวก</p>
+      <p style="margin-bottom:0">(d) ได้ B(T) = b − a/(RT) แล้ว เลือกสองอุณหภูมิที่ห่างกันมาก (เช่น 300 K กับ 600 K) ตั้งสมการสองตัวแปรแล้วแก้</p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw03"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-21 · v ของไอน้ำที่ 15 MPa, 350 °C — 3 วิธี</h4>
+    <p class="kbd">P3-84, Cengel</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p>เปรียบเทียบความแม่นยำของแก๊สอุดมคติ แผนภูมิการอัดตัว และตารางจริง</p>
+      <p style="margin-bottom:0"><span class="slideref">Cengel Ch.3 น.28–30</span><span class="slideref">ตาราง A-1, A-6</span><span class="slideref">แผนภูมิ Z</span></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <div class="eq">(a) v = RT/P                R_น้ำ = 0.4615 kJ/kg·K
+(b) T_R = T/T_cr,  P_R = P/P_cr  → เปิดแผนภูมิหา Z
+    v = Z · RT/P
+(c) เปิด A-6 ตรง ๆ
+
+ความคลาดเคลื่อน = (ค่าที่คำนวณ − ค่าจริง)/ค่าจริง × 100%</div>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — ขั้นแรกทำอะไร</summary><div class="hintbody">
+      <p style="margin-bottom:0"><b>ทำข้อ (c) ก่อน</b> เพราะต้องใช้เป็นฐานเทียบของอีกสองข้อ · เช็กก่อนว่า 350 °C เทียบกับ T<sub>sat</sub>@15 MPa แล้วอยู่เฟสไหน · น้ำมี T<sub>cr</sub> = 647.1 K, P<sub>cr</sub> = 22.06 MPa (ตาราง A-1)</p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw21"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-22 · v ของไอน้ำที่ 3.5 MPa, 450 °C — 3 วิธี</h4>
+    <p class="kbd">P3-86, Cengel</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p style="margin-bottom:0">เหมือน HW1-21 ทุกขั้นตอน เปลี่ยนแค่สภาวะ · ประเด็นที่ข้อสอบต้องการคือ<b>เปรียบเทียบกับ HW1-21 ว่าทำไมความคลาดเคลื่อนต่างกันมาก</b></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <p style="margin-bottom:0">สูตรเดียวกับ HW1-21 ทั้งหมด</p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — ประเด็นที่ต้องสรุปให้ได้</summary><div class="hintbody">
+      <p style="margin-bottom:0">คำนวณ T<sub>R</sub> และ P<sub>R</sub> ของทั้งสองข้อแล้วเทียบกัน — ข้อนี้ P<sub>R</sub> เล็กกว่ามากและ T<sub>R</sub> &gt; 1 จึงห่างจากจุดวิกฤต แก๊สอุดมคติจึงใช้ได้ดีกว่ามาก · <b>ยิ่ง P<sub>R</sub> เล็กและ T<sub>R</sub> ใหญ่ แก๊สอุดมคติยิ่งแม่น</b></p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw22"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-23 · ความดัน N₂ ในถัง — อุดมคติ vs แวนเดอร์วาลส์</h4>
+    <p class="kbd">P3-96, Cengel</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p>สมการแวนเดอร์วาลส์ และการหาค่าคงที่ a, b จากสมบัติจุดวิกฤต</p>
+      <p style="margin-bottom:0"><span class="slideref">Cengel Ch.3 น.31–35</span><span class="slideref">รูปภาพ.pdf หน้า 4</span><span class="slideref">ตาราง A-1</span></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <div class="eq">a = 27 R_u² T_cr² / (64 P_cr)
+b = R_u T_cr / (8 P_cr)
+
+P = R_u T/(v̄ − b) − a/v̄²
+
+** a และ b เป็นหน่วยโมลาร์ ต้องแปลง v เป็น v̄ = v × M ก่อน **</div>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — ขั้นแรกทำอะไร</summary><div class="hintbody">
+      <p style="margin-bottom:0">หา v = V/m ก่อน แล้ว<b>อย่าลืมแปลงเป็นหน่วยโมลาร์</b> v̄ = v × M โดย M<sub>N₂</sub> = 28.013 kg/kmol · จุดนี้คือจุดที่พลาดกันมากที่สุดในข้อนี้ · N₂ มี T<sub>cr</sub> = 126.2 K, P<sub>cr</sub> = 3.39 MPa</p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw23"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-24 · ห้องไหนมีความชื้นมากกว่ากัน</h4>
+    <p class="kbd">P3-107, Cengel</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p>ความชื้นสัมพัทธ์กับความดันไอ — เป็นข้อแนวคิด คำนวณน้อยมาก</p>
+      <p style="margin-bottom:0"><span class="slideref">ตาราง A-4 (P<sub>sat</sub> ที่ 20 และ 25 °C)</span></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <div class="eq">P_v = φ · P_sat(T)      φ = ความชื้นสัมพัทธ์</div>
+      <p style="margin-bottom:0">โจทย์บอกว่าปริมาณความชื้นแปรผันตรงกับความดันไอ → เทียบ P<sub>v</sub> ของสองห้องพอ</p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — ประเด็นสำคัญ</summary><div class="hintbody">
+      <p style="margin-bottom:0">อย่าเทียบ % กันตรง ๆ เพราะ<b>ฐานที่ใช้เทียบต่างกัน</b> — 55% ของฐานเล็ก อาจน้อยกว่า 40% ของฐานใหญ่ก็ได้ ต้องคำนวณ P<sub>v</sub> จริงออกมาเทียบ</p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw24"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+</section>
+
+<!-- ================= GROUP: กฎข้อ 1 ================= -->
+<section id="hg4" data-group>
+  <div class="shead"><span class="stag">ข้อสอบ 5</span><h2>กฎข้อที่หนึ่ง งาน และวัฏจักร P-V</h2></div>
+  <p class="snote">HW1-05, 06, 07, 08, 09, 20</p>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-05 · ฮีเลียมขยายตัวโดย P ∝ V</h4>
+    <p class="kbd">P1.31, Schroeder</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p>งานจากการอินทิเกรตพื้นที่ใต้กราฟ P-V ที่ไม่ใช่กระบวนการมาตรฐานสี่แบบ</p>
+      <p style="margin-bottom:0"><span class="slideref">Energy น.20</span><span class="slideref">Energy น.10–12 (equipartition)</span></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <div class="eq">W = −∫ P dV     โดย P = cV  (เส้นตรงผ่านจุดกำเนิด)
+ฮีเลียม = อะตอมเดี่ยว f = 3  →  U = (3/2)PV
+Q = ΔU − W</div>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — ทางลัด</summary><div class="hintbody">
+      <p style="margin-bottom:0">ใช้ <code>ΔU = (3/2)(P₂V₂ − P₁V₁)</code> <b>แทน PV ลงไปตรง ๆ ไม่ต้องหา n กับ T เลย</b> · และงานตรวจได้ด้วยพื้นที่สี่เหลี่ยมคางหมูใต้เส้นตรง</p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw05"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-06 · วัฏจักรสี่เหลี่ยมของแก๊สไดอะตอมิก</h4>
+    <p class="kbd">P1.34, Schroeder</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p>การวิเคราะห์วัฏจักรทีละขั้น แยกไอโซคอริกกับไอโซบาริก และการตรวจว่ารอบครบ ΔU = 0</p>
+      <p style="margin-bottom:0"><span class="slideref">Energy น.14</span><span class="slideref">Energy น.20–21</span><span class="slideref">Energy น.11 (f = 5)</span></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <div class="eq">เส้นดิ่ง (V คงที่) :  W = 0,  Q = ΔU
+เส้นนอน (P คงที่) :  W = −PΔV,  Q = ΔU − W
+
+ไดอะตอมิก การสั่นแช่แข็ง → f = 5 → U = (5/2)PV
+ผลลัพธ์ที่ควรได้: ไอโซบาริก Q = (7/2)PΔV</div>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — ตัวตรวจคำตอบ</summary><div class="hintbody">
+      <p style="margin-bottom:0">พอรวมทั้งสี่ขั้นแล้ว <b>ΔU ต้องเป็นศูนย์พอดี</b> ถ้าไม่ใช่แปลว่าคำนวณผิด · และขนาดของ W<sub>สุทธิ</sub> ต้องเท่ากับ<b>พื้นที่ในวงสี่เหลี่ยม</b> = (P₂−P₁)(V₂−V₁)</p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw06"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-07 · หา E<sub>int,B</sub> − E<sub>int,A</sub> ในวัฏจักรสี่จุด</h4>
+    <p class="kbd">P20.34, Serway</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p>U เป็นฟังก์ชันสถานะ — เทคนิค “เดินอ้อม” เมื่อเส้นทางตรงข้อมูลไม่ครบ</p>
+      <p style="margin-bottom:0"><span class="slideref">Energy น.14</span><span class="slideref">Energy น.21</span></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <div class="eq">ระบบ Serway :  ΔU = Q − W_โดยแก๊ส
+ไอโซบาริก   :  W_โดยแก๊ส = P ΔV
+ไอโซเทอร์มอล :  ΔU = 0</div>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — กลยุทธ์</summary><div class="hintbody">
+      <p style="margin-bottom:0">เส้นทาง A→B เป็นอะเดียแบติกที่<b>ไม่รู้งาน</b> จึงคำนวณตรง ๆ ไม่ได้ → <b>เดินจาก B ไป A ผ่าน C และ D แทน</b> เพราะสามขั้นนั้นมีข้อมูลครบ อ่านปริมาตรจากกราฟให้ครบทุกจุดก่อนเริ่ม</p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw07"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-08 · วัฏจักรสี่จุดกับหลายเส้นทาง</h4>
+    <p class="kbd">P20.40, Serway</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p>ฟังก์ชันสถานะกับฟังก์ชันเส้นทาง — ΔU เท่ากันทุกเส้นทาง แต่ Q และ W ไม่เท่า</p>
+      <p style="margin-bottom:0"><span class="slideref">Energy น.14</span><span class="slideref">Energy น.20</span></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <div class="eq">ΔU = Q + W_ต่อระบบ
+เส้นดิ่ง  →  W = 0
+เส้นนอน  →  W_ต่อระบบ = −P ΔV</div>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — ขั้นแรกทำอะไร</summary><div class="hintbody">
+      <p style="margin-bottom:0">ช่วง B→C เป็นเส้นดิ่ง → W = 0 ดังนั้นงาน −500 J ทั้งหมดมาจากช่วง A→B → ได้ P<sub>A</sub>(V<sub>B</sub>−V<sub>A</sub>) = 500 J ซึ่งเป็น<b>ก้อนที่ใช้ต่อได้ทุกข้อย่อย</b> เพราะ V<sub>C</sub> = V<sub>B</sub> และ V<sub>D</sub> = V<sub>A</sub></p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw08"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-09 · สูบลมยางจักรยาน อัดแบบอะเดียแบติก</h4>
+    <p class="kbd">P1.36, Schroeder</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p>กระบวนการอะเดียแบติกของแก๊สอุดมคติ และการตีความเชิงกายภาพว่าทำไมสูบลมแล้วร้อน</p>
+      <p style="margin-bottom:0"><span class="slideref">Energy น.21</span><span class="slideref">Energy น.11 (อากาศ = ไดอะตอมิก)</span></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <div class="eq">P V^γ = คงที่   →   V_f = V_i (P_i/P_f)^(1/γ)
+อากาศ ไดอะตอมิก : γ = 7/5 = 1.4,  f = 5
+อะเดียแบติก Q = 0  →  W = ΔU = (5/2)(P_f V_f − P_i V_i)
+T_f/T_i = (P_f V_f)/(P_i V_i)</div>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — ประเด็นเชิงกายภาพ</summary><div class="hintbody">
+      <p style="margin-bottom:0">ข้อสอบมักถามต่อว่า “ทำไมปลายสูบร้อน” → เพราะงานที่ออกแรงกดถูกเก็บเป็น<b>พลังงานภายในทั้งหมด</b> เนื่องจากอัดเร็วเกินกว่าจะระบายความร้อนทัน (Q ≈ 0)</p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw09"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-20 · แก๊สขยายสู่สุญญากาศ แล้วให้ความร้อนจน P กลับเท่าเดิม</h4>
+    <p class="kbd">P3-78, Cengel</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p>การขยายตัวสู่สุญญากาศ (free expansion) แล้วตามด้วยกระบวนการปริมาตรคงที่</p>
+      <p style="margin-bottom:0"><span class="slideref">Energy น.7 (PV = nRT)</span><span class="slideref">Entropy น.3</span></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <div class="eq">ขั้นที่ 1 free expansion :  W = 0, Q = 0  →  ΔU = 0  →  T ไม่เปลี่ยน
+ขั้นที่ 2 :  P₁V₁/T₁ = P₃V₃/T₃</div>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — ขั้นแรกทำอะไร</summary><div class="hintbody">
+      <p style="margin-bottom:0">แยกเป็น <b>สองขั้นตอนคนละสถานะ</b> อย่าคิดรวบเดียว · ขั้นแรกอุณหภูมิ<b>ไม่เปลี่ยน</b> เพราะแก๊สอุดมคติ U ขึ้นกับ T เท่านั้น · หลังขยาย V = 3V₁ (ด้านสุญญากาศเป็น 2V₁)</p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw20"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+</section>
+
+<!-- ================= GROUP: เอนโทรปี ================= -->
+<section id="hg5" data-group>
+  <div class="shead"><span class="stag">ข้อสอบ 6</span><h2>เอนโทรปีและกฎข้อที่สอง</h2></div>
+  <p class="snote">HW1-25 ถึง HW1-30</p>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-25 · H₂ ขยายตัวสู่สุญญากาศ หา ΔS</h4>
+    <p class="kbd">P22.48, Serway</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p>เอนโทรปีของกระบวนการผันกลับไม่ได้ และเทคนิคแทนด้วยเส้นทางผันกลับได้</p>
+      <p style="margin-bottom:0"><span class="slideref">Entropy น.4</span><span class="slideref">Entropy น.12–13 (Ex03)</span></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <div class="eq">ΔS = n C_v ln(T₂/T₁) + n R ln(V₂/V₁)
+อุณหภูมิไม่เปลี่ยน → พจน์แรกหายไป → ΔS = n R ln(V₂/V₁)</div>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — ประเด็นที่ต้องอธิบายให้ได้</summary><div class="hintbody">
+      <p style="margin-bottom:0">Q = 0 แต่ ΔS &gt; 0 — ไม่ขัดแย้งกัน เพราะ dS = δQ/T ใช้ได้เฉพาะเส้นทาง<b>ผันกลับได้</b> · กระบวนการจริงผันกลับไม่ได้ จึงต้องสมมติเส้นทางใหม่ที่เชื่อมสถานะเดียวกัน · ข้อสอบชอบถามประเด็นนี้เป็นข้อเขียน</p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw25"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-26 · วัฏจักรสามขั้น หา W, Q, ประสิทธิภาพ</h4>
+    <p class="kbd">P22.73, Serway</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p>วัฏจักรเครื่องยนต์ที่ไม่ใช่คาร์โนต์ และการเทียบกับขีดจำกัดคาร์โนต์</p>
+      <p style="margin-bottom:0"><span class="slideref">Energy น.20–21</span><span class="slideref">Entropy น.6–7</span></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <div class="eq">ไอโซเทอร์มอล :  W = nRT ln(V₂/V₁),  Q = W
+ไอโซบาริก    :  W = PΔV,  Q = n C_p ΔT
+ไอโซคอริก    :  W = 0,    Q = n C_v ΔT
+อะตอมเดี่ยว  :  C_v = 3R/2,  C_p = 5R/2
+η = W_สุทธิ/Q_เข้า      η_Carnot = 1 − T_ต่ำสุด/T_สูงสุด</div>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — ขั้นแรกทำอะไร</summary><div class="hintbody">
+      <p style="margin-bottom:0"><b>หาอุณหภูมิทั้งสามจุดก่อนเป็นอันดับแรก</b> จาก T = PV/(nR) — จะได้ตรวจได้ด้วยว่า T<sub>A</sub> = T<sub>B</sub> จริงตามที่โจทย์บอกว่าเป็นไอโซเทอร์มอล · แล้วค่อยแยกคิดทีละขั้น · ตรวจตอนจบด้วย Q<sub>เข้า</sub> − Q<sub>ออก</sub> = W<sub>สุทธิ</sub></p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw26"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-27 · วัฏจักรสี่เหลี่ยม ตอบเป็นสัญลักษณ์ R และ T<sub>i</sub></h4>
+    <p class="kbd">P22.76, Serway</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p>เหมือน HW1-26 แต่ตอบเป็นตัวแปร — จริง ๆ แล้ว<b>ง่ายกว่า</b> เพราะไม่ต้องแปลงหน่วยเลย</p>
+      <p style="margin-bottom:0"><span class="slideref">Energy น.12</span><span class="slideref">Entropy น.7</span></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <div class="eq">n = 1  →  T = PV/R  ที่ทุกจุด
+ไอโซคอริก : Q = C_v ΔT = (3R/2)ΔT
+ไอโซบาริก : Q = C_p ΔT = (5R/2)ΔT
+η = 1 − Q_ออก/Q_เข้า</div>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — ทางลัดและตัวตรวจ</summary><div class="hintbody">
+      <p style="margin-bottom:0">เขียนอุณหภูมิทั้งสี่จุดในหน่วยของ T<sub>i</sub> ก่อน (จะได้ T<sub>i</sub>, 3T<sub>i</sub>, 6T<sub>i</sub>, 2T<sub>i</sub>) แล้วทุกอย่างจะเป็นเลขคูณ RT<sub>i</sub> · <b>ตรวจงานสุทธิด้วยพื้นที่ในวง</b> = (3P<sub>i</sub>−P<sub>i</sub>)(2V<sub>i</sub>−V<sub>i</sub>) = 2P<sub>i</sub>V<sub>i</sub> = 2RT<sub>i</sub></p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw27"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-28 · ถังแข็งกวนด้วยใบพัด หา ΔS ของแก๊ส</h4>
+    <p class="kbd">P7-26, Cengel</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p>เอนโทรปีเป็นฟังก์ชันสถานะ — ข้อนี้เป็นกับดักที่หลอกให้คำนวณเยอะทั้งที่คำตอบง่ายมาก</p>
+      <p style="margin-bottom:0"><span class="slideref">Entropy น.2</span><span class="slideref">Entropy น.3</span></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <div class="eq">ΔS = m C_v ln(T₂/T₁) + m R ln(V₂/V₁)</div>
+      <p style="margin-bottom:0">แล้ว<b>อ่านโจทย์ให้ดี</b>ว่า T และ V เปลี่ยนหรือไม่</p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — กุญแจ</summary><div class="hintbody">
+      <p style="margin-bottom:0">โจทย์บอกว่า “ถังแข็ง” (V คงที่) และ “อุณหภูมิคงที่ตลอดกระบวนการ” (T คงที่) — เมื่อทั้งสองค่าไม่เปลี่ยน แก๊สกลับมาอยู่ที่<b>สถานะเดิมทุกประการ</b> · คำถามต่อยอดที่ต้องเตรียมตอบ: <b>ΔS ของจักรวาล</b> เป็นเท่าไร</p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw28"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-29 · ถังแข็งหุ้มฉนวน ให้ความร้อนจนของเหลวเป็นไอหมด</h4>
+    <p class="kbd">P7-32, Cengel</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p>เอนโทรปีจากตารางไอน้ำ กับการใช้ “ถังแข็ง” เป็นสมการเชื่อมสองสถานะ</p>
+      <p style="margin-bottom:0"><span class="slideref">Cengel Ch.3 น.14–22</span><span class="slideref">ตาราง A-5</span></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <div class="eq">v = v_f + x·v_fg        s = s_f + x·s_fg
+ΔS = m(s₂ − s₁)
+ถังแข็ง  →  v₂ = v₁</div>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — กุญแจของข้อนี้</summary><div class="hintbody">
+      <p>“สามในสี่ของมวลเป็นของเหลว” แปลว่า <b>x₁ = 0.25</b> (x นับสัดส่วน<b>ไอ</b>) — จุดนี้พลาดกันมาก</p>
+      <p style="margin-bottom:0">สถานะปลายเป็นไออิ่มตัวพอดี (x₂ = 1) และ v₂ = v₁ → แปลว่า <b>v₁ ต้องเท่ากับ v<sub>g</sub> ที่ความดันใหม่</b> ให้ไล่หาความดันนั้นในตาราง A-5</p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw29"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-30 · น้ำอัดเหลวขยายสู่สุญญากาศ หา ΔS</h4>
+    <p class="kbd">P7-35, Cengel · โจทย์ให้คำตอบไว้ 0.492 kJ/K</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p>ของเหลวอัดตัว การขยายสู่สุญญากาศ และเอนโทรปีจากตาราง — <b>ข้อนี้มีคำตอบให้แล้ว จึงเหมาะที่สุดสำหรับฝึกทำเองแล้วตรวจ</b></p>
+      <p style="margin-bottom:0"><span class="slideref">ตาราง A-4 ที่ 60 °C</span><span class="slideref">ตาราง A-5 ที่ 40 kPa</span></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <div class="eq">ของเหลวอัดตัว → ประมาณด้วยค่า f ที่ T เดียวกัน :
+    v₁ ≈ v_f@60°C     s₁ ≈ s_f@60°C
+สถานะปลาย : หา x₂ จาก v₂ แล้ว s₂ = s_f + x₂·s_fg
+ΔS = m(s₂ − s₁)</div>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — ระวังตรงนี้</summary><div class="hintbody">
+      <p style="margin-bottom:0">โจทย์บอก “แบ่งออกเป็นสองส่วน<b>เท่า ๆ กัน</b>” → ปริมาตรรวมเป็น <b>2 เท่า</b> (ต่างจาก HW1-17 ที่ได้ 3 เท่า อ่านให้ละเอียด) · x₂ ที่ได้จะเล็กมากประมาณ 0.00025 ซึ่งถูกต้องแล้ว ไม่ต้องตกใจ</p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw30"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+</section>
+
+<!-- ================= GROUP: เครื่องยนต์ ================= -->
+<section id="hg6" data-group>
+  <div class="shead"><span class="stag">ข้อสอบ 7</span><h2>เครื่องยนต์ความร้อน ตู้เย็น และ COP</h2></div>
+  <p class="snote">HW1-31 ถึง HW1-34 · ทั้งสี่ข้อใช้สมการ Q<sub>H</sub> = W + Q<sub>C</sub> อันเดียว</p>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-31 · เครื่องยนต์ Q<sub>in</sub> = 1.3 kJ, η = 35% หางาน</h4>
+    <p class="kbd">P6-16, Cengel</p>
+    <details class="hintbox"><summary>ใบ้เดียวพอ</summary><div class="hintbody">
+      <div class="eq">W = η · Q_H</div>
+      <p style="margin-bottom:0">แทนค่าตรง ๆ ได้เลย <span class="slideref">Entropy น.7</span></p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw31"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-32 · โรงไฟฟ้าพลังไอน้ำ หากำลังสุทธิและประสิทธิภาพ</h4>
+    <p class="kbd">P6-17, Cengel</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p>สมดุลพลังงานที่มีทางออกของพลังงานสามทาง ไม่ใช่สองทาง</p>
+      <p style="margin-bottom:0"><span class="slideref">Entropy น.7</span></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <div class="eq">Ẇ = Q̇_เข้า − (ทุกทางที่พลังงานออกไปโดยไม่เป็นงาน)
+η = Ẇ / Q̇_เข้า
+1 GJ/h = 10⁶ kJ ÷ 3600 s</div>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — จุดที่พลาดบ่อย</summary><div class="hintbody">
+      <p style="margin-bottom:0"><b>อย่าเอาความร้อนที่สูญเสียที่ท่อไปหักออกจากตัวหาร</b> — ประสิทธิภาพนิยามด้วยความร้อนที่ป้อนเข้าจากเชื้อเพลิง<b>ทั้งหมด</b> การสูญเสียที่ท่อถือเป็นความไม่สมบูรณ์ของโรงไฟฟ้าที่ต้องนับรวม</p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw32"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-33 · แอร์รถยนต์ หาอัตราการระบายความร้อน</h4>
+    <p class="kbd">P6-42, Cengel</p>
+    <details class="hintbox"><summary>ใบ้เดียวพอ</summary><div class="hintbody">
+      <div class="eq">Q̇_H = Q̇_C + Ẇ</div>
+      <p style="margin-bottom:0">ความร้อนที่ระบายออก<b>มากกว่า</b>ความร้อนที่ดูดเข้าเสมอ เพราะพลังงานไฟฟ้ากลายเป็นความร้อนไปด้วย <span class="slideref">Entropy น.9</span></p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw33"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-34 · ตู้เย็น หา COP</h4>
+    <p class="kbd">P6-43, Cengel</p>
+    <details class="hintbox"><summary>ใบ้เดียวพอ</summary><div class="hintbody">
+      <div class="eq">Ẇ = Q̇_H − Q̇_C        COP_R = Q̇_C / Ẇ</div>
+      <p style="margin-bottom:0">ต้องหา W ก่อนจากผลต่าง แล้วค่อยหาร <span class="slideref">Entropy น.9</span><span class="slideref">Entropy น.17</span></p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw34"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+</section>
+
+<!-- ================= GROUP: จลน์ + ถ่ายเทความร้อน ================= -->
+<section id="hg7" data-group>
+  <div class="shead"><span class="stag">เสริม</span><h2>ทฤษฎีจลน์ สมบัติเชิงอุณหภูมิ และการถ่ายเทความร้อน</h2></div>
+  <p class="snote">HW1-01, 02, 04, 10, 11, 12, 13, 14</p>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-01 · การขยายตัวทางความร้อน และพิสูจน์ β = 3α</h4>
+    <p class="kbd">P1.8, Schroeder</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p>สัมประสิทธิ์การขยายตัว และการพิสูจน์ด้วยการหาอนุพันธ์ลอการิทึม</p>
+      <p style="margin-bottom:0"><span class="slideref">Energy น.4</span></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <div class="eq">ΔL = α L ΔT
+(c) V = L_x L_y L_z  →  ใส่ ln ทั้งสองข้าง  →  หาอนุพันธ์เทียบ T</div>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — ขั้นแรกทำอะไร</summary><div class="hintbody">
+      <p style="margin-bottom:0">(a) ต้อง<b>สมมติ ΔT เอง</b> เพราะโจทย์ไม่ให้มา ใช้ประมาณ 40 K (คืนหนาว −10 °C ถึงวันร้อน 30 °C) แล้วระบุสมมติฐานไว้ในคำตอบ · (c) เทคนิค ln แล้วหาอนุพันธ์ทำให้ผลคูณกลายเป็นผลบวกทันที</p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw01"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-02 · สมการบารอเมตริก บรรยากาศแบบเอกซ์โพเนนเชียล</h4>
+    <p class="kbd">P1.16, Schroeder</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p>สมดุลแรงของชั้นของไหล รวมกับกฎแก๊สอุดมคติ แล้วแก้สมการเชิงอนุพันธ์</p>
+      <p style="margin-bottom:0"><span class="slideref">Energy น.7</span><span class="slideref">Energy น.5–6 (ลายมือ p = ρgh)</span></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <div class="eq">(a) แผ่นอากาศพื้นที่ A หนา dz อยู่นิ่ง → แรงลัพธ์ = 0
+    P(z)A = P(z+dz)A + ρ A g dz
+
+(b) ρ = Nm/V  และ  N/V = P/(kT)  จาก PV = NkT
+
+(c) แยกตัวแปร dP/P = −(mg/kT)dz แล้วอินทิเกรต</div>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — ประเด็นเชื่อมโยง</summary><div class="hintbody">
+      <p style="margin-bottom:0">เลขชี้กำลังที่ได้คือ mgz/kT = <b>ตัวประกอบโบลต์ซมันน์</b> e<sup>−E/kT</sup> โดย E = mgz — เป็นตัวอย่างแรกของสถิติโบลต์ซมันน์ที่จะเรียนหลังสอบกลางภาค</p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw02"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-04 · การไหลผ่านรูเล็ก (Effusion)</h4>
+    <p class="kbd">P1.22, Schroeder</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p>ทฤษฎีจลน์ · ที่มาของความดันจากการชน · equipartition · และสมการเชิงอนุพันธ์แบบสลายตัวเอกซ์โพเนนเชียล</p>
+      <p style="margin-bottom:0"><span class="slideref">Energy น.8</span><span class="slideref">Energy น.10</span><span class="slideref">รูปภาพ.pdf หน้า 3</span></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <div class="eq">(a) การชนยืดหยุ่นถ่ายโมเมนตัม 2m·v_x ต่อครั้ง
+    P·A·Δt = (จำนวนการชน) × 2m v̄_x
+
+(b) equipartition :  ½m⟨v_x²⟩ = ½kT
+
+(c) แทน P = NkT/V ลงในผลข้อ (a) แล้วแยกตัวแปร
+    ได้  τ = (2V/A)√(m/kT)</div>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — ข้อ (d) (e) (f)</summary><div class="hintbody">
+      <p>มวลโมเลกุลอากาศ m = M/N<sub>A</sub> = 28.97×10⁻³/6.022×10²³ kg · ที่ 300 K จะได้ √(kT/m) ≈ 294 m/s</p>
+      <p style="margin-bottom:0">(e) ตั้ง τ = 3600 s แล้วแก้หา A ย้อนกลับ · (f) ประมาณห้องโดยสาร V ≈ 100 m³ หน้าต่าง A ≈ 1 m² แล้วคำนวณ τ ดูว่าสมเหตุสมผลไหม</p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw04"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-10 · ความสัมพันธ์ระหว่าง β, κ<sub>T</sub> และ (∂P/∂T)<sub>V</sub></h4>
+    <p class="kbd">P1.46, Schroeder</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p>อนุพันธ์ย่อยทางเทอร์โมไดนามิกส์ และเหตุผลว่าทำไมของแข็ง/ของเหลวจึงวัด C<sub>p</sub> ไม่ใช่ C<sub>v</sub></p>
+      <p style="margin-bottom:0"><span class="slideref">Energy น.25</span></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <div class="eq">β   ≡ (1/V)(∂V/∂T)_P     →  dV₁ = β V dT
+κ_T ≡ −(1/V)(∂V/∂P)_T   →  dV₂ = −κ_T V dP
+
+ให้ dV₁ + dV₂ = 0 (ปริมาตรสุทธิไม่เปลี่ยน) แล้วจัดรูป</div>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — ข้อ (e)</summary><div class="hintbody">
+      <p style="margin-bottom:0">แทน ΔP = (β/κ<sub>T</sub>)ΔT โดย ΔT = 10 K แล้วดูขนาดของตัวเลข — จะได้หลายสิบถึงหลายร้อยบรรยากาศ ซึ่งคือ<b>คำตอบของคำถามว่าทำไมต้องวัดที่ P คงที่</b> เพราะรักษา V ให้คงที่ในห้องปฏิบัติการทำได้ยากมาก</p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw10"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-11 · สมการความร้อนและคำตอบเชิงเกาส์เซียน</h4>
+    <p class="kbd">P1.62, Schroeder</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p>การพิสูจน์ว่าฟังก์ชันที่ให้มาเป็นคำตอบของสมการอนุพันธ์ย่อย แล้วตีความเชิงฟิสิกส์</p>
+      <p style="margin-bottom:0"><span class="slideref">รูปภาพ.pdf หน้า 1</span><span class="slideref">รูปภาพ.pdf หน้า 3 (สมการเดียวกันกับการแพร่)</span></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <p style="margin-bottom:0">แค่หาอนุพันธ์แล้วเทียบสองข้าง — <b>ไม่ต้องแก้สมการ</b> โจทย์ให้คำตอบมาแล้ว ให้พิสูจน์ว่าใช่เท่านั้น · หา ∂T/∂t หนึ่งครั้ง และ ∂²T/∂x² สองครั้ง แล้วดูว่าเท่ากันไหม</p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — การตีความ (ส่วนที่มีคะแนน)</summary><div class="hintbody">
+      <p style="margin-bottom:0">ดูที่ <b>ความกว้าง √(4Kt) ∝ √t</b> และ <b>ความสูง ∝ 1/√t</b> → สูง × กว้าง = คงที่ = <b>พลังงานรวมอนุรักษ์</b> · และการที่ระยะแพร่ ∝ √t ไม่ใช่ ∝ t คือลายเซ็นของกระบวนการ<b>แพร่กระจาย</b> ต่างจากคลื่น</p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw11"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-12 · ภาชนะทรงกลมบรรจุน้ำแข็ง</h4>
+    <p class="kbd">P2-107, Cengel</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p>การนำความร้อนผ่านเปลือกทรงกลม รวมกับความร้อนแฝงของการหลอมเหลว</p>
+      <p style="margin-bottom:0"><span class="slideref">รูปภาพ.pdf หน้า 1</span><span class="slideref">ตาราง A-3 (h<sub>if</sub>)</span></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <div class="eq">Q̇ = 4π k r₁ r₂ (T₂ − T₁)/(r₂ − r₁)      ← ทรงกลม ไม่ใช่ผนังแบน
+ṁ = Q̇ / h_if        h_if = 333.7 kJ/kg
+k_เหล็ก = 80.2 W/(m·K)</div>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — ระวัง</summary><div class="hintbody">
+      <p style="margin-bottom:0">โจทย์ให้<b>เส้นผ่านศูนย์กลาง</b>ภายนอก 40 cm → r₂ = 0.20 m ไม่ใช่ 0.40 · และ r₁ = r₂ − ความหนา = 0.196 m · ใช้ h<sub>if</sub> (หลอมเหลว) ไม่ใช่ h<sub>fg</sub> (กลายเป็นไอ)</p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw12"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-13 · แท่งทองคำต่อแท่งเงิน หาอุณหภูมิรอยต่อ</h4>
+    <p class="kbd">P20.55, Serway</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p>การนำความร้อนแบบต่ออนุกรมในสภาวะคงตัว</p>
+      <p style="margin-bottom:0"><span class="slideref">รูปภาพ.pdf หน้า 1 (หัวข้อ 6 อนุกรม)</span></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <div class="eq">สภาวะคงตัว  →  Q̇ ผ่านทั้งสองแท่ง<b>เท่ากัน</b>
+k_Au A (T_ร้อน − T)/L = k_Ag A (T − T_เย็น)/L
+k_Au = 314,  k_Ag = 427 W/(m·K)</div>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — ตัวตรวจคำตอบ</summary><div class="hintbody">
+      <p style="margin-bottom:0">A และ L เท่ากันทั้งสองแท่ง ตัดทิ้งได้เลย · <b>ตรวจด้วยสามัญสำนึก:</b> เงินนำความร้อนดีกว่าทอง อุณหภูมิจึงตกคร่อมเงินน้อยกว่า → คำตอบต้อง<b>ต่ำกว่าค่ากึ่งกลาง 55 °C</b></p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw13"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+
+  <div class="card" style="margin-bottom:20px">
+    <h4>HW1-14 · การนำความร้อนผ่านทรงกระบอก และห้องโดยสารเครื่องบิน</h4>
+    <p class="kbd">P20.84, Serway</p>
+    <details class="hintbox"><summary>ใบ้ที่ 1 — เป็นเรื่องอะไร</summary><div class="hintbody">
+      <p>การพิสูจน์สูตรนำความร้อนทรงกระบอกจากกฎฟูริเยร์ แล้วนำไปใช้จริง</p>
+      <p style="margin-bottom:0"><span class="slideref">รูปภาพ.pdf หน้า 1</span></p>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 2 — ใช้อะไร</summary><div class="hintbody">
+      <div class="eq">(a) เริ่มจาก  dQ/dt = −k A (dT/dr)  โดย A = 2πrL
+    สภาวะคงตัว dQ/dt เท่ากันทุกรัศมี → แยกตัวแปรแล้วอินทิเกรต a→b
+    (จะเห็นว่า dr/r ให้ ln ออกมา)
+
+(b) แปลงหน่วย k :  × 4.186 J/cal × 100 cm/m</div>
+    </div></details>
+    <details class="hintbox"><summary>ใบ้ที่ 3 — ระวังสองจุด</summary><div class="hintbody">
+      <p style="margin-bottom:0"><b>1)</b> หน่วย k เป็น cal/(s·cm·°C) ต้องแปลงก่อน ลืมแล้วผิดไป 418 เท่า<br><b>2)</b> ฉนวนบางมากเทียบกับรัศมี (6 cm บน 250 cm) ทำให้ ln(b/a) เล็กมาก <b>ต้องเก็บทศนิยมหลายตำแหน่ง</b> ปัดเร็วเกินไปคำตอบเพี้ยนทันที</p>
+    </div></details>
+    <p style="margin:14px 0 0"><a href="solutions.html#hw14"><b>ดูเฉลยเต็ม →</b></a></p>
+  </div>
+</section>
+
+<footer>
+  <p>ทำเสร็จแล้วไปเทียบที่ <a href="solutions.html"><b>หน้าเฉลยเต็ม</b></a> — มีรหัสโจทย์ต้นฉบับ (เช่น P3-21 Cengel) กำกับทุกข้อ เอาไปค้นเฉลยจากอินเทอร์เน็ตเทียบได้</p>
+</footer>
+
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

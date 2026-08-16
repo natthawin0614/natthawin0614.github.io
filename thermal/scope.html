@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ขอบเขตสอบและสูตรทั้งหมด — Thermal and Statistics Physics</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="topin">
+    <a class="brand" href="index.html">05366031 · MIDTERM</a>
+    <nav class="pages">
+      <a href="index.html">หน้าแรก</a>
+      <a href="story.html">เรื่องเล่า</a>
+      <a href="theory.html">เก็งทฤษฎี</a>
+      <a href="plan.html">แผนอ่าน</a>
+      <a href="scope.html">ขอบเขต+สูตร</a>
+      <a href="formulas.html">สูตร+ตัวอย่าง</a>
+      <a href="concepts.html">สรุปคอนเซปต์</a>
+      <a href="hints.html">ใบ้ 34 ข้อ</a>
+      <a href="solutions.html">เฉลยเต็ม</a>
+    </nav>
+    <div class="tools">
+      <button class="tool sq" id="fsDown" type="button" title="ตัวอักษรเล็กลง (Ctrl −)">A−</button>
+      <button class="tool sq" id="fsUp" type="button" title="ตัวอักษรใหญ่ขึ้น (Ctrl +)">A+</button>
+      <span class="kbd" id="fsLabel">100%</span>
+      <button class="tool" id="themeBtn" type="button" title="สลับธีม">ตามระบบ</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<div class="hero">
+  <p class="eyebrow">สโคปสอบ · ทุกสูตรพร้อมที่มา</p>
+  <h1>อาจารย์สอนสูตรไหนบ้าง — และสูตรไหนที่ไม่ต้องอ่าน</h1>
+  <p class="lede">แยกเป็น 9 หัวข้อตามที่อาจารย์เรียงในสไลด์จริง ทุกสูตรกำกับว่ามาจาก<b>ไฟล์ไหน หน้าเท่าไหร่</b> เพื่อให้เวลาไปอ่านหนังสือเพิ่ม จะได้รู้ว่าอ่านแค่ไหนถึงพอ ไม่ใช่อ่านทั้งเล่ม</p>
+  <p style="margin-bottom:0"><span class="kbd">ความคืบหน้า <b id="progCount">0 / 0</b></span></p>
+</div>
+
+<!-- ============ HOW TO READ ============ -->
+<section id="legend">
+  <div class="shead"><span class="stag">อ่านหน้านี้ยังไง</span><h2>ระดับความสำคัญ 3 ระดับ</h2></div>
+  <p class="snote">ระดับไม่ได้บอกว่า “ยาก” แต่บอกว่า <b>“หลักฐานว่าจะออกสอบ หนักแค่ไหน”</b></p>
+
+  <div class="grid g3">
+    <div class="card">
+      <h4>🅰 อาจารย์สอนเองในสไลด์</h4>
+      <p style="margin:0">มีสไลด์ทฤษฎี <b>และ</b> อาจารย์ทำโจทย์ให้ดูด้วยลายมือ + มีในการบ้าน → <b>ออกแน่ ทุ่มเวลาที่สุด</b> และต้องเขียนที่มาได้ ไม่ใช่แค่แทนสูตร</p>
+    </div>
+    <div class="card">
+      <h4>🅱 ไม่มีในสไลด์ แต่แจกเอกสารให้</h4>
+      <p style="margin:0">อาจารย์ไม่ได้ทำสไลด์ แต่แจก Cengel บทที่ 3 มาให้ทั้งบท + มีในการบ้านเยอะ + อยู่ใน syllabus → <b>ออกแน่เหมือนกัน</b> แต่เป็นแนวเปิดตาราง/แทนสูตร ไม่ต้องพิสูจน์</p>
+    </div>
+    <div class="card">
+      <h4>🅲 อยู่ใน syllabus เฉย ๆ</h4>
+      <p style="margin:0">ไม่มีทั้งสไลด์และการบ้าน → <b>จำสูตรบรรทัดเดียวพอ</b> เผื่อโผล่มาในข้อทฤษฎี อย่าเสียเวลาฝึกโจทย์</p>
+    </div>
+  </div>
+
+  <div class="call warn">
+    <span class="ctitle">ตัดออกได้เลย — ไม่ออกกลางภาค</span>
+    <p style="margin-bottom:0"><b>กลศาสตร์เชิงสถิติทั้งหมด</b> — Maxwell–Boltzmann, Fermi–Dirac, Bose–Einstein, partition function <code>Z</code>, <code>F = −kT ln Z</code>, <code>P_i = e^(−E_i/kT)/Z</code><br>
+    ยืนยันจาก <b>SL00 หน้า 3</b> ที่เขียนว่า “After Midterm” ชัดเจน → <b>ข้ามหัวข้อ 5 ใน Thermal_Statistical_Physics_Summary.pdf ทั้งหัวข้อ</b><br>
+    ข้อยกเว้นเดียว: <code>S = k ln Ω</code> ยังต้องเขียนได้ 1 บรรทัด ในฐานะ<b>นิยามเอนโทรปี</b> (ไม่ต้องฝึกนับ Ω)</p>
+  </div>
+</section>
+
+<!-- ============ A. ZEROTH ============ -->
+<section id="topics">
+  <div class="shead"><span class="stag">9 หัวข้อ</span><h2>สูตรทั้งหมด แยกตามหัวข้อ</h2></div>
+
+  <details class="prob" id="sc1" open>
+    <summary><span class="pid">🅰 หัวข้อ 1</span><span class="ptitle">กฎข้อที่ศูนย์ และอุณหภูมิ</span><span class="psrc">ENERGY หน้า 3–4</span><label class="chk"><input type="checkbox">อ่านแล้ว</label></summary>
+    <div class="pbody">
+      <div class="given"><span class="ctitle">น้ำหนักในข้อสอบ</span>เป็น<b>ข้อทฤษฎี</b> (1 ใน 2 ข้อของ 10 คะแนน) แทบไม่มีการคำนวณ — แต่ต้องเขียนนิยามให้ได้เป๊ะ</div>
+
+      <div class="step"><h5>นิยามที่ต้องเขียนได้</h5>
+        <div class="eq">สมดุลทางความร้อน : สองระบบสมดุลกันเมื่อ<b>ไม่มีการถ่ายเทความร้อนสุทธิ</b>
+                   ระหว่างกัน แม้จะสัมผัสกันอยู่
+
+กฎข้อที่ศูนย์   : ถ้า A สมดุลกับ C และ B สมดุลกับ C
+                   แล้ว A ต้องสมดุลกับ B ด้วย</div>
+        <p style="margin-bottom:0"><b>ประโยคปิดท้ายที่ต้องมี:</b> “กฎข้อนี้คือสิ่งที่ทำให้ <b>อุณหภูมิ</b> เป็นปริมาณที่วัดได้อย่างสมเหตุสมผลด้วยเทอร์โมมิเตอร์” — ถ้าไม่มีกฎข้อ 0 การเอาเทอร์โมมิเตอร์ไปวัดของสองอย่างแล้วเปรียบเทียบกันจะไม่มีความหมาย</p>
+      </div>
+
+      <div class="step"><h5>สูตรแปลงหน่วย</h5>
+        <div class="eq">T(K) = T(°C) + 273.15          T(°F) = (9/5) T(°C) + 32
+
+ศูนย์สัมบูรณ์ : 0 K = −273.15 °C = −459.67 °F
+จุดเยือกแข็งน้ำ 0 °C = 273.15 K   จุดเดือดน้ำ 100 °C = 373.15 K</div>
+        <p style="margin-bottom:0"><b>กฎเหล็ก:</b> สูตรฟิสิกส์ทุกสูตรในวิชานี้ใช้ <b>เคลวินเท่านั้น</b> — แปลงเป็น K ตั้งแต่บรรทัดแรกของทุกข้อ</p>
+      </div>
+
+      <div class="step"><h5>นิยามเข้ม (ใช้ตอบข้อทฤษฎีให้ดูลึก)</h5>
+        <div class="eq">1/T = (∂S/∂U)_{V,N}</div>
+        <p style="margin-bottom:0">อุณหภูมิที่นิยามอย่างเข้มงวดคือ<b>อนุพันธ์ของเอนโทรปีเทียบพลังงาน</b> ไม่ใช่ “พลังงานจลน์เฉลี่ย” — การบอกว่า T = พลังงานจลน์เฉลี่ย <b>ถูกเฉพาะกับการเคลื่อนที่แบบเลื่อนตำแหน่งของแก๊สอุดมคติเท่านั้น</b> (จาก Summary หัวข้อ 1) · เขียนประโยคนี้ได้ = ได้คะแนนเต็มข้อทฤษฎี</p>
+      </div>
+
+      <div class="ans"><span class="ctitle">อ่านเพิ่มแค่ไหนถึงพอ</span>Schroeder บทที่ 1.1 · Cengel บทที่ 1 หัวข้อ Temperature — <b>2 หน้าจบ ไม่ต้องมากกว่านี้</b></div>
+    </div>
+  </details>
+
+  <details class="prob" id="sc2" open>
+    <summary><span class="pid">🅰 หัวข้อ 2</span><span class="ptitle">แก๊สอุดมคติ และทฤษฎีจลน์</span><span class="psrc">ENERGY หน้า 7–8</span><label class="chk"><input type="checkbox">อ่านแล้ว</label></summary>
+    <div class="pbody">
+      <div class="given"><span class="ctitle">น้ำหนักในข้อสอบ</span><b>สูงมาก</b> — เป็นฐานของข้อ 4, 5, 6 ทั้งหมด ทุกข้อที่มีแก๊สต้องเริ่มจากตรงนี้</div>
+
+      <div class="step"><h5>กฎแก๊สอุดมคติ — สองรูป ต้องใช้เป็นทั้งคู่</h5>
+        <div class="eq">PV = N k T          N = จำนวน<b>โมเลกุล</b>,  k = ค่าคงที่โบลต์ซมันน์
+PV = n R T          n = จำนวน<b>โมล</b>,      R = ค่าคงที่แก๊สสากล
+
+k = 1.381 × 10⁻²³ J/K        R = 8.31 J/(mol·K)
+R = N_A · k                   N_A = 6.022 × 10²³ /mol
+
+STP : T = 273 K, P = 1 atm  →  แก๊ส 1 โมลมีปริมาตร 22.4 ลิตร</div>
+        <p style="margin-bottom:0"><b>เลือกใช้ตัวไหน:</b> โจทย์พูดถึงโมเลกุล/อะตอม → ใช้ <code>NkT</code> · โจทย์ให้มวลหรือโมล → ใช้ <code>nRT</code> · <b>Cengel จะใช้อีกรูปหนึ่ง</b> คือ <code>Pv = RT</code> ต่อหน่วยมวล โดย R ของแต่ละสาร = R_universal/M (ดูหัวข้อ 6)</p>
+      </div>
+
+      <div class="step"><h5>สมมติฐานของแก๊สอุดมคติ — ข้อสอบทฤษฎีชอบถาม</h5>
+        <p style="margin-bottom:0">โมเลกุล <b>ไม่มีปริมาตร</b> และ <b>ไม่มีแรงกระทำระหว่างกัน</b> (ยกเว้นตอนชน) → นี่คือเหตุผลว่าทำไมแก๊สจริงถึงเบี่ยงเบนตอน<b>ความดันสูง</b> (โมเลกุลอยู่ใกล้กัน ปริมาตรตัวเองเริ่มมีผล) และ<b>อุณหภูมิต่ำ</b> (แรงดึงดูดเริ่มมีผล) ← ประโยคนี้ใช้ตอบข้อ 4 ได้เลย</p>
+      </div>
+
+      <div class="step"><h5>ทฤษฎีจลน์ — ที่มาของความดัน</h5>
+        <div class="eq">½ m v̄² = (3/2) k T        (ต่อ 1 โมเลกุล · การเคลื่อนที่ 3 มิติ)
+
+จากนั้นได้ :   v_rms = √(3kT/m) = √(3RT/M)</div>
+        <p style="margin-bottom:0"><b>แนวคิดที่ต้องเขียนได้:</b> โมเลกุลเคลื่อนที่สุ่มและชนผนังตลอดเวลา แต่ละครั้งถ่ายโอน<b>โมเมนตัม</b>ให้ผนัง แรงสุทธิจากการชนจำนวนมหาศาลนี้คือที่มาของความดัน<br>
+        <b>ประโยคสำคัญที่อาจารย์เน้น:</b> “อุณหภูมิคือ<b>ตัวชี้วัด</b>ของพลังงานจลน์เฉลี่ย <b>ไม่ใช่</b>ปริมาณพื้นฐานอิสระ”</p>
+      </div>
+
+      <div class="ans"><span class="ctitle">ใช้ในการบ้านข้อ</span>02 (บารอเมตริก) · 03 (วิเรียล) · 04 (effusion) · 05, 06, 09 · และเป็นฐานของ 21–24</div>
+    </div>
+  </details>
+
+  <details class="prob" id="sc3" open>
+    <summary><span class="pid">🅰 หัวข้อ 3</span><span class="ptitle">Equipartition และความจุความร้อน</span><span class="psrc">ENERGY หน้า 10, 11, 12, 25</span><label class="chk"><input type="checkbox">อ่านแล้ว</label></summary>
+    <div class="pbody">
+      <div class="given"><span class="ctitle">น้ำหนักในข้อสอบ</span>อาจารย์ทำสไลด์ให้ <b>3 หน้าเต็ม</b> (10, 11, 12) — มากที่สุดในบทเดียว → <b>เป็นตัวเก็งข้อทฤษฎีอันดับ 1</b></div>
+
+      <div class="step"><h5>ทฤษฎีบท Equipartition</h5>
+        <div class="eq">แต่ละ<b>พจน์กำลังสอง</b> (quadratic term) ในสมการพลังงาน
+มีพลังงานเฉลี่ย = ½ k T
+
+U = (f/2) N k T  =  (f/2) n R T        f = จำนวน dof ทั้งหมด</div>
+      </div>
+
+      <div class="step"><h5>ตาราง Degrees of Freedom — ต้องจำ</h5>
+        <div class="tscroll">
+          <table>
+            <thead><tr><th>ชนิดโมเลกุล</th><th class="n">Trans</th><th class="n">Rot</th><th class="n">Vib</th><th class="n">f รวม</th></tr></thead>
+            <tbody>
+              <tr><td>อะตอมเดี่ยว (He, Ar)</td><td class="n">3</td><td class="n">0</td><td class="n">0</td><td class="n w">3</td></tr>
+              <tr><td>ไดอะตอมิก (N₂, O₂) ที่ T ปกติ</td><td class="n">3</td><td class="n">2</td><td class="n">0 (frozen)</td><td class="n w">5</td></tr>
+              <tr><td>ไดอะตอมิกที่ T สูงมาก</td><td class="n">3</td><td class="n">2</td><td class="n">2</td><td class="n w">7</td></tr>
+              <tr><td>โพลีอะตอมิกไม่เชิงเส้น (H₂O)</td><td class="n">3</td><td class="n">3</td><td class="n">ตามโหมด</td><td class="n w">6+</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top:14px;margin-bottom:0"><b>คำถามที่อาจารย์ตั้งไว้ในสไลด์เอง (หน้า 11) = คำถามข้อสอบ:</b> “ทำไม vibration ให้ 2 dof ไม่ใช่ 1?” → เพราะ <code>E_vib = ½μẋ² + ½kx²</code> มี<b>สองพจน์กำลังสอง</b> (จลน์ + ศักย์ในสปริงพันธะ) ในขณะที่ translation/rotation มีแค่พจน์จลน์อย่างเดียว</p>
+      </div>
+
+      <div class="step"><h5>ความจุความร้อน</h5>
+        <div class="eq">C_v = (f/2) R                 ต่อโมล
+C_v = (∂U/∂T)_V              นิยาม
+C_p = (∂H/∂T)_P              นิยาม
+C_p − C_v = n R              (ต่อโมล : C_p − C_v = R)   ← ความสัมพันธ์เมเยอร์
+γ = C_p / C_v                อะตอมเดี่ยว 5/3 ≈ 1.67 · ไดอะตอมิก 7/5 = 1.4
+
+ค่าที่ควรจำ : He  C_v = 1.5R ≈ 12.5 J/(mol·K)
+              N₂  C_v = 2.5R ≈ 20.8 J/(mol·K)
+              อากาศ  c_v = 0.718,  c_p = 1.005 kJ/(kg·K)</div>
+        <p style="margin-bottom:0"><b>คำถามทฤษฎีที่อาจารย์เขียนไว้หน้า 25:</b> “ทำไม C_p &gt; C_v เสมอ?” → ที่ P คงที่ เมื่อได้รับความร้อน แก๊ส<b>ทั้งขยายตัว (ทำงานให้ภายนอก) และเพิ่มอุณหภูมิ</b> จึงต้องใช้ความร้อนมากกว่าที่ V คงที่ ซึ่งพลังงานทั้งหมดไปเพิ่ม T อย่างเดียว</p>
+      </div>
+
+      <div class="step"><h5>ความร้อนสัมผัสและความร้อนแฝง</h5>
+        <div class="eq">Q = m c ΔT        เปลี่ยนอุณหภูมิ (ยังไม่เปลี่ยนเฟส)
+Q = m L           เปลี่ยนเฟส (T คงที่)
+
+c_น้ำ = 4.18 kJ/(kg·K)
+h_fg @1 atm = 2256.5 kJ/kg   (ระเหย)
+h_if = 333.7 kJ/kg           (หลอมเหลว)</div>
+      </div>
+
+      <div class="trap"><span class="ctitle">จุดที่คนพลาด</span>ทำไม vibration ถึง “frozen out” ที่อุณหภูมิห้อง? → เป็นผลจาก<b>กลศาสตร์ควอนตัม</b> ระดับพลังงานสั่นห่างเกินกว่าที่พลังงานความร้อนที่ T ห้องจะกระตุ้นได้ · อาจารย์เขียนไว้ในสไลด์หน้า 12 ตรง ๆ ว่า “ค่า C_v จริงตรงกับที่ equipartition ทำนาย <b>ยกเว้นที่ T ต่ำมาก</b> ซึ่งต้องใช้ควอนตัมอธิบาย”</div>
+
+      <div class="ans"><span class="ctitle">ใช้ในการบ้านข้อ</span>06 (ไดอะตอมิก f=5) · 09 (อะเดียแบติก γ) · 10 (C_p − C_v) · 26, 27 (อะตอมเดี่ยว f=3)</div>
+    </div>
+  </details>
+
+  <details class="prob" id="sc4" open>
+    <summary><span class="pid">🅰 หัวข้อ 4</span><span class="ptitle">กฎข้อที่หนึ่ง และงาน</span><span class="psrc">ENERGY หน้า 14, 20, 21, 27 + ลายมือ 16–19, 22, 23</span><label class="chk"><input type="checkbox">อ่านแล้ว</label></summary>
+    <div class="pbody">
+      <div class="given"><span class="ctitle">น้ำหนักในข้อสอบ</span><b>ข้อ 5 เต็ม ๆ (5 คะแนน)</b> + แทรกอยู่ในข้อ 3 และ 6 ด้วย · อาจารย์มีหน้าลายมือทำโจทย์ให้ดูมากที่สุดในหัวข้อนี้</div>
+
+      <div class="call warn" style="margin-top:0">
+        <span class="ctitle">ระบบเครื่องหมายของอาจารย์ — เขียนกำกับหัวกระดาษสอบ</span>
+        <div class="eq">ΔU = Q + W          W = งานที่กระทำ <b>ต่อ</b> ระบบ
+W = − ∫ P dV
+
+ถูกอัด  (V ลด)  → W > 0   ระบบ<b>ได้รับ</b>งาน
+ขยายตัว (V เพิ่ม) → W < 0   ระบบ<b>เสีย</b>งานให้สิ่งแวดล้อม
+Q > 0 = ความร้อนเข้าระบบ    Q < 0 = ออกจากระบบ</div>
+        <p style="margin-bottom:0">นี่คือระบบของ <b>Schroeder</b> · Cengel และ Serway ใช้ <code>ΔU = Q − W</code> ซึ่งกลับข้าง — ทำโจทย์ตามเล่มได้ แต่<b>บรรทัดสุดท้ายแปลงกลับเป็นระบบนี้</b></p>
+      </div>
+
+      <div class="step"><h5>สูตรงานทั้งหมดที่อาจารย์ให้ — เลือกตามกระบวนการ</h5>
+        <div class="eq">ทั่วไป (quasistatic)     W = − ∫ P dV        = พื้นที่ใต้กราฟ P–V
+
+Isobaric   (P คงที่)      W = − P ΔV          ← ใช้บ่อยที่สุดในวิชานี้
+Isochoric  (V คงที่)      W = 0    →  Q = ΔU = n C_v ΔT
+Isothermal (T คงที่)      W = − n R T ln(V_f / V_i)
+                          ΔU = 0 (แก๊สอุดมคติ) →  Q = − W
+Adiabatic  (Q = 0)        ΔU = W
+                          P V^γ = const
+                          T V^(γ−1) = const
+                          W = (P_f V_f − P_i V_i)/(γ − 1)
+
+วัฏจักรปิดครบรอบ          ΔU = 0 เสมอ  →  Q_net = − W_net
+ขยายสู่สุญญากาศ           W = 0 (ไม่มีอะไรให้ดัน)</div>
+      </div>
+
+      <div class="step"><h5>เอนทัลปี</h5>
+        <div class="eq">H = U + P V              ΔH = Q  (เฉพาะที่ P คงที่)</div>
+        <p style="margin-bottom:0">เหตุผลที่มีเอนทัลปี: กระบวนการส่วนใหญ่ในชีวิตจริงเกิดที่ความดันบรรยากาศคงที่ ใช้ H แล้วไม่ต้องคิดงานขยายตัวแยกทุกครั้ง — และนี่คือเหตุผลที่ตาราง Cengel ให้ค่า <code>h</code> มาให้ใช้ตรง ๆ</p>
+      </div>
+
+      <div class="step"><h5>quasistatic คืออะไร — ข้อสอบทฤษฎีถามได้</h5>
+        <p style="margin-bottom:0">ระบบผ่านสภาวะสมดุลต่อเนื่อง <b>ช้าพอที่ P จะนิยามได้ตลอดกระบวนการ</b> → ถ้าไม่ quasistatic จะเขียน <code>W = −∫PdV</code> ไม่ได้ เพราะ P ไม่มีค่าเดียวทั้งระบบ (นี่คือเหตุผลว่าทำไม free expansion ถึงคำนวณงานจากอินทิกรัลไม่ได้)</p>
+      </div>
+
+      <div class="ans"><span class="ctitle">ใช้ในการบ้านข้อ</span>05, 06, 07, 08, 09, 20 · และแทรกในทุกข้อของ Cengel (17, 19, 28, 29, 30)</div>
+    </div>
+  </details>
+
+  <details class="prob" id="sc5">
+    <summary><span class="pid">🅱 หัวข้อ 5</span><span class="ptitle">สมบัติสารบริสุทธิ์ · ตาราง · quality</span><span class="psrc">Y-cengel-Phase-diagram.pdf หน้า 17–24</span><label class="chk"><input type="checkbox">อ่านแล้ว</label></summary>
+    <div class="pbody">
+      <div class="given"><span class="ctitle">น้ำหนักในข้อสอบ</span><b>ข้อ 3 เต็ม ๆ (5 คะแนน)</b> · การบ้าน 11 ข้อจาก 34 มาจากบทนี้ = บล็อกใหญ่ที่สุด · <b>ตาราง A-1 ถึง A-8 อาจารย์แจกในห้องสอบ</b> จึงเป็นคะแนนที่ไม่ต้องท่องอะไรเลย</div>
+
+      <div class="call key" style="margin-top:0">
+        <span class="ctitle">ขั้นตอนตายตัว — ตัดสินเฟสก่อนเสมอ ห้ามเดาจากคำในโจทย์</span>
+        <div class="eq">เทียบ v (หรือ u, h) ที่โจทย์ให้ กับ v_f และ v_g ที่ P หรือ T นั้น
+
+  v < v_f          → ของเหลวอัดตัว   ใช้ตาราง A-7 (หรือประมาณด้วย v_f@T)
+  v_f ≤ v ≤ v_g    → ของผสมอิ่มตัว   ใช้ A-4 (ให้ T) หรือ A-5 (ให้ P)
+  v > v_g          → ไอร้อนยวดยิ่ง   ใช้ตาราง A-6</div>
+        <p style="margin-bottom:0"><b>ตัดสินเฟสผิด = ทั้งข้อผิด</b> ไม่มีคะแนนบางส่วน เพราะเปิดผิดตารางตั้งแต่บรรทัดแรก</p>
+      </div>
+
+      <div class="step"><h5>คุณภาพไอ (quality) — ใช้ได้เฉพาะในโดมของผสมอิ่มตัว</h5>
+        <div class="eq">x = m_ไอ / m_รวม            0 ≤ x ≤ 1
+
+v = v_f + x·v_fg           โดย v_fg = v_g − v_f
+u = u_f + x·u_fg
+h = h_f + x·h_fg
+s = s_f + x·s_fg
+
+ย้อนกลับ :  x = (v − v_f)/v_fg</div>
+        <p style="margin-bottom:0"><b>ความหมายของ x:</b> x = 0 คือของเหลวอิ่มตัวพอดี · x = 1 คือไออิ่มตัวพอดี · <b>ถ้าคำนวณได้ x &gt; 1 หรือ x &lt; 0 แปลว่าตัดสินเฟสผิด</b> ให้ย้อนกลับไปเช็กใหม่ทันที — นี่คือกลไกตรวจสอบตัวเองที่ดีที่สุดในบทนี้</p>
+      </div>
+
+      <div class="step"><h5>สูตรที่เหลือของบทนี้</h5>
+        <div class="eq">h = u + P v                    นิยามเอนทัลปีจำเพาะ
+V = m v                        ปริมาตรรวม จากปริมาตรจำเพาะ
+Q = m · h_fg                   ความร้อนที่ใช้ระเหย
+ṁ = Q̇ / h_fg                   อัตราการระเหย
+
+ของเหลวอัดตัว (ประมาณ) :  v ≈ v_f@T   u ≈ u_f@T
+                          h ≈ h_f@T + v_f (P − P_sat@T)</div>
+      </div>
+
+      <div class="trap"><span class="ctitle">กับดักอันดับ 1 ของบทนี้</span>Cengel ใช้ตัวพิมพ์<b>เล็ก</b> <code>u, h, v, s</code> = <b>ค่าต่อ 1 kg</b> · เปิดตารางได้ค่าต่อ kg แล้ว<b>ต้องคูณ m ทีหลัง</b> · ลืมคูณ m คือความผิดพลาดที่พบมากที่สุด → <b>เขียน “× m” ค้างไว้ล่วงหน้าทุกครั้งที่เปิดตาราง</b></div>
+
+      <div class="ans"><span class="ctitle">ใช้ในการบ้านข้อ</span>15, 16, 17, 18, 19, 20 · และต่อไปที่ 29, 30 (เอนโทรปีของน้ำ)</div>
+    </div>
+  </details>
+
+  <details class="prob" id="sc6">
+    <summary><span class="pid">🅱 หัวข้อ 6</span><span class="ptitle">แก๊สจริง และสมการสถานะ</span><span class="psrc">Y-cengel-Phase-diagram.pdf หน้า 25–34</span><label class="chk"><input type="checkbox">อ่านแล้ว</label></summary>
+    <div class="pbody">
+      <div class="given"><span class="ctitle">น้ำหนักในข้อสอบ</span><b>ข้อ 4 (5 คะแนน)</b> · อยู่ใน syllabus ชัดเจน (“real gas”) และมีการบ้าน 5 ข้อ</div>
+
+      <div class="step"><h5>ค่าคงที่แก๊สรายสาร — Cengel เขียนกฎแก๊สอีกรูปหนึ่ง</h5>
+        <div class="eq">P v = R T          v = ปริมาตร<b>จำเพาะ</b> (m³/kg),  R = ของสารนั้น
+P V = m R T
+
+R_สาร = R_universal / M          R_universal = 8.314 kJ/(kmol·K)
+
+อากาศ R = 0.2870 kJ/(kg·K)   M = 28.97
+น้ำ   R = 0.4615 kJ/(kg·K)   M = 18.015   T_cr = 647.1 K   P_cr = 22.06 MPa
+N₂    R = 0.2968 kJ/(kg·K)   M = 28.013   T_cr = 126.2 K   P_cr = 3.39 MPa</div>
+      </div>
+
+      <div class="step"><h5>① Compressibility factor — วิธีที่ข้อสอบน่าจะใช้ที่สุด</h5>
+        <div class="eq">Z = P v / (R T)        →     P v = Z R T
+
+Z = 1 คือแก๊สอุดมคติพอดี · Z ห่างจาก 1 เท่าไหร่ = เบี่ยงเบนเท่านั้น
+
+หาค่า Z จากแผนภูมิ compressibility ทั่วไป โดยใช้ตัวแปรลดรูป :
+  P_R = P / P_cr              T_R = T / T_cr
+  v_R = v_จริง / (R T_cr / P_cr)     ← ใช้เมื่อโจทย์ไม่ให้ P หรือ T</div>
+        <p style="margin-bottom:0"><b>หลักการสำคัญที่ต้องเขียนได้:</b> แก๊สทุกชนิดมีค่า Z ใกล้เคียงกันเมื่อมี P_R และ T_R เท่ากัน (<b>หลักสถานะสมนัย</b>) → นี่คือเหตุผลที่ใช้แผนภูมิเดียวได้กับทุกแก๊ส<br>
+        <b>แก๊สอุดมคติใช้ได้เมื่อ:</b> P_R ≪ 1 (ความดันต่ำมาก) หรือ T_R &gt; 2 (อุณหภูมิสูงกว่าวิกฤตมาก) และไม่ใกล้จุดวิกฤต</p>
+      </div>
+
+      <div class="step"><h5>② สมการฟาน เดอร์ วาลส์</h5>
+        <div class="eq">( P + a/v² ) ( v − b ) = R T
+
+a = 27 R² T_cr² / (64 P_cr)          แก้แรงดึงดูดระหว่างโมเลกุล
+b = R T_cr / (8 P_cr)                แก้ปริมาตรที่โมเลกุลกินเอง</div>
+        <p style="margin-bottom:0"><b>ความหมายทางกายภาพ (คะแนนอธิบาย):</b> พจน์ <code>a/v²</code> ชดเชยที่แรงดึงดูดทำให้ความดันจริง<b>ต่ำกว่า</b>อุดมคติ · พจน์ <code>−b</code> ชดเชยที่โมเลกุลมีปริมาตรจริง ทำให้ที่ว่างจริง<b>น้อยกว่า</b> v</p>
+      </div>
+
+      <div class="step"><h5>③ สมการวิเรียล</h5>
+        <div class="eq">P v / (R T) = 1 + B(T)/v + C(T)/v² + D(T)/v³ + …
+
+B(T), C(T) = สัมประสิทธิ์วิเรียลที่ 2, 3 — ขึ้นกับอุณหภูมิเท่านั้น</div>
+        <p style="margin-bottom:0">ที่ความหนาแน่นต่ำ ตัดที่พจน์ B ก็พอ → <code>Pv/RT ≈ 1 + B(T)/v</code> · <b>B &lt; 0 แปลว่าแรงดึงดูดเด่น</b> (Z &lt; 1) · <b>B &gt; 0 แปลว่าแรงผลักเด่น</b> (Z &gt; 1) ← ใช้ตอบ HW1-03 ได้ตรง ๆ</p>
+      </div>
+
+      <div class="ans"><span class="ctitle">ใช้ในการบ้านข้อ</span>03 (วิเรียล) · 21, 22 (Z สามวิธี) · 23 (van der Waals) · 24</div>
+    </div>
+  </details>
+
+  <details class="prob" id="sc7" open>
+    <summary><span class="pid">🅰 หัวข้อ 7</span><span class="ptitle">เอนโทรปี และกฎข้อที่สอง</span><span class="psrc">Entropy PDF ทั้งไฟล์ + ลายมือ 11, 12, 13</span><label class="chk"><input type="checkbox">อ่านแล้ว</label></summary>
+    <div class="pbody">
+      <div class="given"><span class="ctitle">น้ำหนักในข้อสอบ</span><b>ข้อ 6 (5 คะแนน) + เป็นตัวเก็งข้อทฤษฎีอันดับ 1 ร่วม</b> — อาจารย์ทำสไลด์แยกทั้งไฟล์ 17 หน้าให้หัวข้อนี้หัวข้อเดียว</div>
+
+      <div class="step"><h5>นิยามเอนโทรปี — ต้องเขียนได้ทั้งสองแบบ</h5>
+        <div class="eq">แบบอุณหพลศาสตร์ (เคลาซิอุส) :   dS = δQ_rev / T      ΔS = ∫ δQ_rev / T
+แบบสถิติ (โบลต์ซมันน์)      :   S = k ln Ω           Ω = จำนวนสถานะจุลภาค</div>
+        <p style="margin-bottom:0"><b>ประโยคที่ต้องมี:</b> เอนโทรปีเป็น <b>ฟังก์ชันสถานะ (state function)</b> — ขึ้นกับสถานะเท่านั้น ไม่ขึ้นกับเส้นทางที่ระบบเดินมาถึงสถานะนั้น (ต่างจาก Q และ W ที่ขึ้นกับเส้นทาง จึงเขียน δQ, δW ไม่ใช่ dQ, dW)</p>
+      </div>
+
+      <div class="call key" style="margin-top:0">
+        <span class="ctitle">🔑 กฎการหา ΔS ของกระบวนการ irreversible — สไลด์หน้า 4 พูดตรง ๆ</span>
+        <p style="margin-bottom:0">“To find the entropy change for an <b>irreversible</b> process, <b>replace that process with any reversible process</b> that connects the same initial and final states.”<br><br>
+        แปล: จะเอา Q จริงไปใส่ <code>dS = δQ/T</code> <b>ไม่ได้</b> ถ้ากระบวนการไม่ผันกลับได้ ต้อง<b>สมมติเส้นทางผันกลับได้</b>ที่เชื่อมสถานะเริ่มต้นกับสถานะสุดท้าย<b>อันเดียวกัน</b> แล้วคำนวณบนเส้นทางสมมตินั้น — เพราะ S เป็นฟังก์ชันสถานะ ผลลัพธ์จึงเท่ากัน<br><br>
+        <b>นี่คือแนวคิดที่ยากที่สุดในบทนี้ และเป็นจุดที่ผมเดาว่าข้อ 6 จะถาม</b></p>
+      </div>
+
+      <div class="step"><h5>สูตร ΔS ทั้งหมดที่อาจารย์ให้ (จาก Ex01–Ex04)</h5>
+        <div class="eq">เปลี่ยนอุณหภูมิ (ของแข็ง/ของเหลว)     ΔS = m c ln(T_f / T_i)      [Ex02 ทังสเตน]
+
+แก๊สอุดมคติทั่วไป                    ΔS = n C_v ln(T_f/T_i) + n R ln(V_f/V_i)   [Ex03]
+                                    ΔS = n C_p ln(T_f/T_i) − n R ln(P_f/P_i)
+
+แก๊สอุดมคติ T คงที่                  ΔS = n R ln(V_f / V_i)
+เปลี่ยนเฟส (T คงที่)                 ΔS = m L / T   =  m h_fg / T_sat
+อ่างความร้อน (T คงที่)               ΔS = Q / T
+ใช้ตาราง Cengel                     ΔS = m (s₂ − s₁)   ·  s = s_f + x s_fg</div>
+      </div>
+
+      <div class="step"><h5>กฎข้อที่สอง — เขียนได้ทั้ง 3 รูป</h5>
+        <div class="eq">รูปเอนโทรปี      ΔS ≥ 0 สำหรับระบบโดดเดี่ยว
+                 (= สำหรับ reversible · > สำหรับ irreversible)
+                 dS ≥ δQ / T
+
+Kelvin–Planck   ไม่มีเครื่องยนต์วัฏจักรใดที่รับความร้อนจากอ่างเดียว
+                 แล้วเปลี่ยนเป็นงานได้ทั้งหมด (η = 100% เป็นไปไม่ได้)
+
+Clausius        ความร้อนไม่ไหลจากที่เย็นไปที่ร้อนเองตามธรรมชาติ
+                 โดยไม่มีงานจากภายนอก</div>
+        <p style="margin-bottom:0"><b>ทั้งสามรูปเทียบเท่ากัน</b> ← ประโยคนี้ควรเขียนปิดท้าย</p>
+      </div>
+
+      <div class="step"><h5>Reversible vs Irreversible — นิยามที่ต้องเขียนได้</h5>
+        <p style="margin-bottom:0"><b>Reversible:</b> ผ่านสภาวะสมดุลตลอด ย้อนกลับได้โดย<b>ไม่ทิ้งร่องรอย</b>ทั้งในระบบและสิ่งแวดล้อม · ΔS_รวม = 0 · <b>ให้งานได้สูงสุด</b> (จาก Summary หัวข้อ 3)<br>
+        <b>Irreversible:</b> เกิดจริงทุกกระบวนการในธรรมชาติ · ΔS_รวม &gt; 0 · <b>ตัวอย่างที่ต้องยกได้:</b> free expansion, การถ่ายเทความร้อนผ่านผลต่างอุณหภูมิที่มีขนาดจำกัด, แรงเสียดทาน, การกวนด้วยใบพัด</p>
+      </div>
+
+      <div class="ans"><span class="ctitle">ใช้ในการบ้านข้อ</span>25, 26, 27, 28, 29, 30</div>
+    </div>
+  </details>
+
+  <details class="prob" id="sc8" open>
+    <summary><span class="pid">🅰 หัวข้อ 8</span><span class="ptitle">เครื่องยนต์ ตู้เย็น และคาร์โนต์</span><span class="psrc">Entropy PDF หน้า 6, 7, 8, 9, 14, 15</span><label class="chk"><input type="checkbox">อ่านแล้ว</label></summary>
+    <div class="pbody">
+      <div class="given"><span class="ctitle">น้ำหนักในข้อสอบ</span><b>ข้อ 7 (5 คะแนน)</b> · <b>ง่ายที่สุดในข้อสอบ</b> เป็นการแทนสูตรตรง ๆ — ถ้าเวลาไม่พอ ให้ทำข้อนี้ก่อนเสมอ</div>
+
+      <div class="step"><h5>เครื่องยนต์ความร้อน</h5>
+        <div class="eq">η = W_net / Q_H  =  1 − Q_C / Q_H
+Q_H = W_net + Q_C            (อนุรักษ์พลังงานครบรอบ · ΔU = 0)
+
+η_Carnot = 1 − T_C / T_H     ← ใช้ <b>เคลวินเท่านั้น</b></div>
+        <p style="margin-bottom:0"><b>ทฤษฎีบทคาร์โนต์:</b> ไม่มีเครื่องยนต์ใดที่ทำงานระหว่างอ่างสองอ่างเดียวกันจะมีประสิทธิภาพเกินเครื่องยนต์คาร์โนต์ได้ → <code>η_จริง ≤ η_Carnot</code> เสมอ · <b>ถ้าโจทย์ให้ค่าที่เกิน แปลว่าโจทย์ถามว่า “เป็นไปได้ไหม” และคำตอบคือเป็นไปไม่ได้</b></p>
+      </div>
+
+      <div class="step"><h5>วัฏจักรคาร์โนต์ — โครงสร้างที่ต้องวาดได้</h5>
+        <p style="margin-bottom:0">ประกอบด้วย <b>4 กระบวนการ: isothermal 2 + adiabatic 2 สลับกัน</b> · บนกราฟ P–V พื้นที่ที่ล้อมรอบด้วยวัฏจักร = งานสุทธิต่อรอบ · เป็นวัฏจักรที่ผันกลับได้ทั้งหมด จึงให้ประสิทธิภาพสูงสุดตามทฤษฎี</p>
+      </div>
+
+      <div class="step"><h5>ตู้เย็นและปั๊มความร้อน</h5>
+        <div class="eq">ตู้เย็น       COP_R  = Q_C / W_net  =  Q_C / (Q_H − Q_C)
+ปั๊มความร้อน  COP_HP = Q_H / W_net  =  Q_H / (Q_H − Q_C)
+
+ความสัมพันธ์  COP_HP = COP_R + 1        ← เช็กคำตอบได้เร็วมาก
+
+คาร์โนต์      COP_R,rev  = T_C / (T_H − T_C)
+              COP_HP,rev = T_H / (T_H − T_C)</div>
+        <p style="margin-bottom:0"><b>COP เกิน 1 ได้</b> ไม่ผิดกฎอะไร (ต่างจาก η ที่ห้ามเกิน 1) เพราะ COP ไม่ใช่ประสิทธิภาพ แต่เป็น<b>อัตราส่วนสิ่งที่ได้ต่อสิ่งที่จ่าย</b> — ตู้เย็นย้ายความร้อน ไม่ได้สร้างมันขึ้นมา ← <b>ประโยคนี้เป็นคำถามทฤษฎีที่ออกบ่อยมาก</b></p>
+      </div>
+
+      <div class="step"><h5>วัฏจักรอื่นที่อาจารย์ยกมา</h5>
+        <p style="margin-bottom:0"><b>Stirling</b> (หน้า 8) — อาจารย์กางงาน isothermal ให้ดูด้วยลายมือ <code>W = nRT ln(V₂/V₁)</code><br>
+        <b>Diesel</b> (หน้า 15, Ex05) — โจทย์แบบ <b>“จงแสดงว่า η = ...”</b> ⚠️ นี่คือโจทย์<b>พิสูจน์</b> ซึ่งเข้ากับข้อสอบ “เขียนหมด 5 คะแนน” มากที่สุด · ถ้ามีเวลาเหลือ ให้ไล่ที่มาของข้อนี้สักรอบ</p>
+      </div>
+
+      <div class="ans"><span class="ctitle">ใช้ในการบ้านข้อ</span>31, 32, 33, 34 (ทั้ง 4 ข้อรวมกันไม่เกิน 1 ชั่วโมง)</div>
+    </div>
+  </details>
+
+  <details class="prob" id="sc9">
+    <summary><span class="pid">🅲 หัวข้อ 9</span><span class="ptitle">การถ่ายเทความร้อน และการขยายตัว</span><span class="psrc">ไม่มีในสไลด์ — มาจากการบ้าน + syllabus</span><label class="chk"><input type="checkbox">อ่านแล้ว</label></summary>
+    <div class="pbody">
+      <div class="given"><span class="ctitle">สถานะ</span>อยู่ใน syllabus (“transport phenomena”) และมีการบ้าน 5 ข้อ (01, 11, 12, 13, 14) <b>แต่ไม่มีสไลด์ทฤษฎีจากอาจารย์</b> → น่าจะออกเป็น<b>ส่วนหนึ่ง</b>ของข้อใดข้อหนึ่ง มากกว่าจะเป็นข้อเต็ม</div>
+
+      <div class="step"><h5>การนำความร้อน — เลือกสูตรตามรูปทรง</h5>
+        <div class="eq">กฎฟูเรียร์ทั่วไป      Q̇ = − k A (dT/dx)
+
+แผ่นราบ (คงตัว)      Q̇ = k A ΔT / L
+ทรงกระบอก           Q̇ = 2π k L ΔT / ln(r₂/r₁)
+ทรงกลม              Q̇ = 4π k r₁ r₂ ΔT / (r₂ − r₁)
+
+k ที่ใช้บ่อย (W/m·K) : เพชร 2000 · เงิน 429 · ทองแดง 401 · ทองคำ 314
+                       เหล็ก 80.2 · แก้ว 1.0 · น้ำ 0.60 · อากาศ 0.026 · โฟม 0.03</div>
+        <p style="margin-bottom:0"><b>เทคนิคของ HW1-13 (แท่งต่อกันแบบอนุกรม):</b> ที่สภาวะคงตัว <b>Q̇ เท่ากันทุกหน้าตัด</b> → ตั้ง <code>Q̇_ทอง = Q̇_เงิน</code> แล้วแก้หาอุณหภูมิรอยต่อ · หลักการเดียวกับกระแสไฟฟ้าในตัวต้านทานอนุกรม</p>
+      </div>
+
+      <div class="step"><h5>การขยายตัวทางความร้อน</h5>
+        <div class="eq">เชิงเส้น      α ≡ (ΔL/L)/ΔT        →   ΔL = α L ΔT
+เชิงปริมาตร   β ≡ (ΔV/V)/ΔT        →   ΔV = β V ΔT
+
+ของแข็งไอโซทรอปิก :  β = α_x + α_y + α_z = 3α</div>
+        <p style="margin-bottom:0">เหล็กกล้า α = 1.1 × 10⁻⁵ K⁻¹ · การพิสูจน์ β = 3α ทำโดยใส่ ln ทั้งสองข้างของ V = L_x L_y L_z แล้วหาอนุพันธ์เทียบ T (HW1-01c)</p>
+      </div>
+
+      <div class="step"><h5>สัมประสิทธิ์อัดตัว (โผล่ใน HW1-10)</h5>
+        <div class="eq">κ_T ≡ − (1/V) (∂V/∂P)_T             C_P − C_V = T V β² / κ_T</div>
+      </div>
+
+      <div class="trap"><span class="ctitle">ช่องโหว่ที่ควรเช็กกับเพื่อน</span>Syllabus ระบุ <b>“mean free path”</b> ด้วย แต่ไม่มีทั้งในสไลด์และการบ้าน → ถ้าไม่มีสไลด์ชุดที่ 3 ให้จำแค่ <code>λ = 1/(√2 n σ)</code> โดย σ = πd² และ <code>n = N/V = P/kT</code> · ใช้เวลา 5 นาทีพอ อย่าลงลึกกว่านี้</div>
+    </div>
+  </details>
+</section>
+
+<!-- ============ MASTER TABLE ============ -->
+<section id="master">
+  <div class="shead"><span class="stag">สรุปแผ่นเดียว</span><h2>สูตรไหนมาจากไหน · ทุ่มเวลาเท่าไหร่</h2></div>
+  <p class="snote">ใช้ตารางนี้ตัดสินใจว่าเวลาที่เหลือควรลงกับอะไร</p>
+
+  <div class="tscroll">
+    <table>
+      <thead><tr><th class="n">ระดับ</th><th>หัวข้อ</th><th>ที่มาของสูตร</th><th class="n">ข้อสอบ</th><th>ทุ่มเวลา</th></tr></thead>
+      <tbody>
+        <tr><td class="n">🅰</td><td><b>กฎข้อ 0 + อุณหภูมิ</b></td><td>ENERGY น.3–4</td><td class="n">ทฤษฎี</td><td>20 นาที · ท่องนิยาม</td></tr>
+        <tr><td class="n">🅰</td><td><b>แก๊สอุดมคติ + ทฤษฎีจลน์</b></td><td>ENERGY น.7–8</td><td class="n">ฐานทุกข้อ</td><td class="w">สูง</td></tr>
+        <tr><td class="n">🅰</td><td><b>Equipartition + C_v, C_p</b></td><td>ENERGY น.10–12, 25</td><td class="n">ทฤษฎี + คำนวณ</td><td class="w">สูงมาก</td></tr>
+        <tr><td class="n">🅰</td><td><b>กฎข้อ 1 + งาน</b></td><td>ENERGY น.14, 20–21, 27</td><td class="n">ข้อ 5</td><td class="w">สูงมาก</td></tr>
+        <tr><td class="n">🅱</td><td><b>ตาราง P-v-T + quality</b></td><td>Cengel น.17–24</td><td class="n">ข้อ 3</td><td class="w">สูงมาก</td></tr>
+        <tr><td class="n">🅱</td><td><b>แก๊สจริง Z, vdW, virial</b></td><td>Cengel น.25–34</td><td class="n">ข้อ 4</td><td>ปานกลาง</td></tr>
+        <tr><td class="n">🅰</td><td><b>เอนโทรปี + กฎข้อ 2</b></td><td>Entropy PDF ทั้งไฟล์</td><td class="n">ข้อ 6 + ทฤษฎี</td><td class="w">สูงมาก</td></tr>
+        <tr><td class="n">🅰</td><td><b>เครื่องยนต์ + COP</b></td><td>Entropy น.6–9, 14–15</td><td class="n">ข้อ 7</td><td>ต่ำ · แทนสูตร</td></tr>
+        <tr><td class="n">🅲</td><td><b>ถ่ายเทความร้อน + α, β</b></td><td>การบ้าน 01, 11–14</td><td class="n">แทรก</td><td>ต่ำ</td></tr>
+        <tr><td class="n">❌</td><td>กลศาสตร์เชิงสถิติ (MB/FD/BE)</td><td>Summary หัวข้อ 5</td><td class="n">ปลายภาค</td><td>ข้าม</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="call tip">
+    <span class="ctitle">อ่านหนังสือเพิ่มยังไงให้ไม่หลง</span>
+    <p style="margin-bottom:0">เวลาเปิด Schroeder หรือ Cengel เล่มเต็ม ให้<b>เปิดหาสูตรที่อยู่ในหน้านี้เท่านั้น</b> ถ้าเจอสูตรที่ไม่มีในหน้านี้ แปลว่าอาจารย์ไม่ได้สอน → <b>ข้ามทันที ไม่ต้องเสียดาย</b> · หนังสือทั้งสองเล่มมีเนื้อหามากกว่าที่สอบ 3–4 เท่า การอ่านหมดคือการใช้เวลาผิดที่</p>
+  </div>
+</section>
+
+<!-- ============ THEORY CHEATSHEET ============ -->
+<section id="theory">
+  <div class="shead"><span class="stag">10 คะแนน</span><h2>ชุดนิยามสำหรับ 2 ข้อทฤษฎี</h2></div>
+  <p class="snote">คัดเฉพาะที่มีหลักฐานว่าอาจารย์เน้น (มีสไลด์แยกหน้าให้ หรือมีคำถามตั้งไว้ในสไลด์) · แต่ละหัวข้อเขียน นิยาม 2–3 ประโยค + สมการ 1 บรรทัด + ตัวอย่าง 1 อัน</p>
+
+  <div class="grid g2">
+    <div class="card"><h4>เก็งอันดับ 1 · Equipartition</h4><p style="margin:0">อาจารย์ทำสไลด์ให้ 3 หน้าเต็ม และ<b>ตั้งคำถามไว้เองในสไลด์</b>ว่า “ทำไม vibration ให้ 2 dof” และ “ทำไม C_p &gt; C_v เสมอ” — คำถามที่อาจารย์เขียนเองในสไลด์ คือคำถามที่อาจารย์คิดว่าสำคัญ</p></div>
+    <div class="card"><h4>เก็งอันดับ 1 ร่วม · เอนโทรปี</h4><p style="margin:0">มีสไลด์แยกทั้งไฟล์ · จุดที่ต้องเขียนได้คือ <b>“irreversible ต้องแทนด้วยเส้นทาง reversible”</b> และเหตุผลว่าทำไมทำได้ (เพราะ S เป็น state function)</p></div>
+    <div class="card"><h4>เก็งอันดับ 2 · กฎข้อที่สอง 3 รูป</h4><p style="margin:0">ΔS ≥ 0 · Kelvin–Planck · Clausius — และประโยคปิดว่า<b>ทั้งสามเทียบเท่ากัน</b></p></div>
+    <div class="card"><h4>เก็งอันดับ 2 · State vs Path function</h4><p style="margin:0">U, H, S, T, P, V เป็น state · Q, W ไม่ใช่ จึงเขียน δQ, δW · <b>Summary หัวข้อ 3 และ 4 ย้ำเรื่องนี้ทั้งสองหัวข้อ</b></p></div>
+    <div class="card"><h4>เก็งอันดับ 3 · Reversible</h4><p style="margin:0">ผ่านสมดุลตลอด ย้อนกลับได้ไม่ทิ้งร่องรอย ให้<b>งานสูงสุด</b> · ยกตัวอย่าง irreversible ได้ 2–3 อัน</p></div>
+    <div class="card"><h4>เก็งอันดับ 3 · ทำไม COP เกิน 1 ได้</h4><p style="margin:0">เพราะไม่ใช่ประสิทธิภาพ แต่เป็นอัตราส่วนได้ต่อจ่าย — ตู้เย็น<b>ย้าย</b>ความร้อน ไม่ได้สร้าง</p></div>
+  </div>
+
+  <div class="call warn">
+    <span class="ctitle">กลยุทธ์ที่คุ้มที่สุดในข้อสอบนี้</span>
+    <p style="margin-bottom:0">10 คะแนนทฤษฎี = <b>29% ของข้อสอบ</b> แต่ใช้แรงเตรียมน้อยที่สุด (ท่องอย่างเดียว ไม่ต้องคำนวณ ไม่ต้องเปิดตาราง) · คนส่วนใหญ่ทุ่มเวลาทั้งหมดไปกับ 25 คะแนนคำนวณจนไม่เหลือเวลาส่วนนี้ → <b>ใช้เวลา 2–3 ชั่วโมงกับ 10 คะแนนนี้ คุ้มกว่าใช้ 2–3 ชั่วโมงเพิ่มกับข้อคำนวณ</b></p>
+  </div>
+</section>
+
+<footer>
+  <p>ทุกสูตรในหน้านี้ตรวจสอบย้อนกลับไปยังไฟล์ต้นทางแล้ว — <code>ENERGY IN THERMAL PHYSICS.pdf</code> (27 หน้า), <code>Entropy-The_Second_Law_Thermodynamics.pdf</code> (17 หน้า), <code>Y-cengel-Phase-diagram.pdf</code> (Cengel บทที่ 3 หน้า 109–160), <code>Thermal_Statistical_Physics_Summary.pdf</code> และ <code>SL00</code> (ขอบเขตสอบ)</p>
+  <p>สูตรที่<b>ไม่มี</b>ในหน้านี้ แปลว่าไม่พบหลักฐานว่าอาจารย์สอน — เจอในหนังสือให้ข้ามได้</p>
+</footer>
+
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

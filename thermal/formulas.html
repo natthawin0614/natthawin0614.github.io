@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>สูตรไหน ใช้ตอนไหน — Thermal and Statistics Physics</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="topin">
+    <a class="brand" href="index.html">05366031 · MIDTERM</a>
+    <nav class="pages">
+      <a href="index.html">หน้าแรก</a>
+      <a href="story.html">เรื่องเล่า</a>
+      <a href="theory.html">เก็งทฤษฎี</a>
+      <a href="plan.html">แผนอ่าน</a>
+      <a href="scope.html">ขอบเขต+สูตร</a>
+      <a href="formulas.html">สูตร+ตัวอย่าง</a>
+      <a href="concepts.html">สรุปคอนเซปต์</a>
+      <a href="hints.html">ใบ้ 34 ข้อ</a>
+      <a href="solutions.html">เฉลยเต็ม</a>
+    </nav>
+    <div class="tools">
+      <button class="tool sq" id="fsDown" type="button" title="ตัวอักษรเล็กลง (Ctrl −)">A−</button>
+      <button class="tool sq" id="fsUp" type="button" title="ตัวอักษรใหญ่ขึ้น (Ctrl +)">A+</button>
+      <span class="kbd" id="fsLabel">100%</span>
+      <button class="tool" id="themeBtn" type="button" title="สลับธีม">ตามระบบ</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<div class="hero">
+  <p class="eyebrow">33 สูตร · ทุกสูตรมีตัวอย่างสั้น</p>
+  <h1>สูตรไหน ใช้กับสถานการณ์ไหน</h1>
+  <p class="lede">แต่ละสูตรบอก 3 อย่าง: <b>สูตร</b> · <b>🔍 สัญญาณในโจทย์ที่บอกว่าต้องใช้สูตรนี้</b> · <b>✏️ ตัวอย่างสั้น 2 บรรทัดพร้อมคำตอบ</b> — เลขทุกตัวคำนวณตรวจสอบแล้ว</p>
+  <p style="margin-bottom:0"><span class="kbd">ความคืบหน้า <b id="progCount">0 / 0</b></span></p>
+</div>
+
+<div class="call tip">
+  <span class="ctitle">วิธีใช้หน้านี้ให้ได้ผล</span>
+  <p style="margin-bottom:0">อย่าอ่านรวด — ให้<b>อ่านช่อง 🔍 ก่อนช่องสูตร</b> เพราะปัญหาจริงในห้องสอบไม่ใช่ “จำสูตรไม่ได้” แต่คือ<b>“ไม่รู้ว่าโจทย์นี้ต้องใช้สูตรไหน”</b> · ฝึกโดยปิดช่องสูตรไว้ แล้วอ่านแค่ตัวอย่าง เดาว่าใช้สูตรอะไร</p>
+</div>
+
+<!-- ============ 1 IDEAL GAS ============ -->
+<section id="s1">
+  <div class="shead"><span class="stag">หมวด 1</span><h2>แก๊สอุดมคติ และทฤษฎีจลน์</h2></div>
+
+  <details class="prob" id="f1" open>
+    <summary><span class="pid">1.1</span><span class="ptitle">PV = nRT · กฎแก๊สอุดมคติ</span><span class="psrc">พื้นฐานของทุกข้อ</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">P V = n R T          R = 8.314 J/(mol·K)</div>
+      <p><b>🔍 ใช้เมื่อ:</b> โจทย์ให้ <b>3 ใน 4 ตัว</b> (P, V, n, T) แล้วถามตัวที่ 4 · หรือให้มวลกับมวลโมเลกุลมา (n = m/M) · <b>ต้องแปลง T เป็นเคลวินเสมอ</b></p>
+      <div class="ans"><span class="ctitle">✏️ ตัวอย่าง</span>แก๊ส 2 mol ในถัง 0.05 m³ ที่ 300 K หาความดัน<br>
+      P = nRT/V = (2)(8.314)(300)/0.05 = <b>99.8 kPa</b></div>
+    </div>
+  </details>
+
+  <details class="prob" id="f2" open>
+    <summary><span class="pid">1.2</span><span class="ptitle">PV = NkT · เมื่อโจทย์นับเป็นโมเลกุล</span><span class="psrc">ENERGY น.7</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">P V = N k T          k = 1.381 × 10⁻²³ J/K</div>
+      <p><b>🔍 ใช้เมื่อ:</b> โจทย์พูดถึง<b>จำนวนโมเลกุล/อะตอม</b> ไม่ใช่โมล · หรือถามความหนาแน่นเชิงจำนวน n = N/V</p>
+      <div class="ans"><span class="ctitle">✏️ ตัวอย่าง</span>ห้อง 1 m³ ที่ 1 atm, 300 K มีโมเลกุลกี่ตัว<br>
+      N = PV/kT = (101325)(1)/[(1.381×10⁻²³)(300)] = <b>2.45 × 10²⁵ โมเลกุล</b></div>
+    </div>
+  </details>
+
+  <details class="prob" id="f3" open>
+    <summary><span class="pid">1.3</span><span class="ptitle">P₁V₁/T₁ = P₂V₂/T₂ · เปลี่ยนสถานะ</span><span class="psrc">ประหยัดเวลาที่สุด</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">P₁V₁ / T₁ = P₂V₂ / T₂        (n คงที่)</div>
+      <p><b>🔍 ใช้เมื่อ:</b> โจทย์มี <b>2 สถานะ</b> (ก่อน–หลัง) และ<b>ไม่ได้ถามค่า n</b> → ใช้สูตรนี้แล้ว R กับ n ตัดกันหมด ไม่ต้องหา n เลย ประหยัดเวลามาก</p>
+      <div class="ans"><span class="ctitle">✏️ ตัวอย่าง</span>แก๊สที่ 1 atm, 300 K ถูกอัดเหลือครึ่งปริมาตร โดย T เท่าเดิม<br>
+      P₂ = P₁(V₁/V₂) = (1)(2) = <b>2 atm</b></div>
+    </div>
+  </details>
+
+  <details class="prob" id="f4" open>
+    <summary><span class="pid">1.4</span><span class="ptitle">v_rms = √(3RT/M) · ความเร็วโมเลกุล</span><span class="psrc">ENERGY น.8</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">½ m v̄² = (3/2) k T      →      v_rms = √(3kT/m) = √(3RT/M)</div>
+      <p><b>🔍 ใช้เมื่อ:</b> ถามความเร็วเฉลี่ยของโมเลกุล · พลังงานจลน์เฉลี่ยต่อโมเลกุล · เปรียบเทียบว่าแก๊สไหนเร็วกว่ากัน (<b>เบากว่า = เร็วกว่า</b> ที่ T เดียวกัน)</p>
+      <div class="ans"><span class="ctitle">✏️ ตัวอย่าง</span>N₂ (M = 0.028 kg/mol) ที่ 300 K<br>
+      v_rms = √[(3)(8.314)(300)/0.028] = <b>517 m/s</b></div>
+    </div>
+  </details>
+</section>
+
+<!-- ============ 2 ENERGY / HEAT CAPACITY ============ -->
+<section id="s2">
+  <div class="shead"><span class="stag">หมวด 2</span><h2>พลังงานภายใน และความจุความร้อน</h2></div>
+
+  <details class="prob" id="f5" open>
+    <summary><span class="pid">2.1</span><span class="ptitle">U = (f/2)nRT · พลังงานภายใน</span><span class="psrc">ENERGY น.10</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">U = (f/2) n R T        f : อะตอมเดี่ยว 3 · ไดอะตอมิก 5 · ไดอะตอมิก T สูง 7</div>
+      <p><b>🔍 ใช้เมื่อ:</b> ถามพลังงานภายในของ<b>แก๊สอุดมคติ</b> · ต้องดูชนิดโมเลกุลก่อนเสมอเพื่อหา f</p>
+      <div class="ans"><span class="ctitle">✏️ ตัวอย่าง</span>ฮีเลียม (อะตอมเดี่ยว f = 3) 2 mol ที่ 300 K<br>
+      U = (3/2)(2)(8.314)(300) = <b>7.48 kJ</b></div>
+    </div>
+  </details>
+
+  <details class="prob" id="f6" open>
+    <summary><span class="pid">2.2</span><span class="ptitle">ΔU = n C_v ΔT · ⭐ ใช้ได้ทุกกระบวนการ</span><span class="psrc">จุดที่คนเข้าใจผิดมากที่สุด</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">ΔU = n C_v ΔT          C_v = (f/2) R</div>
+      <div class="call warn" style="margin-top:0"><span class="ctitle">อย่าเข้าใจผิด</span><p style="margin-bottom:0">สูตรนี้มี C<sub>v</sub> อยู่ แต่ <b>ใช้ได้กับทุกกระบวนการ</b> ไม่ใช่แค่ปริมาตรคงที่ — เพราะ U ของแก๊สอุดมคติ<b>ขึ้นกับ T อย่างเดียว</b> ไม่ขึ้นกับ V หรือ P<br>ใช้ได้กับ isobaric, isothermal, adiabatic, free expansion ได้หมด ขอแค่เป็นแก๊สอุดมคติ</p></div>
+      <p><b>🔍 ใช้เมื่อ:</b> แก๊สอุดมคติ<b>เปลี่ยนอุณหภูมิ</b>ในกระบวนการใดก็ตาม</p>
+      <div class="ans"><span class="ctitle">✏️ ตัวอย่าง</span>N₂ (f = 5 → C_v = 2.5R) 1 mol อุณหภูมิเพิ่มขึ้น 20 K<br>
+      ΔU = (1)(2.5)(8.314)(20) = <b>+416 J</b></div>
+    </div>
+  </details>
+
+  <details class="prob" id="f7" open>
+    <summary><span class="pid">2.3</span><span class="ptitle">C_p − C_v = R และ γ = C_p/C_v</span><span class="psrc">ENERGY น.25</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">C_p − C_v = R  (ต่อโมล)        γ = C_p / C_v
+
+อะตอมเดี่ยว  C_v = 1.5R  C_p = 2.5R  γ = 5/3 ≈ 1.67
+ไดอะตอมิก    C_v = 2.5R  C_p = 3.5R  γ = 7/5 = 1.40</div>
+      <p><b>🔍 ใช้เมื่อ:</b> โจทย์ให้ C_v มาแต่ต้องใช้ C_p (หรือกลับกัน) · หรือต้องหา γ ไปใช้ในสูตรอะเดียแบติก</p>
+      <div class="ans"><span class="ctitle">✏️ ตัวอย่าง</span>แก๊สไดอะตอมิก C_v = 20.8 J/(mol·K) หา C_p และ γ<br>
+      C_p = 20.8 + 8.314 = 29.1 J/(mol·K) · γ = 29.1/20.8 = <b>1.40</b></div>
+    </div>
+  </details>
+
+  <details class="prob" id="f8" open>
+    <summary><span class="pid">2.4</span><span class="ptitle">Q = mcΔT และ Q = mL · เลือกยังไง</span><span class="psrc">ENERGY น.27</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">Q = m c ΔT     อุณหภูมิเปลี่ยน แต่<b>ยังไม่เปลี่ยนเฟส</b>
+Q = m L        เปลี่ยนเฟส แต่<b>อุณหภูมิคงที่</b>
+
+c_น้ำ = 4.18 kJ/(kg·K)   h_fg = 2256.5 kJ/kg   h_if = 333.7 kJ/kg</div>
+      <p><b>🔍 ใช้เมื่อ:</b> ดูว่าโจทย์ “อุณหภูมิเปลี่ยนไหม” — ถ้าเปลี่ยนใช้ mcΔT · ถ้า T คงที่แต่เปลี่ยนสถานะใช้ mL · <b>ถ้าโจทย์ข้ามทั้งสองช่วง ต้องบวกกัน</b></p>
+      <div class="ans"><span class="ctitle">✏️ ตัวอย่าง</span>ต้มน้ำ 2 kg จาก 20 °C ให้เดือดหมดที่ 100 °C<br>
+      ช่วงร้อนขึ้น: (2)(4.18)(80) = 668.8 kJ<br>
+      ช่วงระเหย: (2)(2256.5) = 4513 kJ &nbsp;→&nbsp; <b>รวม 5182 kJ</b></div>
+    </div>
+  </details>
+</section>
+
+<!-- ============ 3 FIRST LAW ============ -->
+<section id="s3">
+  <div class="shead"><span class="stag">หมวด 3</span><h2>กฎข้อที่หนึ่ง และงาน — เลือกสูตรตามกระบวนการ</h2></div>
+
+  <div class="call key">
+    <span class="ctitle">ผังตัดสินใจ 4 บรรทัด — อ่านโจทย์แล้วตอบ 1 คำถาม</span>
+    <div class="eq">“อะไรคงที่ในกระบวนการนี้”
+
+  P คงที่  → W = −P ΔV                  (isobaric)
+  V คงที่  → W = 0                       (isochoric)
+  T คงที่  → W = −nRT ln(V_f/V_i)        (isothermal)
+  Q = 0    → ΔU = W, PV^γ = const        (adiabatic)</div>
+  </div>
+
+  <details class="prob" id="f9" open>
+    <summary><span class="pid">3.1</span><span class="ptitle">W = −PΔV · ความดันคงที่</span><span class="psrc">ใช้บ่อยที่สุดในวิชานี้</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">W = − P ΔV = − P (V_f − V_i)</div>
+      <p><b>🔍 สัญญาณในโจทย์:</b> “ความดันคงที่” · “ลูกสูบเคลื่อนที่ได้อย่างอิสระ” · “ลูกสูบมีน้ำหนักกดคงที่” · “เปิดสู่บรรยากาศ” · น้ำเดือดในหม้อเปิด</p>
+      <div class="ans"><span class="ctitle">✏️ ตัวอย่าง</span>แก๊สขยายจาก 0.01 → 0.03 m³ ที่ความดันคงที่ 200 kPa<br>
+      W = −(200)(0.03 − 0.01) = <b>−4 kJ</b> &nbsp;(ลบ = แก๊ส<b>เสีย</b>งานให้ภายนอก)</div>
+    </div>
+  </details>
+
+  <details class="prob" id="f10" open>
+    <summary><span class="pid">3.2</span><span class="ptitle">W = 0 · ปริมาตรคงที่</span><span class="psrc">ง่ายที่สุด แต่พลาดง่าย</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">V คงที่  →  W = 0  →  ΔU = Q</div>
+      <p><b>🔍 สัญญาณในโจทย์:</b> “<b>ถังแข็ง</b>” (rigid tank) · “ภาชนะปิดสนิท” · “ปริมาตรคงที่” — คำว่า <b>rigid</b> คือคำวิเศษ เห็นเมื่อไหร่ W = 0 ทันที</p>
+      <div class="ans"><span class="ctitle">✏️ ตัวอย่าง</span>ถังแข็งได้รับความร้อน 50 kJ<br>
+      W = 0 → ΔU = Q = <b>+50 kJ</b> (พลังงานทั้งหมดไปเพิ่มพลังงานภายใน)</div>
+    </div>
+  </details>
+
+  <details class="prob" id="f11" open>
+    <summary><span class="pid">3.3</span><span class="ptitle">W = −nRT ln(V_f/V_i) · อุณหภูมิคงที่</span><span class="psrc">ENERGY น.21</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">W = − n R T ln(V_f / V_i)
+
+ΔU = 0 (แก๊สอุดมคติ)   →   Q = − W
+ความร้อนที่ใส่เข้าไป<b>กลายเป็นงานทั้งหมด</b></div>
+      <p><b>🔍 สัญญาณในโจทย์:</b> “อุณหภูมิคงที่” · “<b>สัมผัสอ่างความร้อน</b>” (heat reservoir) · “แช่ในอ่างน้ำที่รักษาอุณหภูมิ” · “ขยายตัวอย่างช้า ๆ ที่ T เดิม”</p>
+      <div class="ans"><span class="ctitle">✏️ ตัวอย่าง</span>แก๊ส 1 mol ที่ 300 K ขยายตัวเป็น 2 เท่าแบบ T คงที่<br>
+      W = −(1)(8.314)(300) ln 2 = <b>−1.73 kJ</b> · และ Q = <b>+1.73 kJ</b></div>
+    </div>
+  </details>
+
+  <details class="prob" id="f12" open>
+    <summary><span class="pid">3.4</span><span class="ptitle">PV^γ = const · อะเดียแบติก</span><span class="psrc">ENERGY น.21</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">P V^γ = const           T V^(γ−1) = const
+ΔU = W  (เพราะ Q = 0)
+W = (P_f V_f − P_i V_i)/(γ − 1)</div>
+      <p><b>🔍 สัญญาณในโจทย์:</b> “<b>หุ้มฉนวน</b>” · “ไม่มีการถ่ายเทความร้อน” · “<b>เกิดขึ้นเร็วมาก</b>” (เร็วจนความร้อนไหลไม่ทัน — เช่นสูบลมยางเร็ว ๆ) · “adiabatic”</p>
+      <div class="ans"><span class="ctitle">✏️ ตัวอย่าง</span>อากาศ (γ = 1.4) ที่ 100 kPa, 300 K ถูกอัดเหลือครึ่งปริมาตรแบบอะเดียแบติก<br>
+      P₂ = (100)(2)^1.4 = <b>264 kPa</b> · T₂ = (300)(2)^0.4 = <b>396 K</b><br>
+      → <b>อัดแบบอะเดียแบติกทำให้ร้อนขึ้น</b> นี่คือเหตุผลที่สูบลมยางแล้วสูบร้อน</div>
+    </div>
+  </details>
+
+  <details class="prob" id="f13" open>
+    <summary><span class="pid">3.5</span><span class="ptitle">W = พื้นที่ใต้กราฟ P–V</span><span class="psrc">เมื่อ P ไม่คงที่และไม่ใช่ 3 แบบข้างบน</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">W = − ∫ P dV  =  − (พื้นที่ใต้กราฟ P–V)</div>
+      <p><b>🔍 สัญญาณในโจทย์:</b> โจทย์<b>ให้กราฟ P–V มา</b> · หรือบอกความสัมพันธ์ เช่น “P แปรผันตรงกับ V” — กรณีนี้ <b>ห้ามใช้ W = −PΔV</b> ต้องอินทิเกรตหรือหาพื้นที่จริง</p>
+      <div class="ans"><span class="ctitle">✏️ ตัวอย่าง</span>แก๊สขยายจาก (1 L, 100 kPa) ไป (3 L, 300 kPa) เป็นเส้นตรง<br>
+      พื้นที่สี่เหลี่ยมคางหมู = ½(100 + 300)(0.002) = 0.4 kJ<br>
+      แก๊สขยายตัว → W = <b>−0.4 kJ</b></div>
+    </div>
+  </details>
+
+  <details class="prob" id="f14" open>
+    <summary><span class="pid">3.6</span><span class="ptitle">วัฏจักรปิด · ΔU = 0 เสมอ</span><span class="psrc">หัวใจของข้อ 5 และ 7</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">ครบ 1 รอบ  →  ΔU = 0  →  Q_net = − W_net
+
+W_net = −(พื้นที่ที่ล้อมรอบด้วยวัฏจักร)   ถ้าเดินตามเข็มนาฬิกา</div>
+      <p><b>🔍 สัญญาณในโจทย์:</b> “วัฏจักร” · “กลับสู่สถานะเดิม” · กราฟที่<b>ปิดเป็นวง</b> · เครื่องยนต์ที่ทำงานต่อเนื่อง</p>
+      <div class="ans"><span class="ctitle">✏️ ตัวอย่าง</span>วัฏจักรหนึ่งทำงานสุทธิออกมา 500 J ต่อรอบ<br>
+      ΔU = 0 → ความร้อนสุทธิที่ระบบรับ = <b>500 J</b> (เข้าเท่าไหร่ ออกมาเป็นงานเท่านั้น)</div>
+    </div>
+  </details>
+
+  <details class="prob" id="f15" open>
+    <summary><span class="pid">3.7</span><span class="ptitle">🔑 ขยายสู่สุญญากาศ · W = 0</span><span class="psrc">โผล่ 4 ข้อในการบ้าน</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">ขยายสู่สุญญากาศ (free expansion)
+
+W = 0     ← เพราะ<b>ไม่มีอะไรให้ดัน</b> ไม่ใช่เพราะ V คงที่
++ หุ้มฉนวน → Q = 0  →  ΔU = 0  →  <b>T ไม่เปลี่ยน</b> (แก๊สอุดมคติ)</div>
+      <p><b>🔍 สัญญาณในโจทย์:</b> “ฉากกั้นแตก/ถูกเอาออก” · “อีกด้านเป็น<b>สุญญากาศ</b>” · “ถังแบ่งสองส่วน ส่วนหนึ่งว่างเปล่า”</p>
+      <div class="call warn" style="margin:14px 0 0"><span class="ctitle">แต่ ΔS ≠ 0</span><p style="margin-bottom:0">แม้ ΔU = 0 และ Q = 0 แต่ <b>ΔS &gt; 0</b> เพราะเป็นกระบวนการ irreversible → ต้องใช้สูตร 6.3 ด้านล่าง <b>ห้ามเอา Q = 0 ไปใส่ dS = δQ/T ตรง ๆ</b></p></div>
+    </div>
+  </details>
+</section>
+
+<!-- ============ 4 TABLES ============ -->
+<section id="s4">
+  <div class="shead"><span class="stag">หมวด 4</span><h2>ตาราง P-v-T และคุณภาพไอ</h2></div>
+
+  <details class="prob" id="f16" open>
+    <summary><span class="pid">4.1</span><span class="ptitle">ตัดสินเฟส · ขั้นแรกเสมอ</span><span class="psrc">ทำผิด = ทั้งข้อผิด</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">เทียบ v ที่คำนวณได้ กับ v_f และ v_g ที่ P หรือ T นั้น
+
+  v < v_f        → ของเหลวอัดตัว    (ตาราง A-7)
+  v_f ≤ v ≤ v_g  → ของผสมอิ่มตัว    (ตาราง A-4 / A-5)
+  v > v_g        → ไอร้อนยวดยิ่ง    (ตาราง A-6)</div>
+      <p><b>🔍 ใช้เมื่อ:</b> โจทย์เกี่ยวกับ<b>น้ำ/ไอน้ำ/สารทำความเย็น</b> ทุกข้อ · <b>ห้ามเดาจากคำในโจทย์</b> เห็นคำว่า “ไอน้ำ” แล้วเหมาว่า superheated ทันทีคือกับดัก</p>
+      <div class="ans"><span class="ctitle">✏️ ตัวอย่าง</span>น้ำ 1 kg ในถัง 0.5 m³ ที่ 200 kPa<br>
+      v = 0.5/1 = 0.5 m³/kg · ที่ 200 kPa: v_f = 0.001061, v_g = 0.8858<br>
+      0.001061 &lt; 0.5 &lt; 0.8858 → <b>ของผสมอิ่มตัว</b></div>
+    </div>
+  </details>
+
+  <details class="prob" id="f17" open>
+    <summary><span class="pid">4.2</span><span class="ptitle">x = (v − v_f)/v_fg · คุณภาพไอ</span><span class="psrc">ใช้ได้เฉพาะในโดมอิ่มตัว</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">x = (v − v_f) / v_fg        v_fg = v_g − v_f
+
+แล้วใช้ x เดียวกันกับทุกสมบัติ :
+u = u_f + x·u_fg      h = h_f + x·h_fg      s = s_f + x·s_fg</div>
+      <p><b>🔍 ใช้เมื่อ:</b> ตัดสินเฟสแล้วได้ “ของผสมอิ่มตัว” · <b>ตัวตรวจสอบตัวเอง: ถ้าได้ x &gt; 1 หรือ x &lt; 0 แปลว่าตัดสินเฟสผิด</b> ให้ย้อนกลับทันที</p>
+      <div class="ans"><span class="ctitle">✏️ ตัวอย่าง</span>ต่อจากข้อบน (v = 0.5, 200 kPa)<br>
+      x = (0.5 − 0.001061)/(0.8858 − 0.001061) = <b>0.564</b> (เป็นไอ 56.4% โดยมวล)<br>
+      u = 504.5 + (0.564)(2024.6) = <b>1646 kJ/kg</b> &nbsp;→ U รวม = <b>1646 kJ</b> (× m = 1 kg)</div>
+    </div>
+  </details>
+
+  <details class="prob" id="f18" open>
+    <summary><span class="pid">4.3</span><span class="ptitle">ṁ = Q̇ / h_fg · อัตราการระเหย</span><span class="psrc">HW1-18</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">Q = m · h_fg        ṁ = Q̇ / h_fg</div>
+      <p><b>🔍 สัญญาณในโจทย์:</b> “ต้มน้ำด้วยเตากำลัง ___ kW” · “น้ำระเหยไปกี่ kg ต่อชั่วโมง” · <b>1 kW = 1 kJ/s</b></p>
+      <div class="ans"><span class="ctitle">✏️ ตัวอย่าง</span>เตา 3 kW ต้มน้ำเดือดที่ระดับน้ำทะเล<br>
+      ṁ = 3/2256.5 = 0.00133 kg/s = <b>4.79 kg/h</b></div>
+    </div>
+  </details>
+</section>
+
+<!-- ============ 5 REAL GAS ============ -->
+<section id="s5">
+  <div class="shead"><span class="stag">หมวด 5</span><h2>แก๊สจริง</h2></div>
+
+  <details class="prob" id="f19">
+    <summary><span class="pid">5.1</span><span class="ptitle">Pv = ZRT · compressibility factor</span><span class="psrc">วิธีที่ข้อสอบน่าจะใช้ที่สุด</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">Z = P v / (R T)      →      v = Z R T / P
+
+หา Z จากแผนภูมิ โดยใช้  P_R = P/P_cr   และ   T_R = T/T_cr</div>
+      <p><b>🔍 สัญญาณในโจทย์:</b> “จงหา ___ โดยใช้ (a) สมการแก๊สอุดมคติ (b) แผนภูมิ compressibility (c) ตาราง” · หรือความดันสูงมาก/อุณหภูมิใกล้จุดวิกฤต</p>
+      <div class="ans"><span class="ctitle">✏️ ตัวอย่าง</span>ไอน้ำที่ 15 MPa, 350 °C (R = 0.4615, T_cr = 647.1 K, P_cr = 22.06 MPa)<br>
+      อุดมคติ: v = (0.4615)(623.15)/15000 = 0.01917 m³/kg<br>
+      ค่าจริงจากตาราง = 0.01147 m³/kg → <b>อุดมคติผิดไป 67%!</b><br>
+      P_R = 0.68, T_R = 0.96 → Z ≈ 0.65 → v = <b>0.0125 m³/kg</b> (ผิดแค่ 8%)</div>
+    </div>
+  </details>
+
+  <details class="prob" id="f20">
+    <summary><span class="pid">5.2</span><span class="ptitle">van der Waals</span><span class="psrc">HW1-23</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">( P + a/v² )( v − b ) = R T      →     P = RT/(v−b) − a/v²
+
+a = 27 R² T_cr² / (64 P_cr)      แก้แรงดึงดูดระหว่างโมเลกุล
+b = R T_cr / (8 P_cr)            แก้ปริมาตรที่โมเลกุลกินเอง</div>
+      <p><b>🔍 สัญญาณในโจทย์:</b> โจทย์ระบุชื่อ “van der Waals” ตรง ๆ · หรือให้ค่า T_cr, P_cr มาแต่ไม่มีตารางให้</p>
+      <div class="ans"><span class="ctitle">✏️ ตัวอย่าง</span>N₂ 100 kg ในถัง 3.27 m³ ที่ 175 K → v = 0.0327 m³/kg<br>
+      อุดมคติ: P = (0.2968)(175)/0.0327 = <b>1588 kPa</b><br>
+      vdW (a = 0.1746, b = 0.001381): P = 1658 − 163 = <b>1495 kPa</b><br>
+      → แรงดึงดูดทำให้ความดันจริง<b>ต่ำกว่า</b>อุดมคติ</div>
+    </div>
+  </details>
+
+  <details class="prob" id="f21">
+    <summary><span class="pid">5.3</span><span class="ptitle">สมการวิเรียล</span><span class="psrc">HW1-03</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">P v / (R T) = 1 + B(T)/v + C(T)/v² + …
+
+ที่ความหนาแน่นต่ำ ตัดที่พจน์ B ก็พอ</div>
+      <p><b>🔍 สัญญาณในโจทย์:</b> โจทย์ให้ค่า <b>B(T)</b> มาเป็นตาราง · “แก๊สจริงที่ความหนาแน่นต่ำ”</p>
+      <div class="ans"><span class="ctitle">✏️ ตีความ (ออกสอบเป็นคำอธิบาย)</span><b>B &lt; 0</b> → แรงดึงดูดเด่น → Z &lt; 1 → บีบอัดง่ายกว่าอุดมคติ (เกิดที่ T ต่ำ)<br>
+      <b>B &gt; 0</b> → แรงผลักเด่น → Z &gt; 1 → บีบอัดยากกว่าอุดมคติ (เกิดที่ T สูง)</div>
+    </div>
+  </details>
+</section>
+
+<!-- ============ 6 ENTROPY ============ -->
+<section id="s6">
+  <div class="shead"><span class="stag">หมวด 6</span><h2>เอนโทรปี — เลือกสูตรจาก “อะไรเปลี่ยน”</h2></div>
+
+  <div class="call key">
+    <span class="ctitle">ผังตัดสินใจ — ถามว่า “ในกระบวนการนี้ อะไรเปลี่ยน”</span>
+    <div class="eq">ของแข็ง/ของเหลว เปลี่ยน T      →  ΔS = m c ln(T_f/T_i)
+แก๊สอุดมคติ เปลี่ยนทั้ง T และ V →  ΔS = nC_v ln(T_f/T_i) + nR ln(V_f/V_i)
+แก๊สอุดมคติ T คงที่            →  ΔS = nR ln(V_f/V_i)
+เปลี่ยนเฟส (T คงที่)           →  ΔS = m L / T
+อ่างความร้อน (T คงที่มาก)      →  ΔS = Q / T
+โจทย์เป็นน้ำ + มีตาราง         →  ΔS = m (s₂ − s₁)</div>
+  </div>
+
+  <details class="prob" id="f22" open>
+    <summary><span class="pid">6.1</span><span class="ptitle">ΔS = mc ln(T_f/T_i) · ของแข็ง/ของเหลวร้อนขึ้น</span><span class="psrc">Entropy Ex02</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">ΔS = m c ln(T_f / T_i)        ← ln ไม่ใช่ ΔT!</div>
+      <p><b>🔍 สัญญาณในโจทย์:</b> โลหะ/น้ำ/ของแข็ง<b>เปลี่ยนอุณหภูมิ</b> · ปริมาตรแทบไม่เปลี่ยน</p>
+      <div class="ans"><span class="ctitle">✏️ ตัวอย่าง</span>ทังสเตน 0.2 kg (c = 0.134 kJ/kg·K) จาก 20 → 60 °C<br>
+      ΔS = (0.2)(0.134) ln(333.15/293.15) = <b>+3.43 J/K</b></div>
+    </div>
+  </details>
+
+  <details class="prob" id="f23" open>
+    <summary><span class="pid">6.2</span><span class="ptitle">ΔS = nC_v ln(T_f/T_i) + nR ln(V_f/V_i) · แก๊สอุดมคติ</span><span class="psrc">Entropy Ex03</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">ΔS = n C_v ln(T_f/T_i) + n R ln(V_f/V_i)
+ΔS = n C_p ln(T_f/T_i) − n R ln(P_f/P_i)      ← ใช้เมื่อโจทย์ให้ P แทน V</div>
+      <p><b>🔍 สัญญาณในโจทย์:</b> แก๊สอุดมคติที่<b>ทั้ง T และ V เปลี่ยน</b> · <b>สูตรนี้ครอบคลุมทุกกรณี</b> — ถ้า T คงที่พจน์แรกหายไป ถ้า V คงที่พจน์หลังหายไป จำสูตรเดียวพอ</p>
+      <div class="ans"><span class="ctitle">✏️ ตัวอย่าง</span>แก๊สไดอะตอมิก 0.2 mol ขยายตัวจน V_f/V_i = 2 และ T_f/T_i = 1.4<br>
+      ΔS = (0.2)(2.5)(8.314)ln1.4 + (0.2)(8.314)ln2 = 1.40 + 1.15 = <b>+2.55 J/K</b></div>
+    </div>
+  </details>
+
+  <details class="prob" id="f24" open>
+    <summary><span class="pid">6.3</span><span class="ptitle">🔑 ΔS = nR ln(V_f/V_i) · free expansion</span><span class="psrc">HW1-25 · ตัวเก็งข้อ 6</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">ขยายสู่สุญญากาศ : W = 0, Q = 0, ΔU = 0  →  <b>T ไม่เปลี่ยน</b>
+
+จึงสมมติเส้นทาง reversible แบบ isothermal ที่ไปถึงสถานะเดียวกัน :
+ΔS = n R ln(V_f / V_i)  >  0</div>
+      <div class="call warn" style="margin-top:0"><span class="ctitle">เหตุผลที่ต้องเขียนในข้อสอบ</span><p style="margin-bottom:0">Q = 0 จริง แต่เอาไปใส่ <code>dS = δQ/T</code> <b>ไม่ได้</b> เพราะสูตรนั้นใช้ได้กับกระบวนการ <b>reversible</b> เท่านั้น · free expansion เป็น irreversible → ต้อง<b>สมมติเส้นทาง reversible ที่เชื่อมสถานะเริ่มต้นและสุดท้ายอันเดียวกัน</b> แล้วคำนวณบนเส้นทางนั้น — ทำได้เพราะ S เป็น <b>state function</b></p></div>
+      <div class="ans"><span class="ctitle">✏️ ตัวอย่าง</span>H₂ 1 mol ขยายสู่สุญญากาศจนปริมาตรเป็น 2 เท่า<br>
+      ΔS = (1)(8.314) ln 2 = <b>+5.76 J/K</b> &nbsp;(บวก = สอดคล้องกับกฎข้อ 2)</div>
+    </div>
+  </details>
+
+  <details class="prob" id="f25" open>
+    <summary><span class="pid">6.4</span><span class="ptitle">ΔS = mL/T และ ΔS = Q/T</span><span class="psrc">เปลี่ยนเฟส · อ่างความร้อน</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">เปลี่ยนเฟส     ΔS = m L / T_sat      (T คงที่ จึงดึงออกจากอินทิกรัลได้)
+อ่างความร้อน   ΔS = Q / T           (อ่างใหญ่มาก T ไม่เปลี่ยน)</div>
+      <p><b>🔍 สัญญาณในโจทย์:</b> “น้ำแข็งหลอม” · “น้ำเดือด” · หรือ “อ่างความร้อนที่อุณหภูมิ ___” (thermal reservoir)</p>
+      <div class="ans"><span class="ctitle">✏️ ตัวอย่าง</span>น้ำแข็ง 1 kg หลอมที่ 0 °C (L = 333.7 kJ/kg)<br>
+      ΔS = 333.7/273.15 = <b>+1.22 kJ/K</b></div>
+    </div>
+  </details>
+
+  <details class="prob" id="f26" open>
+    <summary><span class="pid">6.5</span><span class="ptitle">ΔS_รวม ≥ 0 · ตรวจคำตอบด้วยกฎข้อที่สอง</span><span class="psrc">ใช้เช็กทุกข้อของหมวดนี้</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">ΔS_รวม = ΔS_ระบบ + ΔS_สิ่งแวดล้อม ≥ 0
+
+= 0  →  reversible
+> 0  →  irreversible (กระบวนการจริงทุกอัน)
+< 0  →  <b>เป็นไปไม่ได้ — คำนวณผิด</b></div>
+      <p><b>🔍 ใช้เมื่อ:</b> ทำข้อเอนโทรปีเสร็จทุกข้อ ให้เช็กเสมอ · <b>ΔS ของระบบเดียวติดลบได้</b> (เช่นของร้อนเย็นลง) แต่<b>ผลรวมห้ามติดลบ</b></p>
+      <div class="ans"><span class="ctitle">✏️ ตัวอย่าง</span>ของร้อน 400 K คายความร้อน 100 kJ ให้ของเย็น 300 K<br>
+      ΔS = −100/400 + 100/300 = −0.25 + 0.333 = <b>+0.083 kJ/K &gt; 0</b> ✓ เกิดขึ้นได้จริง<br>
+      (ถ้าไหลย้อนทาง จะได้ −0.083 &lt; 0 → เป็นไปไม่ได้ ตรงกับข้อความของเคลาซิอุส)</div>
+    </div>
+  </details>
+</section>
+
+<!-- ============ 7 ENGINES ============ -->
+<section id="s7">
+  <div class="shead"><span class="stag">หมวด 7</span><h2>เครื่องยนต์ ตู้เย็น และ COP</h2></div>
+  <p class="snote">หมวดที่ง่ายที่สุดในข้อสอบ — แทนสูตรตรง ๆ ถ้าเวลาไม่พอให้ทำข้อนี้ก่อนเสมอ</p>
+
+  <details class="prob" id="f27" open>
+    <summary><span class="pid">7.1</span><span class="ptitle">η = W/Q_H = 1 − Q_C/Q_H</span><span class="psrc">HW1-31, 32</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">η = W_net / Q_H  =  1 − Q_C / Q_H
+Q_H = W_net + Q_C          (อนุรักษ์พลังงานครบรอบ)</div>
+      <p><b>🔍 สัญญาณในโจทย์:</b> “เครื่องยนต์ความร้อน” · “โรงไฟฟ้า” · “ประสิทธิภาพ ___%” · โจทย์ให้ 2 ใน 3 ตัว (Q_H, Q_C, W) แล้วถามตัวที่เหลือ</p>
+      <div class="ans"><span class="ctitle">✏️ ตัวอย่าง</span>เครื่องยนต์รับความร้อน 1.3 kJ ประสิทธิภาพ 35%<br>
+      W = (0.35)(1.3) = <b>0.455 kJ</b> · Q_C = 1.3 − 0.455 = <b>0.845 kJ</b> (ทิ้งไป 65%)</div>
+    </div>
+  </details>
+
+  <details class="prob" id="f28" open>
+    <summary><span class="pid">7.2</span><span class="ptitle">η_Carnot = 1 − T_C/T_H</span><span class="psrc">Entropy น.7</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">η_Carnot = 1 − T_C / T_H         ← <b>เคลวินเท่านั้น</b>
+η_จริง ≤ η_Carnot  เสมอ</div>
+      <p><b>🔍 สัญญาณในโจทย์:</b> โจทย์ให้ <b>อุณหภูมิของอ่างสองอ่าง</b> (ไม่ใช่ค่าความร้อน) · คำว่า “คาร์โนต์” · “ประสิทธิภาพสูงสุดที่เป็นไปได้” · “เป็นไปได้หรือไม่ที่...”</p>
+      <div class="ans"><span class="ctitle">✏️ ตัวอย่าง</span>เครื่องยนต์ทำงานระหว่าง 800 K และ 300 K<br>
+      η_max = 1 − 300/800 = <b>62.5%</b><br>
+      → ถ้าโจทย์อ้างว่าได้ 70% ตอบว่า <b>เป็นไปไม่ได้</b> เพราะขัดกับกฎข้อที่สอง</div>
+    </div>
+  </details>
+
+  <details class="prob" id="f29" open>
+    <summary><span class="pid">7.3</span><span class="ptitle">COP_R = Q_C/W และ COP_HP = COP_R + 1</span><span class="psrc">HW1-33, 34</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">ตู้เย็น/แอร์   COP_R  = Q_C / W_net       สิ่งที่ต้องการคือ<b>ความเย็น</b>
+ปั๊มความร้อน   COP_HP = Q_H / W_net       สิ่งที่ต้องการคือ<b>ความร้อน</b>
+
+COP_HP = COP_R + 1        ← ใช้เช็กคำตอบได้ใน 2 วินาที
+
+คาร์โนต์ :  COP_R = T_C/(T_H − T_C)      COP_HP = T_H/(T_H − T_C)</div>
+      <p><b>🔍 แยกยังไง:</b> ถามว่า<b>อุปกรณ์นี้มีไว้ทำอะไร</b> — ทำให้เย็น (ตู้เย็น/แอร์) ใช้ COP_R · ทำให้อุ่น (ฮีตเตอร์/ปั๊มความร้อน) ใช้ COP_HP</p>
+      <div class="ans"><span class="ctitle">✏️ ตัวอย่าง</span>ตู้เย็นให้ผลทำความเย็น 15,000 kJ/h ใช้ไฟ 2 kW<br>
+      Q̇_C = 15000/3600 = 4.17 kW → COP_R = 4.17/2 = <b>2.08</b><br>
+      <b>COP เกิน 1 ได้</b> ไม่ผิดกฎอะไร เพราะตู้เย็น<b>ย้าย</b>ความร้อน ไม่ได้สร้างมันขึ้นมา</div>
+    </div>
+  </details>
+</section>
+
+<!-- ============ 8 HEAT TRANSFER ============ -->
+<section id="s8">
+  <div class="shead"><span class="stag">หมวด 8</span><h2>การถ่ายเทความร้อน และการขยายตัว</h2></div>
+
+  <details class="prob" id="f30">
+    <summary><span class="pid">8.1</span><span class="ptitle">Q̇ = kAΔT/L · การนำความร้อน</span><span class="psrc">เลือกสูตรตามรูปทรง</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">แผ่นราบ      Q̇ = k A ΔT / L
+ทรงกระบอก    Q̇ = 2π k L ΔT / ln(r₂/r₁)
+ทรงกลม       Q̇ = 4π k r₁ r₂ ΔT / (r₂ − r₁)</div>
+      <p><b>🔍 เลือกยังไง:</b> ดู<b>รูปทรง</b>ของสิ่งที่ความร้อนไหลผ่าน — กำแพง/กระจก/แผ่นโลหะ ใช้แผ่นราบ · ท่อ/สายไฟ ใช้ทรงกระบอก · ถังกลม/ลูกบอล ใช้ทรงกลม</p>
+      <div class="ans"><span class="ctitle">✏️ ตัวอย่าง</span>กระจก (k = 1.0) พื้นที่ 1 m² หนา 5 mm ต่างอุณหภูมิ 10 K<br>
+      Q̇ = (1.0)(1)(10)/0.005 = <b>2000 W</b></div>
+    </div>
+  </details>
+
+  <details class="prob" id="f31">
+    <summary><span class="pid">8.2</span><span class="ptitle">แท่งต่อกันแบบอนุกรม · Q̇ เท่ากัน</span><span class="psrc">HW1-13</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">ที่สภาวะคงตัว Q̇ ผ่านทุกหน้าตัด<b>เท่ากัน</b>  →  ตั้ง Q̇₁ = Q̇₂ แล้วแก้หา T รอยต่อ</div>
+      <p><b>🔍 สัญญาณในโจทย์:</b> “แท่งสองแท่งต่อกัน” · “ผนังสองชั้น” · “หาอุณหภูมิที่รอยต่อ” — <b>หลักการเดียวกับกระแสไฟฟ้าในตัวต้านทานอนุกรม</b></p>
+      <div class="ans"><span class="ctitle">✏️ ตัวอย่าง</span>ทองคำ (k = 314) ต่อกับเงิน (k = 429) ยาวและหน้าตัดเท่ากัน ปลายอยู่ที่ 80 °C และ 30 °C<br>
+      314(80 − T) = 429(T − 30) → 37990 = 743T → T = <b>51.1 °C</b><br>
+      (รอยต่อเอียงไปทางฝั่งเงินเพราะเงินนำความร้อนดีกว่า)</div>
+    </div>
+  </details>
+
+  <details class="prob" id="f32">
+    <summary><span class="pid">8.3</span><span class="ptitle">ΔL = αLΔT และ β = 3α</span><span class="psrc">HW1-01</span><label class="chk"><input type="checkbox">เข้าใจแล้ว</label></summary>
+    <div class="pbody">
+      <div class="eq">ΔL = α L ΔT           ΔV = β V ΔT           β = 3α  (ไอโซทรอปิก)</div>
+      <p><b>🔍 สัญญาณในโจทย์:</b> “สะพาน/รางรถไฟ/ท่อ ยืดออกเท่าไหร่” · “เทอร์โมมิเตอร์แถบโลหะคู่” · “ของเหลวล้นออกจากภาชนะ”</p>
+      <div class="ans"><span class="ctitle">✏️ ตัวอย่าง</span>สะพานเหล็ก 1 km (α = 1.1 × 10⁻⁵ K⁻¹) ระหว่างฤดูหนาวกับฤดูร้อน ΔT ≈ 40 K<br>
+      ΔL = (1.1×10⁻⁵)(1000)(40) = <b>0.44 m</b> → นี่คือเหตุผลที่สะพานต้องมีรอยต่อขยายตัว</div>
+    </div>
+  </details>
+</section>
+
+<!-- ============ EXAM STRATEGY ============ -->
+<section id="strategy">
+  <div class="shead"><span class="stag">ในห้องสอบ</span><h2>ลำดับ 3 คำถามที่ถามตัวเองทุกข้อ</h2></div>
+
+  <div class="call key">
+    <div class="eq">① <b>ระบบคืออะไร และเป็นสารอะไร</b>
+   แก๊สอุดมคติ (มี f, ใช้สมการ)  หรือ  น้ำ/สารทำความเย็น (ต้องเปิดตาราง)
+
+② <b>อะไรคงที่ในกระบวนการนี้</b>
+   P คงที่ / V คงที่ / T คงที่ / Q = 0  →  ได้สูตรงานทันที (หมวด 3)
+
+③ <b>โจทย์ถามหาอะไร</b>
+   ΔU, Q, W  →  กฎข้อ 1        ΔS  →  หมวด 6
+   η, COP    →  หมวด 7          v, x, u, h  →  หมวด 4</div>
+  </div>
+
+  <div class="call warn">
+    <span class="ctitle">3 ตัวตรวจสอบคำตอบที่ใช้ได้ทันที</span>
+    <p style="margin-bottom:0">
+    ① <b>x ต้องอยู่ระหว่าง 0 ถึง 1</b> — เกินแปลว่าตัดสินเฟสผิด<br>
+    ② <b>ΔS_รวม ต้อง ≥ 0</b> — ติดลบแปลว่าคำนวณผิดหรือกระบวนการเป็นไปไม่ได้<br>
+    ③ <b>η ต้อง ≤ 1 − T_C/T_H</b> — เกินแปลว่าขัดกฎข้อที่สอง (บางทีนี่คือคำตอบที่โจทย์ต้องการ)</p>
+  </div>
+
+  <div class="call tip">
+    <span class="ctitle">เขียนบนหัวกระดาษเป็นอย่างแรก</span>
+    <div class="eq">ใช้ระบบ  ΔU = Q + W  ·  W = −∫P dV  ·  อัด → W > 0
+ทุกอุณหภูมิเป็นเคลวิน</div>
+    <p style="margin-bottom:0">ใช้ 20 วินาที แต่กันพลาดได้ทั้งฉบับ — และแสดงให้อาจารย์เห็นว่าคุณรู้ว่ามีระบบเครื่องหมายหลายแบบ</p>
+  </div>
+</section>
+
+<footer>
+  <p>ค่าตัวเลขในตัวอย่างทุกข้อคำนวณตรวจสอบแล้ว · ค่าตารางไอน้ำดึงจากตาราง A-4 ถึง A-6 ชุดเดียวกับที่จะแจกในห้องสอบ</p>
+  <p>สูตรทั้งหมดตรวจสอบย้อนกลับไปยังสไลด์อาจารย์และเอกสารที่แจก — ดูที่มารายหัวข้อได้ที่หน้า <a href="scope.html">ขอบเขต+สูตร</a></p>
+</footer>
+
+</main>
+<script src="assets/app.js"></script>
+</body>
+</html>

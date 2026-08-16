@@ -1,0 +1,239 @@
+/* ============================================================
+   Thermal & Statistics Physics — ชุดทบทวนสอบกลางภาค
+   ============================================================ */
+
+:root{
+  --fs:1;                       /* ปรับด้วยปุ่ม A- / A+ */
+  --bg:#F5F7F8; --surface:#FFFFFF; --surface2:#EBEFF1; --surface3:#DFE5E9;
+  --ink:#111619; --ink2:#2F3B44; --muted:#5E6C77; --line:#D8DEE3; --line2:#C2CBD2;
+  --accent:#0D7480; --accent-ink:#0A5158; --accent-soft:#E0F0F1;
+  --heat:#B04117; --heat-soft:#FBE8E0;
+  --cool:#2A5A97; --cool-soft:#E3EBF5;
+  --ok:#2C6942; --ok-soft:#E2EFE7;
+  --gold:#8A6410; --gold-soft:#FAF0DA;
+  --shadow:0 1px 2px rgba(17,22,25,.05), 0 4px 16px rgba(17,22,25,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0D1215; --surface:#151C21; --surface2:#1C252B; --surface3:#243036;
+    --ink:#EAEFF2; --ink2:#B3C0C9; --muted:#7C8B95; --line:#29343B; --line2:#37444D;
+    --accent:#48BCC5; --accent-ink:#93DFE5; --accent-soft:#0E3138;
+    --heat:#EA8455; --heat-soft:#36200F;
+    --cool:#74A7E0; --cool-soft:#142334;
+    --ok:#6DBC8D; --ok-soft:#11281B;
+    --gold:#D9AE4E; --gold-soft:#302713;
+    --shadow:0 1px 2px rgba(0,0,0,.35), 0 4px 18px rgba(0,0,0,.28);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0D1215; --surface:#151C21; --surface2:#1C252B; --surface3:#243036;
+  --ink:#EAEFF2; --ink2:#B3C0C9; --muted:#7C8B95; --line:#29343B; --line2:#37444D;
+  --accent:#48BCC5; --accent-ink:#93DFE5; --accent-soft:#0E3138;
+  --heat:#EA8455; --heat-soft:#36200F;
+  --cool:#74A7E0; --cool-soft:#142334;
+  --ok:#6DBC8D; --ok-soft:#11281B;
+  --gold:#D9AE4E; --gold-soft:#302713;
+  --shadow:0 1px 2px rgba(0,0,0,.35), 0 4px 18px rgba(0,0,0,.28);
+}
+:root[data-theme="light"]{
+  --bg:#F5F7F8; --surface:#FFFFFF; --surface2:#EBEFF1; --surface3:#DFE5E9;
+  --ink:#111619; --ink2:#2F3B44; --muted:#5E6C77; --line:#D8DEE3; --line2:#C2CBD2;
+  --accent:#0D7480; --accent-ink:#0A5158; --accent-soft:#E0F0F1;
+  --heat:#B04117; --heat-soft:#FBE8E0;
+  --cool:#2A5A97; --cool-soft:#E3EBF5;
+  --ok:#2C6942; --ok-soft:#E2EFE7;
+  --gold:#8A6410; --gold-soft:#FAF0DA;
+  --shadow:0 1px 2px rgba(17,22,25,.05), 0 4px 16px rgba(17,22,25,.06);
+}
+
+*{box-sizing:border-box}
+html{font-size:calc(18px * var(--fs))}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Leelawadee UI","Noto Sans Thai","Sarabun","Segoe UI",system-ui,-apple-system,sans-serif;
+  font-size:1rem;line-height:1.78;-webkit-font-smoothing:antialiased;
+}
+.mono,code,.eq,td.n,th.n,.pid,.psrc{
+  font-family:"Cascadia Mono","Consolas","SFMono-Regular",ui-monospace,monospace;
+  font-variant-numeric:tabular-nums;
+}
+
+/* ---------- top bar ---------- */
+header.top{position:sticky;top:0;z-index:60;background:var(--surface);border-bottom:1px solid var(--line)}
+.topin{max-width:1180px;margin:0 auto;padding:10px 24px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.brand{font-weight:800;font-size:.86rem;letter-spacing:.05em;color:var(--accent);white-space:nowrap;text-decoration:none}
+nav.pages{display:flex;gap:5px;flex:1;flex-wrap:wrap}
+nav.pages a{
+  font-size:.86rem;font-weight:600;text-decoration:none;color:var(--ink2);
+  padding:6px 14px;border-radius:7px;border:1px solid transparent;white-space:nowrap;
+}
+nav.pages a:hover{background:var(--surface2);border-color:var(--line)}
+nav.pages a.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+nav.pages a:focus-visible,button:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.tools{display:flex;gap:6px;align-items:center}
+button.tool{
+  font-family:inherit;font-size:.82rem;font-weight:600;padding:6px 12px;border-radius:7px;cursor:pointer;
+  border:1px solid var(--line2);background:var(--surface);color:var(--ink2);line-height:1.4;
+}
+button.tool:hover{background:var(--surface2);color:var(--ink)}
+button.tool.sq{padding:6px 11px;min-width:38px}
+
+/* ---------- layout ---------- */
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.hero{padding:46px 0 30px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:.76rem;letter-spacing:.17em;text-transform:uppercase;color:var(--accent);font-weight:800;margin:0 0 12px}
+h1{font-size:clamp(1.8rem,4vw,2.5rem);line-height:1.24;margin:0 0 14px;letter-spacing:-.015em;text-wrap:balance}
+.lede{font-size:1.06rem;color:var(--ink2);max-width:66ch;margin:0}
+section{padding:42px 0;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+.shead{display:flex;align-items:baseline;gap:13px;margin:0 0 6px;flex-wrap:wrap}
+.stag{
+  font-family:"Cascadia Mono",Consolas,ui-monospace,monospace;font-size:.74rem;font-weight:700;letter-spacing:.07em;
+  padding:4px 10px;border-radius:5px;background:var(--accent-soft);color:var(--accent-ink);
+  border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);white-space:nowrap;
+}
+h2{font-size:1.55rem;margin:0;line-height:1.3;letter-spacing:-.012em;text-wrap:balance}
+h3{font-size:1.16rem;margin:32px 0 11px;letter-spacing:-.005em}
+h4{font-size:1rem;margin:0 0 8px}
+.snote{color:var(--muted);font-size:.94rem;margin:3px 0 26px}
+p{margin:0 0 14px}
+ul,ol{margin:0 0 14px;padding-left:24px}
+li{margin-bottom:7px}
+a{color:var(--accent-ink)}
+hr.soft{border:0;border-top:1px solid var(--line);margin:28px 0}
+
+/* ---------- cards / grids ---------- */
+.grid{display:grid;gap:16px;margin:18px 0}
+.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:18px 20px;box-shadow:var(--shadow)}
+.card h4{color:var(--accent-ink);font-size:1.02rem}
+.card p:last-child,.card ul:last-child,.card .eq:last-child{margin-bottom:0}
+.navcard{display:block;text-decoration:none;color:inherit;transition:border-color .12s}
+.navcard:hover{border-color:var(--accent)}
+.navcard .go{color:var(--accent);font-weight:700;font-size:.9rem;margin-top:10px;display:block}
+
+/* ---------- tables ---------- */
+.tscroll{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.94rem;min-width:600px}
+th,td{padding:11px 15px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{
+  background:var(--surface2);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--ink2);font-weight:800;border-bottom:2px solid var(--line2);white-space:nowrap;
+}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:var(--surface2)}
+td.n,th.n{white-space:nowrap}
+.w{font-weight:800;color:var(--accent)}
+
+/* ---------- callouts ---------- */
+.call{border-left:4px solid var(--accent);background:var(--accent-soft);padding:16px 20px;border-radius:0 10px 10px 0;margin:20px 0}
+.call.warn{border-left-color:var(--heat);background:var(--heat-soft)}
+.call.tip{border-left-color:var(--ok);background:var(--ok-soft)}
+.call.key{border-left-color:var(--gold);background:var(--gold-soft)}
+.call p:last-child,.call ul:last-child,.call .eq:last-child{margin-bottom:0}
+.ctitle{font-weight:800;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:7px;color:var(--ink2)}
+
+/* ---------- equations ---------- */
+.eq{
+  background:var(--surface2);border:1px solid var(--line);border-radius:8px;
+  padding:14px 18px;margin:14px 0;font-size:.98rem;overflow-x:auto;white-space:pre;
+  line-height:1.95;color:var(--ink);
+}
+.eq b{color:var(--accent-ink);font-weight:800}
+code{background:var(--surface2);padding:2px 6px;border-radius:4px;font-size:.9em;border:1px solid var(--line)}
+
+/* ---------- problem blocks ---------- */
+/* --hdr วัดความสูงจริงของแถบบนด้วย JS (โตตามขนาดตัวอักษร) */
+.prob{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin:20px 0;box-shadow:var(--shadow);overflow:hidden;scroll-margin-top:calc(var(--hdr,64px) + 14px)}
+section[id]{scroll-margin-top:calc(var(--hdr,64px) + 14px)}
+.prob>summary{padding:16px 20px;cursor:pointer;list-style:none;display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap}
+.prob[open]>summary{border-bottom:1px solid var(--line);background:var(--surface2)}
+.prob>summary::-webkit-details-marker{display:none}
+.pid{font-size:.8rem;font-weight:800;background:var(--ink);color:var(--surface);padding:4px 9px;border-radius:5px;white-space:nowrap;margin-top:3px}
+.psrc{font-size:.79rem;color:var(--muted);white-space:nowrap;margin-top:5px}
+.ptitle{flex:1;font-weight:700;font-size:1.04rem;line-height:1.55;min-width:200px}
+.pbody{padding:20px}
+.given{background:var(--surface2);border:1px solid var(--line);border-radius:9px;padding:14px 18px;margin:0 0 18px;font-size:.96rem;color:var(--ink2)}
+.step{margin:0 0 18px}
+/* ไม่ใช้ text-transform:uppercase ที่นี่ — จะทำให้สัญลักษณ์ฟิสิกส์ผิด
+   (u ≠ U, kPa ≠ KPA, a,b ของ van der Waals ชนกับ B,C ของวิเรียล) */
+.step h5{font-size:.88rem;letter-spacing:.02em;color:var(--accent-ink);margin:0 0 7px;font-weight:800}
+.ans{background:var(--ok-soft);border:1px solid color-mix(in srgb,var(--ok) 35%,transparent);border-radius:9px;padding:14px 18px;margin:16px 0 0;font-size:1rem}
+.ans .ctitle{color:var(--ok)}
+.ans b{font-family:"Cascadia Mono",Consolas,ui-monospace,monospace;font-size:1.04em;color:var(--ink)}
+.trap{border-left:4px solid var(--heat);background:var(--heat-soft);padding:12px 17px;border-radius:0 8px 8px 0;margin:16px 0 0;font-size:.94rem}
+.trap .ctitle{color:var(--heat)}
+
+/* ---------- hints ---------- */
+.hintbox{margin:12px 0 0}
+.hintbox>summary{
+  list-style:none;cursor:pointer;font-weight:700;font-size:.92rem;padding:9px 15px;border-radius:8px;
+  background:var(--gold-soft);border:1px dashed var(--gold);color:var(--gold);display:inline-block;
+}
+.hintbox>summary::-webkit-details-marker{display:none}
+.hintbox[open]>summary{border-style:solid;margin-bottom:9px}
+.hintbody{background:var(--surface2);border:1px solid var(--line);border-radius:9px;padding:13px 18px;font-size:.96rem}
+.hintbody p:last-child,.hintbody .eq:last-child{margin-bottom:0}
+.slideref{
+  display:inline-block;font-family:"Cascadia Mono",Consolas,ui-monospace,monospace;font-size:.83rem;
+  background:var(--cool-soft);color:var(--cool);border:1px solid color-mix(in srgb,var(--cool) 32%,transparent);
+  padding:3px 9px;border-radius:5px;margin:3px 5px 3px 0;white-space:nowrap;
+}
+
+/* ---------- progress checkbox ---------- */
+.chk{display:flex;align-items:center;gap:7px;font-size:.82rem;color:var(--muted);cursor:pointer;user-select:none;white-space:nowrap;margin-top:3px}
+.chk input{width:19px;height:19px;accent-color:var(--accent);cursor:pointer;margin:0}
+.prob.done>summary{opacity:.62}
+.prob.done .pid{background:var(--ok)}
+
+/* ---------- flow diagram ---------- */
+.flow{margin:18px 0;display:flex;flex-direction:column;gap:0}
+.fnode{background:var(--surface);border:2px solid var(--line2);border-radius:10px;padding:13px 18px;font-size:.97rem}
+.fnode.q{border-color:var(--accent);background:var(--accent-soft);font-weight:700}
+.fnode.r{border-color:var(--ok);background:var(--ok-soft)}
+.farr{text-align:center;color:var(--muted);font-size:1.25rem;line-height:1;padding:7px 0}
+.fbranch{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin:6px 0}
+.fbranch .fnode{margin:0}
+.blabel{font-size:.8rem;font-weight:800;color:var(--accent);letter-spacing:.05em;display:block;margin-bottom:5px}
+
+/* ---------- search ---------- */
+.searchbar{position:sticky;top:var(--hdr,64px);z-index:40;background:var(--bg);padding:14px 0;border-bottom:1px solid var(--line);margin-bottom:6px}
+.searchbar input{
+  width:100%;font-family:inherit;font-size:1rem;padding:11px 16px;border-radius:9px;
+  border:2px solid var(--line2);background:var(--surface);color:var(--ink);
+}
+.searchbar input:focus{outline:none;border-color:var(--accent)}
+.hidden{display:none!important}
+.noresult{
+  display:none;margin:26px 0;padding:20px 24px;border-radius:11px;text-align:center;
+  background:var(--surface2);border:1px dashed var(--line2);color:var(--ink2);font-size:1rem;
+}
+.noresult.show{display:block}
+.noresult b{color:var(--ink)}
+.tocgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:8px;margin:16px 0}
+.tocgrid a{
+  text-decoration:none;text-align:center;font-family:"Cascadia Mono",Consolas,ui-monospace,monospace;
+  font-size:.83rem;font-weight:700;padding:9px 5px;border-radius:8px;
+  background:var(--surface);border:1px solid var(--line);color:var(--ink2);
+}
+.tocgrid a:hover{border-color:var(--accent);color:var(--accent)}
+.tocgrid a.done{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}
+
+footer{padding:36px 0 70px;color:var(--muted);font-size:.9rem}
+.kbd{font-family:"Cascadia Mono",Consolas,ui-monospace,monospace;font-size:.86rem;color:var(--muted)}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (max-width:640px){
+  .topin{padding:9px 16px}
+  .wrap{padding:0 16px}
+  nav.pages a{font-size:.8rem;padding:5px 10px}
+}
+@media print{
+  header.top,.searchbar,.tools,.chk,.tocgrid{display:none!important}
+  body{background:#fff;color:#000;font-size:10.5pt}
+  .prob{break-inside:avoid;box-shadow:none;border-color:#999}
+  section{padding:16px 0}
+  a{color:inherit;text-decoration:none}
+  .hintbox{display:none}
+}
