@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>แผ่นสูตร &amp; ค่าคงที่</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <span class="brand">05366035 <span>Semiconductor</span></span>
+  <a href="index.html">แผนอ่าน</a>
+  <a href="ch1.html">1. พื้นฐาน</a>
+  <a href="ch2.html">2. สถิติพาหะ</a>
+  <a href="ch3.html">3. Drift/Diffusion</a>
+  <a href="ch4.html">4. R–G</a>
+  <a href="ch5.html">5. pn Junction</a>
+  <a href="formulas.html" class="active">📐 สูตร</a>
+  <a href="drill.html">✍️ ตะลุยโจทย์</a>
+</div></header>
+<main>
+
+<h1>📐 แผ่นสูตร ค่าคงที่ และกับดัก</h1>
+<p class="lead">ข้อสอบมีสูตรให้ — แต่ถ้าไม่รู้ว่า <b>สูตรไหนใช้ตอนไหน</b> มีให้ก็ไม่ช่วย · หน้านี้เน้น "ตัดสินใจ" มากกว่า "ท่องจำ"</p>
+
+<h2>🔢 ค่าคงที่ (ต้องคุ้นมือ)</h2>
+<table>
+<thead><tr><th>สัญลักษณ์</th><th>ค่า</th><th>หน่วย</th><th>หมายเหตุ</th></tr></thead>
+<tbody>
+<tr><td>q</td><td class="num">1.6 × 10⁻¹⁹</td><td>C</td><td>ประจุมูลฐาน</td></tr>
+<tr><td>m₀</td><td class="num">9.11 × 10⁻³¹</td><td>kg</td><td>มวลอิเล็กตรอนอิสระ</td></tr>
+<tr><td>h</td><td class="num">6.626 × 10⁻³⁴</td><td>J·s</td><td>Planck</td></tr>
+<tr><td>ℏ = h/2π</td><td class="num">1.055 × 10⁻³⁴</td><td>J·s</td><td></td></tr>
+<tr><td>k<sub>B</sub></td><td class="num">1.38 × 10⁻²³</td><td>J/K</td><td>= 8.617 × 10⁻⁵ eV/K</td></tr>
+<tr><td><b>k<sub>B</sub>T @300K</b></td><td class="num"><b>0.02585 ≈ 0.026</b></td><td>eV</td><td class="hl">ค่าที่ใช้บ่อยที่สุดทั้งวิชา</td></tr>
+<tr><td><b>k<sub>B</sub>T/q @300K</b></td><td class="num"><b>0.026</b></td><td>V</td><td>= thermal voltage · ใช้ใน Einstein &amp; V<sub>bi</sub></td></tr>
+<tr><td>ε₀</td><td class="num">8.854 × 10⁻¹⁴</td><td>F/cm</td><td>(= 8.854×10⁻¹² F/m)</td></tr>
+<tr><td>ε<sub>r</sub> ของ Si</td><td class="num">11.7 – 11.8</td><td>—</td><td>โจทย์จะให้มา ใช้ตามที่ให้</td></tr>
+<tr><td>ln(10)</td><td class="num">2.3026</td><td>—</td><td>ln(10^N) = 2.3026N ← เร็วมาก</td></tr>
+</tbody>
+</table>
+
+<h2>📊 ค่าประจำวัสดุ @300 K</h2>
+<table>
+<thead><tr><th>วัสดุ</th><th>E<sub>g</sub> (eV)</th><th>n<sub>i</sub> (cm⁻³)</th><th>m*<sub>n</sub>/m₀</th><th>m*<sub>p</sub>/m₀</th><th>μ<sub>n</sub></th><th>μ<sub>p</sub></th><th>D<sub>n</sub></th><th>D<sub>p</sub></th><th>ชนิด gap</th></tr></thead>
+<tbody>
+<tr><td><b>Ge</b></td><td class="num">0.66</td><td class="num">~10¹³</td><td class="num">0.55</td><td class="num">0.36</td><td class="num">3900</td><td class="num">1900</td><td class="num">100</td><td class="num">50</td><td class="p">indirect</td></tr>
+<tr><td><b>Si</b></td><td class="num">1.12</td><td class="num">10¹⁰</td><td class="num">1.18</td><td class="num">0.81</td><td class="num">1350</td><td class="num">480</td><td class="num">35</td><td class="num">12.5</td><td class="p">indirect</td></tr>
+<tr><td><b>GaAs</b></td><td class="num">1.42</td><td class="num">~10⁶</td><td class="num">0.067</td><td class="num">0.52</td><td class="num">8500</td><td class="num">400</td><td class="num">220</td><td class="num">10</td><td class="n">direct</td></tr>
+</tbody>
+</table>
+<p class="small">μ หน่วย cm²/V·s · D หน่วย cm²/s · Si: N<sub>c</sub>≈3.25×10¹⁹, N<sub>v</sub>≈1.83×10¹⁹ cm⁻³</p>
+
+<h2>🌳 ผังตัดสินใจ — โจทย์แบบไหนใช้สูตรไหน</h2>
+
+<div class="card">
+<h4 style="margin-top:0">❓ โจทย์ให้ N<sub>A</sub>, N<sub>D</sub>, n<sub>i</sub> → ถามหา n, p</h4>
+<div class="fx">โดปตัวเดียว และ N ≫ n_i ?
+ ├─ ใช่ → n-type: <b>n = N_D , p = n_i²/N_D</b>
+ │        p-type: <b>p = N_A , n = n_i²/N_A</b>
+ └─ ไม่ (โดปทั้งสอง) → หา net doping ก่อน
+      N_D − N_A &gt; 0 → <b>n ≈ N_D − N_A</b>, แล้ว <b>p = n_i²/n</b>
+      N_A − N_D &gt; 0 → <b>p ≈ N_A − N_D</b>, แล้ว <b>n = n_i²/p</b>
+
+⚠️ ถ้า net doping ใกล้เคียง n_i → ต้องใช้สมการกำลังสองเต็มรูป
+⚠️ ถ้าโจทย์ให้ T = 0 K → dopant ยังไม่ ionize → <b>n = p = 0</b> (freeze-out!)
+</div>
+</div>
+
+<div class="card">
+<h4 style="margin-top:0">❓ ถามหาตำแหน่ง E<sub>F</sub></h4>
+<div class="fx">โจทย์ให้ n_i และ n (หรือ p) ?
+ └─ ใช้ <b>E_F − E_i = k_BT·ln(n/n_i) = −k_BT·ln(p/n_i)</b>   ← ง่ายสุด ใช้อันนี้
+
+โจทย์ให้ m*, E_g และเป็น intrinsic ?
+ └─ ใช้ <b>E_F = E_g/2 + (3/4)k_BT·ln(m*ₚ/m*ₙ)</b>   (วัดจาก E_v = 0)
+
+โจทย์ให้ N_c หรือ m* และให้ E_c−E_F ?
+ └─ ใช้ <b>n = N_c·exp[−(E_c−E_F)/k_BT]</b>
+</div>
+</div>
+
+<div class="card">
+<h4 style="margin-top:0">❓ ถามเรื่องกระแส/ความต้านทาน</h4>
+<div class="fx">ให้ E field และ n,p,μ → <b>J = q(nμₙ + pμₚ)E</b>  หรือ  <b>σ = q(nμₙ+pμₚ)</b>
+ให้ profile ความเข้มข้น → <b>J_diff:  J_P = −qD_p dp/dx  ,  J_N = +qD_n dn/dx</b>
+ให้ μ แต่ต้องการ D  → <b>D = μ·(k_BT/q) = μ × 0.026</b>
+ให้ ρ และ J        → <b>E = J·ρ</b>   (Ohm)
+ให้ V และความยาว L → <b>E = V/L</b>
+มี E field แล้วอยากได้ v → <b>v_d = μE</b>
+</div>
+</div>
+
+<div class="card">
+<h4 style="margin-top:0">❓ โจทย์ pn junction</h4>
+<div class="fx">ขั้นที่ 1 เสมอ → <b>V_bi = (k_BT/q)·ln(N_A N_D / n_i²)</b>       [เช็ก: ต้อง &lt; E_g/q]
+ขั้นที่ 2 → <b>x_n, x_p</b> ตามสูตร (จำ: ฝั่ง n ใช้ N_A บนเศษ)
+ขั้นที่ 3 → <b>W = x_n + x_p</b>
+ขั้นที่ 4 → <b>E_max = −qN_A x_p/(ε_rε₀) = −qN_D x_n/(ε_rε₀)</b>
+
+ถ้าโจทย์ให้ band diagram มาแทน:
+ → <b>qV_bi = (E_i−E_F)_p-side + (E_F−E_i)_n-side</b>
+</div>
+</div>
+
+<hr>
+
+<h2>📋 สูตรทั้งหมด เรียงตามบท</h2>
+
+<h3><span class="tag c1">บท 1</span> พื้นฐาน</h3>
+<div class="fx">E_g = E_c − E_v
+
+สมการการเคลื่อนที่:
+   ในที่ว่าง   : F = −qE = m₀ dv/dt
+   e⁻ ในผลึก : F = −qE = m*ₙ dv/dt
+   hole      : F = +qE = m*ₚ dv/dt
+
+พลังงาน ionization ของไฮโดรเจน :  m e⁴ / (8ε₀²h²) = 13.6 eV
+พลังงาน ionization ของ donor ใน Si:  m*ₙ e⁴ / (8(ε_rε₀)²h²) ≈ 0.1 eV
+</div>
+
+<h3><span class="tag c2">บท 2</span> สถิติพาหะ</h3>
+<div class="fx">g_c(E) = (1/π²ℏ³)√(2m*ₙ³)·√(E−E_c)     g_v(E) = (1/π²ℏ³)√(2m*ₚ³)·√(E_v−E)
+
+f(E,T) = 1/[exp((E−E_F)/k_BT) + 1]        · f(E_F)=0.5 · P(ว่าง)=1−f(E)
+
+เงื่อนไข non-degenerate:  E − E_F &gt; 3.5 k_BT
+
+n = N_c·exp[−(E_c−E_F)/k_BT] ,   N_c = 2[2π m*ₙ k_BT / h²]^(3/2)
+p = N_v·exp[−(E_F−E_v)/k_BT] ,   N_v = 2[2π m*ₚ k_BT / h²]^(3/2)
+
+E_F(intrinsic) = E_g/2 + (3/4)k_BT·ln(m*ₚ/m*ₙ)      [E_v = 0]
+
+np = n_i² = N_c N_v exp(−E_g/k_BT)   ⇒   n_i = √(N_c N_v)·exp(−E_g/2k_BT)
+
+สมดุลประจุ:  p − n + N_D⁺ − N_A⁻ = 0     (หรือ n + N_A⁻ = p + N_D⁺)
+
+n = (N_D−N_A)/2 + √[ ((N_D−N_A)/2)² + n_i² ]
+p = (N_A−N_D)/2 + √[ ((N_A−N_D)/2)² + n_i² ]
+
+n = n_i·exp[(E_F−E_i)/k_BT]      p = n_i·exp[(E_i−E_F)/k_BT]
+E_F − E_i = k_BT·ln(n/n_i) = −k_BT·ln(p/n_i)
+
+ΔPE_p = +qV        ΔPE_n = −qV
+E = −dV/dx = (1/q)dE_c/dx = (1/q)dE_v/dx = (1/q)dE_i/dx
+</div>
+
+<h3><span class="tag c3">บท 3</span> Drift &amp; Diffusion</h3>
+<div class="fx">v_d,p = +(qτ/m*ₚ)E = +μₚE        v_d,n = −(qτ/m*ₙ)E = −μₙE
+μₚ = qτ/m*ₚ                      μₙ = qτ/m*ₙ
+
+1/τ_l ∝ T^(+3/2)  [lattice]      1/τ_ii ∝ T^(−3/2)  [ionized dopant]
+1/τ = 1/τ_l + 1/τ_ii
+
+J_P|drift = q p μₚ E             J_N|drift = q n μₙ E
+J = σE = E/ρ
+σ = q(nμₙ + pμₚ)                 ρ = 1/[q(nμₙ + pμₚ)]
+n-type: ρ = 1/(qμₙN_D)           p-type: ρ = 1/(qμₚN_A)
+
+Fick:  F = −D∇η
+J_P|diff = −q D_p (dp/dx)        J_N|diff = +q D_n (dn/dx)
+J_P = q p μₚE − q D_p dp/dx      J_N = q n μₙE + q D_n dn/dx
+
+ที่สมดุล:  J_P|drift = −J_P|diff  และ  J_N|drift = −J_N|diff
+
+Einstein:  D_n/μₙ = D_p/μₚ = k_BT/q = 0.026 V @300K
+</div>
+
+<h3><span class="tag c4">บท 4</span> R–G <span class="small">(ไม่มีสูตรคำนวณ)</span></h3>
+<div class="fx">Band-to-band  : โฟตอนพลังงาน = E_g            (radiative)
+R–G center    : คายเป็นความร้อน               (NON-radiative) · ระดับใกล้กลาง gap · Fe,Cr,Mn,Cu,Au
+Auger         : R เท่านั้น · เกิดที่ <b>โดปหนัก</b>
+Impact ioniz. : G เท่านั้น · เกิดที่ <b>สนามสูง</b> · = inverse ของ Auger · ทำให้เกิด <b>avalanche breakdown</b>
+
+Direct   (GaAs,GaN): CB min กับ VB max อยู่ k เดียวกัน → เปล่งแสงได้ดี → LED/LASER
+Indirect (Si,Ge)   : อยู่คนละ k → ต้องใช้ <b>โฟตอน + โฟนอน พร้อมกัน</b> → เปล่งแสงแย่
+   โฟตอน: E สูง p ต่ำ    |    โฟนอน: E ต่ำ p สูง
+</div>
+
+<h3><span class="tag c5">บท 5</span> pn Junction</h3>
+<div class="fx">qV_bi = (E_i−E_F)_p-side + (E_F−E_i)_n-side
+      = k_BT·ln(N_A/n_i) + k_BT·ln(N_D/n_i)
+
+⭐ <b>V_bi = (k_BT/q)·ln( N_A N_D / n_i² )</b>          [ต้อง &lt; E_g/q เสมอ]
+
+ρ(x) = −qN_A  (−x_p&lt;x&lt;0) ;  +qN_D  (0&lt;x&lt;x_n) ;  0  นอกนั้น
+
+Poisson:  dE/dx = ρ(x)/(ε_rε₀)
+
+E(x) = −(qN_A/ε_rε₀)(x+x_p)   (−x_p&lt;x&lt;0)
+E(x) = −(qN_D/ε_rε₀)(x_n−x)   (0&lt;x&lt;x_n)
+
+⭐ E_max = E(0) = −(qN_A/ε_rε₀)x_p = −(qN_D/ε_rε₀)x_n
+⭐ <b>N_A x_p = N_D x_n</b>          (สมดุลประจุ / Gauss's law)
+
+V_bi = (q/2ε_rε₀)(N_A x_p² + N_D x_n²)   [= พื้นที่ใต้กราฟ E(x)]
+
+⭐ x_n = [ (2ε_rε₀/q) · <b>N_A</b>/(N_D(N_A+N_D)) · V_bi ]^0.5
+⭐ x_p = [ (2ε_rε₀/q) · <b>N_D</b>/(N_A(N_A+N_D)) · V_bi ]^0.5
+⭐ W = x_n + x_p = [ (2ε_rε₀/q) · (N_A+N_D)/(N_A N_D) · V_bi ]^0.5
+</div>
+
+<hr>
+
+<h2>💀 กับดักที่คนพลาดบ่อยที่สุด</h2>
+<table>
+<thead><tr><th>#</th><th>กับดัก</th><th>วิธีกันพลาด</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><b>หน่วย cm vs m</b> — ค่าตารางเป็น cm แต่ค่าคงที่บางตัวเป็น SI</td><td>ตัดสินใจตั้งแต่ต้นว่าจะทำระบบไหน แล้วแปลงให้หมด · จำ 1 cm⁻³ = 10⁶ m⁻³</td></tr>
+<tr><td>2</td><td><b>x<sub>n</sub> กับ x<sub>p</sub> ใช้ N สลับกัน</b></td><td>ท่อง "ฝั่งไหน ใช้โดปของอีกฝั่ง" · เช็กด้วยสามัญสำนึก: โดปหนัก = depletion บาง</td></tr>
+<tr><td>3</td><td><b>ลืมว่า P, As, Sb เป็น donor ทั้งหมด</b> (ต้องบวกกัน)</td><td>ท่อง: หมู่ III = B, Al, Ga, In = acceptor · หมู่ V = P, As, Sb = donor</td></tr>
+<tr><td>4</td><td><b>ใช้ μ ค่าเดิมทั้งที่โดปหนักขึ้น</b></td><td>ถ้าโจทย์ให้ μ ใหม่มา = ต้องใช้ค่าใหม่ (ionized impurity scattering)</td></tr>
+<tr><td>5</td><td><b>เครื่องหมาย J<sub>diff</sub></b> ของ e⁻ กับ hole</td><td>hole = −qD<sub>p</sub>dp/dx (มีลบ) · electron = +qD<sub>n</sub>dn/dx (ไม่มีลบ)</td></tr>
+<tr><td>6</td><td><b>คิดว่ากระแส e⁻ กับ hole หักล้างกัน</b></td><td>ไม่! ประจุลบ × วิ่งสวน = บวก ⇒ <b>บวกกัน</b></td></tr>
+<tr><td>7</td><td><b>โจทย์ T = 0 K</b> แล้วยังตอบ n = N<sub>D</sub></td><td>ที่ 0 K ไม่มี ionization → n = p = 0 (freeze-out)</td></tr>
+<tr><td>8</td><td><b>V<sub>bi</sub> ออกมามากกว่า E<sub>g</sub>/q</b></td><td>ผิดแน่นอน — เช็ก n<sub>i</sub> ว่ายกกำลัง 2 หรือยัง</td></tr>
+<tr><td>9</td><td><b>วาดกราฟไม่กลับด้าน</b> ตอนโจทย์วาง n ไว้ซ้าย</td><td>อ่านรูปในโจทย์ให้ดีก่อนวาด (HW2 ข้อ 5 หลอกตรงนี้)</td></tr>
+<tr><td>10</td><td><b>ใช้สูตรบท 2 กับสาร degenerate</b></td><td>เช็ก E<sub>F</sub> ว่ายังอยู่ใน gap ห่างขอบ &gt; 3.5k<sub>B</sub>T ไหม</td></tr>
+<tr><td>11</td><td><b>คำนวณ E<sub>g</sub>/2 แล้วลืมว่า E<sub>v</sub>=0</b></td><td>ระบุจุดอ้างอิงพลังงานให้ชัดทุกครั้งที่วาด band diagram</td></tr>
+<tr><td>12</td><td><b>ลืม √ ในสูตร x<sub>n</sub>, x<sub>p</sub>, W</b></td><td>เลขชี้กำลัง 0.5 อยู่นอกวงเล็บใหญ่ — กดเครื่องคิดเลขให้ครบ</td></tr>
+</tbody>
+</table>
+
+<h2>🧮 เทคนิคเครื่องคิดเลขที่ประหยัดเวลา</h2>
+<div class="card">
+<ul>
+<li><b>ln ของเลขยกกำลัง 10:</b> ln(10^N) = 2.3026 × N<br>
+เช่น ln(10¹⁰)=23.03 · ln(10²⁰)=46.05 · ln(4×10¹⁴) = ln4 + 14×2.3026 = 1.386+32.24 = 33.62</li>
+<li><b>V<sub>bi</sub> สำหรับ Si:</b> V<sub>bi</sub> = 0.026 × [ln(N<sub>A</sub>) + ln(N<sub>D</sub>) − 2ln(n<sub>i</sub>)] — แยกกันคิดจะพลาดน้อยกว่า</li>
+<li><b>D = μ × 0.026</b> — ท่องไว้เลย ไม่ต้องคิดใหม่ทุกครั้ง</li>
+<li><b>เช็ก order of magnitude ก่อนเสมอ:</b> เช่น N<sub>D</sub>=10¹⁷, n<sub>i</sub>=10¹⁰ ⇒ p ต้อง = 10²⁰/10¹⁷ = 10³ (ไม่ใช่ 10⁷!)</li>
+<li><b>เลขยกกำลัง 1.5 (^3/2):</b> กด <code>x^y</code> ด้วย 1.5 ไปเลย · หรือ (√x)³</li>
+</ul>
+</div>
+
+<div class="nextprev">
+  <a href="ch5.html">← บทที่ 5</a>
+  <a href="drill.html">ไปตะลุยโจทย์ →</a>
+</div>
+</main>
+</body>
+</html>

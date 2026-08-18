@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>บท 5 · pn Junction</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <span class="brand">05366035 <span>Semiconductor</span></span>
+  <a href="index.html">แผนอ่าน</a>
+  <a href="ch1.html">1. พื้นฐาน</a>
+  <a href="ch2.html">2. สถิติพาหะ</a>
+  <a href="ch3.html">3. Drift/Diffusion</a>
+  <a href="ch4.html">4. R–G</a>
+  <a href="ch5.html" class="active">5. pn Junction</a>
+  <a href="formulas.html">📐 สูตร</a>
+  <a href="drill.html">✍️ ตะลุยโจทย์</a>
+</div></header>
+<main>
+
+<h1><span class="tag c5">Lecture 05</span> รอยต่อ pn (pn Junction)</h1>
+<p class="lead">อุปกรณ์จริงชิ้นแรก · Built-in voltage · Depletion approximation · Poisson · E(x), V(x), x<sub>n</sub>, x<sub>p</sub>, W<br>
+<span class="small">🔴 <b>สรุปรุ่นพี่ไม่มีบทนี้เลย</b> · สไลด์ 22 หน้า · <b>บทที่ยากที่สุดและออกอัตนัยแน่นอน</b></span></p>
+
+<div class="box why">
+<span class="t">🎯 บทนี้คือจุดที่ทุกอย่างมาบรรจบ</span>
+บท 1 (โดป) + บท 2 (E<sub>F</sub>, band bending) + บท 3 (drift & diffusion) → <b>รวมกันเป็นอุปกรณ์ 2 ขั้วชิ้นแรก</b><br>
+ถ้าเข้าใจบทนี้ = เข้าใจ diode, ซึ่งเป็นฐานของ BJT และ MOSFET ทั้งหมด
+</div>
+
+<h2>⭐ สตอรี่ 5 ก้าว — อ่านตรงนี้ก่อนอย่างอื่น</h2>
+<div class="card">
+<div class="step"><div class="no">1</div><div class="body"><b>เอา p กับ n มาแตะกัน</b><br>
+ฝั่ง p มีโฮลเยอะมาก · ฝั่ง n มีอิเล็กตรอนเยอะมาก → เกิด <b>ความชันความเข้มข้นมหาศาล</b> ที่รอยต่อ<br>
+<span class="small">→ บท 3 บอกว่าความชันความเข้มข้น = เกิด <b>diffusion</b></span></div></div>
+
+<div class="step"><div class="no">2</div><div class="body"><b>เกิด Depletion Region</b><br>
+โฮลแพร่ไปฝั่ง n · อิเล็กตรอนแพร่ไปฝั่ง p → พอข้ามไปก็ไปรวมตัวกับพาหะข้างมากอีกฝั่งอย่างรวดเร็ว<br>
+เหลือทิ้งไว้แต่ <b>ไอออนที่เคลื่อนที่ไม่ได้ (immobile ionized dopants)</b><br>
+→ ฝั่ง p เหลือ <b class="p">ไอออน acceptor ประจุลบ</b> · ฝั่ง n เหลือ <b class="n">ไอออน donor ประจุบวก</b><br>
+บริเวณที่ไม่มีพาหะเคลื่อนที่เหลืออยู่นี้ = <b>depletion region</b> หรือ <b>space charge region</b></div></div>
+
+<div class="step"><div class="no">3</div><div class="body"><b>เกิดสนามไฟฟ้าในตัว (built-in E field)</b><br>
+ประจุที่ถูกทิ้งไว้สร้างสนามไฟฟ้า — <b>เส้นแรงเริ่มจากประจุบวก (ฝั่ง n) ไปจบที่ประจุลบ (ฝั่ง p)</b><br>
+→ สนามนี้ทำให้เกิด <b>drift</b> ที่<b>สวนทางกับ diffusion</b> พอดี<br>
+→ จนถึงจุดที่ <span class="hl">drift = −diffusion เป๊ะ ⇒ กระแสสุทธิ = 0 ⇒ สมดุลความร้อน</span><br>
+<span class="small">→ นี่คือข้อสรุป "VERY INTERESTING" ของบท 3 ที่เป็นจริงขึ้นมา!</span></div></div>
+
+<div class="step"><div class="no">4</div><div class="body"><b>สนามนั้นมาพร้อมกับ V<sub>bi</sub> และ band bending</b><br>
+มีสนาม ⇒ มีความต่างศักย์ ⇒ แถบพลังงาน<b>โค้งงอ</b> (บท 2)<br>
+หา V<sub>bi</sub> ได้จากเงื่อนไขทองคำ: <b>ที่สมดุล E<sub>F</sub> ต้องเป็นเส้นตรงเดียวตลอด junction</b><br>
+→ ได้ <b>V<sub>bi</sub> = (k<sub>B</sub>T/q)·ln(N<sub>A</sub>N<sub>D</sub>/n<sub>i</sub>²)</b></div></div>
+
+<div class="step"><div class="no">5</div><div class="body"><b>แก้อิเล็กโทรสแตติกส์ด้วย Poisson</b><br>
+ใช้ <b>depletion approximation</b> (สมมติว่าในโซนนี้มีแต่ไอออน ไม่มีพาหะเลย) → ได้ ρ(x) เป็นกล่องสี่เหลี่ยม 2 อัน<br>
+อินทิเกรต 1 ครั้ง → <b>E(x)</b> รูปสามเหลี่ยม · อินทิเกรตอีกครั้ง → <b>V(x)</b> รูปพาราโบลา<br>
+→ ได้สูตร <b>x<sub>n</sub>, x<sub>p</sub>, W</b></div></div>
+</div>
+
+<hr>
+
+<h2>5.1 pn junction คืออะไร / สร้างยังไง</h2>
+<ul>
+<li>อุปกรณ์ <b>2 ขั้ว (two-terminal)</b> เกิดจากการนำสาร n-type มาสัมผัสกับ p-type</li>
+<li><b>วิธีสร้างจริง:</b> <b>แพร่ (diffuse)</b> สารเจือลงบนซับสเตรตที่โดปไว้แล้ว<br>
+  เช่น ซับสเตรตโดป donor สม่ำเสมอ (n-type) → แพร่ acceptor ลงจากผิว → ผิวหน้ากลายเป็น p-type แต่ข้างล่างยังเป็น n-type</li>
+</ul>
+
+<div class="box key">
+<span class="t">🔑 2 คำศัพท์ที่ต้องรู้</span>
+<b>① Metallurgical junction</b> = จุดที่ <b>net doping = 0</b> (คือจุดที่ N<sub>D</sub> − N<sub>A</sub> = 0)<br>
+&nbsp;&nbsp;&nbsp;สิ่งที่สำคัญในการวิเคราะห์ไม่ใช่ N<sub>A</sub> หรือ N<sub>D</sub> เดี่ยว ๆ แต่คือ <b>net doping (N<sub>D</sub>−N<sub>A</sub>)</b><br>
+<b>② Abrupt approximation</b> = สมมติว่าโปรไฟล์การโดปเปลี่ยน <b>ทันทีทันใด</b> ที่รอยต่อ (เป็นขั้นบันได)<br>
+&nbsp;&nbsp;&nbsp;ของจริงเปลี่ยนแบบค่อยเป็นค่อยไป แต่สมมติแบบนี้ทำให้คำนวณได้ และแม่นพอ
+</div>
+
+<h2>5.2 Built-in Voltage V<sub>bi</sub> ⭐⭐⭐</h2>
+
+<h3>เข้าใจเชิงคุณภาพก่อน — วาดแผนภาพแถบ</h3>
+<p><b>วิธีวาด (ทำตาม 3 ขั้นนี้ทุกครั้ง):</b></p>
+<ol>
+<li>วาดแถบของ p-type และ n-type <b>แยกกันก่อน</b> (E<sub>F</sub> อยู่ใกล้ E<sub>v</sub> ฝั่ง p, ใกล้ E<sub>c</sub> ฝั่ง n)</li>
+<li>เอามาต่อกัน โดยบังคับให้ <b>E<sub>F</sub> เป็นเส้นเดียวกันตลอด</b> (เพราะสมดุล)</li>
+<li>ลากแถบให้เชื่อมกันอย่างนุ่มนวลผ่าน depletion region → เกิด <b>band bending</b> ขึ้นเอง</li>
+</ol>
+
+<div class="dia">
+<svg viewBox="0 0 660 330" xmlns="http://www.w3.org/2000/svg">
+<defs><style>.lb{fill:#a3adbd;font:12px sans-serif}.lb2{fill:#e6e9ef;font:700 13px sans-serif}
+.ei{stroke:#a3adbd;stroke-width:1.3;stroke-dasharray:6 5;fill:none}</style>
+<marker id="a5" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#ffcc66"/></marker></defs>
+<rect x="255" y="35" width="130" height="200" fill="#ffcc66" fill-opacity=".07"/>
+<text class="lb2" x="105" y="26" fill="#ff8a7a">p-TYPE</text>
+<text class="lb2" x="480" y="26" fill="#7ee081">n-TYPE</text>
+<text class="lb" x="262" y="26" fill="#ffcc66">Depletion region</text>
+<!-- Ec -->
+<path d="M40,60 L255,60 C300,60 340,150 385,150 L620,150" fill="none" stroke="#5aa9ff" stroke-width="2.8"/>
+<text class="lb2" x="626" y="154" fill="#5aa9ff">E_c</text><text class="lb2" x="12" y="64" fill="#5aa9ff">E_c</text>
+<!-- Ei -->
+<path class="ei" d="M40,105 L255,105 C300,105 340,195 385,195 L620,195"/>
+<text class="lb" x="626" y="199">E_i</text><text class="lb" x="14" y="109">E_i</text>
+<!-- Ev -->
+<path d="M40,175 L255,175 C300,175 340,265 385,265 L620,265" fill="none" stroke="#7ee081" stroke-width="2.8"/>
+<text class="lb2" x="626" y="269" fill="#7ee081">E_v</text><text class="lb2" x="12" y="179" fill="#7ee081">E_v</text>
+<!-- EF flat -->
+<line x1="40" y1="160" x2="620" y2="160" stroke="#ffcc66" stroke-width="2.6"/>
+<text class="lb2" x="150" y="154" fill="#ffcc66">E_F  (แบนตลอด = สมดุล!)</text>
+<!-- qVbi -->
+<line x1="420" y1="60" x2="420" y2="150" stroke="#c08cff" stroke-width="2.2" marker-end="url(#a5)"/>
+<line x1="395" y1="60" x2="445" y2="60" stroke="#c08cff" stroke-width="1.2" stroke-dasharray="4 3"/>
+<text class="lb2" x="428" y="105" fill="#c08cff">q·V_bi</text>
+<text class="lb" x="60" y="200" fill="#ff8a7a">E_F ใกล้ E_v</text>
+<text class="lb" x="480" y="140" fill="#7ee081">E_F ใกล้ E_c</text>
+<line x1="40" y1="300" x2="620" y2="300" stroke="#6b7686" stroke-width="1.2"/>
+<text class="lb" x="300" y="318">x  →</text>
+</svg>
+<div class="cap"><b>แผนภาพแถบของ pn junction ที่สมดุล</b> · แถบฝั่ง p อยู่<b>สูงกว่า</b>ฝั่ง n เป็นระยะ <b>qV<sub>bi</sub></b><br>
+ไกลจาก depletion region → แถบกลับมาแบนเหมือนสารเดี่ยว ๆ</div>
+</div>
+
+<div class="box key">
+<span class="t">🔑 อ่านแผนภาพนี้ให้เป็น (ออกสอบชัวร์)</span>
+<ul style="margin-bottom:0">
+<li><b>E<sub>F</sub> แบนตลอด</b> ⇒ ระบบอยู่ใน <b>สมดุลความร้อน</b> (ถ้าไม่แบน = ไม่สมดุล มีกระแสไหล)</li>
+<li>ฝั่ง n มี<b>ศักย์ไฟฟ้าสูงกว่า</b> เพราะ depletion ฝั่งนั้นมี<b>ประจุบวกสุทธิ</b></li>
+<li>ศักย์สูง ⇒ <b>PE ของโฮลสูง</b> ⇒ โฮลฝั่ง n อยู่ "ยอดเนิน" (บท 2) และ<b>สลับกันสำหรับอิเล็กตรอน</b></li>
+<li>ทั้ง e⁻ และ hole ต่างเห็น <b>กำแพงพลังงาน (energy barrier)</b> ที่กันไม่ให้แพร่ข้ามไปได้อีก</li>
+<li><b>E<sub>g</sub> คงที่ตลอด</b> — E<sub>c</sub> กับ E<sub>v</sub> โค้งขนานกันเสมอ (ห้ามวาดให้ gap เปลี่ยน!)</li>
+</ul>
+</div>
+
+<h3>คำนวณ V<sub>bi</sub> — ที่มา</h3>
+<div class="fx"><span class="fxname">นิยาม (สมการ 5.1, 5.2) — วัดจากฝั่ง p ไปฝั่ง n</span>
+q·V_bi = [E_i − E_F]_ฝั่ง p  +  [E_F − E_i]_ฝั่ง n
+
+<span class="fxname">ใช้สูตรจากบท 2 (สมการ 2.23/2.24) โดยที่ไกลจาก depletion: p ≈ N_A, n ≈ N_D</span>
+[E_i − E_F]_ฝั่ง p = k_B T · ln( N_A / n_i )      ...(5.3)
+[E_F − E_i]_ฝั่ง n = k_B T · ln( N_D / n_i )      ...(5.4)
+
+<span class="fxname">บวกกัน (ln a + ln b = ln ab)</span>
+⭐⭐ <b>V_bi = (k_B T / q) · ln( N_A · N_D / n_i² )</b>      ...(5.5)
+</div>
+
+<div class="box key">
+<span class="t">🔑 3 ข้อสังเกตที่อาจารย์เน้น (คำถาม concept)</span>
+<ul style="margin-bottom:0">
+<li><b>V<sub>bi</sub> ขึ้นกับทั้งอุณหภูมิ และ ความเข้มข้นการโดป</b></li>
+<li><b>T ลด ⇒ V<sub>bi</sub> ลด</b> — เพราะพลังงานความร้อนที่ขับ diffusion น้อยลง จึงต้องใช้สนามน้อยลงในการหยุดมัน</li>
+<li><b>โดป → 0 ⇒ V<sub>bi</sub> → 0</b> — เพราะกลายเป็นชิ้นสาร intrinsic ชิ้นเดียว ไม่มีรอยต่อ</li>
+</ul>
+</div>
+
+<div class="box warn">
+<span class="t">⚠️ ขีดจำกัดที่ออกสอบบ่อยมาก</span>
+<b>V<sub>bi</sub> ต้องน้อยกว่า E<sub>g</sub>/q เสมอ</b> (สำหรับ junction ที่โดปแบบ non-degenerate)<br>
+เพราะแถบเลื่อนได้มากสุดคือจนกว่า E<sub>F</sub> ฝั่งหนึ่งจะแตะ E<sub>c</sub> และอีกฝั่งแตะ E<sub>v</sub><br>
+<table style="margin:.5em 0 0"><thead><tr><th>วัสดุ</th><th>E<sub>g</sub></th><th>ขีดจำกัด V<sub>bi</sub></th></tr></thead>
+<tbody><tr><td>Si</td><td class="num">1.12 eV</td><td class="num">V<sub>bi</sub> &lt; 1.12 V</td></tr>
+<tr><td>Ge</td><td class="num">0.66 eV</td><td class="num">V<sub>bi</sub> &lt; 0.66 V</td></tr>
+<tr><td>GaAs</td><td class="num">1.42 eV</td><td class="num">V<sub>bi</sub> &lt; 1.42 V</td></tr></tbody></table>
+<span class="small">→ ถ้าคำนวณได้เกินนี้ = ทำผิดแน่นอน ให้เช็กใหม่!</span>
+</div>
+
+<div class="card">
+<h4 style="margin-top:0">📝 ตัวอย่างจากสไลด์</h4>
+<p class="small">Si @300K · N<sub>A</sub> = N<sub>D</sub> = 10¹⁵ cm⁻³ · n<sub>i</sub>=10¹⁰ · หา V<sub>bi</sub></p>
+<div class="fx">V_bi = 0.026 × ln( (10¹⁵ × 10¹⁵) / (10¹⁰)² )
+     = 0.026 × ln( 10³⁰ / 10²⁰ )
+     = 0.026 × ln(10¹⁰)
+     = 0.026 × 23.03
+     = <b>0.60 V</b>     ✓ น้อยกว่า 1.12 V — สมเหตุสมผล
+</div>
+<p class="small" style="margin-bottom:0">💡 <b>เทคนิคกดเครื่องคิดเลข:</b> ln(10^N) = N × 2.3026 → คิดในใจได้เร็วมาก</p>
+</div>
+
+<h2>5.3 Depletion Approximation</h2>
+
+<div class="box key">
+<span class="t">🔑 สมมติฐาน</span>
+ในความจริง depletion region มีทั้ง<b>ไอออน</b>และ<b>พาหะอิสระบางส่วน</b><br>
+แต่เราสมมติว่า <b>ความเข้มข้นของ e⁻ และ hole ในนั้นน้อยจนละเลยได้</b> เมื่อเทียบกับความหนาแน่นการโดป<br>
+⇒ <span class="hl">ใน depletion region มีแต่ <b>ไอออนของสารเจือที่เคลื่อนที่ไม่ได้</b> เท่านั้น</span>
+</div>
+
+<p><b>เหตุผลที่สมมติแบบนี้ได้:</b> จากแผนภาพแถบ — พาหะที่อุณหภูมิห้องส่วนใหญ่<b>อยู่ใกล้ขอบแถบ</b> (บท 2) และทั้ง e⁻ กับ hole ต่างเจอ <b>กำแพงพลังงาน</b> ที่กันไม่ให้เข้าไปในโซนนั้น</p>
+
+<div class="fx"><span class="fxname">ความหนาแน่นประจุ ρ(x) (สมการ 5.6) — ให้ p อยู่ซ้าย (x&lt;0), n อยู่ขวา (x&gt;0)</span>
+ρ(x) = <b>−q N_A</b>    เมื่อ  −x_p &lt; x &lt; 0     (ฝั่ง p: acceptor ไอออนลบ)
+ρ(x) = <b>+q N_D</b>    เมื่อ   0 &lt; x &lt; x_n     (ฝั่ง n: donor ไอออนบวก)
+ρ(x) = <b>0</b>         นอกช่วงนั้น           (เป็นกลางทางไฟฟ้า)
+</div>
+
+<h2>5.4 แก้สมการ Poisson → E(x), V(x) ⭐⭐⭐</h2>
+
+<div class="fx"><span class="fxname">สมการ Poisson ใน 1 มิติ (สมการ 5.7) · ε_r = ค่าคงที่ไดอิเล็กทริกสัมพัทธ์, ε₀ = สภาพยอมของสุญญากาศ</span>
+dE(x)/dx = ρ(x) / (ε_r ε₀)
+</div>
+
+<h3>ก้าวที่ 1: อินทิเกรตครั้งที่ 1 → E(x)</h3>
+<p>เงื่อนไขขอบ: <b>สนามไฟฟ้าต้องเป็นศูนย์นอก depletion region</b> (เพราะข้างนอกเป็นกลาง)</p>
+
+<div class="fx"><span class="fxname">สมการ 5.9</span>
+E(x) = <b>−(q N_A / ε_r ε₀)·(x + x_p)</b>    เมื่อ −x_p &lt; x &lt; 0
+E(x) = <b>−(q N_D / ε_r ε₀)·(x_n − x)</b>    เมื่อ  0 &lt; x &lt; x_n
+E(x) = 0                                  นอกช่วงนั้น
+</div>
+
+<div class="box key">
+<span class="t">🔑 อ่านผลลัพธ์นี้ให้เป็น</span>
+<ul>
+<li>E(x) เป็น <b>รูปสามเหลี่ยม</b> (เชิงเส้นสองท่อน)</li>
+<li><b>E เป็นลบตลอดใน junction</b> ⇒ สนามชี้ไปทาง <b>−x</b> คือ <b>จากฝั่ง n ไปฝั่ง p</b> ✓ (สอดคล้องกับที่ว่าเส้นแรงเริ่มจากประจุบวก)</li>
+<li><b>สนามแรงที่สุดที่ x = 0 (รอยต่อ)</b></li>
+</ul>
+</div>
+
+<div class="fx"><span class="fxname">⭐ สนามสูงสุด (สมการ 5.10) — <b>เขียนได้ 2 แบบ ต้องได้ค่าเท่ากัน</b></span>
+E_max = E(0) = <b>−(q N_A / ε_r ε₀)·x_p</b>  =  <b>−(q N_D / ε_r ε₀)·x_n</b>
+
+<span class="fxname">⭐ จากบรรทัดบน ตัดค่าคงที่ออกได้ทันที → สมการสมดุลประจุของ junction (สมการ 5.11)</span>
+<b>N_A · x_p = N_D · x_n</b>
+</div>
+
+<div class="box">
+<span class="t">💡 ความหมายทางฟิสิกส์ของ N<sub>A</sub>x<sub>p</sub> = N<sub>D</sub>x<sub>n</sub></span>
+<b>ประจุลบที่เก็บไว้ฝั่ง p = ประจุบวกที่เก็บไว้ฝั่ง n</b> (จำนวนเท่ากันเป๊ะ)<br>
+เป็นผลโดยตรงจาก <b>กฎของเกาส์ (Gauss's Law)</b><br><br>
+<span class="hl">ผลที่ตามมาที่ต้องพูดได้: ฝั่งที่<b>โดปหนักกว่า</b> จะมี depletion region <b>บางกว่า</b></span><br>
+เช่น N<sub>A</sub> = 400×N<sub>D</sub> ⇒ x<sub>p</sub> = x<sub>n</sub>/400
+</div>
+
+<h3>ก้าวที่ 2: อินทิเกรตครั้งที่ 2 → V(x) และ V<sub>bi</sub></h3>
+<div class="fx"><span class="fxname">สมการ 5.12, 5.13 — เริ่มจากฝั่ง p เพราะศักย์ต่ำสุดอยู่ที่นั่น</span>
+V(x) = − ∫[−x_p → x] E(x) dx        → ได้รูป <b>พาราโบลา</b>
+
+V_bi = − ∫[−x_p → x_n] E(x) dx
+     = <b>(q / 2ε_r ε₀) · ( N_A x_p² + N_D x_n² )</b>
+</div>
+<p class="small">💡 ทางลัด: V<sub>bi</sub> = <b>พื้นที่ใต้กราฟ E(x)</b> (พื้นที่สามเหลี่ยม = ½ × ฐาน × สูง = ½·W·|E<sub>max</sub>|)</p>
+
+<h3>ก้าวที่ 3: หาความกว้าง depletion region</h3>
+<p>รวมสมการ 5.11 (สมดุลประจุ) กับ 5.13 (V<sub>bi</sub>) แล้วแก้หา x<sub>n</sub>, x<sub>p</sub></p>
+
+<div class="fx"><span class="fxname">⭐⭐⭐ สูตรที่ต้องใช้ในข้อสอบแน่นอน (สมการ 5.14–5.16)</span>
+x_n = [ (2 ε_r ε₀ / q) · <b>N_A</b> / (N_D (N_A + N_D)) · V_bi ]^0.5     ← ฝั่ง n
+
+x_p = [ (2 ε_r ε₀ / q) · <b>N_D</b> / (N_A (N_A + N_D)) · V_bi ]^0.5     ← ฝั่ง p
+
+W = x_n + x_p
+  = [ (2 ε_r ε₀ / q) · (N_A + N_D)/(N_A N_D) · V_bi ]^0.5
+</div>
+
+<div class="box warn">
+<span class="t">⚠️ จุดที่คนพลาดบ่อยที่สุดในสูตรนี้</span>
+<b>x<sub>n</sub> (ฝั่ง n) มี N<sub>A</sub> อยู่บนเศษ</b> · <b>x<sub>p</sub> (ฝั่ง p) มี N<sub>D</sub> อยู่บนเศษ</b><br>
+<span class="hl">มัน "สลับกัน" — จำว่า "ฝั่งไหน ใช้โดปของอีกฝั่ง"</span><br>
+เช็กด้วยสามัญสำนึก: N<sub>A</sub> ใหญ่มาก ⇒ x<sub>n</sub> ต้องใหญ่ และ x<sub>p</sub> ต้องเล็ก ✓
+</div>
+
+<h2>5.5 กราฟ 3 ชั้น ที่ต้องวาดได้ ⭐⭐⭐ (= HW2 ข้อ 5)</h2>
+
+<div class="dia">
+<svg viewBox="0 0 660 620" xmlns="http://www.w3.org/2000/svg">
+<defs><style>.ax{stroke:#6b7686;stroke-width:1.3}.lb{fill:#a3adbd;font:12px sans-serif}
+.lb2{fill:#e6e9ef;font:700 13px sans-serif}.gd{stroke:#ffcc66;stroke-width:1.1;stroke-dasharray:5 4}</style></defs>
+
+<!-- structure -->
+<rect x="60" y="20" width="200" height="55" fill="#ff8a7a" fill-opacity=".13" stroke="#ff8a7a"/>
+<rect x="260" y="20" width="80" height="55" fill="#ff8a7a" fill-opacity=".3" stroke="#ff8a7a"/>
+<rect x="340" y="20" width="80" height="55" fill="#7ee081" fill-opacity=".3" stroke="#7ee081"/>
+<rect x="420" y="20" width="200" height="55" fill="#7ee081" fill-opacity=".13" stroke="#7ee081"/>
+<text class="lb2" x="140" y="52" fill="#ff8a7a">p-type</text>
+<text class="lb2" x="500" y="52" fill="#7ee081">n-type</text>
+<text class="lb" x="284" y="52" fill="#ff8a7a">− − −</text>
+<text class="lb" x="364" y="52" fill="#7ee081">+ + +</text>
+<text class="lb" x="258" y="93" fill="#ffcc66">−x_p</text>
+<text class="lb" x="332" y="93" fill="#ffcc66">0</text>
+<text class="lb" x="410" y="93" fill="#ffcc66">x_n</text>
+<line class="gd" x1="260" y1="20" x2="260" y2="590"/>
+<line class="gd" x1="340" y1="20" x2="340" y2="590"/>
+<line class="gd" x1="420" y1="20" x2="420" y2="590"/>
+
+<!-- charge density -->
+<line class="ax" x1="60" y1="175" x2="620" y2="175"/>
+<line class="ax" x1="340" y1="235" x2="340" y2="110"/>
+<text class="lb2" x="66" y="128">ρ(x)  ความหนาแน่นประจุ</text>
+<path d="M260,175 L260,220 L340,220 L340,130 L420,130 L420,175" fill="none" stroke="#5aa9ff" stroke-width="2.6"/>
+<rect x="260" y="175" width="80" height="45" fill="#ff8a7a" fill-opacity=".2"/>
+<rect x="340" y="130" width="80" height="45" fill="#7ee081" fill-opacity=".2"/>
+<text class="lb" x="426" y="134" fill="#7ee081">+q·N_D</text>
+<text class="lb" x="196" y="224" fill="#ff8a7a">−q·N_A</text>
+<text class="lb" x="440" y="196">พื้นที่สองกล่อง <tspan fill="#ffcc66">เท่ากันเสมอ</tspan> (N_A x_p = N_D x_n)</text>
+
+<!-- E field -->
+<line class="ax" x1="60" y1="290" x2="620" y2="290"/>
+<line class="ax" x1="340" y1="400" x2="340" y2="270"/>
+<text class="lb2" x="66" y="284">E(x)  สนามไฟฟ้า</text>
+<path d="M260,290 L340,380 L420,290" fill="none" stroke="#c08cff" stroke-width="2.8"/>
+<path d="M260,290 L340,380 L420,290 Z" fill="#c08cff" fill-opacity=".13"/>
+<text class="lb" x="348" y="392" fill="#c08cff">E_max = E(0) &lt; 0</text>
+<text class="lb" x="440" y="330">รูป <tspan fill="#c08cff">สามเหลี่ยม</tspan> · เป็นลบตลอด</text>
+<text class="lb" x="440" y="350">(ชี้จาก n → p)</text>
+<text class="lb" x="70" y="345">พื้นที่ใต้กราฟ = V_bi</text>
+
+<!-- Voltage -->
+<line class="ax" x1="60" y1="580" x2="620" y2="580"/>
+<line class="ax" x1="340" y1="580" x2="340" y2="430"/>
+<text class="lb2" x="66" y="440">V(x)  ศักย์ไฟฟ้า</text>
+<path d="M60,580 L260,580 Q300,578 340,530 Q380,482 420,478 L620,478" fill="none" stroke="#ffcc66" stroke-width="2.8"/>
+<line x1="470" y1="478" x2="470" y2="580" stroke="#7ee081" stroke-width="1.8"/>
+<text class="lb" x="478" y="530" fill="#7ee081">V_bi</text>
+<text class="lb" x="120" y="600" fill="#ff8a7a">ฝั่ง p ศักย์ต่ำ (อ้างอิง 0)</text>
+<text class="lb" x="500" y="600" fill="#7ee081">ฝั่ง n ศักย์สูง</text>
+<text class="lb" x="440" y="452">รูป <tspan fill="#ffcc66">พาราโบลา 2 ท่อน</tspan> ต่อกัน</text>
+<text class="lb" x="600" y="600">x →</text>
+</svg>
+<div class="cap">แผนภาพนี้คือ<b>คำตอบของ HW2 ข้อ 5</b> — จำลำดับ ρ → (อินทิเกรต) → E → (อินทิเกรต) → V</div>
+</div>
+
+<div class="box key">
+<span class="t">🔑 เช็กลิสต์เวลาวาดกราฟในข้อสอบ (ห้ามลืม!)</span>
+<ol style="margin-bottom:0">
+<li>ทำเครื่องหมาย <b>−x<sub>p</sub>, 0, x<sub>n</sub></b> ตรงกันทั้ง 3 กราฟ (ลากเส้นประเชื่อม)</li>
+<li>ρ: กล่องสี่เหลี่ยม 2 อัน สูง −qN<sub>A</sub> และ +qN<sub>D</sub> · <b>พื้นที่ต้องเท่ากัน</b></li>
+<li>E: สามเหลี่ยม <b>อยู่ใต้แกน</b> (ค่าลบ) ยอดแหลมที่ x=0 · ระบุ E<sub>max</sub></li>
+<li>V: เพิ่มขึ้นจากฝั่ง p ไปฝั่ง n · <b>เป็นเส้นโค้ง ไม่ใช่เส้นตรง</b> · ระบุ V<sub>bi</sub></li>
+<li><span class="hl">ถ้าโจทย์สลับให้ n อยู่ซ้าย p อยู่ขวา → ทุกกราฟกลับด้าน!</span> (HW2 ข้อ 5 เป็นแบบนี้ — ต้องอ่านรูปให้ดี)</li>
+</ol>
+</div>
+
+<h2>5.6 ตัวอย่างคำนวณเต็มรูปแบบ</h2>
+<div class="card">
+<h4 style="margin-top:0">📝 ตัวอย่างจากสไลด์ · abrupt Si junction · N<sub>A</sub>=4×10¹⁸, N<sub>D</sub>=10¹⁶ cm⁻³ · T=300K</h4>
+<div class="fx">ก้าว 1 — V_bi
+V_bi = 0.026 × ln( (4×10¹⁸ × 10¹⁶) / (10¹⁰)² )
+     = 0.026 × ln(4×10¹⁴)
+     = 0.026 × 33.62
+     = <b>0.87 V</b>          ✓ &lt; 1.12 V
+
+ก้าว 2 — x_n  (ใช้ ε_r = 11.8, ε₀ = 8.854×10⁻¹⁴ F/cm)
+x_n = [ (2×11.8×8.854×10⁻¹⁴ / 1.6×10⁻¹⁹) × (4×10¹⁸)/(10¹⁶ × 4.01×10¹⁸) × 0.87 ]^0.5
+    = <b>3.3×10⁻⁵ cm  = 0.33 µm</b>
+
+ก้าว 3 — x_p
+x_p = [ ... × (10¹⁶)/(4×10¹⁸ × 4.01×10¹⁸) × 0.87 ]^0.5
+    = <b>8.4×10⁻⁸ cm = 0.84 nm</b>
+
+ก้าว 4 — E_max
+E_max = −(q N_D / ε_r ε₀) · x_n = <b>−51 kV/cm</b>
+</div>
+<div class="box ok" style="margin-bottom:0">
+<span class="t">✅ ตรวจสอบความสมเหตุสมผล (ควรเขียนในข้อสอบด้วย)</span>
+<b>①</b> N<sub>A</sub>/N<sub>D</sub> = 400 ⇒ x<sub>n</sub>/x<sub>p</sub> ควรเป็น 400 → 3.3×10⁻⁵/8.4×10⁻⁸ ≈ 393 ✓<br>
+<b>②</b> ฝั่งที่โดปหนัก (p) มี depletion <b>บางมาก</b> ✓<br>
+<b>③</b> ประโยคสรุปที่อาจารย์เน้น: <b>"โดปหนัก ⇒ depletion แคบ · โดปเบา ⇒ depletion กว้าง"</b>
+</div>
+</div>
+
+<h2>📋 เช็กลิสต์บท 5 (สำคัญที่สุด)</h2>
+<div class="card">
+<ol>
+<li>เล่าสตอรี่ 5 ก้าว จาก "แตะกัน" ถึง "สมดุล" ได้ต่อเนื่อง</li>
+<li>Metallurgical junction คืออะไร · abrupt approximation คืออะไร</li>
+<li>อธิบายว่า depletion region เกิดขึ้นมาได้ยังไง และในนั้นมีอะไรบ้าง</li>
+<li>ทำไมสนามไฟฟ้าในตัวถึง "หยุด" การแพร่ได้ (เชื่อมกับบท 3)</li>
+<li>วาด band diagram ของ pn junction ที่สมดุลได้ พร้อม E<sub>F</sub> แบน, qV<sub>bi</sub>, depletion region</li>
+<li>เขียน V<sub>bi</sub> = (k<sub>B</sub>T/q)ln(N<sub>A</sub>N<sub>D</sub>/n<sub>i</sub>²) และอธิบายว่าทำไม V<sub>bi</sub> &lt; E<sub>g</sub>/q</li>
+<li>Depletion approximation สมมติอะไร ทำไมสมมติได้</li>
+<li>เขียน ρ(x) ได้ทั้ง 3 ช่วง</li>
+<li>เขียน Poisson equation และอธิบายว่าอินทิเกรตทีละครั้งได้อะไร</li>
+<li>ทำไม E<sub>max</sub> อยู่ที่ x=0 และทำไมสนามชี้จาก n ไป p</li>
+<li>อธิบาย N<sub>A</sub>x<sub>p</sub> = N<sub>D</sub>x<sub>n</sub> ด้วยกฎของเกาส์ + สรุปว่าโดปหนักกว่า = depletion บางกว่า</li>
+<li>คำนวณ x<sub>n</sub>, x<sub>p</sub>, W, E<sub>max</sub> ได้ครบ</li>
+<li><b>วาดกราฟ ρ(x), E(x), V(x) 3 ชั้นให้ตรงกันได้</b> ← เก็งว่าออกแน่</li>
+</ol>
+</div>
+
+<div class="nextprev">
+  <a href="ch4.html">← บทที่ 4</a>
+  <a href="drill.html">ไปตะลุยโจทย์ →</a>
+</div>
+</main>
+</body>
+</html>

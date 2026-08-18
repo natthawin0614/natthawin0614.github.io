@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ติวสอบ Semiconductor Midterm 1/2569</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav"><div class="wrap">
+  <span class="brand">05366035 <span>Semiconductor</span></span>
+  <a href="index.html" class="active">แผนอ่าน</a>
+  <a href="ch1.html">1. พื้นฐาน</a>
+  <a href="ch2.html">2. สถิติพาหะ</a>
+  <a href="ch3.html">3. Drift/Diffusion</a>
+  <a href="ch4.html">4. R–G</a>
+  <a href="ch5.html">5. pn Junction</a>
+  <a href="formulas.html">📐 สูตร</a>
+  <a href="drill.html">✍️ ตะลุยโจทย์</a>
+</div></header>
+
+<main>
+
+<h1>อ่านวันเดียวให้ได้ Top 🎯</h1>
+<p class="lead">สอบพรุ่งนี้ · ปรนัย 40 ข้อ + อัตนัย 3 ข้อใหญ่ · ครอบคลุม Lecture 01–05 · มีสูตรให้ · ใช้เครื่องคิดเลขได้</p>
+
+<div class="box warn">
+  <span class="t">⚠️ อ่านก่อนเริ่ม — เรื่องสรุปรุ่นพี่</span>
+  <p style="margin-top:.3em">ไฟล์ <code>Semi-Mid.pdf</code> เป็นสรุปของ <b>Midterm 1/2567</b> ซึ่ง<b>ขอบเขตไม่ตรงกับปีคุณ</b>:</p>
+  <table>
+    <thead><tr><th>หัวข้อ</th><th>สรุปรุ่นพี่</th><th>สไลด์ปีคุณ (Class 01–05)</th><th>ควรทำยังไง</th></tr></thead>
+    <tbody>
+      <tr><td>บทที่ 1 อะตอม/ควอนตัม/พันธะ (Schrödinger, orbital, spin, Pauli)</td><td>✅ มี</td><td>❌ ไม่มี</td><td class="p">ข้าม — ไม่ออก</td></tr>
+      <tr><td>บทที่ 2 การนำไฟฟ้าในโลหะ (Fermi sphere, k<sub>F</sub>, v<sub>F</sub>, T<sub>F</sub>)</td><td>✅ มี</td><td>❌ ไม่มี</td><td class="p">ข้าม — ไม่ออก*</td></tr>
+      <tr><td>บทที่ 3 พื้นฐานสารกึ่งตัวนำ = <b>Class 01</b></td><td>✅ ตรง</td><td>✅</td><td class="n">ใช้ได้เลย</td></tr>
+      <tr><td>บทที่ 4 พาหะเชิงสถิติ = <b>Class 02</b></td><td>✅ ตรง</td><td>✅</td><td class="n">ใช้ได้เลย</td></tr>
+      <tr><td>บทที่ 5 Drift & Diffusion = <b>Class 03</b></td><td>✅ ตรง</td><td>✅</td><td class="n">ใช้ได้เลย</td></tr>
+      <tr><td><b>Recombination–Generation = Class 04</b></td><td>🔴 <b>ไม่มีเลย</b></td><td>✅ ออกแน่</td><td>ต้องอ่านจากเว็บนี้</td></tr>
+      <tr><td><b>pn Junction = Class 05</b></td><td>🔴 <b>ไม่มีเลย</b></td><td>✅ ออกแน่ + หนักสุด</td><td>ต้องอ่านจากเว็บนี้</td></tr>
+    </tbody>
+  </table>
+  <p class="small">* ยกเว้นแนวคิด Fermi function f(E) กับ density of states g(E) ที่ปีคุณเรียนซ้ำในบท 2 อยู่แล้ว — ตรงนั้นสรุปรุ่นพี่ช่วยได้</p>
+</div>
+
+<div class="box ok">
+  <span class="t">💎 ของดีที่คุณมีอยู่แล้วแต่อาจมองข้าม</span>
+  <p style="margin-top:.3em"><b>HW SET I Solution 2569</b> และ <b>HW II Solution 2569</b> คือการบ้าน<b>ของปีคุณเอง</b> เฉลยลายมืออาจารย์ — แนวโจทย์ตรงกับ <b>อัตนัย 3 ข้อใหญ่</b> แบบเป๊ะ ๆ<br>
+  ผมถอดโจทย์+เฉลยทั้ง 11 ข้อมาไว้ในหน้า <a href="drill.html">ตะลุยโจทย์</a> แล้ว <span class="hl">ถ้าเหลือเวลาน้อยสุด ๆ ให้ทำแค่นี้ก็ยังรอด</span></p>
+</div>
+
+<h2 id="story">🧭 ภาพรวมแบบเรื่องเล่า — เราเรียนอะไรกันมา</h2>
+
+<p class="lead">ทั้งเทอมนี้คือ <b>การไล่สร้างอุปกรณ์อิเล็กทรอนิกส์ขึ้นมาจากศูนย์</b> ทีละชั้น ทุกบทมีอยู่เพราะบทก่อนหน้า "ตอบไม่ได้"</p>
+
+<div class="chain">
+  <div class="link">
+    <h3 style="margin-top:0">🎬 ตั้งต้น: เราอยากทำ transistor / diode</h3>
+    <p style="margin-bottom:0">อาจารย์บอกตั้งแต่สไลด์แรกว่าเป้าหมายวิชานี้คือเข้าใจ <b>pn junction → BJT → MOSFET → metal-semiconductor junction</b><br>
+    แต่ก่อนจะทำอุปกรณ์ได้ ต้องเข้าใจ <b>วัสดุ</b> ก่อน → เกิดเป็นบทที่ 1</p>
+  </div>
+
+  <div class="gap">"ทำไมสารกึ่งตัวนำถึงนำไฟฟ้าได้ และทำไมเราถึงคุมมันได้?"</div>
+
+  <div class="link">
+    <h3 style="margin-top:0"><span class="tag c1">Lec 01</span> พื้นฐานสารกึ่งตัวนำ — <em>รู้จักตัวละคร</em></h3>
+    <p>อะตอมมารวมกัน → ระดับพลังงานแตกเป็น <b>band</b> → มี <b>ช่องว่างต้องห้าม E<sub>g</sub></b> คั่นระหว่าง valence band กับ conduction band<br>
+    ที่ T=0 valence band เต็ม → ไม่นำไฟฟ้า · พอ T&gt;0 อิเล็กตรอนกระโดดข้าม gap → เกิด <span class="n">electron</span> ใน CB และ <span class="p">hole</span> ใน VB → <b>นำไฟฟ้าได้</b><br>
+    แล้วเราคุมมันด้วย <b>doping</b> (หมู่ 5 = donor ให้ e⁻, หมู่ 3 = acceptor ให้ hole) เพราะพลังงานยึดเหนี่ยวของ dopant มีแค่ ~45 meV ≪ E<sub>g</sub>=1.12 eV → อุณหภูมิห้อง ionize หมด</p>
+    <p style="margin-bottom:0"><b>ได้อะไรมา:</b> รู้ว่า "ใคร" พาประจุ (e⁻, hole) และมวลของมันคือ <b>effective mass m*</b> ไม่ใช่ m₀</p>
+  </div>
+
+  <div class="gap">แต่รู้ว่ามี e⁻ กับ hole ยัง <b>คำนวณกระแสไม่ได้</b> — เพราะไม่รู้ว่า "มีกี่ตัว"</div>
+
+  <div class="link">
+    <h3 style="margin-top:0"><span class="tag c2">Lec 02</span> พาหะเชิงสถิติ — <em>นับหัวว่ามีกี่ตัว</em></h3>
+    <p>จำนวนพาหะ = (มีที่ว่างให้นั่งกี่ที่) × (โอกาสที่ที่นั่งนั้นจะมีคนนั่ง) = <b>g(E) × f(E)</b> แล้วอินทิเกรตทั้ง band<br>
+    ใช้สมมติฐาน <b>non-degenerate</b> (E−E<sub>F</sub> &gt; 3.5k<sub>B</sub>T) ทำให้อินทิกรัลยาก ๆ กลายเป็น <b>n = N<sub>c</sub>e<sup>−(Ec−EF)/kT</sup></b> สวย ๆ<br>
+    ผลลัพธ์ทองคำ: <b>np = n<sub>i</sub>²</b> (คงที่เสมอไม่ว่าโดปยังไง) + <b>สมการสมดุลประจุ</b> → แก้หา n, p ได้ทุกกรณี<br>
+    และตำแหน่ง <b>E<sub>F</sub></b> คือ "มาตรวัด" บอกว่าเป็น n-type หรือ p-type</p>
+    <p style="margin-bottom:0"><b>ได้อะไรมา:</b> n, p เป็นตัวเลข + เข้าใจ <b>band bending</b> (สนามไฟฟ้า = ความชันของ band)</p>
+  </div>
+
+  <div class="gap">รู้ว่ามีกี่ตัวแล้ว แต่ <b>ยังไม่รู้ว่ามันวิ่งยังไง</b> — ยังไม่ได้กระแสสักที</div>
+
+  <div class="link">
+    <h3 style="margin-top:0"><span class="tag c3">Lec 03</span> Drift & Diffusion — <em>ทำให้มันวิ่ง = ได้กระแส</em></h3>
+    <p>พาหะวิ่งได้ 2 แบบเท่านั้น:<br>
+    ① <b>Drift</b> — ถูกสนามไฟฟ้าผลัก · v<sub>d</sub>=μE · μ=qτ/m* · ได้ J=σE และ ρ=1/[q(nμ<sub>n</sub>+pμ<sub>p</sub>)]<br>
+    ② <b>Diffusion</b> — ไหลจากที่เข้มข้นมากไปน้อยเองตามธรรมชาติ (Fick) · J∝∇n<br>
+    ทั้งสองมาจาก "การชน" อันเดียวกัน จึงผูกกันด้วย <b>Einstein relation: D/μ = k<sub>B</sub>T/q = 0.026 V</b></p>
+    <p style="margin-bottom:0"><b>ได้อะไรมา:</b> คำนวณกระแสได้จริง + รู้ว่า <b>ที่สมดุล drift ต้องหักล้าง diffusion พอดี</b> ← กุญแจของบท 5</p>
+  </div>
+
+  <div class="gap">แต่เราสมมติมาตลอดว่าจำนวนพาหะ "คงที่" — จริง ๆ มันเกิดและตายได้</div>
+
+  <div class="link">
+    <h3 style="margin-top:0"><span class="tag c4">Lec 04</span> Recombination–Generation — <em>พาหะเกิดและตาย</em></h3>
+    <p>4 กลไก: <b>band-to-band</b> (คายโฟตอน), <b>R–G center</b> (กับดักกลาง gap คายความร้อน = non-radiative), <b>Auger</b> (โดปหนัก ๆ, e⁻ ชนกัน), <b>impact ionization</b> (สนามสูง → avalanche breakdown ของ diode)<br>
+    แล้วเพิ่มกฎอนุรักษ์ <b>โมเมนตัม</b> เข้ามา → เกิดคำว่า <b>direct (GaAs)</b> vs <b>indirect (Si, Ge)</b><br>
+    ← <span class="hl">นี่คือเหตุผลว่าทำไม LED ไม่ทำจากซิลิกอน</span></p>
+    <p style="margin-bottom:0"><b>ได้อะไรมา:</b> เข้าใจว่าทำไม diode พังตอน reverse bias สูง ๆ และทำไมวัสดุต่างกันใช้งานต่างกัน</p>
+  </div>
+
+  <div class="gap">เครื่องมือครบแล้ว → เอามาประกอบเป็น <b>อุปกรณ์จริงชิ้นแรก</b></div>
+
+  <div class="link">
+    <h3 style="margin-top:0"><span class="tag c5">Lec 05</span> pn Junction — <em>บทไคลแมกซ์ ใช้ทุกอย่างที่เรียนมา</em></h3>
+    <p><b>สตอรี่ 5 ก้าว ที่ต้องเล่าให้ได้:</b></p>
+    <ol>
+      <li>เอา p กับ n มาแตะกัน → มี <b>ความชันความเข้มข้นมหาศาล</b> → เกิด <b>diffusion</b> (บท 3)</li>
+      <li>พาหะที่แพร่ข้ามไปทิ้ง <b>ไอออนนิ่ง ๆ</b> ไว้ → เกิด <b>depletion region</b> ที่มีแต่ประจุคงที่</li>
+      <li>ประจุนั้นสร้าง <b>สนามไฟฟ้าในตัว</b> → ทำให้เกิด <b>drift</b> สวนทาง จนหักล้าง diffusion พอดี = <b>สมดุล</b> (บท 3)</li>
+      <li>สนามนั้นมาพร้อม <b>V<sub>bi</sub></b> ซึ่งหาได้จากเงื่อนไข <b>E<sub>F</sub> ต้องแบนตลอด</b> (บท 2) → <b>V<sub>bi</sub>=(kT/q)ln(N<sub>A</sub>N<sub>D</sub>/n<sub>i</sub>²)</b></li>
+      <li>ใช้ <b>depletion approximation</b> + <b>Poisson</b> → ได้ ρ(x) → E(x) → V(x) → x<sub>n</sub>, x<sub>p</sub>, W</li>
+    </ol>
+    <p style="margin-bottom:0"><b>ปลายทาง:</b> ต่อไปคือ BJT / MOSFET (ปลายภาค) ซึ่งก็คือ junction หลาย ๆ อันมาต่อกัน</p>
+  </div>
+</div>
+
+<div class="box key">
+  <span class="t">🔑 ถ้าจะจำภาพรวมด้วยประโยคเดียว</span>
+  <p style="margin:.3em 0 0">“<b>วัสดุมีพาหะ (1) → นับได้ว่ากี่ตัว (2) → ทำให้วิ่งได้กระแส (3) → มันเกิด/ตายได้ (4) → เอามาต่อกันเป็น pn junction ที่ diffusion กับ drift หักล้างกันพอดี (5)</b>”</p>
+</div>
+
+<h2 id="plan">⏱️ แผนอ่านวันนี้ (ปรับตามเวลาที่เหลือ)</h2>
+
+<h3>แผน A — เหลือ ~10 ชั่วโมง (แนะนำ)</h3>
+<div class="card">
+<div class="step"><div class="no">1</div><div class="body"><b>0:00–0:20 · อ่านหน้านี้ให้จบ</b><br>เห็นภาพรวมก่อน สำคัญมาก เพราะปรนัยเน้น concept มากกว่าคำนวณ — คนที่เห็นภาพเชื่อมโยงจะตอบ concept ได้เร็วมาก</div></div>
+<div class="step"><div class="no">2</div><div class="body"><b>0:20–2:00 · <a href="ch5.html">บท 5 pn Junction</a> ก่อนเลย</b> <span class="tag hot">ทำไมบทท้ายก่อน?</span><br>เพราะ (ก) หนักที่สุด (ข) สรุปรุ่นพี่ไม่มี (ค) แน่นอนว่าเป็น 1 ใน 3 ข้ออัตนัย (ง) มันดึงบท 2–3 มาใช้ ทำให้คุณได้ทวนไปในตัว<br>ทำ HW2 ข้อ 4, 5, 6 ในหน้า <a href="drill.html">ตะลุยโจทย์</a> ให้ได้</div></div>
+<div class="step"><div class="no">3</div><div class="body"><b>2:00–3:40 · <a href="ch2.html">บท 2 สถิติพาหะ</a></b><br>คำนวณเยอะสุด: n, p, n<sub>i</sub>, N<sub>c</sub>/N<sub>v</sub>, E<sub>F</sub>−E<sub>i</sub>, charge neutrality, band diagram<br>ทำ HW1 ข้อ 1–5 ทั้งหมด</div></div>
+<div class="step"><div class="no">4</div><div class="body"><b>3:40–5:00 · <a href="ch3.html">บท 3 Drift & Diffusion</a></b><br>สูตรตรง ๆ แทนเลขได้เลย ได้แต้มง่าย · ทำ HW2 ข้อ 1, 2, 3</div></div>
+<div class="step"><div class="no">5</div><div class="body"><b>5:00–5:45 · <a href="ch1.html">บท 1</a> + <a href="ch4.html">บท 4</a></b><br>สองบทนี้เกือบทั้งหมดเป็น concept ล้วน อ่านเร็ว ๆ แต่ต้องแม่นคำศัพท์ (direct/indirect, Auger, R–G center, donor/acceptor, freeze-out)<br>บท 4 <b>ไม่มีสูตรให้คำนวณเลย</b> → เป็นปรนัย concept ล้วน = ฟรีแต้ม</div></div>
+<div class="step"><div class="no">6</div><div class="body"><b>5:45–7:30 · <a href="drill.html">ตะลุยโจทย์</a> ทั้งหน้า</b><br>ปิดเฉลย ทำเอง จับเวลา แล้วค่อยเปิดดู</div></div>
+<div class="step"><div class="no">7</div><div class="body"><b>7:30–8:30 · เปิดสไลด์จริงไล่ดูรูป</b><br>รูปที่ต้องวาดเป็น: band diagram ของ n/p type, band bending, μ vs T, μ vs doping, n vs 1/T (freeze-out/extrinsic/intrinsic), E–k direct/indirect, ρ(x)/E(x)/V(x) ของ junction</div></div>
+<div class="step"><div class="no">8</div><div class="body"><b>8:30–9:30 · <a href="formulas.html">แผ่นสูตร</a></b> — อ่านทวนแล้ว<b>ปิดดูว่าจำที่มาได้ไหม</b><br>ข้อสอบมีสูตรให้ แต่ถ้าไม่รู้ว่าสูตรไหนใช้ตอนไหน มีให้ก็ไม่ช่วย</div></div>
+<div class="step"><div class="no">9</div><div class="body"><b>9:30–10:00 · เตรียมของ + นอน</b><br>ดินสอ 2B ✏️ · ยางลบ · เครื่องคิดเลข (เช็กถ่าน + เช็กว่ากด <code>ln</code>, <code>e^x</code>, <code>x^y</code> เป็น) · บัตรนักศึกษา<br><b>ห้ามเอากระดาษจดเข้าห้อง</b></div></div>
+</div>
+
+<h3>แผน B — เหลือ ~4 ชั่วโมง (โหมดฉุกเฉิน)</h3>
+<div class="card tight">
+<ol>
+<li><b>30 นาที</b> — อ่าน "ภาพรวมแบบเรื่องเล่า" ข้างบนนี้ 2 รอบ</li>
+<li><b>90 นาที</b> — <a href="drill.html">หน้าตะลุยโจทย์</a> ส่วน "HW ของปีคุณ" ทั้ง 11 ข้อ ทำ+เข้าใจให้หมด</li>
+<li><b>60 นาที</b> — <a href="formulas.html">แผ่นสูตร</a> + ตาราง "กับดักที่คนพลาดบ่อย"</li>
+<li><b>40 นาที</b> — <a href="ch5.html">บท 5</a> อ่านเฉพาะหัวข้อ "สตอรี่ 5 ก้าว" + กราฟ ρ/E/V</li>
+<li><b>20 นาที</b> — ปรนัย concept ในหน้าตะลุยโจทย์ กวาดให้เร็ว</li>
+</ol>
+</div>
+
+<h2 id="weight">📊 คาดการณ์น้ำหนักข้อสอบ</h2>
+<p>อิงจาก: สไลด์ 5 บท (28+28+21+8+22 หน้า) + การบ้าน 2 ชุดของปีนี้ + คำใบ้ว่า "concept มากกว่าคำนวณนิดหน่อย"</p>
+<table>
+<thead><tr><th>บท</th><th>สัดส่วนสไลด์</th><th>โอกาสออกปรนัย</th><th>โอกาสเป็นอัตนัย</th><th>ประเภทที่ออก</th></tr></thead>
+<tbody>
+<tr><td><span class="tag c1">1</span> พื้นฐาน</td><td class="num">26%</td><td>~8–10 ข้อ</td><td>ต่ำ</td><td>concept ล้วน + ตาราง m*, E<sub>g</sub>, binding energy</td></tr>
+<tr><td><span class="tag c2">2</span> สถิติพาหะ</td><td class="num">26%</td><td>~10–12 ข้อ</td><td class="hl">สูงมาก</td><td>คำนวณ n,p,n<sub>i</sub>,E<sub>F</sub> + วาด band diagram</td></tr>
+<tr><td><span class="tag c3">3</span> Drift/Diffusion</td><td class="num">20%</td><td>~8–10 ข้อ</td><td class="hl">สูง</td><td>คำนวณ σ,ρ,v<sub>d</sub>,J<sub>diff</sub>,D + พิสูจน์ built-in field</td></tr>
+<tr><td><span class="tag c4">4</span> R–G</td><td class="num">7%</td><td>~3–5 ข้อ</td><td>ต่ำ (อาจเป็นข้อย่อย)</td><td>concept ล้วน — ฟรีแต้ม</td></tr>
+<tr><td><span class="tag c5">5</span> pn Junction</td><td class="num">21%</td><td>~8–10 ข้อ</td><td class="hl">สูงมาก</td><td>V<sub>bi</sub>, W, E<sub>max</sub>, band diagram, กราฟ ρ/E/V</td></tr>
+</tbody>
+</table>
+
+<div class="box why">
+<span class="t">🎲 เดา 3 ข้ออัตนัย (จากแนว HW ปีนี้)</span>
+<ol style="margin-bottom:0">
+<li><b>Carrier statistics แบบครบวงจร</b> — ให้ n<sub>i</sub>, N<sub>A</sub>, N<sub>D</sub> → หา n, p → หา E<sub>F</sub>−E<sub>i</sub> → <b>วาด band diagram พร้อมระบุตัวเลข</b> (= HW1 ข้อ 5 เป๊ะ ๆ)</li>
+<li><b>Transport</b> — หา σ/ρ/v<sub>d</sub>/J<sub>drift</sub>/J<sub>diff</sub> ผสมกัน หรือ <b>พิสูจน์ built-in E field จาก doping profile แบบ exponential</b> (= HW2 ข้อ 2–3 / สไลด์ 3 หน้า 20)</li>
+<li><b>pn junction ครบชุด</b> — หา V<sub>bi</sub> → วาด band diagram → หา x<sub>n</sub>, x<sub>p</sub>, W → หา E<sub>max</sub> → <b>วาดกราฟ ρ(x), E(x), V(x)</b> (= HW2 ข้อ 4+5+6 รวมกัน)</li>
+</ol>
+</div>
+
+<h2 id="how">🧠 เทคนิคทำข้อสอบ</h2>
+<div class="grid c2">
+  <div class="card">
+    <h4 style="margin-top:0">ปรนัย 40 ข้อ (ฝนดินสอ 2B)</h4>
+    <ul style="margin-bottom:0">
+      <li>รอบแรกกวาดเก็บ <b>concept</b> ให้หมดก่อน (ไม่ต้องกดเครื่องคิดเลข) ~15 นาที</li>
+      <li>รอบสองค่อยกลับมาข้อคำนวณ</li>
+      <li>ข้อคำนวณเยอะข้อ <b>เดาคำตอบจาก order of magnitude</b> ได้เลย เช่น n ของ Si โดป 10¹⁷ ต้องได้ p≈10³ ไม่ใช่ 10⁶</li>
+      <li>ระวังหน่วย <b>cm vs m</b> — ตัวหลอกยอดฮิต (10⁶ เท่า!)</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h4 style="margin-top:0">อัตนัย 3 ข้อ</h4>
+    <ul style="margin-bottom:0">
+      <li><b>เขียนสูตรที่ใช้ก่อนเสมอ</b> แล้วค่อยแทนเลข — ได้แต้มขั้นตอนแม้เลขผิด</li>
+      <li>ใส่ <b>หน่วย</b> ทุกบรรทัด</li>
+      <li>ถ้าให้วาดกราฟ: ต้องมี <b>แกน + ป้ายชื่อ + ค่าที่จุดสำคัญ</b> (−x<sub>p</sub>, x<sub>n</sub>, E<sub>max</sub>, V<sub>bi</sub>)</li>
+      <li>คำถาม "จงอธิบายว่าทำไม" → ตอบเป็น<b>ลูกโซ่เหตุผล</b> 3–4 ประโยค อย่าตอบคำเดียว</li>
+    </ul>
+  </div>
+</div>
+
+<div class="nextprev">
+  <span></span>
+  <a href="ch1.html">เริ่มบทที่ 1 → พื้นฐานสารกึ่งตัวนำ</a>
+</div>
+
+<footer>
+สร้างจาก Class_01–05.pdf, HW SET I &amp; II Solution 2569 และ Semi-Mid.pdf · เปิดออฟไลน์ได้ ไม่ต้องต่อเน็ต · ขอให้สอบผ่านแบบสวย ๆ 🍀
+</footer>
+
+</main>
+</body>
+</html>

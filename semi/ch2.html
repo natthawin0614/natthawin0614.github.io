@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>บท 2 · พาหะเชิงสถิติ</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <span class="brand">05366035 <span>Semiconductor</span></span>
+  <a href="index.html">แผนอ่าน</a>
+  <a href="ch1.html">1. พื้นฐาน</a>
+  <a href="ch2.html" class="active">2. สถิติพาหะ</a>
+  <a href="ch3.html">3. Drift/Diffusion</a>
+  <a href="ch4.html">4. R–G</a>
+  <a href="ch5.html">5. pn Junction</a>
+  <a href="formulas.html">📐 สูตร</a>
+  <a href="drill.html">✍️ ตะลุยโจทย์</a>
+</div></header>
+<main>
+
+<h1><span class="tag c2">Lecture 02</span> พาหะประจุเชิงสถิติ</h1>
+<p class="lead">Density of States · Fermi function · n, p · Extrinsic carriers · E<sub>F</sub> · Band bending<br>
+<span class="small">= สรุปรุ่นพี่ "บทที่ 4" · สไลด์ 28 หน้า · <b>บทคำนวณหนักสุด + โอกาสเป็นอัตนัยสูงมาก</b></span></p>
+
+<div class="box why">
+<span class="t">🎯 บทนี้ตอบคำถามว่า</span>
+บทที่แล้วบอกว่ามี e⁻ กับ hole “แต่มีกี่ตัวล่ะ?” — ถ้าไม่รู้จำนวน ก็คำนวณกระแสไม่ได้
+</div>
+
+<h2>2.1 สูตรมาสเตอร์ — จำแค่นี้ก็เข้าใจทั้งบท</h2>
+
+<div class="box key">
+<span class="t">🔑 แนวคิดเดียวที่ทั้งบทนี้ตั้งอยู่</span>
+<div class="fx" style="margin:.6em 0 0">จำนวนพาหะ = ∫ (มีเก้าอี้กี่ตัว) × (โอกาสที่เก้าอี้จะมีคนนั่ง) dE
+             = ∫ <b>g(E)</b>   ×   <b>f(E)</b>  dE
+</div>
+</div>
+
+<h3>ส่วนที่ 1: g(E) — Density of States (มีเก้าอี้กี่ตัว)</h3>
+<p>g(E) = จำนวนสถานะที่อนุญาต ต่อหน่วยปริมาตร ต่อหน่วยพลังงาน</p>
+<p><b>ที่มาโดยย่อ:</b> นับสถานะใน k-space โดยหาปริมาตรของเปลือกทรงกลมบาง ๆ รัศมี k ถึง k+dk (V<sub>shell</sub>=4πk²dk) แล้วแปลง k → E</p>
+
+<div class="fx"><span class="fxname">ในสารกึ่งตัวนำ — g(E) ต้องเป็น "ศูนย์" ภายใน forbidden gap!</span>
+Conduction band:  g_c(E) = (1/π²ℏ³) · √(2 m*ₙ³) · √(E − E_c)     สำหรับ E ≥ E_c
+Valence band   :  g_v(E) = (1/π²ℏ³) · √(2 m*ₚ³) · √(E_v − E)     สำหรับ E ≤ E_v
+ใน gap         :  g(E) = <b>0</b>
+</div>
+
+<div class="box">
+<span class="t">💡 ธรรมเนียมการวางแกนพลังงานในสไลด์นี้</span>
+อาจารย์กำหนดให้ <b>ยอด valence band E<sub>v</sub> = 0</b> เป็นจุดอ้างอิง → ดังนั้น <b>E<sub>c</sub> = E<sub>g</sub></b><br>
+เวลาเห็นสูตร <code>g_c(E) ∝ √(E − E_g)</code> ในสไลด์/สรุปรุ่นพี่ ก็คืออันเดียวกับ <code>√(E − E_c)</code> นั่นเอง
+</div>
+
+<p><b>รูปร่าง:</b> เป็นรากที่สอง — โตจาก 0 ที่ขอบแถบ แล้วค่อย ๆ กว้างขึ้น (กราฟหันหลังชนกันคนละฝั่งของ gap)</p>
+
+<h3>ส่วนที่ 2: f(E) — Fermi–Dirac function (โอกาสมีคนนั่ง)</h3>
+
+<div class="fx"><span class="fxname">ความน่าจะเป็นที่สถานะพลังงาน E จะถูกอิเล็กตรอนครอบครอง ที่อุณหภูมิ T</span>
+f(E,T) = 1 / [ exp((E − E_F)/k_B T) + 1 ]
+</div>
+
+<div class="dia">
+<svg viewBox="0 0 600 230" xmlns="http://www.w3.org/2000/svg">
+<defs><style>.ax{stroke:#6b7686;stroke-width:1.4}.lb{fill:#a3adbd;font:12.5px sans-serif}
+.lb2{fill:#e6e9ef;font:600 12.5px sans-serif}.dv{stroke:#ffcc66;stroke-width:1.2;stroke-dasharray:4 4}</style></defs>
+<line class="ax" x1="70" y1="190" x2="560" y2="190"/>
+<line class="ax" x1="70" y1="190" x2="70" y2="30"/>
+<text class="lb" x="300" y="216">E  →</text><text class="lb" x="24" y="26">f(E)</text>
+<text class="lb" x="40" y="45">1.0</text><text class="lb" x="40" y="195">0</text>
+<line class="dv" x1="300" y1="30" x2="300" y2="190"/>
+<text class="lb2" x="288" y="210" fill="#ffcc66">E_F</text>
+<!-- T=0 step -->
+<path d="M70,42 L300,42 L300,190 L555,190" fill="none" stroke="#7ee081" stroke-width="2.6"/>
+<!-- T>0 -->
+<path d="M70,44 C170,46 240,55 300,116 C360,177 430,186 555,188" fill="none" stroke="#5aa9ff" stroke-width="2.6"/>
+<!-- T>>0 -->
+<path d="M70,52 C150,62 230,80 300,116 C370,152 450,172 555,182" fill="none" stroke="#ff8a7a" stroke-width="2.2" stroke-dasharray="6 4"/>
+<circle cx="300" cy="116" r="4" fill="#ffcc66"/>
+<text class="lb" x="308" y="112" fill="#ffcc66">f = 0.5 เสมอที่ E = E_F</text>
+<text class="lb2" x="110" y="70" fill="#7ee081">T = 0 (ขั้นบันได)</text>
+<text class="lb2" x="380" y="120" fill="#5aa9ff">T &gt; 0</text>
+<text class="lb2" x="400" y="160" fill="#ff8a7a">T สูงขึ้นอีก</text>
+</svg>
+<div class="cap">ที่ T=0 เป็น<b>ขั้นบันไดคม</b>ที่ E<sub>F</sub> · พอ T สูงขึ้น ขั้นบันได <b>"มน" (round)</b> เพราะบางสถานะใต้ E<sub>F</sub> ว่างลง อิเล็กตรอนย้ายขึ้นไปสถานะพลังงานสูงกว่า</div>
+</div>
+
+<div class="box key">
+<span class="t">🔑 3 ข้อเท็จจริงของ f(E) ที่ออกสอบแน่</span>
+<ul style="margin-bottom:0">
+<li><b>f(E<sub>F</sub>) = 0.5 เสมอ</b> ทุกอุณหภูมิ (แทน E=E<sub>F</sub> จะได้ 1/(e⁰+1)=1/2)</li>
+<li>ความน่าจะเป็นที่สถานะจะ<b>ว่าง</b> (= มี hole) คือ <b>1 − f(E)</b></li>
+<li>อุณหภูมิมีผลเปลี่ยนการครอบครองเฉพาะในหน้าต่างแคบ ๆ กว้าง <b>~3.5k<sub>B</sub>T รอบ E<sub>F</sub></b> เท่านั้น</li>
+</ul>
+</div>
+
+<h4>ค่าที่ควรกดเครื่องคิดเลขให้ได้ทันที (ออกใน HW1 ข้อ 1!)</h4>
+<table>
+<thead><tr><th>E − E<sub>F</sub></th><th>f(E)</th><th>คิดยังไง</th></tr></thead>
+<tbody>
+<tr><td>0</td><td class="num">0.500</td><td>1/(e⁰+1)</td></tr>
+<tr><td><b>k<sub>B</sub>T</b></td><td class="num">0.268</td><td>1/(e¹+1) = 1/3.718</td></tr>
+<tr><td>2k<sub>B</sub>T</td><td class="num">0.119</td><td>1/(e²+1)</td></tr>
+<tr><td><b>3k<sub>B</sub>T</b></td><td class="num">0.047</td><td>1/(e³+1) = 1/21.09</td></tr>
+<tr><td>5k<sub>B</sub>T</td><td class="num">0.0067</td><td>1/(e⁵+1)</td></tr>
+</tbody>
+</table>
+<p class="small">สังเกต: <b>ไม่ต้องรู้ค่า T!</b> เพราะโจทย์ให้ระยะเป็นหน่วยของ k<sub>B</sub>T อยู่แล้ว → หักกันหมด</p>
+
+<h2>2.2 อินทิเกรตออกมาเป็นสูตรใช้งาน</h2>
+
+<div class="fx"><span class="fxname">อินทิกรัลเต็ม (ยาก แก้ตรง ๆ ไม่ได้)</span>
+n = ∫[E_c → ∞]  g_c(E) · f(E) dE
+p = ∫[−∞ → E_v] g_v(E) · [1 − f(E)] dE
+</div>
+
+<div class="box key">
+<span class="t">🔑 กุญแจ: สมมติฐาน Non-degenerate</span>
+<div class="fx" style="margin:.5em 0">E − E_F  &gt;  <b>3.5 k_B T</b>   (สมการ 2.7)</div>
+เมื่อ (E−E<sub>F</sub>) ใหญ่พอ → <code>exp(...)≫1</code> → <b>ตัดเลข 1 ในส่วนทิ้งได้</b> → Fermi-Dirac กลายเป็น <b>Boltzmann</b> → อินทิกรัลกลายเป็นอินทิกรัลมาตรฐานที่แก้ได้!<br>
+<span class="hl">แปลเป็นภาษาคน: E<sub>F</sub> ต้องอยู่ "ลึกใน gap" ไม่ชิดขอบแถบ = โดปไม่หนักเกินไป</span><br>
+<span class="small">ถ้าโดปหนักมากจน E<sub>F</sub> เข้าไปในแถบ → เรียก <b>degenerate</b> → สูตรทั้งบทนี้<b>ใช้ไม่ได้</b> (ข้อสอบชอบถาม!)</span>
+</div>
+
+<div class="fx"><span class="fxname">⭐ สูตรทองของบทนี้ (สมการ 2.8, 2.9)</span>
+n = <b>N_c</b> · exp[ −(E_c − E_F)/k_B T ]      ;  N_c = 2[ 2π m*ₙ k_B T / h² ]^(3/2)
+p = <b>N_v</b> · exp[ −(E_F − E_v)/k_B T ]      ;  N_v = 2[ 2π m*ₚ k_B T / h² ]^(3/2)
+</div>
+
+<p><b>N<sub>c</sub>, N<sub>v</sub> เรียกว่า</b> "effective density of states" — ตีความว่า: แทนที่จะมีสถานะกระจายทั่วทั้ง band ให้คิดเสมือนว่ามี <b>N<sub>c</sub> สถานะกระจุกอยู่ที่ E<sub>c</sub> พอดี</b></p>
+
+<table>
+<thead><tr><th>ค่าที่ควรจำ (Si, 300 K)</th><th>ค่า</th></tr></thead>
+<tbody>
+<tr><td>N<sub>c</sub> (m*<sub>n</sub>=1.18m₀)</td><td class="num">≈ 3.25×10¹⁹ cm⁻³ = 3.25×10²⁵ m⁻³</td></tr>
+<tr><td>N<sub>v</sub> (m*<sub>p</sub>=0.81m₀)</td><td class="num">≈ 1.83×10¹⁹ cm⁻³</td></tr>
+<tr><td>n<sub>i</sub>(Si, 300K)</td><td class="num">≈ 10¹⁰ cm⁻³</td></tr>
+</tbody>
+</table>
+
+<h2>2.3 สาร Intrinsic — หา E<sub>F</sub> และ n<sub>i</sub></h2>
+
+<p><b>ตรรกะ:</b> ในสารบริสุทธิ์ ทุก e⁻ ใน CB เกิดจากการกระตุ้นจาก VB ⇒ ทิ้ง hole ไว้ 1 ตัวเสมอ ⇒ <b>n = p ทุกอุณหภูมิ</b><br>
+เอาสมการ 2.8 = 2.9 แล้วแก้หา E<sub>F</sub></p>
+
+<div class="fx"><span class="fxname">⭐ ตำแหน่ง Fermi level ของสาร intrinsic (สมการ 2.10)</span>
+E_F(T) = <b>E_g/2</b>  +  (3/4) k_B T · ln( m*ₚ / m*ₙ )
+          ↑ พจน์หลัก      ↑ พจน์แก้เล็ก ๆ (มักน้อยกว่ามาก)
+</div>
+
+<div class="box key">
+<span class="t">🔑 ข้อสรุปที่ต้องพูดได้</span>
+พจน์ที่สองเล็กมากเมื่อเทียบพจน์แรก (k<sub>B</sub>T ≈ 26 meV แต่ E<sub>g</sub> ≈ 1–3 eV)<br>
+→ <b>E<sub>F</sub> ของสาร intrinsic อยู่เกือบกึ่งกลาง gap พอดี</b> เราเรียกมันว่า <b>E<sub>i</sub></b> (intrinsic Fermi level)
+</div>
+
+<div class="card">
+<h4 style="margin-top:0">📝 ตัวอย่างจากสไลด์ — Si ที่ 300 K (ต้องทำได้!)</h4>
+<p class="small">โจทย์: E<sub>g</sub>=1.12 eV, m*<sub>n</sub>=1.18m₀, m*<sub>p</sub>=0.81m₀ · จงหา n และ p</p>
+<div class="fx">ก้าวที่ 1 — หา E_F
+E_g/2 = 0.56 eV
+(3/4)k_BT·ln(m*ₚ/m*ₙ) = (3/4)(8.617×10⁻⁵ × 300)·ln(0.81/1.18)
+                      = 0.75 × 0.02585 × (−0.3765) = <b>−7.3 meV = −0.007 eV</b>
+E_F = 0.56 − 0.007 = <b>0.553 eV</b>  (วัดจาก E_v = 0)
+
+ก้าวที่ 2 — E_c − E_F = 1.12 − 0.553 = <b>0.567 eV</b>
+
+ก้าวที่ 3 — แทนในสูตรทอง
+n = N_c·exp[−(E_c−E_F)/k_BT]
+  = 3.25×10²⁵ m⁻³ × exp(−0.567 / 0.02585)
+  = 3.25×10²⁵ × e^(−21.93)
+  = <b>10¹⁶ m⁻³ = 10¹⁰ cm⁻³</b>
+
+เนื่องจาก intrinsic ⇒ <b>p = n = 10¹⁰ cm⁻³</b>
+</div>
+<p class="small"><b>อาจารย์เขียนกำกับว่า "REMEMBER THESE NUMBERS!"</b> → n<sub>i</sub>(Si,300K) = 10¹⁰ cm⁻³ ต้องจำ</p>
+</div>
+
+<h4>เปรียบเทียบ n<sub>i</sub> ของวัสดุ 3 ตัว</h4>
+<table>
+<thead><tr><th>วัสดุ</th><th>E<sub>g</sub> @300K</th><th>n<sub>i</sub> โดยประมาณ</th></tr></thead>
+<tbody>
+<tr><td><b>Ge</b></td><td class="num">0.66 eV</td><td class="num">~10¹³ cm⁻³ (สูงสุด)</td></tr>
+<tr><td><b>Si</b></td><td class="num">1.12 eV</td><td class="num">~10¹⁰ cm⁻³</td></tr>
+<tr><td><b>GaAs</b></td><td class="num">1.42 eV</td><td class="num">~10⁶–10⁷ cm⁻³ (ต่ำสุด)</td></tr>
+</tbody>
+</table>
+<div class="box warn">
+<span class="t">⚠️ ประเด็นที่อาจารย์เน้นในสไลด์</span>
+E<sub>g</sub> ต่างกันแค่ <b>ประมาณ 2 เท่า</b> (0.66 → 1.42) แต่ n<sub>i</sub> ต่างกันถึง <b>6 order of magnitude</b>!<br>
+เพราะ E<sub>g</sub> อยู่ใน <b>เลขชี้กำลัง</b> (n<sub>i</sub> ∝ e<sup>−E<sub>g</sub>/2k<sub>B</sub>T</sup>) → เปลี่ยนนิดเดียวส่งผลมหาศาล
+</div>
+
+<h2>2.4 สาร Extrinsic — คำนวณ n, p เมื่อโดป ⭐⭐</h2>
+
+<h3>เครื่องมือ 2 ชิ้น</h3>
+<div class="fx"><span class="fxname">① Mass action law (สมการ 2.12) — เอา 2.8 × 2.9</span>
+n · p = N_c N_v · exp(−E_g/k_B T) = <b>n_i²</b>   ← คงที่เสมอที่อุณหภูมิเดียวกัน <b>ไม่ว่าโดปยังไง</b>
+
+<span class="fxname">② Charge-neutrality equation (สมการ 2.13) — ผลึกต้องเป็นกลางทางไฟฟ้า</span>
+p − n + N_D⁺ − N_A⁻ = 0
+</div>
+
+<div class="box">
+<span class="t">💡 ตีความสมการสมดุลประจุ</span>
+ทุกครั้งที่ donor ปล่อย e⁻ ออกไป → ตัว donor เหลือ<b>ประจุบวก</b> (N<sub>D</sub>⁺)<br>
+ทุกครั้งที่ acceptor รับ e⁻ (ปล่อย hole) → ตัว acceptor เหลือ<b>ประจุลบ</b> (N<sub>A</sub>⁻)<br>
+รวมประจุบวกทั้งหมด (p + N<sub>D</sub>⁺) ต้องเท่ากับประจุลบทั้งหมด (n + N<sub>A</sub>⁻)<br>
+<span class="small">HW1 ข้อ 4 เขียนในรูป <code>n + N_A⁻ = p + N_D⁺</code> ซึ่งเหมือนกันเป๊ะ</span>
+</div>
+
+<h3>เอา ① กับ ② มารวมกัน → สมการกำลังสอง</h3>
+<div class="fx">n² − (N_D⁺ − N_A⁻)n − n_i² = 0
+p² − (N_A⁻ − N_D⁺)p − n_i² = 0
+
+แก้ด้วยสูตรกำลังสอง (ทิ้งรากลบ เพราะความหนาแน่นต้องเป็นบวก):
+
+<b>n = (N_D − N_A)/2 + √[ ((N_D − N_A)/2)² + n_i² ]</b>
+<b>p = (N_A − N_D)/2 + √[ ((N_A − N_D)/2)² + n_i² ]</b>
+
+หมายเหตุ: ที่ 300 K สมมติ ionize เต็มที่ ⇒ N_D⁺ = N_D , N_A⁻ = N_A
+</div>
+
+<h3>🚀 ทางลัดที่ใช้จริง 95% ของโจทย์</h3>
+<div class="box key">
+<span class="t">เมื่อโดปมากกว่า n<sub>i</sub> เยอะ ๆ (ซึ่งเป็นเกือบทุกกรณี)</span>
+<div class="fx" style="margin:.5em 0">n-type หนัก (N_D ≫ N_A, n_i):   <b>n ≈ N_D</b>        และ   <b>p = n_i²/N_D</b>
+p-type หนัก (N_A ≫ N_D, n_i):   <b>p ≈ N_A</b>        และ   <b>n = n_i²/N_A</b>
+
+ถ้าโดปทั้งสองชนิด → ใช้ <b>net doping</b>:  n ≈ N_D − N_A   (ถ้า N_D &gt; N_A)
+                                          p ≈ N_A − N_D   (ถ้า N_A &gt; N_D)
+</div>
+<span class="hl">ได้คำตอบเท่ากับใช้สมการกำลังสองเต็ม ๆ เป๊ะ ๆ — สไลด์พิสูจน์ให้ดูแล้ว</span>
+</div>
+
+<div class="card">
+<h4 style="margin-top:0">📝 ตัวอย่างจากสไลด์ (n<sub>i</sub>=10¹⁰, N<sub>A</sub>=10¹⁵, N<sub>D</sub>=10¹⁶ cm⁻³)</h4>
+<div class="fx">n = (10¹⁶−10¹⁵)/2 + √[ ((10¹⁶−10¹⁵)/2)² + (10¹⁰)² ]
+  = 4.5×10¹⁵ + √[ 2.025×10³¹ + 10²⁰ ]     ← พจน์ n_i² เล็กจนทิ้งได้
+  ≈ <b>9×10¹⁵ cm⁻³</b>       (= N_D − N_A นั่นเอง!)
+
+p = n_i²/n = 10²⁰ / 9×10¹⁵ = <b>1.1×10⁴ cm⁻³</b>
+</div>
+<p class="small" style="margin-bottom:0">👉 หา p อย่าไปแก้สมการกำลังสองอีกรอบ — <b>ใช้ np=n<sub>i</sub>² เอาสิ ง่ายกว่ามาก</b></p>
+</div>
+
+<div class="box warn">
+<span class="t">⚠️ กับดัก: โดปหลายตัวพร้อมกัน (HW1 ข้อ 3!)</span>
+โจทย์ให้ Si โดป <b>Sb 10¹⁵ + P 10¹⁶ + As 10¹⁷ cm⁻³</b><br>
+Sb, P, As <b>เป็นหมู่ V หมด = donor ทั้ง 3 ตัว</b> → ต้อง<b>บวกกัน</b>:<br>
+N<sub>D,net</sub> = 10¹⁵+10¹⁶+10¹⁷ = <b>1.11×10¹⁷ cm⁻³</b> = n · แล้ว p = (10¹⁰)²/1.11×10¹⁷ = 9×10² cm⁻³ → <b>n-type</b><br><br>
+พอโดป <b>B 10¹⁸</b> เพิ่ม (หมู่ III = acceptor) → N<sub>net</sub> = N<sub>A</sub>−N<sub>D</sub> = 10¹⁸ − 1.11×10¹⁷ = <b>8.89×10¹⁷ = p</b> → <b>กลายเป็น p-type!</b><br>
+<span class="hl">ต้องท่องได้ว่าใครหมู่ III ใครหมู่ V: <b>B, Al, Ga, In = acceptor</b> · <b>P, As, Sb = donor</b></span>
+</div>
+
+<h2>2.5 ตำแหน่ง E<sub>F</sub> ในสารที่โดปแล้ว ⭐⭐</h2>
+
+<p>ใช้ E<sub>i</sub> (ระดับ Fermi ของสารบริสุทธิ์ ≈ กลาง gap) เป็นจุดอ้างอิง แล้วเขียน n, p เทียบกับ n<sub>i</sub></p>
+
+<div class="fx"><span class="fxname">⭐⭐ สูตรที่ใช้บ่อยที่สุดในบทนี้และบท 5 (สมการ 2.23, 2.24)</span>
+<b>n = n_i · exp[ (E_F − E_i)/k_B T ]</b>
+<b>p = n_i · exp[ (E_i − E_F)/k_B T ]</b>
+
+พลิกกลับ (สมการ 2.25):
+<b>E_F − E_i = k_B T · ln(n/n_i)  =  −k_B T · ln(p/n_i)</b>
+</div>
+
+<div class="box ok">
+<span class="t">✅ ทำไมสูตรนี้ดีกว่า n=N<sub>c</sub>e^(...)</span>
+สมการ 2.8/2.9 ต้องรู้ N<sub>c</sub>, N<sub>v</sub>, m* → คำนวณยาว<br>
+สมการ 2.23/2.24 <b>ใช้แค่ n<sub>i</sub> ที่โจทย์ให้มา</b> → เร็วกว่ามาก และ<b>ใช้ได้กับสารทุกชนิด</b> (non-degenerate)
+</div>
+
+<div class="fx"><span class="fxname">กรณีโดปหนัก (สมการ 2.26, 2.27) — แค่แทน n=N_D, p=N_A</span>
+n-type:  E_F − E_i = +k_B T · ln( N_D / n_i )    → E_F ขยับ <b>ขึ้น</b> ใกล้ E_c
+p-type:  E_F − E_i = −k_B T · ln( N_A / n_i )    → E_F ขยับ <b>ลง</b> ใกล้ E_v
+</div>
+
+<div class="dia">
+<svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg">
+<defs><style>.bl{stroke:#e6e9ef;stroke-width:2.4}.ei{stroke:#a3adbd;stroke-width:1.4;stroke-dasharray:6 5}
+.ef{stroke:#ffcc66;stroke-width:2.4}.lb{fill:#a3adbd;font:12px sans-serif}.lb2{fill:#e6e9ef;font:600 13px sans-serif}</style></defs>
+<!-- intrinsic -->
+<text class="lb2" x="45" y="26">Intrinsic</text>
+<line class="bl" x1="30" y1="55" x2="170" y2="55"/><text class="lb" x="176" y="59">E_c</text>
+<line class="bl" x1="30" y1="195" x2="170" y2="195"/><text class="lb" x="176" y="199">E_v</text>
+<line class="ei" x1="30" y1="125" x2="170" y2="125"/>
+<line class="ef" x1="30" y1="125" x2="170" y2="125"/>
+<text class="lb" x="60" y="119" fill="#ffcc66">E_F = E_i</text>
+<text class="lb" x="45" y="222">n = p = n_i</text>
+<!-- n type -->
+<text class="lb2" x="255" y="26" fill="#7ee081">n-type</text>
+<line class="bl" x1="240" y1="55" x2="380" y2="55"/><text class="lb" x="386" y="59">E_c</text>
+<line class="bl" x1="240" y1="195" x2="380" y2="195"/><text class="lb" x="386" y="199">E_v</text>
+<line class="ei" x1="240" y1="125" x2="380" y2="125"/><text class="lb" x="386" y="129">E_i</text>
+<line class="ef" x1="240" y1="80" x2="380" y2="80"/>
+<text class="lb" x="270" y="74" fill="#ffcc66">E_F</text>
+<line x1="310" y1="80" x2="310" y2="125" stroke="#7ee081" stroke-width="1.5" marker-end="url(#a)"/>
+<text class="lb" x="250" y="222" fill="#7ee081">n &gt; p  · E_F ขึ้นไปครึ่งบน</text>
+<!-- p type -->
+<text class="lb2" x="465" y="26" fill="#ff8a7a">p-type</text>
+<line class="bl" x1="450" y1="55" x2="590" y2="55"/><text class="lb" x="596" y="59">E_c</text>
+<line class="bl" x1="450" y1="195" x2="590" y2="195"/><text class="lb" x="596" y="199">E_v</text>
+<line class="ei" x1="450" y1="125" x2="590" y2="125"/><text class="lb" x="596" y="129">E_i</text>
+<line class="ef" x1="450" y1="170" x2="590" y2="170"/>
+<text class="lb" x="480" y="164" fill="#ffcc66">E_F</text>
+<text class="lb" x="460" y="222" fill="#ff8a7a">p &gt; n  · E_F ลงมาครึ่งล่าง</text>
+</svg>
+<div class="cap"><b>E<sub>F</sub> คือมาตรวัดชนิดสาร</b> — อยู่ครึ่งบน = n-type, กลาง = intrinsic, ครึ่งล่าง = p-type</div>
+</div>
+
+<div class="box warn">
+<span class="t">⚠️ ข้อจำกัดที่ออกสอบบ่อย</span>
+ถ้าโดปหนักมาก ๆ จน E<sub>F</sub> <b>เข้าไปในแถบ</b> (แตะ E<sub>c</sub> หรือ E<sub>v</sub>) → สารกลายเป็น <b>degenerate</b><br>
+→ <b>สูตรทั้งหมดในบทนี้ใช้ไม่ได้</b> เพราะละเมิดเงื่อนไข E−E<sub>F</sub> &gt; 3.5k<sub>B</sub>T
+</div>
+
+<h3>ที่มาของการกระจายพาหะ (รูป 4 คอลัมน์ในสไลด์ — ต้องวาดเป็น)</h3>
+<p>สไลด์แสดง 4 คอลัมน์เรียงกัน: <b>โครงสร้างแถบ → g(E) → f(E) → การครอบครองจริง g(E)·f(E)</b></p>
+<table>
+<thead><tr><th>ชนิดสาร</th><th>E<sub>F</sub> อยู่ไหน</th><th>พื้นที่ใต้กราฟ e⁻</th><th>พื้นที่ใต้กราฟ hole</th></tr></thead>
+<tbody>
+<tr><td>Intrinsic</td><td>กลาง gap</td><td colspan="2" style="text-align:center">เท่ากันพอดี</td></tr>
+<tr><td class="n">n-type</td><td>ครึ่งบน</td><td><b>ใหญ่</b></td><td>เล็ก</td></tr>
+<tr><td class="p">p-type</td><td>ครึ่งล่าง</td><td>เล็ก</td><td><b>ใหญ่</b></td></tr>
+</tbody>
+</table>
+<p class="small"><b>ประโยคที่อาจารย์เน้น:</b> ใน n-type “อิเล็กตรอนมาจาก<b>ทั้ง donor และตัวผลึกเอง</b> ส่วน hole มาจาก<b>ตัวผลึกอย่างเดียว</b>” (และสลับกันสำหรับ p-type)</p>
+
+<h2>2.6 พลังงานจลน์/ศักย์ และ Band Bending ⭐⭐</h2>
+<p class="small">หัวข้อนี้ดูนามธรรม แต่<b>เป็นรากฐานทั้งหมดของบท 5</b> — ถ้าตรงนี้ไม่แน่น pn junction จะงงมาก</p>
+
+<h3>① ทิศทางของพลังงาน</h3>
+<div class="box key">
+<ul style="margin-bottom:0">
+<li><b>อิเล็กตรอน:</b> พลังงานเพิ่มขึ้นเมื่อ <b>ขึ้นบน</b> ใน conduction band ↑</li>
+<li><b>โฮล:</b> พลังงานเพิ่มขึ้นเมื่อ <b>ลงล่าง</b> ใน valence band ↓ <span class="hl">(สวนทางกัน!)</span></li>
+</ul>
+</div>
+<p><b>เหตุผล:</b> ถ้าจะกระตุ้น e⁻ จาก VB ขึ้นไปที่ E<sub>c</sub> — อิเล็กตรอนที่อยู่<b>ลึกกว่า</b>ใน VB ต้องใช้พลังงาน<b>มากกว่า</b> พลังงานอนุรักษ์ ⇒ hole ที่อยู่ลึกกว่าต้องมีพลังงาน<b>สูงกว่า</b></p>
+
+<h3>② พลังงานจลน์ vs ศักย์</h3>
+<ul>
+<li>ที่<b>ขอบแถบพอดี</b> (E<sub>c</sub> สำหรับ e⁻, E<sub>v</sub> สำหรับ hole): <b>ความเร็ว = 0 ⇒ KE = 0</b> พลังงานทั้งหมดเป็น <b>PE</b></li>
+<li>KE ของอิเล็กตรอน = ระยะที่วัด<b>ขึ้นจาก E<sub>c</sub></b> · KE ของโฮล = ระยะที่วัด<b>ลงจาก E<sub>v</sub></b></li>
+<li><b>แถบแบนราบ (flat bands) = สมดุลความร้อน ไม่มีสนามไฟฟ้า ไม่มีกระแส</b></li>
+</ul>
+
+<h3>③ Band bending — เมื่อมีแรงดันไฟฟ้า</h3>
+<div class="fx"><span class="fxname">งานที่ทำเพื่อย้ายประจุไปยังจุดที่ศักย์สูงกว่า V (สมการ 2.29, 2.30)</span>
+โฮล   (ประจุ +q): ΔPE_p = <b>+</b>qV   → ศักย์สูงขึ้น = พลังงานโฮล<b>สูงขึ้น</b>
+อิเล็กตรอน (−q): ΔPE_n = <b>−</b>qV   → ศักย์สูงขึ้น = พลังงานอิเล็กตรอน<b>ต่ำลง</b>
+</div>
+
+<div class="dia">
+<svg viewBox="0 0 620 300" xmlns="http://www.w3.org/2000/svg">
+<defs><style>.ax{stroke:#6b7686;stroke-width:1.3}.lb{fill:#a3adbd;font:12px sans-serif}
+.lb2{fill:#e6e9ef;font:600 12.5px sans-serif}</style></defs>
+<!-- voltage plot -->
+<line class="ax" x1="80" y1="115" x2="540" y2="115"/>
+<line class="ax" x1="80" y1="115" x2="80" y2="25"/>
+<text class="lb" x="20" y="30">Voltage</text>
+<line x1="80" y1="35" x2="520" y2="105" stroke="#c08cff" stroke-width="2.6"/>
+<text class="lb" x="55" y="35">1 V</text><text class="lb" x="528" y="110">0 V</text>
+<text class="lb" x="250" y="132">ตกคร่อมแบบ <tspan fill="#c08cff">เชิงเส้น</tspan> ในสารเนื้อเดียว</text>
+<!-- band plot -->
+<line class="ax" x1="80" y1="285" x2="540" y2="285"/>
+<line class="ax" x1="80" y1="285" x2="80" y2="160"/>
+<text class="lb" x="20" y="165">Energy</text><text class="lb" x="300" y="299">x  →</text>
+<line x1="80" y1="185" x2="520" y2="215" stroke="#5aa9ff" stroke-width="2.6"/>
+<text class="lb2" x="528" y="218" fill="#5aa9ff">E_c</text>
+<line x1="80" y1="200" x2="520" y2="230" stroke="#a3adbd" stroke-width="1.4" stroke-dasharray="5 4"/>
+<text class="lb2" x="528" y="234">E_i</text>
+<line x1="80" y1="245" x2="520" y2="275" stroke="#7ee081" stroke-width="2.6"/>
+<text class="lb2" x="528" y="278" fill="#7ee081">E_v</text>
+<line x1="150" y1="185" x2="150" y2="245" stroke="#ffcc66" stroke-width="1.4"/>
+<line x1="450" y1="211" x2="450" y2="271" stroke="#ffcc66" stroke-width="1.4"/>
+<text class="lb" x="158" y="222" fill="#ffcc66">E_g คงที่</text>
+<text class="lb" x="382" y="180" fill="#5aa9ff">↑ PE ของ e⁻ เพิ่มไปทางขวา</text>
+<text class="lb" x="95" y="172" fill="#7ee081">↓ PE ของ hole เพิ่มไปทางซ้าย</text>
+</svg>
+<div class="cap"><b>สารเนื้อเดียว (homogeneous)</b> → แรงดันตกแบบเชิงเส้น → แถบ <b>เอียงด้วยความชันคงที่</b> · และ <span class="hl">E<sub>g</sub> ต้องคงที่ตลอด (เส้นขนานกัน)</span></div>
+</div>
+
+<div class="fx"><span class="fxname">⭐⭐ สมการเชื่อมสนามไฟฟ้ากับความชันของแถบ (สมการ 2.31, 2.32)</span>
+E = −dV/dx                          ← นิยามสนามไฟฟ้าทั่วไป
+
+<b>E(x) = (1/q)·dE_c/dx = (1/q)·dE_v/dx = (1/q)·dE_i/dx</b>
+</div>
+
+<div class="box key">
+<span class="t">🔑 วิธีอ่านแผนภาพแถบให้เป็น (ใช้บ่อยมากในบท 5 และข้อสอบ)</span>
+<ul style="margin-bottom:0">
+<li><b>แถบแบน</b> ⇒ E = 0 ⇒ ไม่มีสนาม ⇒ อยู่ในสมดุล</li>
+<li><b>แถบเอียง</b> ⇒ มีสนามไฟฟ้า · ความชันมาก = สนามแรง</li>
+<li><b>แถบเอียงขึ้น</b>ไปทาง +x ⇒ E เป็น<b>บวก</b> (ชี้ทาง +x)</li>
+<li><b>E<sub>F</sub> แบนตลอด</b> ⇒ ระบบอยู่ใน <b>สมดุลความร้อน</b> ← ทดสอบข้อนี้เป็นอย่างแรกเสมอ!</li>
+<li>อิเล็กตรอนจะ "ไหลลงเนิน" ใน CB · โฮลจะ "ลอยขึ้นเนิน" ใน VB (เหมือนฟองอากาศ)</li>
+</ul>
+</div>
+
+<h2>📋 เช็กลิสต์บท 2</h2>
+<div class="card">
+<ol>
+<li>เขียนสมการ n = ∫g(E)f(E)dE ได้ และบอกว่า g กับ f คืออะไร</li>
+<li>f(E<sub>F</sub>) = ? · โอกาสที่จะเป็น hole = ?</li>
+<li>คำนวณ f ที่ E−E<sub>F</sub> = k<sub>B</sub>T, 3k<sub>B</sub>T ได้ (0.268, 0.047)</li>
+<li>non-degenerate คือเงื่อนไขอะไร ทำไมต้องมี ถ้าละเมิดเกิดอะไร</li>
+<li>เขียน n = N<sub>c</sub>e^(−(E<sub>c</sub>−E<sub>F</sub>)/kT) และสูตร N<sub>c</sub> ได้</li>
+<li>ทำไม E<sub>F</sub> ของ intrinsic อยู่กลาง gap</li>
+<li>np = n<sub>i</sub>² แปลว่าอะไร ใช้เมื่อไหร่</li>
+<li>เขียนสมการสมดุลประจุ + อธิบายว่าทำไมมันเป็นจริง</li>
+<li>โจทย์ให้ N<sub>A</sub>, N<sub>D</sub>, n<sub>i</sub> → หา n, p ได้ทั้งวิธีลัดและวิธีสมการกำลังสอง</li>
+<li>หา E<sub>F</sub>−E<sub>i</sub> จาก n หรือ p ได้ แล้ววาด band diagram พร้อมตัวเลขได้</li>
+<li>อธิบาย band bending: ทำไม VB กับ CB เอียงไปทางเดียวกัน แต่ PE ของ e⁻ กับ hole เพิ่มคนละทาง</li>
+<li>E(x) = (1/q)dE<sub>c</sub>/dx — เขียนได้และใช้อ่านกราฟเป็น</li>
+</ol>
+</div>
+
+<div class="nextprev">
+  <a href="ch1.html">← บทที่ 1</a>
+  <a href="ch3.html">บทที่ 3 → Drift &amp; Diffusion</a>
+</div>
+</main>
+</body>
+</html>

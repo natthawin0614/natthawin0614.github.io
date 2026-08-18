@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>บท 4 · Recombination &amp; Generation</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <span class="brand">05366035 <span>Semiconductor</span></span>
+  <a href="index.html">แผนอ่าน</a>
+  <a href="ch1.html">1. พื้นฐาน</a>
+  <a href="ch2.html">2. สถิติพาหะ</a>
+  <a href="ch3.html">3. Drift/Diffusion</a>
+  <a href="ch4.html" class="active">4. R–G</a>
+  <a href="ch5.html">5. pn Junction</a>
+  <a href="formulas.html">📐 สูตร</a>
+  <a href="drill.html">✍️ ตะลุยโจทย์</a>
+</div></header>
+<main>
+
+<h1><span class="tag c4">Lecture 04</span> การรวมตัวและการเกิดของพาหะ</h1>
+<p class="lead">Recombination–Generation · R–G centers · Auger · Impact ionization · Direct vs Indirect<br>
+<span class="small">🔴 <b>สรุปรุ่นพี่ไม่มีบทนี้เลย</b> · สไลด์แค่ 8 หน้า · <b>ไม่มีสูตรคำนวณเลย = concept ล้วน = ฟรีแต้ม</b></span></p>
+
+<div class="box why">
+<span class="t">🎯 บทนี้ตอบคำถามว่า</span>
+บท 2–3 สมมติมาตลอดว่าจำนวนพาหะ "คงที่" — <b>แต่จริง ๆ พาหะเกิดใหม่และตายได้ตลอดเวลา</b> เกิดยังไง ตายยังไง มีกี่แบบ?
+</div>
+
+<div class="box ok">
+<span class="t">⏱️ อ่านบทนี้แค่ 25 นาทีก็พอ</span>
+บทนี้สั้นและไม่มีสูตร แต่ <b>คำศัพท์ทุกคำออกปรนัยได้หมด</b> — อ่านให้จำชื่อกลไกกับเงื่อนไขให้แม่น
+</div>
+
+<h2>4.1 นิยาม 2 คำ</h2>
+<table>
+<thead><tr><th></th><th>Recombination (การรวมตัว)</th><th>Generation (การเกิด)</th></tr></thead>
+<tbody>
+<tr><td><b>เกิดอะไร</b></td><td>e⁻ กับ hole <b>ทำลายล้างกัน</b> (annihilate)</td><td>สร้าง <b>คู่ e⁻–hole</b> ขึ้นมาใหม่</td></tr>
+<tr><td><b>พาหะ</b></td><td>ลดลง</td><td>เพิ่มขึ้น</td></tr>
+<tr><td><b>พลังงาน</b></td><td><b>คาย</b>ออกมา</td><td>ต้อง<b>ป้อน</b>เข้าไป</td></tr>
+</tbody>
+</table>
+
+<h2>4.2 กลไก 4 แบบ ⭐ (ต้องแยกให้ออกทั้งหมด)</h2>
+
+<h3>① Band-to-band (แบบพื้นฐานที่สุด)</h3>
+<div class="grid c2">
+<div class="card tight">
+<h4 style="margin-top:0">Recombination</h4>
+<p style="margin-bottom:0">e⁻ ใน conduction band <b>ตกลงมา</b> เติมสถานะ hole ใน valence band<br>
+พลังงานส่วนเกินถูกพาไปโดย <b>โฟตอน</b> ที่มีพลังงาน <b>= E<sub>g</sub> พอดี</b><br>
+<span class="hl">← หลักการของ LED / เลเซอร์</span></p>
+</div>
+<div class="card tight">
+<h4 style="margin-top:0">Generation</h4>
+<p style="margin-bottom:0">e⁻ ถูกกระตุ้นจาก VB ขึ้น CB<br>
+พลังงานมาจาก <b>โฟตอน</b> (แสง) หรือ <b>ความร้อน</b><br>
+<span class="hl">← หลักการของโซลาร์เซลล์ / โฟโตไดโอด</span></p>
+</div>
+</div>
+
+<h3>② R–G Centers (recombination–generation centers) ⭐</h3>
+<div class="card">
+<p><b>คืออะไร:</b> <b>ระดับพลังงานสิ่งเจือปน</b> ที่เกิดจาก <b>ความบกพร่องของผลึก (lattice defects)</b> หรืออะตอมเจือปนพิเศษ ซึ่งสร้างระดับพลังงานอยู่<b>ใกล้กึ่งกลาง gap</b></p>
+<p><b>ตัวอย่างใน Si (ที่สไลด์ระบุ):</b> <span class="pill">Fe</span><span class="pill">Cr</span><span class="pill">Mn</span><span class="pill">Cu</span><span class="pill">Au</span></p>
+<p><b>กลไก:</b> e⁻ ตกจาก CB มาพัก "ครึ่งทาง" ที่ R–G center ก่อน แล้วค่อยตกลงไปรวมกับ hole (แทนที่จะกระโดดทีเดียว)</p>
+<div class="box key" style="margin-bottom:0">
+<span class="t">🔑 จุดต่างสำคัญ</span>
+พลังงานส่วนเกินถูกคายเป็น <b>ความร้อน (HEAT) ถ่ายให้ผลึกโดยตรง</b> ไม่ใช่โฟตอน<br>
+→ เรียกกระบวนการนี้ว่า <b>NON-RADIATIVE recombination</b> (การรวมตัวแบบไม่เปล่งแสง)<br>
+<span class="small">ความหนาแน่นของ R–G center ปกติ <b>ต่ำมาก</b> เมื่อเทียบกับความหนาแน่นของ dopant</span>
+</div>
+</div>
+
+<h3>③ Auger Recombination (อ่านว่า "โอ-เฌ") ⭐</h3>
+<div class="card">
+<p><b>เงื่อนไขที่เกิด:</b> <span class="hl">บริเวณที่โดปหนักมาก ๆ (heavily doped)</span> ของอุปกรณ์</p>
+<p><b>กลไก:</b></p>
+<ol>
+<li>อิเล็กตรอน 2 ตัวใน conduction band <b>ชนกัน</b></li>
+<li>ตัวหนึ่ง<b>รวมตัวกับ hole</b> ใน VB</li>
+<li>พลังงานส่วนเกินไม่ได้เป็นโฟตอน แต่ถูก<b>อิเล็กตรอนอีกตัวดูดซับไว้</b> → มันกลายเป็นอิเล็กตรอนพลังงานสูงมาก</li>
+<li>อิเล็กตรอนพลังงานสูงตัวนั้นค่อย ๆ <b>คายพลังงานผ่านการชนกับผลึกหลายครั้ง</b> จนกลับสู่สมดุล</li>
+</ol>
+<div class="box" style="margin-bottom:0">
+<span class="t">💡 ทำไมต้องโดปหนัก</span>
+โอกาสที่พาหะจะชนกันเอง (carrier–carrier scattering) <b>เพิ่มตามความเข้มข้นพาหะ</b> → โดปหนัก = พาหะแน่น = ชนกันบ่อย<br>
+<span class="small">มีกระบวนการคล้ายกันที่เกิดจาก <b>โฮล 2 ตัวชนกันใน valence band</b> ได้เช่นกัน</span>
+</div>
+</div>
+
+<h3>④ Impact Ionization ⭐</h3>
+<div class="card">
+<p><b>เงื่อนไขที่เกิด:</b> <span class="hl">บริเวณที่มีสนามไฟฟ้าสูงมาก (high electric field)</span></p>
+<p><b>กลไก:</b> พาหะที่ถูกสนามเร่งจนพลังงานสูงมาก → <b>ชนกับผลึก</b> → ปลดปล่อยพลังงานออกมา → พลังงานนั้นไป<b>สร้างคู่ e⁻–hole ใหม่</b></p>
+<div class="box key">
+<span class="t">🔑 2 ประโยคที่ต้องจำ</span>
+① Impact ionization คือ <b>กระบวนการผกผัน (inverse) ของ Auger recombination</b><br>
+&nbsp;&nbsp;&nbsp;(Auger: ชน → พาหะหาย · Impact: ชน → พาหะเกิด)<br>
+② Impact ionization คือสาเหตุของ <b>การพังทลายของ pn junction แบบ AVALANCHE</b> (avalanche breakdown)<br>
+&nbsp;&nbsp;&nbsp;<span class="small">— เพราะพาหะใหม่ก็ถูกเร่ง แล้วไปชนสร้างพาหะใหม่อีก = ลูกโซ่หิมะถล่ม</span>
+</div>
+<p style="margin-bottom:0" class="small">📌 ในรูปสไลด์: สังเกต<b>แถบพลังงานเอียงชันมาก</b> ← เพราะสนามไฟฟ้าแรง (ใช้ความรู้ band bending จากบท 2!)</p>
+</div>
+
+<h4>ตารางเปรียบเทียบ 4 กลไก (สรุปให้จำ)</h4>
+<table>
+<thead><tr><th>กลไก</th><th>R หรือ G</th><th>เกิดที่ไหน/เมื่อไหร่</th><th>พลังงานไปไหน/มาจากไหน</th></tr></thead>
+<tbody>
+<tr><td><b>Band-to-band</b></td><td>ทั้งคู่</td><td>ทั่วไป</td><td>โฟตอน (E = E<sub>g</sub>) / ความร้อน</td></tr>
+<tr><td><b>R–G center</b></td><td>ทั้งคู่</td><td>มีสิ่งเจือปน/ defect (Fe,Cr,Mn,Cu,Au)</td><td><b>ความร้อน</b> → non-radiative</td></tr>
+<tr><td><b>Auger</b></td><td><b>R</b> เท่านั้น</td><td><b>โดปหนัก</b></td><td>อิเล็กตรอนอีกตัวดูดไป</td></tr>
+<tr><td><b>Impact ionization</b></td><td><b>G</b> เท่านั้น</td><td><b>สนามไฟฟ้าสูง</b></td><td>พลังงานจลน์ของพาหะเร็ว → avalanche</td></tr>
+</tbody>
+</table>
+
+<h2>4.3 Direct vs Indirect Semiconductor ⭐⭐ (จุดพีคของบทนี้)</h2>
+
+<div class="box why">
+<span class="t">🎯 ทำไมต้องมีหัวข้อนี้</span>
+ที่ผ่านมาเราคิดแต่ <b>การอนุรักษ์พลังงาน</b> — แต่ฟิสิกส์บังคับให้ <b>โมเมนตัมต้องอนุรักษ์ด้วย</b>!<br>
+→ ต้องดูว่าโฟตอนกับโฟนอน "มีโมเมนตัมพอไหม"
+</div>
+
+<h3>เปรียบเทียบโฟตอน vs โฟนอน vs อิเล็กตรอน</h3>
+<table>
+<thead><tr><th></th><th>พลังงาน</th><th>โมเมนตัม</th></tr></thead>
+<tbody>
+<tr><td><b>โฟตอน</b> (แสง)</td><td class="n">สูง (1 eV)</td><td class="p">ต่ำมาก (~5.3×10⁻²⁸ kg·m/s)</td></tr>
+<tr><td><b>โฟนอน</b> (การสั่นของผลึก แบบควอนไทซ์)</td><td class="p">ต่ำ</td><td class="n">สูง</td></tr>
+<tr><td><b>อิเล็กตรอนในผลึก</b> (v ~10⁵ m/s)</td><td>—</td><td class="num">~9.1×10⁻²⁶ kg·m/s</td></tr>
+</tbody>
+</table>
+<div class="box key">
+<span class="t">🔑 ตัวเลขสำคัญจากสไลด์</span>
+โมเมนตัมอิเล็กตรอน (9.1×10⁻²⁶) มากกว่าโมเมนตัมโฟตอน (5.3×10⁻²⁸) ประมาณ <b>170 เท่า</b><br>
+→ <b>โฟตอนเปลี่ยนโมเมนตัมของอิเล็กตรอนแทบไม่ได้เลย</b> — เปลี่ยนได้แต่พลังงาน<br>
+→ ถ้าต้องเปลี่ยนโมเมนตัมด้วย <b>ต้องอาศัยโฟนอน</b>
+</div>
+
+<h3>กราฟ E–k (dispersion curve)</h3>
+<div class="dia">
+<svg viewBox="0 0 640 280" xmlns="http://www.w3.org/2000/svg">
+<defs><style>.ax{stroke:#6b7686;stroke-width:1.3}.lb{fill:#a3adbd;font:12px sans-serif}
+.lb2{fill:#e6e9ef;font:700 13.5px sans-serif}</style>
+<marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#ffcc66"/></marker>
+<marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#c08cff"/></marker>
+</defs>
+<!-- DIRECT -->
+<text class="lb2" x="70" y="24" fill="#7ee081">DIRECT  (GaAs, GaN)</text>
+<line class="ax" x1="40" y1="250" x2="290" y2="250"/><line class="ax" x1="165" y1="250" x2="165" y2="40"/>
+<text class="lb" x="292" y="254">k</text><text class="lb" x="140" y="36">E</text>
+<path d="M75,70 Q165,190 255,70" fill="none" stroke="#5aa9ff" stroke-width="2.6" transform="translate(0,-15)"/>
+<path d="M75,215 Q165,105 255,215" fill="none" stroke="#7ee081" stroke-width="2.6"/>
+<line x1="165" y1="93" x2="165" y2="140" stroke="#ffcc66" stroke-width="2.4" marker-end="url(#ar)"/>
+<text class="lb" x="172" y="122" fill="#ffcc66">E_g</text>
+<text class="lb" x="100" y="118" fill="#5aa9ff">CB</text><text class="lb" x="100" y="180" fill="#7ee081">VB</text>
+<text class="lb" x="52" y="272" fill="#ffcc66">ต่ำสุด CB / สูงสุด VB อยู่ k เดียวกัน</text>
+<!-- INDIRECT -->
+<text class="lb2" x="390" y="24" fill="#ff8a7a">INDIRECT  (Si, Ge)</text>
+<line class="ax" x1="350" y1="250" x2="620" y2="250"/><line class="ax" x1="435" y1="250" x2="435" y2="40"/>
+<text class="lb" x="622" y="254">k</text><text class="lb" x="410" y="36">E</text>
+<path d="M455,60 Q545,175 620,80" fill="none" stroke="#5aa9ff" stroke-width="2.6"/>
+<path d="M355,215 Q435,105 515,215" fill="none" stroke="#7ee081" stroke-width="2.6"/>
+<circle cx="545" cy="130" r="4.5" fill="#5aa9ff"/><circle cx="435" cy="107" r="4.5" fill="#7ee081"/>
+<path d="M545,130 L545,107 L442,107" fill="none" stroke="#c08cff" stroke-width="2" stroke-dasharray="5 3" marker-end="url(#ar2)"/>
+<text class="lb" x="470" y="100" fill="#c08cff">ต้องเปลี่ยน k ด้วย!</text>
+<text class="lb" x="360" y="272" fill="#ff8a7a">ต่ำสุด CB กับสูงสุด VB อยู่คนละ k</text>
+</svg>
+</div>
+
+<div class="grid c2">
+<div class="card">
+<h4 style="margin-top:0" class="n">DIRECT — เช่น GaAs</h4>
+<ul>
+<li>จุดต่ำสุดของ CB และจุดสูงสุดของ VB อยู่ที่ <b>wavevector (k) เดียวกัน</b></li>
+<li>ทรานซิชันด้วยโฟตอนล้วน <b>ทำได้ (ALLOWED)</b> เพราะ<b>ไม่ต้องเปลี่ยนโมเมนตัม</b></li>
+<li>ปล่อยแสงได้ดี → <b>ใช้ทำ LED, LASER, optoelectronics</b></li>
+</ul>
+<p style="margin-bottom:0"><b>ตัวอย่าง:</b> GaAs, GaN</p>
+</div>
+<div class="card">
+<h4 style="margin-top:0" class="p">INDIRECT — เช่น Si, Ge</h4>
+<ul>
+<li>จุดต่ำสุดของ CB กับจุดสูงสุดของ VB อยู่ที่ <b>k ต่างกัน</b></li>
+<li>ทรานซิชันด้วยโฟตอนอย่างเดียว <b>แทบเป็นไปไม่ได้ (UNLIKELY)</b></li>
+<li>ต้อง <b>ปล่อยโฟตอน + โฟนอน "พร้อมกัน"</b><br>
+   โฟตอน = จัดการ<b>พลังงาน</b> · โฟนอน = จัดการ<b>โมเมนตัม</b></li>
+<li>การปล่อยพร้อมกัน 2 อนุภาคนี้<b>โอกาสต่ำ</b> → ปล่อยแสงแย่</li>
+</ul>
+<p style="margin-bottom:0"><b>ตัวอย่าง:</b> Si, Ge</p>
+</div>
+</div>
+
+<div class="box key">
+<span class="t">🔑 คำถามคลาสสิกที่ต้องตอบได้</span>
+<b>"ทำไม LED ถึงไม่ทำจากซิลิกอน ทั้งที่ซิลิกอนถูกและผลิตง่ายกว่ามาก?"</b><br>
+ตอบ: เพราะ Si เป็น <b>indirect band gap</b> — จุดต่ำสุด CB กับสูงสุด VB อยู่คนละ k<br>
+การรวมตัวจึงต้องอาศัยทั้งโฟตอนและโฟนอนพร้อมกัน ซึ่งมีโอกาสเกิดต่ำมาก<br>
+→ Si แสดง <b>optically-induced R–G effects อ่อนมาก</b> · ต้องใช้วัสดุ direct gap อย่าง GaAs/GaN แทน
+</div>
+
+<h2>📋 เช็กลิสต์บท 4 (สั้น ๆ แต่ต้องแม่น)</h2>
+<div class="card">
+<ol>
+<li>Recombination กับ Generation ต่างกันยังไง</li>
+<li>Band-to-band recombination คายพลังงานเป็นอะไร มีค่าเท่าไร</li>
+<li>R–G center คืออะไร อยู่ตรงไหนใน gap เกิดจากอะไร ยกตัวอย่างธาตุใน Si</li>
+<li>ทำไม R–G center ถึงเรียกว่า <b>non-radiative</b></li>
+<li>Auger recombination เกิดที่ไหน อธิบายกลไก 4 ขั้น</li>
+<li>Impact ionization เกิดเมื่อไหร่ เป็นผกผันของอะไร ทำให้เกิดปรากฏการณ์อะไรใน diode</li>
+<li>เปรียบเทียบพลังงาน/โมเมนตัมของโฟตอนกับโฟนอน</li>
+<li>Direct vs Indirect ต่างกันยังไงในกราฟ E–k · ยกตัวอย่างวัสดุ</li>
+<li>ทำไมวัสดุ indirect ถึงเปล่งแสงไม่ดี</li>
+</ol>
+</div>
+
+<div class="nextprev">
+  <a href="ch3.html">← บทที่ 3</a>
+  <a href="ch5.html">บทที่ 5 → pn Junction (บทไคลแมกซ์)</a>
+</div>
+</main>
+</body>
+</html>

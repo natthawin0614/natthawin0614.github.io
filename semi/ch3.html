@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>บท 3 · Drift &amp; Diffusion</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <span class="brand">05366035 <span>Semiconductor</span></span>
+  <a href="index.html">แผนอ่าน</a>
+  <a href="ch1.html">1. พื้นฐาน</a>
+  <a href="ch2.html">2. สถิติพาหะ</a>
+  <a href="ch3.html" class="active">3. Drift/Diffusion</a>
+  <a href="ch4.html">4. R–G</a>
+  <a href="ch5.html">5. pn Junction</a>
+  <a href="formulas.html">📐 สูตร</a>
+  <a href="drill.html">✍️ ตะลุยโจทย์</a>
+</div></header>
+<main>
+
+<h1><span class="tag c3">Lecture 03</span> การเคลื่อนที่และการแพร่ของพาหะ</h1>
+<p class="lead">Drift · Mobility · Resistivity · Diffusion · Einstein relation<br>
+<span class="small">= สรุปรุ่นพี่ "บทที่ 5" · สไลด์ 21 หน้า · <b>บทที่แทนเลขได้ตรง ๆ — เก็บแต้มง่ายที่สุด</b></span></p>
+
+<div class="box why">
+<span class="t">🎯 บทนี้ตอบคำถามว่า</span>
+บทที่แล้วนับได้ว่ามีพาหะกี่ตัว “แล้วมันวิ่งยังไงถึงเกิดเป็นกระแส?”<br>
+คำตอบ: วิ่งได้ <b>2 แบบเท่านั้น</b> — <b>Drift</b> (ถูกสนามผลัก) และ <b>Diffusion</b> (แพร่เอง)
+</div>
+
+<h2>3.1 Drift — การเคลื่อนที่ในสนามไฟฟ้า</h2>
+
+<div class="box">
+<span class="t">🌡️ ภาพก่อนใส่สนาม</span>
+ที่อุณหภูมิห้อง พาหะวิ่ง <b>เร็วมากแต่สะเปะสะปะ (random thermal motion)</b> ชนกับความไม่สมบูรณ์ของผลึกตลอดเวลา<br>
+→ แม้วิ่งเร็วมาก แต่ <b>กระแสสุทธิ = 0</b> เพราะไปทุกทิศเท่ากัน<br>
+พอใส่สนามไฟฟ้า → เกิดการ "ไหลเอื่อย ๆ" (slow drift) <b>ซ้อนทับบน</b>การเดินสุ่ม → เกิดกระแส
+</div>
+
+<div class="fx"><span class="fxname">ความเร็วดริฟต์ (สมการ 3.1, 3.2) — τ = relaxation time = เวลาเฉลี่ยระหว่างการชน</span>
+โฮล      :  v_d,p = <b>+</b>(qτ / m*ₚ) · E
+อิเล็กตรอน :  v_d,n = <b>−</b>(qτ / m*ₙ) · E     ← เครื่องหมายลบ = วิ่งสวนสนาม
+</div>
+
+<h3>Mobility (μ) — "ความคล่องตัว"</h3>
+<div class="fx"><span class="fxname">สมการ 3.3–3.6</span>
+<b>μₚ = qτ / m*ₚ</b>        <b>μₙ = qτ / m*ₙ</b>     [หน่วย: cm²/V·s]
+
+⇒  v_d,p = <b>+μₚ E</b>        v_d,n = <b>−μₙ E</b>
+</div>
+<p><b>ตีความ:</b> μ บอกว่าพาหะ "ถูกสนามไฟฟ้าเร่งได้ง่ายแค่ไหน" — <b>m* เล็ก ⇒ μ ใหญ่</b> · <b>τ ยาว (ชนน้อย) ⇒ μ ใหญ่</b></p>
+
+<div class="box warn">
+<span class="t">⚠️ ข้อยกเว้นที่ออกสอบ: Velocity saturation</span>
+ความสัมพันธ์ v<sub>d</sub> ∝ E เป็น<b>เชิงเส้นเฉพาะที่สนามปานกลาง</b><br>
+ที่สนามสูงมาก ๆ → v<sub>d</sub> <b>อิ่มตัว (saturate)</b> และ e⁻ กับ hole อิ่มตัวที่ค่า<b>เดียวกัน</b><br>
+<b>เหตุผล:</b> เมื่อ v<sub>d</sub> เทียบเท่าความเร็วเชิงความร้อนแล้ว พลังงานที่สนามป้อนเข้าไปจะ<b>ถ่ายเทให้ผลึก (lattice)</b> แทนที่จะไปเร่งพาหะให้เร็วขึ้น
+</div>
+
+<h3>μ ขึ้นกับอุณหภูมิยังไง — กราฟที่ต้องวาดเป็น</h3>
+<p>μ ถูกกำหนดโดย <b>อัตราการชนรวม</b> ซึ่งมี 2 กลไกหลักที่แข่งกัน</p>
+
+<div class="fx"><span class="fxname">สมการ 3.7–3.9</span>
+① Lattice scattering (การสั่นของอะตอมจากความร้อน)   :  1/τ_l  ∝ T^(<b>+</b>3/2)
+② Ionized-dopant scattering (ชนกับไอออนของสารเจือ) :  1/τ_ii ∝ T^(<b>−</b>3/2)
+
+รวมกันแบบ Matthiessen:   <b>1/τ = 1/τ_l + 1/τ_ii</b>
+</div>
+
+<div class="dia">
+<svg viewBox="0 0 600 250" xmlns="http://www.w3.org/2000/svg">
+<defs><style>.ax{stroke:#6b7686;stroke-width:1.4}.lb{fill:#a3adbd;font:12.5px sans-serif}
+.lb2{fill:#e6e9ef;font:600 12.5px sans-serif}</style></defs>
+<line class="ax" x1="70" y1="205" x2="560" y2="205"/><line class="ax" x1="70" y1="205" x2="70" y2="25"/>
+<text class="lb" x="250" y="232">log T  →</text><text class="lb" x="8" y="22">log μ</text>
+<path d="M90,190 L280,60" stroke="#5aa9ff" stroke-width="2.4" stroke-dasharray="6 4"/>
+<path d="M300,60 L520,195" stroke="#ff8a7a" stroke-width="2.4" stroke-dasharray="6 4"/>
+<path d="M90,192 C170,140 240,72 290,66 C340,72 420,140 520,197" fill="none" stroke="#ffcc66" stroke-width="3"/>
+<text class="lb2" x="98" y="120" fill="#5aa9ff">μ ∝ T^(+3/2)</text>
+<text class="lb2" x="98" y="140" fill="#5aa9ff">IONIZED IMPURITIES ครอง</text>
+<text class="lb2" x="400" y="105" fill="#ff8a7a">μ ∝ T^(−3/2)</text>
+<text class="lb2" x="400" y="125" fill="#ff8a7a">LATTICE VIBRATION ครอง</text>
+<text class="lb2" x="255" y="45" fill="#ffcc66">μ จริง (มีจุดสูงสุด)</text>
+</svg>
+<div class="cap">μ มีพฤติกรรม <b>ไม่ทางเดียว (non-monotonic)</b> เพราะสองกลไกแข่งกันคนละทิศ</div>
+</div>
+
+<table>
+<thead><tr><th>ช่วง</th><th>กลไกที่ครอบงำ</th><th>เหตุผล</th><th>μ ∝</th></tr></thead>
+<tbody>
+<tr><td><b>T ต่ำ</b></td><td>ionized dopant</td><td>พาหะวิ่งช้า (v<sub>thermal</sub>ต่ำ) → ถูกไอออนดึงเบี่ยงได้ง่าย · และผลึกแทบไม่สั่น</td><td class="num">T<sup>+3/2</sup> (μ เพิ่มตาม T)</td></tr>
+<tr><td><b>T สูง</b></td><td>lattice vibration</td><td>อะตอมสั่นแรง = ผลึกไม่เป็นระเบียบ → ชนบ่อย</td><td class="num">T<sup>−3/2</sup> (μ ลดตาม T)</td></tr>
+</tbody>
+</table>
+
+<h3>μ ขึ้นกับความเข้มข้นการโดปยังไง</h3>
+<ul>
+<li><b>โดปน้อย</b> → lattice scattering ครอบงำ → <b>μ ไม่ขึ้นกับการโดป</b> (กราฟราบ)</li>
+<li><b>โดปมาก</b> → ไอออนเยอะขึ้น → ionized impurity scattering ชนะ → <b>μ ลดลง</b></li>
+</ul>
+<div class="box key">
+<span class="t">🔑 นี่คือเหตุผลว่าทำไมโจทย์ถึงชอบให้ μ คนละค่าตอนโดปกับไม่โดป</span>
+เช่นสไลด์: Si บริสุทธิ์ μ<sub>n</sub>=1350 แต่พอโดป N<sub>D</sub>=10¹⁷ ให้ใช้ μ<sub>n</sub>=<b>800</b> cm²/Vs (ลดลงเพราะ ionized impurity scattering)<br>
+<span class="hl">อย่าเผลอใช้ค่าเดิม!</span>
+</div>
+
+<h4>ตาราง μ ที่ 300 K (ต้องคุ้นตา)</h4>
+<table>
+<thead><tr><th>วัสดุ</th><th>μ<sub>n</sub> (cm²/Vs)</th><th>μ<sub>p</sub> (cm²/Vs)</th><th>D<sub>n</sub> (cm²/s)</th><th>D<sub>p</sub> (cm²/s)</th><th>D/μ (V)</th></tr></thead>
+<tbody>
+<tr><td><b>Ge</b></td><td class="num">3900</td><td class="num">1900</td><td class="num">100</td><td class="num">50</td><td class="num">0.026</td></tr>
+<tr><td><b>Si</b></td><td class="num">1350</td><td class="num">480</td><td class="num">35</td><td class="num">12.5</td><td class="num">0.026</td></tr>
+<tr><td><b>GaAs</b></td><td class="num">8500</td><td class="num">400</td><td class="num">220</td><td class="num">10</td><td class="num">0.026</td></tr>
+</tbody>
+</table>
+<p class="small">👀 สังเกต 2 อย่าง: (1) <b>μ<sub>n</sub> &gt; μ<sub>p</sub> เสมอ</b> · (2) <b>D/μ = 0.026 V ทุกช่องเป๊ะ</b> ← นี่คือ Einstein relation</p>
+
+<h2>3.2 กระแส Drift และ Resistivity</h2>
+
+<div class="box">
+<span class="t">📐 ที่มาของ J (อาจารย์ derive ให้ในสไลด์)</span>
+พิจารณาผิวอ้างอิงพื้นที่ A · โฮลความเข้มข้น p วิ่งด้วย v<sub>p</sub><br>
+ในเวลา 1 หน่วย โฮลที่ข้ามผิวได้ = โฮลในกล่องปริมาตร <b>A·v<sub>p</sub></b> = <b>p·A·v<sub>p</sub></b> ตัว<br>
+กระแส = ประจุต่อเวลา = q·p·A·v<sub>p</sub> · <b>ความหนาแน่นกระแส J = กระแส/A = q·p·v<sub>p</sub></b>
+</div>
+
+<div class="fx"><span class="fxname">สมการ 3.10, 3.11 — <b>สังเกตว่าไม่มีเครื่องหมายลบทั้งคู่!</b></span>
+J_P|drift = q p v_d,p = <b>q p μₚ E</b>
+J_N|drift = q n |v_d,n| = <b>q n μₙ E</b>
+</div>
+
+<div class="box key">
+<span class="t">🔑 ทำไมกระแสของ e⁻ กับ hole ถึง "บวกกัน"</span>
+อิเล็กตรอน: ประจุ<b>ลบ</b> × วิ่ง<b>สวน</b>สนาม = ลบ × ลบ = <b>บวก</b><br>
+โฮล: ประจุ<b>บวก</b> × วิ่ง<b>ตาม</b>สนาม = บวก × บวก = <b>บวก</b><br>
+→ ทั้งคู่ชี้ทางเดียวกับสนาม ⇒ <span class="hl">กระแสรวมกัน ไม่หักล้าง</span>
+</div>
+
+<div class="fx"><span class="fxname">⭐ Ohm's law และ Resistivity (สมการ 3.12–3.14)</span>
+J = σE = E/ρ
+
+J = J_P + J_N = ( q p μₚ + q n μₙ ) E
+
+⇒  <b>σ = q(n μₙ + p μₚ)</b>          [S/cm]
+⇒  <b>ρ = 1 / [ q(n μₙ + p μₚ) ]</b>   [Ω·cm]
+</div>
+
+<div class="fx"><span class="fxname">กรณีโดปข้างเดียว (สมการ 3.15, 3.16) — ตัวส่วนตัวเดียวหายไป</span>
+n-type หนัก (N_D ≫ N_A):  ρ = 1 / (q μₙ N_D)
+p-type หนัก (N_A ≫ N_D):  ρ = 1 / (q μₚ N_A)
+      ⚠️ ใช้ได้เมื่อสมมติว่า dopant ionize เต็มที่เท่านั้น
+</div>
+
+<div class="card">
+<h4 style="margin-top:0">📝 ตัวอย่างจากสไลด์ (ออกสอบแน่ ๆ)</h4>
+<p class="small">Si @300K · μ<sub>n</sub>=1350, μ<sub>p</sub>=480 cm²/Vs · n<sub>i</sub>=10¹⁰ cm⁻³ · จงหา ρ ของ Si บริสุทธิ์ และเมื่อโดป N<sub>D</sub>=10¹⁷ (ใช้ μ<sub>n</sub>=800)</p>
+<div class="fx">Si บริสุทธิ์ (n = p = n_i):
+ρ = 1/[q·n_i·(μₙ+μₚ)]
+  = 1/[1.6×10⁻¹⁹ × 10¹⁰ × (1350+480)]
+  = <b>3.4×10⁵ Ω·cm</b>        ← สูงมาก แทบเป็นฉนวน
+
+โดป N_D = 10¹⁷ cm⁻³ (n ≈ N_D, μₙ = 800):
+ρ = 1/(q μₙ N_D)
+  = 1/[1.6×10⁻¹⁹ × 800 × 10¹⁷]
+  = <b>0.08 Ω·cm</b>           ← ลดลง 4 ล้านเท่า!
+</div>
+<p class="small" style="margin-bottom:0">💡 นี่คือ<b>พลังของการโดป</b> ที่บทที่ 1 พูดถึง แสดงเป็นตัวเลขจริง</p>
+</div>
+
+<div class="box ok">
+<span class="t">💡 การประยุกต์จริง</span>
+กราฟ ρ vs doping ในสไลด์ใช้ <b>วัดความต้านทาน → อ่านย้อนกลับหาความเข้มข้นการโดปได้</b> (เป็นวิธีมาตรฐานในโรงงาน)
+</div>
+
+<h2>3.3 Diffusion — การแพร่</h2>
+
+<div class="box key">
+<span class="t">🔑 ความต่างที่ต้องพูดได้ (คำถาม concept ยอดฮิต)</span>
+<table style="margin:.5em 0 0">
+<thead><tr><th></th><th>Drift</th><th>Diffusion</th></tr></thead>
+<tbody>
+<tr><td><b>แรงขับ</b></td><td>สนามไฟฟ้า E</td><td>ความร้อน (thermal energy)</td></tr>
+<tr><td><b>สาเหตุ</b></td><td>มีแรงดันตกคร่อม</td><td>มี <b>ความชันความเข้มข้น</b> (concentration gradient)</td></tr>
+<tr><td><b>เป้าหมาย</b></td><td>—</td><td>ให้พาหะกระจายตัว <b>สม่ำเสมอ</b></td></tr>
+<tr><td><b>สัมประสิทธิ์</b></td><td>μ (mobility)</td><td>D (diffusion coefficient) [cm²/s]</td></tr>
+</tbody>
+</table>
+<span class="small">ข้อต่างสำคัญจากการแพร่ของก๊าซทั่วไป: พาหะใน semiconductor <b>มีประจุ</b> → การแพร่จึงสร้าง<b>กระแสไฟฟ้า</b>จริง ๆ</span>
+</div>
+
+<div class="fx"><span class="fxname">Fick's Law — F = ฟลักซ์ (จำนวนอนุภาคผ่านพื้นที่ 1 หน่วยต่อเวลา), η = ความเข้มข้น</span>
+F = −D ∇η          (เครื่องหมายลบ = ไหลจากมากไปน้อย)
+</div>
+
+<div class="fx"><span class="fxname">⭐ กระแสแพร่ (สมการ 3.17, 3.18) — <b>ระวังเครื่องหมาย!</b></span>
+โฮล      :  J_P|diff = <b>−</b> q D_p · dp/dx
+อิเล็กตรอน :  J_N|diff = <b>+</b> q D_n · dn/dx
+</div>
+
+<div class="box warn">
+<span class="t">⚠️ ทำไมเครื่องหมายต่างกัน — โจทย์ชอบดักตรงนี้</span>
+โฮลกับอิเล็กตรอนแพร่ไป<b>ทางเดียวกัน</b> (จากที่เข้มข้นมาก → น้อย) แต่<b>ประจุตรงข้าม</b><br>
+→ โฮลแพร่ไป +x ⇒ กระแสไป +x · อิเล็กตรอนแพร่ไป +x ⇒ <b>กระแสไป −x</b><br>
+<span class="hl">"กระแสแพร่ไหลไปในทิศที่ p ลดลง หรือ n เพิ่มขึ้น"</span> (ประโยคในสไลด์)
+</div>
+
+<div class="fx"><span class="fxname">⭐⭐ กระแสรวม = drift + diffusion (สมการ 3.19–3.21)</span>
+<b>J_P = q p μₚ E  −  q D_p (dp/dx)</b>
+<b>J_N = q n μₙ E  +  q D_n (dn/dx)</b>
+<b>J   = J_P + J_N</b>
+</div>
+
+<h2>3.4 สมดุล: drift = −diffusion ⭐ (กุญแจสู่บท 5)</h2>
+
+<p>ที่สมดุลความร้อนและไม่มีสนามภายนอก → กระแสสุทธิ = 0<br>
+และเพราะ e⁻ กับ hole เคลื่อนที่<b>อิสระต่อกัน</b> ⇒ ต้องเป็นศูนย์<b>แยกกันทั้งคู่</b></p>
+
+<div class="fx"><span class="fxname">สมการ 3.22, 3.23</span>
+J_P|drift = <b>−</b> J_P|diff
+J_N|drift = <b>−</b> J_N|diff
+</div>
+
+<div class="box key">
+<span class="t">🔑🔑 ข้อสรุปที่ "น่าทึ่ง" ที่สุดของบทนี้ (อาจารย์เขียนว่า VERY INTERESTING)</span>
+<b>กระแส drift จะเป็นศูนย์ก็ต่อเมื่อไม่มีความชันความเข้มข้นเท่านั้น</b><br>
+ถ้ามีความชันความเข้มข้นอยู่ → จะมีกระแส diffusion → ต้องมีกระแส drift มาหักล้าง<br>
+<b>แม้จะไม่มีแบตเตอรี่หรือแรงดันจากภายนอกเลย!</b><br><br>
+แล้ว drift มาจากไหน? → มาจาก <span class="hl">สนามไฟฟ้าในตัว (BUILT-IN electric field)</span> ที่ตัว diffusion เองสร้างขึ้นมา<br>
+<b>← นี่แหละคือหลักการทำงานของ pn junction ทั้งอัน (บท 5)</b>
+</div>
+
+<h2>3.5 Einstein Relation ⭐⭐</h2>
+
+<p><b>สังหรณ์:</b> ทั้ง drift และ diffusion เกิดจาก<b>การชนแบบเดียวกัน</b> (τ ตัวเดียวกัน) → μ กับ D จึงต้องเกี่ยวข้องกัน</p>
+
+<details>
+<summary>ดูการพิสูจน์ (สไลด์ derive ให้ — อาจออกเป็นอัตนัย)</summary>
+<div class="ans">
+<div class="fx">ก้าวที่ 1 — เริ่มจากสมดุลของอิเล็กตรอน (สมการ 3.24):
+   q μₙ n E(x) + q D_n (dn/dx) = 0
+
+ก้าวที่ 2 — ใช้ความสัมพันธ์จากบท 2 (สมการ 2.32):
+   E(x) = (1/q)·dE_i/dx
+
+ก้าวที่ 3 — ใช้ n = n_i·exp[(E_F−E_i)/k_BT] จากบท 2 หา dn/dx
+   (E_F คงที่เพราะอยู่ในสมดุล, ตัวที่แปรตาม x คือ E_i)
+   dn/dx = −(n/k_BT)·(dE_i/dx) = <b>−(q/k_BT)·n·E(x)</b>    ...(3.25)
+
+ก้าวที่ 4 — แทน (3.25) ลงใน (3.24):
+   q μₙ n E  +  q D_n · [−(q/k_BT) n E] = 0
+   q n E [ μₙ − q D_n/k_BT ] = 0
+⇒  <b>D_n/μₙ = k_BT/q</b>
+</div>
+<p style="margin-bottom:0">ทำแบบเดียวกันกับโฮลได้ D<sub>p</sub>/μ<sub>p</sub> = k<sub>B</sub>T/q เช่นกัน</p>
+</div>
+</details>
+
+<div class="fx"><span class="fxname">⭐⭐ Einstein relation (สมการ 3.26, 3.27)</span>
+<b>D_n/μₙ = D_p/μₚ = k_B T / q</b>
+
+@ 300 K:  k_BT/q = (1.38×10⁻²³ × 300)/(1.6×10⁻¹⁹) = <b>0.026 V</b>  ← จำค่านี้!
+</div>
+
+<div class="box warn">
+<span class="t">⚠️ เงื่อนไขที่ใช้ได้ (คำถาม concept)</span>
+การพิสูจน์ใช้ <code>n = n_i e^((E_F−E_i)/kT)</code> ซึ่งมาจากสมมติฐาน <b>non-degenerate</b><br>
+→ Einstein relation <b>ใช้ไม่ได้</b>กับสาร degenerate (โดปหนักมาก)
+</div>
+
+<h2>3.6 ตัวอย่างประยุกต์ 2 ข้อจากสไลด์ (ออกเป็นอัตนัยได้เลย)</h2>
+
+<div class="card">
+<h4 style="margin-top:0">📝 ตัวอย่าง A — Built-in field จาก doping profile แบบ exponential ⭐</h4>
+<p class="small"><b>โจทย์:</b> Si intrinsic ที่ 300 K ถูกโดป donor จากด้านหนึ่งให้ N<sub>D</sub> = N₀·exp(−ax) โดย N<sub>D</sub> ≫ n<sub>i</sub><br>
+จงหา E<sub>x</sub> ที่สมดุล และคำนวณเมื่อ a = 1 µm⁻¹</p>
+<div class="fx">เนื่องจาก N_D ≫ n_i ⇒ <b>n(x) ≈ N_D(x) = N₀ e^(−ax)</b>
+
+ที่สมดุล กระแสอิเล็กตรอนต้องเป็นศูนย์ (สมการ 3.25):
+   dn/dx = −(q/k_BT)·n·E(x)
+
+หา dn/dx จาก profile:
+   dn/dx = N₀·(−a)·e^(−ax) = −a·n(x)
+
+จับสองอันเท่ากัน:
+   −a·n = −(q/k_BT)·n·E(x)
+⇒ <b>E(x) = (k_B T / q)·a</b>      ← คงที่! ไม่ขึ้นกับ x
+
+แทนค่า a = 1 µm⁻¹ = 10⁴ cm⁻¹:
+   E = (1.38×10⁻²³ × 300)/(1.6×10⁻¹⁹) × 10⁴ = 0.026 × 10⁴
+     = <b>259 V/cm</b>
+</div>
+<div class="box ok" style="margin-bottom:0">
+<span class="t">✅ 2 ประโยคที่ต้องเขียนตอบด้วย (สไลด์เน้น)</span>
+<b>① สนามเป็นบวก</b> เพราะอิเล็กตรอนแพร่ออกไป ทิ้ง <b>ไอออน donor ที่มีประจุบวก</b> ไว้ข้างหลัง<br>
+<b>② สนามคงที่</b> (ไม่ขึ้นกับ x) → <b>แถบพลังงานจะเอียงด้วยความชันคงที่</b> ตามที่เรียนในบท 2
+</div>
+</div>
+
+<div class="card">
+<h4 style="margin-top:0">📝 ตัวอย่าง B — กระแสแพร่จาก profile เชิงเส้น</h4>
+<p class="small"><b>โจทย์:</b> Si @300K โดป acceptor 10¹⁵ cm⁻³ (⇒ p-type, e⁻ = minority) · ฉีด e⁻ เข้าไปที่ x=0 ให้ n=10¹¹ cm⁻³ ลดลง<b>เชิงเส้น</b>จนถึงค่าสมดุลที่ x=10 µm · μ<sub>n</sub>=1300 cm²/Vs · หา J<sub>N,diff</sub></p>
+<div class="fx">ก้าว 1 — หา D_n จาก Einstein:
+   D_n = μₙ·(k_BT/q) = 1300 × 0.026 = <b>33.8 cm²/s</b>
+
+ก้าว 2 — หา n ที่สมดุล (ปลายทาง):
+   n₀ = n_i²/N_A = (10¹⁰)²/10¹⁵ = 10⁵ cm⁻³   ← เล็กมากเทียบกับ 10¹¹ ทิ้งได้
+
+ก้าว 3 — ความชัน (เชิงเส้น ⇒ dn/dx = Δn/Δx):
+   dn/dx = (10⁵ − 10¹¹)/(10×10⁻⁴ cm) ≈ −10¹¹/10⁻³ = <b>−10¹⁴ cm⁻⁴</b>
+
+ก้าว 4 — แทนสูตร:
+   J_N|diff = q D_n (dn/dx) = (1.6×10⁻¹⁹)(33.8)(−10¹⁴)
+            ≈ <b>−0.54 A/cm²</b>
+</div>
+<p class="small" style="margin-bottom:0">👉 <b>เครื่องหมายลบ</b> = กระแสไหลไปทาง <b>−x</b> ทั้งที่<b>อิเล็กตรอนเคลื่อนที่ไปทาง +x</b> (เพราะประจุลบ) ← ต้องอธิบายให้ได้!</p>
+</div>
+
+<h2>📋 เช็กลิสต์บท 3</h2>
+<div class="card">
+<ol>
+<li>Drift กับ Diffusion ต่างกันยังไง (แรงขับ / สาเหตุ / สัมประสิทธิ์)</li>
+<li>เขียน μ = qτ/m* ได้ และอธิบายว่า m* เล็ก ⇒ μ ใหญ่</li>
+<li>Velocity saturation เกิดตอนไหน เพราะอะไร</li>
+<li>2 กลไก scattering คืออะไร ขึ้นกับ T ยังไง (T^±3/2) กลไกไหนครองที่ T ต่ำ/สูง</li>
+<li>ทำไม μ ลดลงเมื่อโดปมากขึ้น</li>
+<li>เขียน σ = q(nμ<sub>n</sub>+pμ<sub>p</sub>) และรูปแบบลัดสำหรับ n-type/p-type</li>
+<li>ทำไมกระแสของ e⁻ กับ hole ถึงบวกกัน ไม่หักล้าง</li>
+<li>เขียน J<sub>P,diff</sub> = −qD<sub>p</sub>dp/dx และ J<sub>N,diff</sub> = +qD<sub>n</sub>dn/dx ได้ พร้อมอธิบายเครื่องหมาย</li>
+<li>ที่สมดุล เกิดอะไรขึ้นกับ drift และ diffusion · แล้วมี drift ได้ยังไงถ้าไม่มีแบตเตอรี่</li>
+<li>เขียน Einstein relation + ค่า 0.026 V + เงื่อนไขที่ใช้ได้</li>
+<li>พิสูจน์ built-in field จาก N<sub>D</sub>=N₀e^(−ax) ได้ (E = k<sub>B</sub>Ta/q)</li>
+</ol>
+</div>
+
+<div class="nextprev">
+  <a href="ch2.html">← บทที่ 2</a>
+  <a href="ch4.html">บทที่ 4 → Recombination &amp; Generation</a>
+</div>
+</main>
+</body>
+</html>

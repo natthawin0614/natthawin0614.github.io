@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ตะลุยโจทย์</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <span class="brand">05366035 <span>Semiconductor</span></span>
+  <a href="index.html">แผนอ่าน</a>
+  <a href="ch1.html">1. พื้นฐาน</a>
+  <a href="ch2.html">2. สถิติพาหะ</a>
+  <a href="ch3.html">3. Drift/Diffusion</a>
+  <a href="ch4.html">4. R–G</a>
+  <a href="ch5.html">5. pn Junction</a>
+  <a href="formulas.html">📐 สูตร</a>
+  <a href="drill.html" class="active">✍️ ตะลุยโจทย์</a>
+</div></header>
+<main>
+
+<h1>✍️ ตะลุยโจทย์</h1>
+<p class="lead"><b>ส่วน A</b> การบ้านของปีคุณเอง (11 ข้อ) — <span class="hl">มีค่าที่สุด อ่านส่วนนี้ก่อน</span><br>
+<b>ส่วน B</b> ปรนัยจำลอง 40 ข้อ · <b>ส่วน C</b> อัตนัยจำลอง 3 ข้อใหญ่</p>
+
+<div class="box warn">
+<span class="t">📌 วิธีใช้ให้ได้ผล</span>
+<b>ปิดเฉลยไว้ก่อน ทำเองด้วยกระดาษจริงและเครื่องคิดเลขจริง</b> แล้วค่อยกดเปิด<br>
+การอ่านเฉลยเฉย ๆ ให้ความรู้สึกว่า "เข้าใจแล้ว" แต่ในห้องสอบจะทำไม่ออก
+</div>
+
+<hr>
+<h2 id="A">ส่วน A · การบ้านปี 2569 (ของจริง) 💎</h2>
+
+<h3>HW SET I — เน้นบท 1–2</h3>
+
+<div class="q">
+<div class="qh"><span class="tag essay">HW1-1</span> พิจารณา n-type semiconductor ที่อุณหภูมิ T และพิจารณา electron states ใน conduction band สอง states ที่มีพลังงานสูงกว่า E<sub>F</sub> เท่ากับ k<sub>B</sub>T และ 3k<sub>B</sub>T จงหาความน่าจะเป็นที่ทั้งสอง states จะถูกครอบครอง</div>
+<details><summary>ดูเฉลย</summary><div class="ans">
+<div class="fx">f(E,T) = 1/[e^((E−E_F)/k_BT) + 1]
+
+E−E_F = k_BT :  f = 1/(e¹+1) = 1/3.718 = <b>0.268</b>
+E−E_F = 3k_BT:  f = 1/(e³+1) = 1/21.086 = <b>0.047</b>
+</div>
+<p class="small" style="margin-bottom:0">🔑 จุดสำคัญ: <b>ไม่ต้องรู้ค่า T เลย</b> เพราะ k<sub>B</sub>T ตัดกันหมด — ข้อสอบชอบข้อแบบนี้เพราะเช็กว่าเข้าใจสูตรจริงไหม</p>
+</div></details>
+</div>
+
+<div class="q">
+<div class="qh"><span class="tag essay">HW1-2</span> จงหา electron concentration และ hole concentration ของ <b>intrinsic GaAs</b> ที่ T=300 K เมื่อ m*<sub>n</sub>=0.067m₀, m*<sub>p</sub>=0.52m₀, E<sub>g</sub>=1.42 eV</div>
+<details><summary>ดูเฉลย</summary><div class="ans">
+<div class="fx">ก้าว 1 — N_c = 2[2π m*ₙ k_BT / h²]^(3/2)
+  = 2[ (2π × 0.067 × 9.11×10⁻³¹ × 1.38×10⁻²³ × 300) / (6.626×10⁻³⁴)² ]^(3/2)
+  = <b>4.35 × 10²³ m⁻³</b>
+
+ก้าว 2 — N_v = 2[2π m*ₚ k_BT / h²]^(3/2)   (แทน 0.52m₀)
+  = <b>9.398 × 10²⁴ m⁻³</b>
+
+ก้าว 3 — n_i² = np = N_c N_v e^(−E_g/k_BT)
+     ⇒  n_i = √(N_c N_v) · e^(−E_g / 2k_BT)
+        = (4.35×10²³ × 9.398×10²⁴)^0.5 × e^(−1.42 / (2×0.026))
+        = <b>2.79×10¹² m⁻³ = 2.79×10⁶ cm⁻³</b>
+
+intrinsic ⇒ <b>n = p = 2.79×10⁶ cm⁻³</b>
+</div>
+<div class="box key" style="margin-bottom:0">
+<span class="t">🔑 ทริกที่ต้องเห็น</span>
+ในสูตร n<sub>i</sub>² = N<sub>c</sub>N<sub>v</sub>e^(−E<sub>g</sub>/kT) ตัว <b>E<sub>F</sub> หายไปหมด</b> เพราะ e^((E<sub>F</sub>−E<sub>c</sub>)/kT) × e^((E<sub>v</sub>−E<sub>F</sub>)/kT) = e^(−(E<sub>c</sub>−E<sub>v</sub>)/kT)<br>
+→ <b>ไม่ต้องหา E<sub>F</sub> เลยก็หา n<sub>i</sub> ได้</b> ← ประหยัดเวลามาก<br>
+สังเกต: GaAs มี n<sub>i</sub> ~10⁶ ต่ำกว่า Si (10¹⁰) 10,000 เท่า เพราะ E<sub>g</sub> ใหญ่กว่า
+</div>
+</div></details>
+</div>
+
+<div class="q">
+<div class="qh"><span class="tag essay">HW1-3</span> Si sample (n<sub>i</sub>=10¹⁰ cm⁻³ ที่ 300K) ถูก dope ด้วย <b>Sb 10¹⁵</b>, <b>P 10¹⁶</b>, <b>As 10¹⁷</b> cm⁻³<br>
+(a) หา n และ p · (b) เป็น semiconductor ประเภทใด · (c) ถ้า dope <b>B 10¹⁸</b> เพิ่ม หา n, p · (d) จากข้อ (c) เป็นประเภทใด</div>
+<details><summary>ดูเฉลย</summary><div class="ans">
+<p><b>ก้าวแรกสุด — ระบุว่าใครเป็น donor / acceptor</b><br>
+Sb, P, As = <b>หมู่ V = donor ทั้งหมด</b> → บวกกัน · B = <b>หมู่ III = acceptor</b></p>
+<div class="fx">(a) N_D,net = 10¹⁵ + 10¹⁶ + 10¹⁷ = <b>1.11 × 10¹⁷ cm⁻³ = n</b>
+    p = n_i²/N_D = (10¹⁰)² / 1.11×10¹⁷ = <b>9 × 10² cm⁻³</b>
+
+(b) n ≫ p  ⇒  <b>n-type</b>
+
+(c) เติม acceptor 10¹⁸ ⇒ N_net = N_A − N_D = 10¹⁸ − 1.11×10¹⁷
+                              = <b>8.89 × 10¹⁷ cm⁻³ = p</b>
+    n = n_i²/p = (10¹⁰)² / 8.89×10¹⁷ = <b>1.1 × 10² cm⁻³</b>
+
+(d) p ≫ n  ⇒  <b>p-type</b>  (พลิกจาก n-type เป็น p-type! เรียกว่า counter-doping)
+</div>
+<p class="small" style="margin-bottom:0">💀 กับดัก: ถ้าจำไม่ได้ว่า Sb (พลวง) เป็นหมู่ V จะพัง — <b>P, As, Sb คือ donor · B, Al, Ga, In คือ acceptor</b></p>
+</div></details>
+</div>
+
+<div class="q">
+<div class="qh"><span class="tag essay">HW1-4</span> Si sample ที่ 300 K ถูก dope ด้วย donors 5×10¹⁷ cm⁻³ และต่อมาถูก dope ด้วย acceptors 5.5×10¹⁷ cm⁻³ จงเขียนสมการแสดง charge neutrality equation ของ sample นี้ (คำตอบติด n และ p)</div>
+<details><summary>ดูเฉลย</summary><div class="ans">
+<div class="fx">สมการสมดุลประจุ:   n + N_A⁻ = p + N_D⁺
+             ⇒   <b>p − n = N_A⁻ − N_D⁺</b>
+                     = (5.5×10¹⁷) − (5×10¹⁷)
+                     = <b>5 × 10¹⁶ cm⁻³</b>
+
+เนื่องจาก p − n &gt; 0  ⇒  <b>p &gt; n  ⇒  p-type</b>
+</div>
+<p class="small" style="margin-bottom:0">💡 ข้อนี้เน้นให้ <b>เขียนสมการเป็น</b> ไม่ได้เน้นเลข — ถ้าจะหา p, n จริง ๆ ต้องใช้คู่กับ np=n<sub>i</sub>²</p>
+</div></details>
+</div>
+
+<div class="q">
+<div class="qh"><span class="tag essay">HW1-5</span> ⭐ Si sample (n<sub>i</sub>=10¹⁰ cm⁻³) dope ด้วย <b>B 10¹⁷</b> atoms/cm³<br>
+(a) หา electron concentration ที่ 300 K · (b) E<sub>F</sub> อยู่ต่ำหรือสูงกว่า E<sub>i</sub> เท่าไร แสดงวิธี · (c) วาด band diagram (E<sub>g</sub>=1.12 eV)</div>
+<details><summary>ดูเฉลย</summary><div class="ans">
+<div class="fx">โจทย์: N_A = 10¹⁷, N_D = 0, n_i = 10¹⁰
+สังเกต N_A ≫ n_i  ⇒ เข้าเงื่อนไข <b>heavily p-doped</b> ⇒ ใช้สูตรลัดได้
+
+(a)  p = N_A = 10¹⁷ cm⁻³ (ionize เต็มที่ที่ 300K)
+     <b>n = n_i²/N_A = (10¹⁰)²/10¹⁷ = 10³ cm⁻³</b>
+
+(b)  E_F − E_i = −k_BT·ln(p/n_i)
+              = −(8.62×10⁻⁵)(300)·ln(10¹⁷/10¹⁰)
+              = −(0.02585)(16.12)
+              = <b>−0.417 eV</b>
+     ⇒ E_F อยู่ <b>ต่ำกว่า</b> E_i อยู่ <b>0.417 eV</b>   ✓ (สมเหตุสมผล — p-type ต้องอยู่ครึ่งล่าง)
+
+(c)  E_c ────────────────────  E_c
+                              ↑
+                             0.56 eV        (E_g/2)
+     E_i ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+                              ↕ 0.417 eV
+     E_F ──────────────────    ← เกือบชิด E_v แต่ยังห่าง
+                              ↕ 0.56 − 0.417 = <b>0.143 eV</b>
+     E_v ────────────────────  E_v
+</div>
+<div class="box key" style="margin-bottom:0">
+<span class="t">🔑 สิ่งที่ต้องใส่ในรูป band diagram ให้ครบ</span>
+① เส้น E<sub>c</sub>, E<sub>i</sub> (เส้นประ), E<sub>F</sub>, E<sub>v</sub> · ② ระบุ E<sub>g</sub>=1.12 eV · ③ ระบุระยะ E<sub>i</sub>−E<sub>F</sub>=0.417 eV<br>
+④ ระบุระยะ E<sub>F</sub>−E<sub>v</sub> = 0.143 eV · ⑤ E<sub>F</sub> ต้องอยู่<b>ครึ่งล่าง</b>ของ gap อย่างชัดเจน<br>
+<span class="small">เช็ก non-degenerate: E<sub>F</sub>−E<sub>v</sub> = 0.143 eV = 5.5k<sub>B</sub>T &gt; 3.5k<sub>B</sub>T ✓ ยังใช้สูตรได้</span>
+</div>
+</div></details>
+</div>
+
+<h3>HW SET II — เน้นบท 3 และ 5 ⭐⭐</h3>
+
+<div class="q">
+<div class="qh"><span class="tag essay">HW2-1</span> จงหา conductivity ที่ room temperature เมื่อ μ<sub>e</sub>=1500, μ<sub>h</sub>=600 cm²/Vs<br>
+(a) n=4×10¹⁶, p=5×10³ cm⁻³ · (b) n=2×10³, p=1×10¹⁷ cm⁻³ · (c) n=p=1×10¹⁰ cm⁻³</div>
+<details><summary>ดูเฉลย</summary><div class="ans">
+<div class="fx">สูตรหลัก:  σ = q n μₙ + q p μₚ
+
+(a) n ≫ p ⇒ ตัดพจน์ p ทิ้ง ⇒ σ ≈ q n μₙ
+    = 1.6×10⁻¹⁹ × 4×10¹⁶ × 1500 = <b>9.6 S/cm</b>
+
+(b) p ≫ n ⇒ σ ≈ q p μₚ
+    = 1.6×10⁻¹⁹ × 1×10¹⁷ × 600 = <b>9.6 S/cm</b>
+
+(c) n = p = n_i ⇒ ตัดพจน์ไม่ได้ ต้องใช้ทั้งคู่
+    σ = q n_i (μₙ + μₚ) = 1.6×10⁻¹⁹ × 10¹⁰ × (1500+600)
+      = <b>3.36 × 10⁻⁶ S/cm</b>
+</div>
+<p class="small" style="margin-bottom:0">💡 บทเรียน: (a) กับ (b) ให้ค่าเท่ากันพอดี — เพราะ nμ<sub>n</sub> = pμ<sub>p</sub> · ส่วน (c) ต่ำกว่า 6 ล้านเท่า = <b>พลังของการโดป</b></p>
+</div></details>
+</div>
+
+<div class="q">
+<div class="qh"><span class="tag essay">HW2-2</span> ⭐ Si (N<sub>D</sub>=4.46×10¹⁴ cm⁻³) ที่อุณหภูมิห้อง มี ρ=10 Ω·cm, μ<sub>n</sub>=1400, μ<sub>p</sub>=500 cm²/Vs วัด current density ที่กลาง sample ได้ 10 A/cm²<br>
+(a) หาสนามไฟฟ้าที่ตำแหน่งนี้ · (b) หา drift current density ของ hole และ electron · (c) หา drift velocity ของทั้งคู่</div>
+<details><summary>ดูเฉลย</summary><div class="ans">
+<div class="fx">(a) จาก Ohm's law: J = E/ρ  ⇒  E = J·ρ
+    E = 10 A/cm² × 10 Ω·cm = <b>100 V/cm</b>
+
+(b) ต้องหา n และ p ก่อน (Si ทั่วไป n_i = 10¹⁰ cm⁻³)
+    N_D ≫ n_i ⇒ heavily n-doped:
+       n = N_D = <b>4.46×10¹⁴ cm⁻³</b>
+       p = n_i²/N_D = 10²⁰/4.46×10¹⁴ = <b>2.24×10⁵ cm⁻³</b>
+
+    J_N|drift = q n μₙ E = (1.6×10⁻¹⁹)(4.46×10¹⁴)(1400)(100) = <b>9.99 A/cm²</b>
+    J_P|drift = q p μₚ E = (1.6×10⁻¹⁹)(2.24×10⁵)(500)(100)   = <b>1.79 nA/cm²</b>
+
+(c) v_d,p = +μₚE = 500 × 100 = <b>+50,000 cm/s</b>
+    v_d,n = −μₙE = −1400 × 100 = <b>−140,000 cm/s</b>
+</div>
+<div class="box key" style="margin-bottom:0">
+<span class="t">🔑 สิ่งที่ข้อนี้สอน</span>
+① J<sub>N</sub> = 9.99 ≈ 10 A/cm² ที่วัดได้ทั้งหมด — <b>กระแสเกือบทั้งหมดมาจาก majority carrier</b><br>
+② J<sub>P</sub> = 1.79 nA/cm² น้อยกว่า 10 พันล้านเท่า ⇒ minority carrier <b>ไม่มีผลเลยในกรณี drift</b><br>
+③ เครื่องหมายลบใน v<sub>d,n</sub> คือ e⁻ <b>วิ่งสวนสนาม</b> แต่กระแสยังไปทางเดียวกับสนาม
+</div>
+</div></details>
+</div>
+
+<div class="q">
+<div class="qh"><span class="tag essay">HW2-3</span> ⭐ Si ที่ 300 K โดป donor 2×10¹⁵ cm⁻³ ต่อมาฉีด minority carriers (hole) ที่ x=0 ทำให้เกิด profile<br>
+<b>p(x) = (5×10¹¹)·e^(−x/L<sub>p</sub>)</b> โดย L<sub>p</sub>=15 µm (diffusion length) · μ<sub>p</sub>=450 cm²/Vs<br>
+จงหา diffusion current density ของ hole ที่ x=0</div>
+<details><summary>ดูเฉลย</summary><div class="ans">
+<div class="fx">ก้าว 1 — หา D_p จาก Einstein relation
+    D_p = μₚ · (k_BT/q) = 450 cm²/Vs × 0.026 V = <b>11.7 cm²/s</b>
+
+ก้าว 2 — หา dp/dx จาก profile
+    p(x) = (5×10¹¹) e^(−x/L_p)
+    dp/dx = (5×10¹¹)(−1/L_p) e^(−x/L_p)
+
+    ที่ x = 0 :  e⁰ = 1
+    dp/dx|₀ = −5×10¹¹ / L_p
+            = −5×10¹¹ cm⁻³ / (15×10⁻⁴ cm)
+            = <b>−3.33×10¹⁴ cm⁻⁴</b>
+
+ก้าว 3 — แทนสูตร
+    J_P|diff = −q D_p (dp/dx)
+             = −(1.6×10⁻¹⁹)(11.7)(−3.33×10¹⁴)
+             = <b>+6.2×10⁻⁴ A/cm²</b>   (≈ 0.62 mA/cm²)
+</div>
+<div class="box warn" style="margin-bottom:0">
+<span class="t">⚠️ 3 จุดที่พลาดกันเยอะ</span>
+① <b>ต้องแปลง L<sub>p</sub> = 15 µm เป็น 15×10⁻⁴ cm</b> (ไม่งั้นผิด 10,000 เท่า)<br>
+② เครื่องหมาย: p ลดลงตาม x ⇒ dp/dx <b>ลบ</b> · แล้วมี −q อีก ⇒ ผลรวม <b>เป็นบวก</b><br>
+③ <b>ตีความผล:</b> J<sub>P,diff</sub> เป็นบวก = โฮลแพร่ไปทาง +x (จากที่เข้มข้นมากไปน้อย) ✓ สอดคล้องกับสัญชาตญาณ<br>
+<span class="small">📎 หมายเหตุ: ในเฉลยลายมือเขียนเลขชี้กำลังอ่านยาก — กดเครื่องคิดเลขตรง ๆ ได้ 6.2×10⁻⁴ A/cm² · <b>ในข้อสอบให้แสดงวิธีทุกบรรทัด แล้วจะได้คะแนนแม้เลขคลาดเคลื่อน</b></span>
+</div>
+</div></details>
+</div>
+
+<div class="q">
+<div class="qh"><span class="tag essay">HW2-4</span> ⭐⭐ n-type Ge (N<sub>D</sub>=10¹⁶ cm⁻³) ถูกโดปด้วย In (acceptor) ที่ 160°C เพื่อ form pn junction ทำให้บริเวณที่ถูกโดปเพิ่มมี N<sub>A</sub>=3×10¹⁸ cm⁻³ (Ge: n<sub>i</sub>=2.5×10¹³ cm⁻³)<br>
+(a) คำนวณ E<sub>F</sub> (เทียบกับ E<sub>i</sub>) ที่ 300 K ของทั้ง p region และ n region<br>
+(b) วาด band diagram ที่ thermal equilibrium · (c) หา V<sub>bi</sub> จาก band diagram · (d) หา V<sub>bi</sub> จากสมการ 5.5</div>
+<details><summary>ดูเฉลย</summary><div class="ans">
+<div class="fx">(a) ฝั่ง p:  (E_i − E_F)_p-side = k_BT·ln(N_A/n_i)
+            = (1.38×10⁻²³)(300)·ln(3×10¹⁸ / 2.5×10¹³)
+            = 4.8×10⁻²⁰ J = <b>0.302 eV</b>
+
+    ฝั่ง n:  (E_F − E_i)_n-side = k_BT·ln(N_D/n_i)
+            = (1.38×10⁻²³)(300)·ln(10¹⁶ / 2.5×10¹³)
+            = 2.44×10⁻²⁰ J = <b>0.155 eV</b>
+
+(b) วาด: E_F เป็นเส้นแบนเส้นเดียวตลอด
+         ฝั่ง p — E_i อยู่ <b>เหนือ</b> E_F 0.302 eV
+         ฝั่ง n — E_i อยู่ <b>ใต้</b> E_F 0.155 eV
+         แถบทั้งหมดฝั่ง p ยกสูงกว่าฝั่ง n · โค้งลงผ่าน depletion region
+         ระยะที่แถบเลื่อน = <b>qV_bi</b>
+
+(c) qV_bi = (E_i−E_F)_p-side + (E_F−E_i)_n-side
+    V_bi = 0.302 + 0.155 = <b>0.457 V</b>
+
+(d) V_bi = (k_BT/q)·ln(N_A N_D / n_i²)
+         = 0.026 × ln( (3×10¹⁸)(10¹⁶) / (2.5×10¹³)² )
+         = <b>0.457 V</b>     ✓ ตรงกับ (c) เป๊ะ!
+</div>
+<div class="box key" style="margin-bottom:0">
+<span class="t">🔑 ข้อนี้คือหัวใจของบท 5</span>
+มัน <b>พิสูจน์ให้เห็นด้วยตัวเลข</b> ว่าสูตร V<sub>bi</sub> มาจากไหน — คือมาจากผลรวมของระยะที่ E<sub>F</sub> ห่างจาก E<sub>i</sub> ทั้งสองฝั่ง<br>
+เช็กความสมเหตุสมผล: Ge มี E<sub>g</sub>=0.66 eV ⇒ V<sub>bi</sub> ต้อง &lt; 0.66 V · ได้ 0.457 ✓<br>
+<span class="small">💀 กับดักในโจทย์: บอก "โดปที่ 160°C" — แต่คำถามให้คำนวณ<b>ที่ 300 K</b> · 160°C คืออุณหภูมิตอน<b>ผลิต</b> ไม่ใช่ตอนใช้งาน อย่าเอาไปแทน!</span>
+</div>
+</div></details>
+</div>
+
+<div class="q">
+<div class="qh"><span class="tag essay">HW2-5</span> ⭐⭐ พิจารณา pn junction ที่มี N<sub>D</sub> = N<sub>A</sub> โดยวางเรียงเป็น <b>[ n | p ]</b> (n อยู่ซ้าย, p อยู่ขวา, x=0 ที่รอยต่อ)<br>
+จงเขียนกราฟแสดง variation ของ charge density, electric field และ built-in voltage ที่ thermal equilibrium</div>
+<details><summary>ดูเฉลย</summary><div class="ans">
+<div class="box warn">
+<span class="t">⚠️ อ่านโจทย์ให้ดี — ข้อนี้วาง n ไว้ซ้าย!</span>
+สลับจากตัวอย่างในสไลด์ (ซึ่ง p อยู่ซ้าย) → <b>กราฟทุกอันต้องกลับด้าน</b>
+</div>
+<div class="fx">โครงสร้าง:   n-type      | depletion |      p-type
+             ───────────┼───────────┼───────────
+                       −x_n    0    x_p
+
+<b>① Charge density ρ(x)</b>
+    ฝั่ง n (ซ้าย, −x_n&lt;x&lt;0) : <b>+q N_D</b>  (ไอออน donor บวก)   ← กล่องอยู่ <b>เหนือ</b> แกน
+    ฝั่ง p (ขวา, 0&lt;x&lt;x_p)  : <b>−q N_A</b>  (ไอออน acceptor ลบ) ← กล่องอยู่ <b>ใต้</b> แกน
+    นอกนั้น = 0
+    ⇒ เนื่องจาก N_D = N_A ⇒ <b>x_n = x_p</b> (สมมาตรพอดี!)
+
+<b>② Electric field E(x)</b>
+    รูปสามเหลี่ยม จุดยอด (แหลม) ที่ x = 0
+    ⇒ E(0) = E_max
+    ทิศทาง: ชี้จาก n → p เสมอ · ในโจทย์นี้ n อยู่ซ้าย ⇒ สนามชี้ไปทาง <b>+x</b>
+    (ในเฉลยของอาจารย์วาดสามเหลี่ยม<b>อยู่เหนือแกน</b> = ค่าบวก)
+
+<b>③ Built-in voltage V(x)</b>
+    ศักย์ <b>สูง</b> ที่ฝั่ง n (ซ้าย) และ <b>ต่ำ</b> ที่ฝั่ง p (ขวา)
+    ⇒ กราฟเป็นเส้นโค้ง <b>ลดลง</b> จากซ้ายไปขวา (รูป S คว่ำ / พาราโบลาสองท่อน)
+    ระยะจากสูงสุดถึงต่ำสุด = <b>V_bi</b>
+</div>
+<div class="box key" style="margin-bottom:0">
+<span class="t">🔑 หลักที่ใช้ได้ทุกกรณี ไม่ว่าจะวางแบบไหน</span>
+<b>ฝั่ง n มีศักย์สูงกว่าเสมอ</b> (เพราะ depletion ฝั่ง n มีประจุบวก)<br>
+<b>สนามไฟฟ้าชี้จาก n ไป p เสมอ</b> (เส้นแรงเริ่มที่ประจุบวก จบที่ประจุลบ)<br>
+<b>E<sub>max</sub> อยู่ที่ x=0 เสมอ</b> · <b>พื้นที่ใต้กราฟ E = V<sub>bi</sub> เสมอ</b>
+</div>
+</div></details>
+</div>
+
+<div class="q">
+<div class="qh"><span class="tag essay">HW2-6</span> ⭐⭐ pn junction (n<sub>i</sub>=1.5×10¹⁰ cm⁻³, ε<sub>r</sub>=11.7) มี N<sub>A</sub>=5×10¹⁶ cm⁻³ ฝั่ง p และ N<sub>D</sub>=1×10¹⁶ cm⁻³ ฝั่ง n<br>
+(a) หา depletion width W ที่ 300 K · (b) หาสนามไฟฟ้าสูงสุดใน junction</div>
+<details><summary>ดูเฉลย</summary><div class="ans">
+<div class="fx">(a) ก้าว 1 — V_bi (ต้องหาอันนี้ก่อนเสมอ!)
+    V_bi = (k_BT/q)·ln(N_A N_D / n_i²)
+         = 0.026 × ln[ (5×10¹⁶ × 1×10¹⁶) / (1.5×10¹⁰)² ]
+         = 0.026 × ln( 5×10³² / 2.25×10²⁰ )
+         = 0.026 × ln(2.22×10¹²)
+         = 0.026 × 28.43
+         = <b>0.739 V</b>       ✓ &lt; 1.12 V
+
+    ก้าว 2 — x_n   [สูตร 5.14 — ฝั่ง n ใช้ N_A บนเศษ]
+    x_n = [ (2 ε_r ε₀ / q) · N_A/(N_D(N_A+N_D)) · V_bi ]^0.5
+        = [ (2 × 11.7 × 8.854×10⁻¹⁴ / 1.6×10⁻¹⁹)
+            × (5×10¹⁶)/(1×10¹⁶ × 6×10¹⁶) × 0.739 ]^0.5
+        = <b>2.82 × 10⁻⁵ cm</b>  (= 0.282 µm)
+
+    ก้าว 3 — x_p   [ฝั่ง p ใช้ N_D บนเศษ]
+    x_p = [ (2 ε_r ε₀/q) · N_D/(N_A(N_A+N_D)) · V_bi ]^0.5
+        = <b>5.64 × 10⁻⁶ cm</b>  (= 0.056 µm)
+
+    ⇒ <b>W = x_n + x_p = 3.384 × 10⁻⁵ cm ≈ 0.34 µm</b>
+
+(b) E_max = E(0) = −(q N_A / ε_r ε₀)·x_p
+          = −(1.6×10⁻¹⁹ × 5×10¹⁶ / (11.7 × 8.854×10⁻¹⁴)) × 5.64×10⁻⁶
+          = <b>−4.35 × 10⁴ V/cm  = −43.5 kV/cm</b>
+</div>
+<div class="box ok" style="margin-bottom:0">
+<span class="t">✅ ตรวจคำตอบ 3 วิธี (ทำได้ในข้อสอบด้วย)</span>
+<b>①</b> N<sub>A</sub>/N<sub>D</sub> = 5 ⇒ x<sub>n</sub>/x<sub>p</sub> ควรเป็น 5 → 2.82×10⁻⁵/5.64×10⁻⁶ = <b>5.0</b> ✓<br>
+<b>②</b> คำนวณ E<sub>max</sub> อีกทางด้วย −(qN<sub>D</sub>/ε<sub>r</sub>ε₀)x<sub>n</sub> → ต้องได้ค่าเดียวกัน ✓<br>
+<b>③</b> พื้นที่ใต้กราฟสามเหลี่ยม = ½·W·|E<sub>max</sub>| = ½(3.384×10⁻⁵)(4.35×10⁴) = <b>0.736 V ≈ V<sub>bi</sub></b> ✓✓
+</div>
+</div></details>
+</div>
+
+<hr>
+<h2 id="B">ส่วน B · ปรนัยจำลอง 40 ข้อ</h2>
+<p class="small">🎯 ตั้งเป้าทำให้ได้ &gt;35 ข้อ · ข้อคำนวณให้ใช้เครื่องคิดเลขจริง</p>
+
+<h3><span class="tag c1">บทที่ 1</span> พื้นฐานสารกึ่งตัวนำ (ข้อ 1–8)</h3>
+
+<div class="q"><div class="qh">1. ข้อใดเป็น elemental semiconductor</div>
+<ol type="a"><li>GaAs</li><li>SiC</li><li>Ge</li><li>ZnSe</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(c) Ge</b> — elemental = ธาตุเดี่ยว (Si, Ge, C, Sn) · ส่วน GaAs=III-V, SiC=IV-IV, ZnSe=II-VI ล้วนเป็น compound</div></details></div>
+
+<div class="q"><div class="qh">2. เหตุผลที่แถบพลังงานที่เต็ม 100% ไม่นำไฟฟ้าคือ</div>
+<ol type="a"><li>ไม่มีอิเล็กตรอนในแถบนั้น</li><li>โมเมนตัมสุทธิในแถบที่เต็มเป็นศูนย์เสมอ</li><li>อิเล็กตรอนมีมวลประสิทธิผลเป็นอนันต์</li><li>แถบนั้นอยู่ต่ำกว่า E<sub>F</sub></li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(b)</b> — ประโยคตรงจากสไลด์: "net momentum in a FULL band is always ZERO" · (a) ผิดชัด เพราะมันเต็มไปด้วยอิเล็กตรอน</div></details></div>
+
+<div class="q"><div class="qh">3. เมื่อใส่สนามไฟฟ้าให้สารกึ่งตัวนำ ข้อใดถูกต้อง</div>
+<ol type="a"><li>e⁻ และ hole เคลื่อนที่ทางเดียวกัน กระแสบวกกัน</li><li>e⁻ และ hole เคลื่อนที่สวนทางกัน กระแสหักล้างกัน</li><li>e⁻ และ hole เคลื่อนที่สวนทางกัน แต่กระแสบวกกัน</li><li>เฉพาะ e⁻ เท่านั้นที่นำกระแส</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(c)</b> — <span class="hl">ข้อสอบชอบหลอกด้วย (b) มาก</span> · เพราะ e⁻ ประจุลบวิ่งสวนสนาม (ลบ×ลบ=บวก) hole ประจุบวกวิ่งตามสนาม (บวก×บวก=บวก) ⇒ กระแสชี้ทางเดียวกันทั้งคู่ ⇒ บวกกัน</div></details></div>
+
+<div class="q"><div class="qh">4. ธาตุใดต่อไปนี้ทำให้ Si เป็น p-type</div>
+<ol type="a"><li>Sb</li><li>As</li><li>Ga</li><li>P</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(c) Ga</b> — หมู่ III = acceptor = p-type · Sb, As, P เป็นหมู่ V = donor = n-type</div></details></div>
+
+<div class="q"><div class="qh">5. GaAs มี m*<sub>n</sub>=0.067m₀ ผลที่ตามมาคือ</div>
+<ol type="a"><li>μ<sub>n</sub> ของ GaAs ต่ำกว่า Si</li><li>μ<sub>n</sub> ของ GaAs สูงกว่า Si มาก</li><li>n<sub>i</sub> ของ GaAs สูงกว่า Si</li><li>E<sub>g</sub> ของ GaAs เล็กกว่า Si</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(b)</b> — μ = qτ/m* ⇒ m* เล็ก ⇒ μ ใหญ่ (8500 vs 1350) · (c),(d) ผิดเพราะ GaAs มี E<sub>g</sub> ใหญ่กว่า จึงมี n<sub>i</sub> ต่ำกว่า</div></details></div>
+
+<div class="q"><div class="qh">6. ที่ 300 K พลังงานยึดเหนี่ยวของ dopant ใน Si ประมาณ 45 meV ในขณะที่ E<sub>g</sub>=1.12 eV ข้อสรุปที่ถูกคือ</div>
+<ol type="a"><li>dopant ยังไม่ ionize ที่อุณหภูมิห้อง</li><li>dopant ionize เกือบครบ 100% ที่อุณหภูมิห้อง</li><li>ต้องใช้แสงกระตุ้น dopant</li><li>dopant level อยู่กลาง gap</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(b)</b> — 45 meV ใกล้เคียงกับ k<sub>B</sub>T (26 meV) มาก และเล็กกว่า E<sub>g</sub> ถึง 25 เท่า → กระตุ้นได้ง่ายมาก · (d) ผิด — ระดับที่อยู่<b>กลาง gap</b> คือ R–G center ไม่ใช่ dopant</div></details></div>
+
+<div class="q"><div class="qh">7. ในกราฟ log n vs 1/T ของ Si ที่โดป ช่วง "extrinsic" มีลักษณะราบเรียบ เพราะ</div>
+<ol type="a"><li>ไม่มีพาหะเลย</li><li>dopant ionize ครบแล้ว และ n<sub>i</sub> ยังน้อยมาก</li><li>อิเล็กตรอนถูกกระตุ้นข้าม gap พอดี</li><li>μ คงที่</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(b)</b> — แหล่งพาหะ (dopant) หมดแล้ว จึงไม่มีพาหะเพิ่มแม้ T สูงขึ้น จนกว่า n<sub>i</sub> จะโตพอ</div></details></div>
+
+<div class="q"><div class="qh">8. เรียงลำดับ E<sub>g</sub> ที่ 300 K จากน้อยไปมาก</div>
+<ol type="a"><li>Si &lt; Ge &lt; GaAs</li><li>Ge &lt; Si &lt; GaAs</li><li>GaAs &lt; Si &lt; Ge</li><li>Ge &lt; GaAs &lt; Si</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(b)</b> — Ge 0.66 &lt; Si 1.12 &lt; GaAs 1.42 eV</div></details></div>
+
+<h3><span class="tag c2">บทที่ 2</span> พาหะเชิงสถิติ (ข้อ 9–20)</h3>
+
+<div class="q"><div class="qh">9. f(E) ที่ E = E<sub>F</sub> มีค่าเท่าใด</div>
+<ol type="a"><li>0</li><li>0.268</li><li>0.5</li><li>1</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(c) 0.5</b> — แทนได้ 1/(e⁰+1) = 1/2 · <b>จริงทุกอุณหภูมิ</b></div></details></div>
+
+<div class="q"><div class="qh">10. ความน่าจะเป็นที่สถานะที่สูงกว่า E<sub>F</sub> อยู่ 3k<sub>B</sub>T จะถูกครอบครอง</div>
+<ol type="a"><li>0.268</li><li>0.119</li><li>0.047</li><li>0.0067</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(c) 0.047</b> = 1/(e³+1) = 1/21.09 · (a)=1k<sub>B</sub>T, (b)=2k<sub>B</sub>T, (d)=5k<sub>B</sub>T</div></details></div>
+
+<div class="q"><div class="qh">11. ความน่าจะเป็นที่สถานะจะ<b>ว่าง</b> (มี hole) คือ</div>
+<ol type="a"><li>f(E)</li><li>1 − f(E)</li><li>−f(E)</li><li>1/f(E)</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(b) 1 − f(E)</b></div></details></div>
+
+<div class="q"><div class="qh">12. สมมติฐาน non-degenerate คือ</div>
+<ol type="a"><li>E − E<sub>F</sub> &lt; 3.5k<sub>B</sub>T</li><li>E − E<sub>F</sub> &gt; 3.5k<sub>B</sub>T</li><li>E<sub>F</sub> = E<sub>i</sub></li><li>n = p</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(b)</b> — ทำให้ตัดเลข 1 ในตัวส่วนของ Fermi function ได้ → กลายเป็น Boltzmann → อินทิกรัลแก้ได้</div></details></div>
+
+<div class="q"><div class="qh">13. ถ้าโดป Si หนักมากจน E<sub>F</sub> เข้าไปใน conduction band จะเกิดอะไร</div>
+<ol type="a"><li>สูตร n = N<sub>c</sub>e^(−(E<sub>c</sub>−E<sub>F</sub>)/kT) ยังใช้ได้</li><li>สารกลายเป็น degenerate สูตรในบทนี้ใช้ไม่ได้</li><li>สารกลายเป็น p-type</li><li>n<sub>i</sub> เปลี่ยนค่า</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(b)</b> — ละเมิด non-degenerate · <b>Einstein relation ก็ใช้ไม่ได้ด้วย</b> เพราะพิสูจน์มาจากสมมติฐานเดียวกัน</div></details></div>
+
+<div class="q"><div class="qh">14. E<sub>F</sub> ของสาร intrinsic อยู่ใกล้กลาง gap เพราะ</div>
+<ol type="a"><li>m*<sub>n</sub> = m*<sub>p</sub> พอดี</li><li>พจน์ (3/4)k<sub>B</sub>T·ln(m*<sub>p</sub>/m*<sub>n</sub>) เล็กมากเทียบกับ E<sub>g</sub>/2</li><li>n<sub>i</sub> เล็กมาก</li><li>ไม่มี dopant</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(b)</b> — พจน์แก้ ~7 meV เทียบกับ 560 meV (Si) ⇒ เบี่ยงจากกลาง gap แค่ ~1%</div></details></div>
+
+<div class="q"><div class="qh">15. Si @300K โดป N<sub>D</sub>=2×10¹⁷ cm⁻³, n<sub>i</sub>=10¹⁰ · จงหา p</div>
+<ol type="a"><li>2×10¹⁷ cm⁻³</li><li>5×10² cm⁻³</li><li>10¹⁰ cm⁻³</li><li>5×10⁻³ cm⁻³</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(b) 500 cm⁻³</b> · n = N<sub>D</sub> = 2×10¹⁷ · p = n<sub>i</sub>²/n = 10²⁰/2×10¹⁷ = 5×10² ✓ (ตัวอย่างตรงจากสไลด์)</div></details></div>
+
+<div class="q"><div class="qh">16. np = n<sub>i</sub>² เป็นจริงในกรณีใด</div>
+<ol type="a"><li>เฉพาะสาร intrinsic</li><li>เฉพาะสาร n-type</li><li>ทุกสาร non-degenerate ที่อยู่ในสมดุล ที่อุณหภูมิเดียวกัน</li><li>เฉพาะที่ 300 K</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(c)</b> — <b>"คงที่ ไม่ว่าจะโดปยังไง"</b> คือจุดขายของสมการนี้ · ถ้า n เพิ่ม p ต้องลดโดยอัตโนมัติ</div></details></div>
+
+<div class="q"><div class="qh">17. Si โดป N<sub>A</sub>=10¹⁶ cm⁻³ ที่ <b>T = 0 K</b> จงหา n และ p</div>
+<ol type="a"><li>p = 10¹⁶, n = 10⁴</li><li>p = 10¹⁶, n = 0</li><li>n = p = 0</li><li>n = p = 10¹⁰</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(c) n = p = 0</b> ⚠️ <span class="hl">กับดักคลาสสิก (HW/แนวข้อสอบรุ่นพี่มีข้อนี้)</span><br>ที่ 0 K → freeze-out → dopant <b>ยังไม่ ionize เลย</b> และไม่มีพาหะข้าม gap ⇒ สารเป็นฉนวนสมบูรณ์</div></details></div>
+
+<div class="q"><div class="qh">18. Si (n<sub>i</sub>=10¹⁰ cm⁻³) ที่ 300K มี E<sub>F</sub> สูงกว่า E<sub>i</sub> อยู่ 0.26 eV จงหา n</div>
+<ol type="a"><li>10¹⁰ cm⁻³</li><li>2.3×10¹⁴ cm⁻³</li><li>10²⁶ cm⁻³</li><li>4.5×10⁵ cm⁻³</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(b)</b><div class="fx">n = n_i·exp[(E_F−E_i)/k_BT] = 10¹⁰ × exp(0.26/0.02585)
+  = 10¹⁰ × e^(10.06) = 10¹⁰ × 2.3×10⁴ ≈ <b>2.3×10¹⁴ cm⁻³</b></div>
+💡 จำง่าย: <b>ทุก ๆ 0.06 eV ที่ E<sub>F</sub> ขยับ = n เปลี่ยน 10 เท่า</b> (เพราะ 2.3026×0.02585 = 0.0595)</div></details></div>
+
+<div class="q"><div class="qh">19. แถบพลังงานที่ "แบนราบตลอด" หมายความว่า</div>
+<ol type="a"><li>สารเป็น intrinsic</li><li>ไม่มีสนามไฟฟ้า อยู่ในสมดุลความร้อน</li><li>สนามไฟฟ้าคงที่</li><li>E<sub>g</sub> = 0</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(b)</b> — E = (1/q)dE<sub>c</sub>/dx · ความชัน = 0 ⇒ E = 0 ⇒ ไม่มีกระแส</div></details></div>
+
+<div class="q"><div class="qh">20. เมื่อใส่แรงดัน 1 V คร่อมสารเนื้อเดียว ข้อใด<b>ไม่ถูกต้อง</b></div>
+<ol type="a"><li>แถบเอียงด้วยความชันคงที่</li><li>PE ของ hole เพิ่มเมื่อไปทางศักย์สูง</li><li>PE ของ e⁻ เพิ่มเมื่อไปทางศักย์สูง</li><li>E<sub>g</sub> คงที่ตลอดทั้งชิ้น</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(c) ไม่ถูกต้อง</b> — PE ของ e⁻ <b>ลดลง</b> เมื่อไปทางศักย์สูง (ΔPE<sub>n</sub> = −qV) เพราะประจุลบ</div></details></div>
+
+<h3><span class="tag c3">บทที่ 3</span> Drift &amp; Diffusion (ข้อ 21–30)</h3>
+
+<div class="q"><div class="qh">21. แรงขับของ diffusion คือ</div>
+<ol type="a"><li>สนามไฟฟ้า</li><li>พลังงานความร้อน + ความชันความเข้มข้น</li><li>สนามแม่เหล็ก</li><li>แรงโน้มถ่วง</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(b)</b> — คำสำคัญคือ <b>concentration gradient</b> · ส่วน drift ขับด้วยสนามไฟฟ้า</div></details></div>
+
+<div class="q"><div class="qh">22. ที่อุณหภูมิ<b>ต่ำ</b> กลไก scattering ที่ครอบงำคือ</div>
+<ol type="a"><li>lattice vibration</li><li>ionized dopants</li><li>Auger</li><li>impact ionization</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(b)</b> — ที่ T ต่ำ พาหะวิ่งช้า จึงถูกไอออนดึงเบี่ยงง่าย · ในช่วงนี้ μ ∝ T<sup>+3/2</sup> (μ เพิ่มตาม T)</div></details></div>
+
+<div class="q"><div class="qh">23. เมื่อโดปมากขึ้น mobility จะ</div>
+<ol type="a"><li>เพิ่มขึ้นเสมอ</li><li>คงที่</li><li>คงที่ตอนโดปน้อย แล้วลดลงเมื่อโดปมาก</li><li>ลดลงเป็นเชิงเส้นตั้งแต่ต้น</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(c)</b> — โดปน้อย: lattice scattering ครอบงำ ⇒ μ ไม่ขึ้นกับ doping · โดปมาก: ionized impurity เข้ามาครอบงำ ⇒ μ ลด</div></details></div>
+
+<div class="q"><div class="qh">24. Si @300K, μ<sub>n</sub>=1350, μ<sub>p</sub>=480 cm²/Vs, n<sub>i</sub>=10¹⁰ · ρ ของ Si บริสุทธิ์ ≈</div>
+<ol type="a"><li>0.08 Ω·cm</li><li>3.4×10⁵ Ω·cm</li><li>3.4×10⁻⁵ Ω·cm</li><li>1830 Ω·cm</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(b)</b> · ρ = 1/[1.6×10⁻¹⁹ × 10¹⁰ × 1830] = 1/(2.93×10⁻⁶) = <b>3.4×10⁵ Ω·cm</b></div></details></div>
+
+<div class="q"><div class="qh">25. ถ้า μ<sub>n</sub>=1300 cm²/Vs ที่ 300K จงหา D<sub>n</sub></div>
+<ol type="a"><li>33.8 cm²/s</li><li>50,000 cm²/s</li><li>0.026 cm²/s</li><li>1300 cm²/s</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(a)</b> · D = μ × (k<sub>B</sub>T/q) = 1300 × 0.026 = <b>33.8 cm²/s</b></div></details></div>
+
+<div class="q"><div class="qh">26. ข้อใดคือ Einstein relation ที่ถูกต้อง</div>
+<ol type="a"><li>D/μ = q/k<sub>B</sub>T</li><li>D·μ = k<sub>B</sub>T/q</li><li>D/μ = k<sub>B</sub>T/q</li><li>D = μ²k<sub>B</sub>T</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(c)</b> — เช็กหน่วย: (cm²/s)/(cm²/Vs) = V ✓ (k<sub>B</sub>T/q มีหน่วยโวลต์)</div></details></div>
+
+<div class="q"><div class="qh">27. ที่สมดุลความร้อน ไม่มีสนามภายนอก แต่มีความชันความเข้มข้นในสาร ข้อใดถูก</div>
+<ol type="a"><li>ทั้ง drift และ diffusion เป็นศูนย์</li><li>diffusion ไม่เป็นศูนย์ แต่ drift เป็นศูนย์</li><li>ทั้งคู่ไม่เป็นศูนย์ แต่หักล้างกันพอดี</li><li>มีกระแสสุทธิไหล</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(c)</b> — <span class="hl">ข้อสรุป "น่าทึ่ง" ของบท 3</span> · drift มาจาก <b>built-in field</b> ที่การแพร่สร้างขึ้นเอง ไม่ใช่จากภายนอก ← เป็นหลักการของ pn junction</div></details></div>
+
+<div class="q"><div class="qh">28. J<sub>N|diff</sub> มีสูตรว่า</div>
+<ol type="a"><li>−qD<sub>n</sub>(dn/dx)</li><li>+qD<sub>n</sub>(dn/dx)</li><li>qnμ<sub>n</sub>E</li><li>−qnμ<sub>n</sub>E</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(b)</b> — <b>อิเล็กตรอนไม่มีลบ · โฮลมีลบ</b> (J<sub>P|diff</sub> = −qD<sub>p</sub>dp/dx) เพราะประจุตรงข้ามกัน</div></details></div>
+
+<div class="q"><div class="qh">29. semiconductor ยาว 1 cm ใส่แรงดัน 2 V แล้ว hole มี v<sub>d</sub>=10³ cm/s จงหา μ<sub>p</sub></div>
+<ol type="a"><li>500 cm²/Vs</li><li>2000 cm²/Vs</li><li>1000 cm²/Vs</li><li>0.5 cm²/Vs</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(a) 500 cm²/Vs</b><div class="fx">E = V/L = 2 V / 1 cm = 2 V/cm
+μₚ = v_d/E = 10³ / 2 = <b>500 cm²/Vs</b></div>(ข้อนี้มาจากแนวข้อสอบรุ่นพี่ 8(a) — มีโอกาสออกซ้ำ)</div></details></div>
+
+<div class="q"><div class="qh">30. เมื่อสนามไฟฟ้าสูงมาก drift velocity จะ</div>
+<ol type="a"><li>เพิ่มเป็นเชิงเส้นต่อไป</li><li>อิ่มตัว โดย e⁻ และ hole อิ่มตัวที่ค่าเดียวกัน</li><li>อิ่มตัว โดย e⁻ อิ่มตัวสูงกว่า hole มาก</li><li>ลดลง</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(b)</b> — พลังงานที่สนามป้อนถูกถ่ายให้ผลึกแทน · <b>สไลด์ระบุชัดว่าอิ่มตัวที่ค่าเดียวกัน (SAME VALUE)</b></div></details></div>
+
+<h3><span class="tag c4">บทที่ 4</span> R–G (ข้อ 31–35)</h3>
+
+<div class="q"><div class="qh">31. R–G center มีลักษณะอย่างไร</div>
+<ol type="a"><li>ระดับพลังงานตื้นใกล้ E<sub>c</sub></li><li>ระดับพลังงานใกล้กลาง gap</li><li>ระดับพลังงานอยู่ในแถบ conduction</li><li>ไม่มีระดับพลังงาน</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(b)</b> — <b>ต่างจาก dopant level ที่อยู่ตื้น ๆ ใกล้ขอบแถบ</b> · เกิดจาก defect หรือธาตุ Fe, Cr, Mn, Cu, Au</div></details></div>
+
+<div class="q"><div class="qh">32. การรวมตัวผ่าน R–G center เรียกว่า non-radiative เพราะ</div>
+<ol type="a"><li>ไม่มีการรวมตัวเกิดขึ้น</li><li>พลังงานถูกคายเป็นความร้อนสู่ผลึก ไม่ใช่โฟตอน</li><li>เกิดเฉพาะในที่มืด</li><li>ต้องใช้โฟนอน 2 ตัว</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(b)</b></div></details></div>
+
+<div class="q"><div class="qh">33. Auger recombination เกิดขึ้นเด่นชัดในบริเวณใด</div>
+<ol type="a"><li>สนามไฟฟ้าสูง</li><li>โดปหนักมาก</li><li>อุณหภูมิต่ำ</li><li>depletion region</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(b)</b> — โดปหนัก ⇒ พาหะแน่น ⇒ carrier–carrier scattering บ่อย · <b>ส่วน (a) สนามสูง = impact ionization</b> อย่าสับสน</div></details></div>
+
+<div class="q"><div class="qh">34. Impact ionization เป็นสาเหตุของ</div>
+<ol type="a"><li>การเปล่งแสงของ LED</li><li>avalanche breakdown ของ pn junction</li><li>freeze-out</li><li>velocity saturation</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(b)</b> — และมันคือ <b>กระบวนการผกผันของ Auger recombination</b></div></details></div>
+
+<div class="q"><div class="qh">35. ทำไม Si ถึงไม่เหมาะทำ LED</div>
+<ol type="a"><li>E<sub>g</sub> เล็กเกินไป</li><li>เป็น indirect gap ต้องอาศัยทั้งโฟตอนและโฟนอนพร้อมกัน โอกาสต่ำ</li><li>μ ต่ำเกินไป</li><li>โดปยาก</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(b)</b> — CB min กับ VB max อยู่คนละ k · โฟตอนมีโมเมนตัมต่ำเกินไปที่จะเปลี่ยน k ได้ ต้องใช้โฟนอนช่วย</div></details></div>
+
+<h3><span class="tag c5">บทที่ 5</span> pn Junction (ข้อ 36–40)</h3>
+
+<div class="q"><div class="qh">36. ใน depletion region มีอะไรอยู่ (ตาม depletion approximation)</div>
+<ol type="a"><li>เฉพาะ e⁻ อิสระ</li><li>เฉพาะไอออนของสารเจือที่เคลื่อนที่ไม่ได้</li><li>ไม่มีอะไรเลย</li><li>e⁻ และ hole จำนวนเท่ากัน</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(b)</b> — "immobile ionized dopants" · <b>ไม่ใช่ (c)</b> — มันไม่ได้ว่างเปล่า แต่ไม่มี<b>พาหะเคลื่อนที่</b></div></details></div>
+
+<div class="q"><div class="qh">37. สนามไฟฟ้าในตัวของ pn junction ชี้ไปทางใด</div>
+<ol type="a"><li>จากฝั่ง p ไปฝั่ง n</li><li>จากฝั่ง n ไปฝั่ง p</li><li>ตั้งฉากกับรอยต่อ</li><li>ไม่มีสนามที่สมดุล</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(b)</b> — เส้นแรงเริ่มที่ประจุ<b>บวก</b> (ไอออน donor ฝั่ง n) จบที่ประจุ<b>ลบ</b> (ไอออน acceptor ฝั่ง p)</div></details></div>
+
+<div class="q"><div class="qh">38. Si pn junction ที่ 300 K คำนวณ V<sub>bi</sub> ได้ 1.35 V ควรสรุปว่า</div>
+<ol type="a"><li>ถูกต้อง เพราะ V<sub>bi</sub> ไม่มีขีดจำกัด</li><li>คำนวณผิด เพราะ V<sub>bi</sub> ต้อง &lt; 1.12 V</li><li>ถูกต้องถ้าโดปหนักมาก</li><li>ต้องใช้ Ge แทน</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(b)</b> — <b>V<sub>bi</sub> ต้องน้อยกว่า E<sub>g</sub>/q เสมอ</b> (Si: 1.12 V) · เป็นวิธี<b>ตรวจคำตอบเร็ว</b>ในข้อสอบ</div></details></div>
+
+<div class="q"><div class="qh">39. pn junction ที่ N<sub>A</sub> = 100 N<sub>D</sub> ข้อใดถูก</div>
+<ol type="a"><li>x<sub>p</sub> = 100 x<sub>n</sub></li><li>x<sub>n</sub> = 100 x<sub>p</sub></li><li>x<sub>n</sub> = x<sub>p</sub></li><li>x<sub>n</sub> = 10 x<sub>p</sub></li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(b)</b> · จาก N<sub>A</sub>x<sub>p</sub> = N<sub>D</sub>x<sub>n</sub> ⇒ x<sub>n</sub>/x<sub>p</sub> = N<sub>A</sub>/N<sub>D</sub> = 100<br>
+<span class="hl">ฝั่งที่โดปหนัก (p) มี depletion บาง · ฝั่งที่โดปเบา (n) มี depletion กว้าง</span></div></details></div>
+
+<div class="q"><div class="qh">40. กราฟ E(x) ของ abrupt pn junction มีรูปร่างอย่างไร และค่าสูงสุดอยู่ที่ไหน</div>
+<ol type="a"><li>สี่เหลี่ยม สูงสุดตลอด depletion</li><li>สามเหลี่ยม สูงสุดที่ขอบ depletion</li><li>สามเหลี่ยม สูงสุดที่ x=0 (metallurgical junction)</li><li>พาราโบลา สูงสุดที่ x=0</li></ol>
+<details><summary>เฉลย</summary><div class="ans"><b>(c)</b> — ρ = สี่เหลี่ยม → อินทิเกรต → E = สามเหลี่ยม → อินทิเกรต → V = พาราโบลา · <b>ยอดแหลมที่รอยต่อ</b></div></details></div>
+
+<hr>
+<h2 id="C">ส่วน C · อัตนัยจำลอง 3 ข้อใหญ่</h2>
+<p class="small">⏱️ จับเวลา 20 นาทีต่อข้อ · เขียนบนกระดาษจริง · <b>เขียนสูตรก่อนแทนเลขเสมอ</b></p>
+
+<div class="q">
+<div class="qh"><span class="tag essay">ข้อ 1</span> Carrier statistics ครบวงจร (25 คะแนน)</div>
+<p>Si sample ที่ 300 K (n<sub>i</sub>=10¹⁰ cm⁻³, E<sub>g</sub>=1.12 eV) ถูกโดปด้วย As 5×10¹⁶ cm⁻³ และ B 2×10¹⁶ cm⁻³</p>
+<ol type="a">
+<li>ระบุว่า As และ B เป็น donor หรือ acceptor และเขียน charge neutrality equation (4 คะแนน)</li>
+<li>คำนวณ n และ p (6 คะแนน)</li>
+<li>sample นี้เป็น n-type หรือ p-type (2 คะแนน)</li>
+<li>คำนวณ E<sub>F</sub> − E<sub>i</sub> (5 คะแนน)</li>
+<li>วาด band diagram พร้อมระบุ E<sub>c</sub>, E<sub>v</sub>, E<sub>i</sub>, E<sub>F</sub> และตัวเลขทุกระยะ (5 คะแนน)</li>
+<li>ตรวจสอบว่าสมมติฐาน non-degenerate ยังใช้ได้หรือไม่ (3 คะแนน)</li>
+</ol>
+<details><summary>เฉลยละเอียด</summary><div class="ans">
+<div class="fx">(a) As = หมู่ V = <b>donor</b> ⇒ N_D = 5×10¹⁶ cm⁻³
+    B  = หมู่ III = <b>acceptor</b> ⇒ N_A = 2×10¹⁶ cm⁻³
+    Charge neutrality:  <b>p − n + N_D⁺ − N_A⁻ = 0</b>
+    ที่ 300 K ionize เต็มที่:  p − n + 5×10¹⁶ − 2×10¹⁶ = 0
+
+(b) Net doping = N_D − N_A = 3×10¹⁶ cm⁻³  (เป็นบวก ⇒ n-type)
+    เนื่องจาก 3×10¹⁶ ≫ n_i = 10¹⁰ :
+       <b>n ≈ 3×10¹⁶ cm⁻³</b>
+       <b>p = n_i²/n = 10²⁰/3×10¹⁶ = 3.33×10³ cm⁻³</b>
+
+    [ตรวจด้วยสมการเต็ม:
+     n = (3×10¹⁶)/2 + √[((3×10¹⁶)/2)² + (10¹⁰)²]
+       = 1.5×10¹⁶ + √(2.25×10³² + 10²⁰) ≈ 1.5×10¹⁶+1.5×10¹⁶ = 3×10¹⁶ ✓]
+
+(c) n ≫ p  ⇒  <b>n-type</b>
+
+(d) E_F − E_i = k_BT·ln(n/n_i)
+              = 0.02585 × ln(3×10¹⁶ / 10¹⁰)
+              = 0.02585 × ln(3×10⁶)
+              = 0.02585 × 14.914
+              = <b>+0.386 eV</b>   (E_F อยู่ <b>เหนือ</b> E_i)
+
+(e) band diagram:
+    E_c ──────────────────────
+             ↕ 0.56 − 0.386 = <b>0.174 eV</b>
+    E_F ══════════════════════
+             ↕ <b>0.386 eV</b>
+    E_i ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄    (E_g/2 = 0.56 eV จากทั้งสองขอบ)
+             ↕ 0.56 + 0.386 = <b>0.946 eV</b>
+    E_v ──────────────────────
+    ⇒ E_F อยู่ <b>ครึ่งบน</b> ของ gap ✓ สอดคล้องกับ n-type
+
+(f) เช็ก non-degenerate: ต้อง E_c − E_F &gt; 3.5 k_BT
+    E_c − E_F = 0.174 eV
+    3.5 k_BT = 3.5 × 0.02585 = 0.0905 eV
+    0.174 &gt; 0.0905  ⇒  <b>ยังเป็น non-degenerate ✓ สูตรทั้งหมดใช้ได้</b>
+</div>
+</div></details>
+</div>
+
+<div class="q">
+<div class="qh"><span class="tag essay">ข้อ 2</span> Transport (25 คะแนน)</div>
+<ol type="a">
+<li>อธิบายความแตกต่างระหว่าง drift และ diffusion ในแง่ของแรงขับ สาเหตุ และสัมประสิทธิ์ที่เกี่ยวข้อง (5 คะแนน)</li>
+<li>Si @300K โดป N<sub>D</sub>=10¹⁶ cm⁻³, μ<sub>n</sub>=1200, μ<sub>p</sub>=400 cm²/Vs · หา σ และ ρ (5 คะแนน)</li>
+<li>ถ้าใส่แรงดัน 5 V คร่อม sample ยาว 0.5 cm · หา E, v<sub>d,n</sub> และ J (5 คะแนน)</li>
+<li>Intrinsic Si sample ถูกโดปด้วย acceptors ที่ปลายด้านหนึ่ง ตาม profile N<sub>A</sub> = N₀e^(−ax) โดย N<sub>A</sub> ≫ n<sub>i</sub><br>
+จงพิสูจน์ว่าที่ thermal equilibrium สนามไฟฟ้าในตัวคือ <b>E = −aD<sub>p</sub>/μ<sub>p</sub></b> และบอกทิศทางของสนาม (10 คะแนน)<br>
+<span class="small">Hint: เริ่มจาก J<sub>p</sub> = J<sub>p|drift</sub> + J<sub>p|diff</sub> = qμ<sub>p</sub>pE − qD<sub>p</sub>(dp/dx) = 0</span></li>
+</ol>
+<details><summary>เฉลยละเอียด</summary><div class="ans">
+<div class="fx">(a) <b>Drift</b> : แรงขับ = สนามไฟฟ้า E · สาเหตุ = มีแรงดันตกคร่อม
+             · สัมประสิทธิ์ = mobility μ · J = qnμE
+    <b>Diffusion</b> : แรงขับ = พลังงานความร้อนของพาหะ
+             · สาเหตุ = มีความชันความเข้มข้น (concentration gradient)
+             · เป้าหมาย = ให้พาหะกระจายสม่ำเสมอ
+             · สัมประสิทธิ์ = diffusion coefficient D · J = ±qD(dn/dx)
+    ทั้งสองผูกกันด้วย Einstein relation: D/μ = k_BT/q
+
+(b) N_D ≫ n_i ⇒ n = 10¹⁶ cm⁻³ , p = 10²⁰/10¹⁶ = 10⁴ cm⁻³ (ทิ้งได้)
+    σ = q(nμₙ + pμₚ) ≈ q n μₙ
+      = 1.6×10⁻¹⁹ × 10¹⁶ × 1200 = <b>1.92 S/cm</b>
+    ρ = 1/σ = <b>0.52 Ω·cm</b>
+
+(c) E = V/L = 5/0.5 = <b>10 V/cm</b>
+    v_d,n = −μₙE = −1200 × 10 = <b>−1.2×10⁴ cm/s</b>
+    J = σE = 1.92 × 10 = <b>19.2 A/cm²</b>
+
+(d) พิสูจน์:
+    เนื่องจาก N_A ≫ n_i  ⇒  p(x) ≈ N_A(x) = N₀ e^(−ax)
+
+    ที่สมดุล กระแสโฮลสุทธิ = 0 :
+        q μₚ p E − q D_p (dp/dx) = 0        ...(1)
+
+    หา dp/dx :
+        dp/dx = N₀·(−a)·e^(−ax) = <b>−a·p(x)</b>    ...(2)
+
+    แทน (2) ใน (1):
+        q μₚ p E − q D_p (−a p) = 0
+        q μₚ p E + q D_p a p = 0
+        หาร q·p ทั้งสองข้าง (p ≠ 0):
+        μₚ E + a D_p = 0
+    ⇒   <b>E = −a D_p / μₚ</b>       ■ (พิสูจน์เสร็จ)
+
+    ใช้ Einstein (D_p/μₚ = k_BT/q) จะได้รูปที่คำนวณง่ายกว่า:
+        E = −a·(k_BT/q)
+
+    <b>ทิศทาง:</b> E เป็น <b>ลบ</b> ⇒ สนามชี้ไปทาง <b>−x</b>
+    <b>อธิบายเชิงฟิสิกส์:</b> โฮลแพร่จากบริเวณเข้มข้นสูง (x เล็ก) ไปทาง +x
+    ทิ้ง <b>ไอออน acceptor ประจุลบ</b> ไว้ข้างหลัง (ที่ x เล็ก)
+    ⇒ ที่ x เล็กมีประจุลบ, ที่ x ใหญ่มีประจุบวก(โฮลส่วนเกิน)
+    ⇒ เส้นแรงชี้จากบวก(x ใหญ่) ไปลบ(x เล็ก) = ทิศ −x ✓
+</div>
+<div class="box key" style="margin-bottom:0">
+<span class="t">🔑 เทียบกับกรณี donor (สไลด์บท 3)</span>
+โดป <b>donor</b> N<sub>D</sub>=N₀e^(−ax) ⇒ E = <b>+</b>(k<sub>B</sub>T/q)·a (เป็น<b>บวก</b>) เพราะทิ้ง<b>ไอออนบวก</b>ไว้<br>
+โดป <b>acceptor</b> N<sub>A</sub>=N₀e^(−ax) ⇒ E = <b>−</b>(k<sub>B</sub>T/q)·a (เป็น<b>ลบ</b>) เพราะทิ้ง<b>ไอออนลบ</b>ไว้<br>
+<span class="hl">ขนาดเท่ากัน แต่ทิศตรงข้าม — โจทย์ชอบสลับให้ระวัง</span>
+</div>
+</div></details>
+</div>
+
+<div class="q">
+<div class="qh"><span class="tag essay">ข้อ 3</span> pn Junction ครบชุด (30 คะแนน)</div>
+<p>พิจารณา abrupt Si pn junction ที่ 300 K (n<sub>i</sub>=10¹⁰ cm⁻³, ε<sub>r</sub>=11.8, E<sub>g</sub>=1.12 eV)<br>
+N<sub>A</sub> = 10¹⁸ cm⁻³ (ฝั่ง p, อยู่ทางซ้าย) และ N<sub>D</sub> = 10¹⁶ cm⁻³ (ฝั่ง n, อยู่ทางขวา)</p>
+<ol type="a">
+<li>อธิบายว่า depletion region เกิดขึ้นได้อย่างไร และเหตุใดระบบจึงเข้าสู่สมดุล (5 คะแนน)</li>
+<li>คำนวณ V<sub>bi</sub> และตรวจสอบความสมเหตุสมผล (5 คะแนน)</li>
+<li>วาด band diagram ที่สมดุล ระบุ E<sub>F</sub>, qV<sub>bi</sub>, depletion region (5 คะแนน)</li>
+<li>คำนวณ x<sub>n</sub>, x<sub>p</sub>, W (7 คะแนน)</li>
+<li>คำนวณ E<sub>max</sub> ด้วย 2 วิธี และแสดงว่าได้ค่าเท่ากัน (4 คะแนน)</li>
+<li>วาดกราฟ ρ(x), E(x), V(x) โดยแกน x ตรงกันทั้ง 3 กราฟ (4 คะแนน)</li>
+</ol>
+<details><summary>เฉลยละเอียด</summary><div class="ans">
+<div class="fx">(a) <b>คำตอบเป็นลูกโซ่ 4 ประโยค:</b>
+    ① เมื่อนำ p กับ n มาสัมผัสกัน เกิด<b>ความชันความเข้มข้น</b>มหาศาลที่รอยต่อ
+       → โฮลแพร่จาก p ไป n · อิเล็กตรอนแพร่จาก n ไป p (diffusion)
+    ② พาหะที่แพร่ข้ามไปรวมตัวกับ majority carrier อีกฝั่งอย่างรวดเร็ว
+       ทิ้ง <b>ไอออนของสารเจือที่เคลื่อนที่ไม่ได้</b> ไว้: ฝั่ง p เหลือไอออนลบ, ฝั่ง n เหลือไอออนบวก
+       บริเวณนี้เรียก <b>depletion region / space-charge region</b>
+    ③ ประจุคงที่นี้สร้าง <b>สนามไฟฟ้าในตัว</b> ชี้จาก n → p
+    ④ สนามนี้ทำให้เกิด <b>drift current สวนทางกับ diffusion current</b>
+       จนถึงจุดที่หักล้างกันพอดี ⇒ กระแสสุทธิ = 0 ⇒ <b>สมดุลความร้อน</b>
+       (ยืนยันได้จากการที่ E_F เป็นเส้นแบนเส้นเดียวตลอด junction)
+
+(b) V_bi = (k_BT/q)·ln(N_A N_D / n_i²)
+         = 0.02585 × ln( (10¹⁸ × 10¹⁶)/(10¹⁰)² )
+         = 0.02585 × ln(10¹⁴)
+         = 0.02585 × 32.24
+         = <b>0.833 V</b>
+    ตรวจสอบ: <b>0.833 V &lt; E_g/q = 1.12 V ✓ สมเหตุสมผล</b>
+
+(c) band diagram: (ดูรูปในหน้าบทที่ 5)
+    - E_F เป็นเส้นตรงแบนเส้นเดียวตลอด  ← สัญลักษณ์ของสมดุล
+    - ฝั่ง p: E_F อยู่ใกล้ E_v · ฝั่ง n: E_F อยู่ใกล้ E_c
+    - แถบฝั่ง p สูงกว่าฝั่ง n เป็นระยะ <b>qV_bi = 0.833 eV</b>
+    - E_c, E_v โค้งขนานกัน (E_g คงที่ 1.12 eV ตลอด)
+    - แรเงา depletion region ตรงช่วงที่แถบโค้ง
+
+(d) ค่าคงที่รวม: 2ε_rε₀/q = 2 × 11.8 × 8.854×10⁻¹⁴ / 1.6×10⁻¹⁹ = 1.306×10⁷
+
+    x_n = [ 1.306×10⁷ × N_A/(N_D(N_A+N_D)) × V_bi ]^0.5
+        = [ 1.306×10⁷ × 10¹⁸/(10¹⁶ × 1.01×10¹⁸) × 0.833 ]^0.5
+        = [ 1.306×10⁷ × 9.901×10⁻¹⁷ × 0.833 ]^0.5
+        = [ 1.0771×10⁻⁹ ]^0.5
+        = <b>3.28×10⁻⁵ cm = 0.328 µm</b>
+
+    x_p = [ 1.306×10⁷ × N_D/(N_A(N_A+N_D)) × V_bi ]^0.5
+        = [ 1.306×10⁷ × 10¹⁶/(10¹⁸ × 1.01×10¹⁸) × 0.833 ]^0.5
+        = [ 1.0771×10⁻¹³ ]^0.5
+        = <b>3.28×10⁻⁷ cm = 3.28 nm</b>
+
+    <b>W = x_n + x_p = 3.31×10⁻⁵ cm ≈ 0.331 µm</b>
+    ตรวจ: N_A/N_D = 100 ⇒ x_n/x_p ควร = 100 → 3.28×10⁻⁵/3.28×10⁻⁷ = <b>100 ✓</b>
+
+(e) วิธีที่ 1:  E_max = −(q N_D / ε_rε₀)·x_n
+              = −(1.6×10⁻¹⁹ × 10¹⁶ / (11.8 × 8.854×10⁻¹⁴)) × 3.28×10⁻⁵
+              = −(1.6×10⁻³ / 1.0448×10⁻¹²) × 3.28×10⁻⁵
+              = −(1.5314×10⁹) × 3.28×10⁻⁵ = <b>−5.02×10⁴ V/cm</b>
+
+    วิธีที่ 2:  E_max = −(q N_A / ε_rε₀)·x_p
+              = −(1.6×10⁻¹⁹ × 10¹⁸ / 1.0448×10⁻¹²) × 3.28×10⁻⁷
+              = −(1.5314×10¹¹) × 3.28×10⁻⁷ = <b>−5.02×10⁴ V/cm ✓ เท่ากัน</b>
+
+    ตรวจอีกชั้น: พื้นที่สามเหลี่ยม = ½·W·|E_max|
+                = ½ × 3.31×10⁻⁵ × 5.02×10⁴ = <b>0.831 V ≈ V_bi ✓</b>
+
+(f) กราฟ 3 ชั้น (ดูรูปในหน้าบทที่ 5):
+    ρ(x): กล่อง −qN_A ที่ (−x_p,0) [แคบมาก สูงมาก]
+          กล่อง +qN_D ที่ (0,x_n)  [กว้าง เตี้ย]  ← พื้นที่เท่ากัน
+    E(x): สามเหลี่ยมใต้แกน ยอดที่ x=0 ค่า −5.02×10⁴ V/cm
+    V(x): เพิ่มจาก 0 (ฝั่ง p) ถึง 0.833 V (ฝั่ง n) เป็นเส้นโค้ง
+</div>
+<div class="box ok" style="margin-bottom:0">
+<span class="t">✅ จุดที่จะได้คะแนนเพิ่ม</span>
+เขียนประโยคสรุปท้ายว่า: "<b>ฝั่ง p ที่โดปหนักกว่า 100 เท่า มี depletion region บางกว่า 100 เท่า — depletion region เกือบทั้งหมดขยายเข้าไปในฝั่งที่โดปเบา</b>"<br>
+นี่คือหลักการของ <b>one-sided junction (p⁺n junction)</b> ที่ใช้จริงในอุปกรณ์
+</div>
+</div></details>
+</div>
+
+<hr>
+<div class="box key">
+<span class="t">🍀 ก่อนนอน — เช็กของ</span>
+✏️ ดินสอ <b>2B</b> (ต้องเป็น 2B เพราะเป็นการฝนกระดาษคำตอบ) + ยางลบ + กบเหลา<br>
+🖊️ ปากกาสำหรับอัตนัย · 🧮 เครื่องคิดเลข (เช็กถ่าน! เช็กว่ากด <code>ln</code>, <code>e^x</code>, <code>x^y</code>, <code>√</code> เป็น)<br>
+🪪 บัตรนักศึกษา · ⏰ ตั้งนาฬิกาปลุก 2 อัน<br>
+🚫 <b>ห้ามเอากระดาษจดเนื้อหาเข้าห้องสอบ</b> · 🚫 <b>ขาดสอบ = ไม่มีสอบย้อนหลังทุกกรณี</b>
+</div>
+
+<div class="nextprev">
+  <a href="formulas.html">← แผ่นสูตร</a>
+  <a href="index.html">กลับหน้าแรก →</a>
+</div>
+</main>
+</body>
+</html>

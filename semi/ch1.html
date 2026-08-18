@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>บท 1 · พื้นฐานสารกึ่งตัวนำ</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav"><div class="wrap">
+  <span class="brand">05366035 <span>Semiconductor</span></span>
+  <a href="index.html">แผนอ่าน</a>
+  <a href="ch1.html" class="active">1. พื้นฐาน</a>
+  <a href="ch2.html">2. สถิติพาหะ</a>
+  <a href="ch3.html">3. Drift/Diffusion</a>
+  <a href="ch4.html">4. R–G</a>
+  <a href="ch5.html">5. pn Junction</a>
+  <a href="formulas.html">📐 สูตร</a>
+  <a href="drill.html">✍️ ตะลุยโจทย์</a>
+</div></header>
+<main>
+
+<h1><span class="tag c1">Lecture 01</span> พื้นฐานสารกึ่งตัวนำ</h1>
+<p class="lead">Semiconductors · Energy bands · Holes · Effective mass · Doping<br>
+<span class="small">= สรุปรุ่นพี่ "บทที่ 3" · สไลด์ 28 หน้า · <b>เกือบทั้งบทเป็น concept — ปรนัยล้วน</b></span></p>
+
+<div class="box why">
+<span class="t">🎯 บทนี้ตอบคำถามว่า</span>
+“สารกึ่งตัวนำคืออะไร ทำไมมันนำไฟฟ้าได้ ใครเป็นคนพาประจุ และเราคุมมันได้ยังไง”
+</div>
+
+<h2>1.1 สารกึ่งตัวนำคืออะไร</h2>
+<p><b>นิยาม:</b> วัสดุที่ค่าการนำไฟฟ้า (conductivity) อยู่ <b>ระหว่าง</b> โลหะกับฉนวน</p>
+
+<div class="grid c2">
+<div class="card tight">
+<h4 style="margin-top:0">แบ่งตามองค์ประกอบ</h4>
+<ul style="margin-bottom:0">
+<li><b>Elemental</b> (ธาตุเดี่ยว) — <b>Si, Ge</b> (หมู่ IV), C, Sn</li>
+<li><b>Compound</b> (สารประกอบ) — <b>ส่วนใหญ่ในธรรมชาติเป็นแบบนี้</b>
+  <ul>
+  <li>IV–IV: SiC</li>
+  <li>III–V: <b>GaAs</b>, GaN, GaP, AlP, AlAs</li>
+  <li>II–VI: ZnSe, ZnTe, CdSe, CdTe</li>
+  <li>IV–VI: PbSe, PbTe</li>
+  <li>Alloys: Si<sub>1−x</sub>Ge<sub>x</sub>, Al<sub>x</sub>Ga<sub>1−x</sub>As</li>
+  </ul>
+</li>
+</ul>
+</div>
+<div class="card tight">
+<h4 style="margin-top:0">แบ่งตามความเป็นระเบียบของผลึก</h4>
+<ul style="margin-bottom:0">
+<li><b>Crystalline</b> — เรียงเป็นระเบียบ ระยะไกล ← <b>ใช้ทำอุปกรณ์</b></li>
+<li><b>Polycrystalline</b> — เม็ดผลึกเล็ก ๆ (crystallites) ฝังในเนื้ออสัณฐาน</li>
+<li><b>Amorphous</b> — ไม่มีระเบียบระยะไกลเลย</li>
+</ul>
+</div>
+</div>
+
+<div class="box key">
+<span class="t">📌 ตัวเลขที่ชอบออก</span>
+<ul style="margin-bottom:0">
+<li>ระดับการโดปทั่วไป = <b>1 อะตอมโดป ต่อ 10³–10⁸ อะตอม Si</b></li>
+<li>ความบริสุทธิ์ที่ต้องการ = สิ่งเจือปนไม่เกิน <b>1 ใน 10⁹</b> อะตอม → ต้องทำใน <b>cleanroom</b></li>
+<li>Cleanroom class = จำนวนฝุ่นขนาด 0.5 µm ต่อลูกบาศก์ฟุต (class 1, 100, 10,000)</li>
+<li>อากาศห้องธรรมดา = ฝุ่น &gt;0.5 µm หลาย<b>ล้าน</b>อนุภาคต่อ ft³</li>
+</ul>
+</div>
+
+<h2>1.2 แถบพลังงาน (Energy Bands) — หัวใจของบทนี้</h2>
+
+<h3>จากอะตอมเดี่ยว → ผลึก</h3>
+<p>Si มี 14 อิเล็กตรอน: <code>1s² 2s² 2p⁶ 3s² 3p²</code><br>
+สองชั้นแรกเต็ม = <b>core</b> ยึดแน่นกับนิวเคลียส · เหลือ <b>4 valence electrons</b> ในชั้นที่ 3 ที่ใช้สร้างพันธะ</p>
+
+<div class="dia">
+<svg viewBox="0 0 620 250" xmlns="http://www.w3.org/2000/svg">
+  <defs><style>
+  .ax{stroke:#6b7686;stroke-width:1.4}
+  .bd{fill:#5aa9ff;fill-opacity:.22;stroke:#5aa9ff;stroke-width:1.5}
+  .bd2{fill:#7ee081;fill-opacity:.22;stroke:#7ee081;stroke-width:1.5}
+  .lb{fill:#a3adbd;font:13px sans-serif}
+  .lb2{fill:#e6e9ef;font:600 13px sans-serif}
+  .dash{stroke:#ffcc66;stroke-width:1.4;stroke-dasharray:5 4}
+  </style></defs>
+  <line class="ax" x1="60" y1="215" x2="590" y2="215"/>
+  <line class="ax" x1="60" y1="215" x2="60" y2="25"/>
+  <text class="lb" x="300" y="240">ระยะห่างระหว่างอะตอม  →  (ซ้าย = ชิดกัน)</text>
+  <text class="lb" x="8" y="30">พลังงาน</text>
+  <!-- conduction band region -->
+  <path class="bd" d="M480,95 C380,95 300,80 210,45 L210,80 C300,105 380,110 480,110 Z"/>
+  <path class="bd2" d="M480,135 C380,135 300,150 210,190 L210,150 C300,130 380,125 480,125 Z"/>
+  <line class="dash" x1="285" y1="25" x2="285" y2="215"/>
+  <text class="lb2" x="492" y="100">3p (4N states)</text>
+  <text class="lb2" x="492" y="140">3s (4N states)</text>
+  <text class="lb2" x="228" y="72" fill="#5aa9ff">Conduction band</text>
+  <text class="lb2" x="228" y="172" fill="#7ee081">Valence band</text>
+  <line x1="285" y1="95" x2="285" y2="128" stroke="#ffcc66" stroke-width="2"/>
+  <text class="lb2" x="292" y="118" fill="#ffcc66">E_g</text>
+  <text class="lb" x="200" y="240" fill="#ffcc66">ระยะสมดุลของผลึก Si</text>
+</svg>
+<div class="cap">อะตอมไกลกัน = ระดับพลังงานแยกกันชัด · พออะตอมเข้าใกล้ ระดับ <b>แตกออก (split)</b> เป็นแถบ แล้ว <b>ซ้อนทับกัน (overlap)</b><br>ที่ระยะสมดุลจริงของผลึก Si → เหลือ <b>2 แถบ คั่นด้วย forbidden gap E<sub>g</sub></b></div>
+</div>
+
+<div class="box">
+<span class="t">ทำไมระดับพลังงานต้องแตก?</span>
+เพราะ <b>Pauli exclusion principle</b> — อิเล็กตรอน 2 ตัวมีสถานะเหมือนกันเป๊ะไม่ได้ พออะตอม N ตัวมารวมกัน ระดับเดียวกันจึงต้องแตกเป็น N ระดับย่อย ๆ ที่ชิดกันมากจนดูเหมือน "แถบต่อเนื่อง"<br>
+<span class="small">การแตกจะ <b>อ่อนกว่า</b> สำหรับอิเล็กตรอนชั้นใน (core) เพราะยึดแน่นกับนิวเคลียส ไม่ค่อยเจออะตอมข้างเคียง</span>
+</div>
+
+<h3>การเติมอิเล็กตรอนในแถบ</h3>
+<table>
+<thead><tr><th>อุณหภูมิ</th><th>Valence band</th><th>Conduction band</th><th>นำไฟฟ้า?</th></tr></thead>
+<tbody>
+<tr><td><b>T = 0 K</b></td><td>เต็ม 100% (4N e⁻ พอดี)</td><td>ว่างเปล่า</td><td class="p">❌ ไม่นำ</td></tr>
+<tr><td><b>T &gt; 0 K</b></td><td>มีที่ว่าง = <b>hole</b></td><td>มี e⁻ ขึ้นไป</td><td class="n">✅ นำได้</td></tr>
+</tbody>
+</table>
+
+<div class="box key">
+<span class="t">🔑 เหตุผลเชิงทฤษฎีว่าทำไม band เต็ม = ไม่นำไฟฟ้า</span>
+<b>"โมเมนตัมสุทธิใน band ที่เต็มเท่ากับศูนย์เสมอ"</b> (net momentum in a full band is always zero)<br>
+→ ถึงจะมีอิเล็กตรอนเป็นล้าน ๆ ตัว แต่ทุกตัวมีคู่ที่วิ่งสวนกันหมด → กระแสสุทธิ = 0<br>
+<span class="hl">ข้อสอบชอบถามประโยคนี้ตรง ๆ</span>
+</div>
+
+<h2>1.3 Hole (โฮล) — พาหะที่ไม่มีตัวตน แต่มีจริง</h2>
+
+<p><b>นิยาม:</b> hole = <b>ที่ว่าง</b> ใน valence band ที่เกิดจากอิเล็กตรอนถูกกระตุ้นขึ้นไป conduction band</p>
+
+<div class="grid c2">
+<div class="card tight">
+<h4 style="margin-top:0">มุมมอง Bond picture</h4>
+<p style="margin-bottom:0">พันธะขาดที่ตำแหน่ง 1 → อิเล็กตรอนจากพันธะที่ 2 <b>กระโดด</b>มาเติมตำแหน่ง 1 → พันธะ 1 สมบูรณ์ แต่พันธะ 2 ขาดแทน<br>
+<span class="hl">ดูเหมือน "รูบวก" เคลื่อนจาก 1 ไป 2</span></p>
+</div>
+<div class="card tight">
+<h4 style="margin-top:0">มุมมอง Band picture</h4>
+<p style="margin-bottom:0">อิเล็กตรอนใน VB ย้ายจากสถานะที่ถูกครอบครองไปเติมสถานะว่าง → ทิ้งสถานะว่างอันใหม่ไว้<br>
+โมเมนตัมสุทธิใน VB <b>ไม่เป็นศูนย์อีกต่อไป</b> → เกิดกระแสได้</p>
+</div>
+</div>
+
+<div class="box">
+<span class="t">🫧 อุปมาที่อาจารย์ใช้ (จำง่าย ออกสอบได้)</span>
+hole เหมือน <b>ฟองอากาศในขวดน้ำที่เกือบเต็ม</b> — เวลาเอียงขวด เราสังเกตการเคลื่อนของ<b>ฟอง</b>ง่ายกว่าการเคลื่อนของน้ำทั้งขวด และฟองดู "ลอยสวนแรงโน้มถ่วง"
+</div>
+
+<h4>ข้อเท็จจริงเรื่อง hole ที่ต้องจำ</h4>
+<ul>
+<li>ใน <b>intrinsic</b> (บริสุทธิ์): จำนวน e⁻ ใน CB = จำนวน hole ใน VB <b>เท่ากันพอดี</b> (n = p = n<sub>i</sub>)</li>
+<li>ต้องปฏิบัติกับ e⁻ และ hole <b>อย่างเท่าเทียม</b> (equal footing)</li>
+<li>hole มีประจุ <b>บวก</b> → เคลื่อนที่ <b>สวนทาง</b> กับ e⁻ ในสนามไฟฟ้า</li>
+<li>แต่ <span class="hl">กระแสของทั้งคู่ชี้ทางเดียวกัน จึง "บวกกัน" ไม่ใช่หักล้างกัน</span> ← ข้อสอบชอบหลอกตรงนี้!</li>
+</ul>
+
+<h2>1.4 Effective Mass (มวลประสิทธิผล) m*</h2>
+
+<p><b>ปัญหา:</b> อิเล็กตรอนในผลึกไม่ได้วิ่งในที่ว่าง มันเจอ<b>สนามผลึกที่ซับซ้อนมาก</b> จากไอออนและอิเล็กตรอนตัวอื่นทั้งผลึก</p>
+<p><b>ทางออกอันแสนสวย:</b> แกล้งทำเป็นว่ามันเป็นอนุภาคอิสระ แต่ให้มัน<b>มีมวลใหม่</b> ที่ซ่อนผลของสนามผลึกไว้หมด</p>
+
+<div class="fx"><span class="fxname">สมการการเคลื่อนที่ 3 แบบ — ต่างกันแค่ "มวล" กับ "เครื่องหมาย"</span>
+① อิเล็กตรอนอิสระในที่ว่าง :  F = −qE = m<b>₀</b> · dv/dt
+② อิเล็กตรอนในสารกึ่งตัวนำ:  F = −qE = m<b>*ₙ</b> · dv/dt
+③ โฮลในสารกึ่งตัวนำ      :  F = <b>+</b>qE = m<b>*ₚ</b> · dv/dt
+</div>
+
+<table>
+<thead><tr><th>วัสดุ</th><th>m*<sub>n</sub>/m₀ (อิเล็กตรอน)</th><th>m*<sub>p</sub>/m₀ (โฮล)</th><th>ข้อสังเกต</th></tr></thead>
+<tbody>
+<tr><td><b>Si</b></td><td class="num">1.18</td><td class="num">0.81</td><td>e⁻ หนักกว่า hole</td></tr>
+<tr><td><b>Ge</b></td><td class="num">0.55</td><td class="num">0.36</td><td>เบาทั้งคู่</td></tr>
+<tr><td><b>GaAs</b></td><td class="num">0.067</td><td class="num">0.52</td><td class="hl">e⁻ เบามาก → μ<sub>n</sub> สูงมาก!</td></tr>
+</tbody>
+</table>
+
+<div class="box key">
+<span class="t">🔑 จุดเชื่อมโยงข้ามบท</span>
+GaAs มี m*<sub>n</sub> = 0.067m₀ (เบาที่สุด) → <b>μ<sub>n</sub> = qτ/m*<sub>n</sub> สูงที่สุด (8500 cm²/Vs)</b> → เร็วกว่า Si หลายเท่า<br>
+ในขณะที่ m*<sub>p</sub>=0.52m₀ หนักกว่า e⁻ เกือบ 8 เท่า → <b>μ<sub>n</sub>/μ<sub>p</sub> ของ GaAs ต่างกันเกิน 1 order of magnitude</b> (8500 vs 400)<br>
+<span class="small">ค่าเหล่านี้เป็น "density of states effective mass" ที่ 300 K และแปรตามอุณหภูมิเพียงเล็กน้อย</span>
+</div>
+
+<div class="box warn">
+<span class="t">⚠️ ค่าคงที่ที่ต้องใช้</span>
+q = 1.6×10⁻¹⁹ C · m₀ = 9.11×10⁻³¹ kg (สไลด์เขียน 9.1×10⁻³¹)
+</div>
+
+<h2>1.5 การโดป (Doping) — จุดที่ทำให้สารกึ่งตัวนำมีค่า</h2>
+
+<p><b>ทำไมโดปแล้วเปลี่ยนได้เยอะ?</b> เพราะฐานเดิม<b>ต่ำมาก</b></p>
+<div class="fx">โลหะ  @300K : n ≈ 10²³ cm⁻³
+ซิลิกอน @300K : n = p ≈ 10¹⁰ cm⁻³   ← ต่างกัน 10¹³ เท่า!
+</div>
+<p>เติมสิ่งเจือปนแค่ 10¹⁵–10¹⁸ cm⁻³ ก็เปลี่ยนความนำไฟฟ้าไปหลายล้านเท่าแล้ว</p>
+
+<h3>Donor vs Acceptor</h3>
+<div class="grid c2">
+<div class="card">
+<h4 style="margin-top:0" class="n">Donor (ผู้ให้) — หมู่ V</h4>
+<p><b>ตัวอย่าง:</b> P, As, Sb</p>
+<p>มี valence electron <b>5 ตัว</b> → ใช้สร้างพันธะแค่ 4 → <b>เหลือ 1 ตัว</b> ที่ยึดแบบหลวม ๆ<br>
+ที่อุณหภูมิห้อง e⁻ ตัวนี้หลุดออกไปนำไฟฟ้าได้ → เพิ่ม <b>ความหนาแน่นอิเล็กตรอน</b><br>
+→ ได้ <b class="n">n-type</b></p>
+<p style="margin-bottom:0">ในแผนภาพแถบ: สร้าง <b>donor level</b> อยู่<b>ใต้ E<sub>c</sub>นิดเดียว</b></p>
+</div>
+<div class="card">
+<h4 style="margin-top:0" class="p">Acceptor (ผู้รับ) — หมู่ III</h4>
+<p><b>ตัวอย่าง:</b> B, Al, Ga, In</p>
+<p>มี valence electron <b>3 ตัว</b> → สร้างพันธะได้ไม่ครบ → <b>เหลือพันธะขาด 1 อัน</b><br>
+อุณหภูมิห้อง e⁻ ข้างเคียงกระโดดมาเติม แต่ก็ทำให้พันธะเดิมขาดแทน → <b>hole เคลื่อนที่</b><br>
+→ ได้ <b class="p">p-type</b></p>
+<p style="margin-bottom:0">ในแผนภาพแถบ: สร้าง <b>acceptor level</b> อยู่<b>เหนือ E<sub>v</sub>นิดเดียว</b></p>
+</div>
+</div>
+
+<h3>ทำไม dopant level ถึงตื้น? (Pseudo-hydrogen atom)</h3>
+<p>อิเล็กตรอนส่วนเกินของ donor โคจรรอบแกนที่มีประจุบวกสุทธิ +1 → <b>เหมือนอะตอมไฮโดรเจนเลย!</b> เลยเอาสูตร ionization energy ของไฮโดรเจนมาใช้ได้</p>
+
+<div class="fx"><span class="fxname">ไฮโดรเจนจริง</span>
+E_ion = m e⁴ / (8 ε₀² h²) = <b>13.6 eV</b>
+
+<span class="fxname">Donor ใน Si — แก้ 2 ที่: ใช้ m*ₙ แทน m และใส่ ε_r ของ Si</span>
+E_ion = m*ₙ e⁴ / (8 (ε_r ε₀)² h²) ≈ <b>0.1 eV</b>     (m*ₙ = 1.18 m₀, ε_r = 11.8)
+</div>
+
+<p><b>เหตุผลที่ค่าลดลงมหาศาล:</b> ε<sub>r</sub> อยู่ในส่วน<b>กำลังสอง</b> (11.8² ≈ 139) → สนามคูลอมบ์ถูกกำบัง (screened) โดยผลึก → ยึดหลวมกว่าเยอะ</p>
+
+<table>
+<thead><tr><th>พลังงานยึดเหนี่ยว (meV)</th><th colspan="3">Donor</th><th colspan="4">Acceptor</th></tr>
+<tr><th></th><th>P</th><th>As</th><th>Sb</th><th>B</th><th>Al</th><th>Ga</th><th>In</th></tr></thead>
+<tbody>
+<tr><td><b>Si</b></td><td class="num">45</td><td class="num">49</td><td class="num">39</td><td class="num">45</td><td class="num">57</td><td class="num">65</td><td class="num">16</td></tr>
+<tr><td><b>Ge</b></td><td class="num">12</td><td class="num">13</td><td class="num">10</td><td class="num">10</td><td class="num">10</td><td class="num">11</td><td class="num">11</td></tr>
+</tbody>
+</table>
+
+<div class="box key">
+<span class="t">🔑 ข้อสรุปสำคัญที่สุดของบทนี้</span>
+<b>พลังงานยึดเหนี่ยวของ dopant ≈ meV ≪ E<sub>g</sub> ≈ eV</b> (45 meV vs 1120 meV = ต่างกัน 25 เท่า)<br>
+→ ที่อุณหภูมิห้อง (k<sub>B</sub>T ≈ 26 meV) กระตุ้น dopant ได้ง่ายกว่ากระตุ้นข้าม gap <b>มหาศาล</b><br>
+→ จึง <b>สมมติได้ว่า dopant ionize 100%</b> ที่ 300 K ← สมมติฐานนี้ใช้ตลอดทั้งวิชา!<br>
+<span class="small">ข้อควรระวัง: ในการทดลองจริง ค่าพลังงานยึดเหนี่ยวยัง<b>เล็กกว่า</b>ที่ประมาณจากสูตรไฮโดรเจนอีก</span>
+</div>
+
+<h2>1.6 ผลของอุณหภูมิ — กราฟ 3 ช่วง (ต้องวาดเป็น!)</h2>
+
+<div class="dia">
+<svg viewBox="0 0 620 270" xmlns="http://www.w3.org/2000/svg">
+<defs><style>
+.ax{stroke:#6b7686;stroke-width:1.4}.lb{fill:#a3adbd;font:12.5px sans-serif}
+.lb2{fill:#e6e9ef;font:600 13px sans-serif}.gl{stroke:#2a313d;stroke-width:1}
+.cv{fill:none;stroke:#5aa9ff;stroke-width:2.6}
+.dv{stroke:#ffcc66;stroke-width:1.2;stroke-dasharray:4 4}
+</style></defs>
+<line class="ax" x1="70" y1="220" x2="580" y2="220"/>
+<line class="ax" x1="70" y1="220" x2="70" y2="25"/>
+<text class="lb" x="250" y="248">1/T   →   (ซ้าย = ร้อน,  ขวา = เย็น)</text>
+<text class="lb" x="6" y="20">log n</text>
+<path class="cv" d="M80,45 C110,95 130,120 175,120 L390,120 C430,120 450,150 480,185 C500,208 520,215 555,218"/>
+<line class="dv" x1="175" y1="30" x2="175" y2="220"/>
+<line class="dv" x1="400" y1="30" x2="400" y2="220"/>
+<text class="lb2" x="88" y="90" fill="#5aa9ff">INTRINSIC</text>
+<text class="lb2" x="240" y="105" fill="#7ee081">EXTRINSIC</text>
+<text class="lb2" x="450" y="140" fill="#ff8a7a">FREEZE-OUT</text>
+<line class="dv" x1="70" y1="120" x2="175" y2="120"/>
+<text class="lb" x="185" y="138">n ≈ N_D = 10¹⁷ cm⁻³ (คงที่!)</text>
+<text class="lb" x="88" y="60">n_i พุ่ง</text>
+<text class="lb" x="470" y="205">dopant ยังไม่ ionize</text>
+</svg>
+<div class="cap">ความหนาแน่นอิเล็กตรอนของ Si ที่ N<sub>D</sub>=10¹⁷ cm⁻³ เทียบกับ 1/T</div>
+</div>
+
+<table>
+<thead><tr><th>ช่วง</th><th>อุณหภูมิ</th><th>เกิดอะไร</th><th>n เท่ากับ</th></tr></thead>
+<tbody>
+<tr><td class="p"><b>Freeze-out</b></td><td>ต่ำมาก (→0 K)</td><td>ไม่มีพลังงานพอกระตุ้นแม้แต่ dopant → dopant <b>ยังไม่ ionize</b></td><td>→ 0 (เป็น<b>ฉนวน</b>)</td></tr>
+<tr><td class="n"><b>Extrinsic</b></td><td>รวมอุณหภูมิห้อง</td><td>dopant <b>ionize ครบ 100%</b> แต่ยังไม่พอกระตุ้นข้าม gap</td><td><b>n ≈ N<sub>D</sub></b> (ราบเรียบ!)</td></tr>
+<tr><td><b>Intrinsic</b></td><td>สูงมาก</td><td>e⁻ ข้าม gap เยอะจน <b>ท่วม (swamp)</b> พาหะจาก dopant</td><td>n ≈ n<sub>i</sub>(T) พุ่งชันมาก</td></tr>
+</tbody>
+</table>
+
+<div class="box warn">
+<span class="t">⚠️ กับดักข้อสอบ</span>
+<b>"ทำไมช่วง extrinsic กราฟถึงราบ ทั้งที่อุณหภูมิเพิ่ม?"</b><br>
+ตอบ: เพราะ dopant ionize ครบ 100% ไปแล้ว → เพิ่มอุณหภูมิก็ไม่มีพาหะเพิ่มอีก (แหล่งหมดแล้ว) และ n<sub>i</sub> ยังน้อยเกินกว่าจะมีนัยสำคัญ<br><br>
+<b>"ที่อุณหภูมิสูงมาก ๆ สาร extrinsic จะเป็นยังไง?"</b><br>
+ตอบ: <b>มันจะเหมือนสาร intrinsic</b> เพราะพาหะจาก gap ท่วมพาหะจาก dopant → คุณสมบัติที่เราออกแบบไว้หายหมด (นี่คือเหตุผลว่าทำไมอุปกรณ์ Si ทำงานได้ถึงแค่ ~150–200°C แต่ SiC/GaN ที่ E<sub>g</sub> ใหญ่กว่าไปได้ร้อนกว่า)
+</div>
+
+<h2>📋 เช็กลิสต์บท 1 — ตอบได้ทุกข้อ = ผ่าน</h2>
+<div class="card">
+<ol>
+<li>Elemental vs compound semiconductor ต่างกันยังไง ยกตัวอย่างอย่างละ 2</li>
+<li>Crystalline / polycrystalline / amorphous ต่างกันยังไง</li>
+<li>ทำไมระดับพลังงานของอะตอมถึงแตกเป็น band เมื่อรวมเป็นผลึก</li>
+<li>ทำไม band ที่เต็ม 100% ถึงไม่นำไฟฟ้า (ตอบด้วยคำว่า "โมเมนตัมสุทธิ")</li>
+<li>hole คืออะไร มีประจุอะไร เคลื่อนที่ทางไหนเทียบกับ e⁻ แล้ว<b>กระแส</b>ของทั้งคู่บวกหรือหักล้างกัน</li>
+<li>effective mass คืออะไร ทำไมต้องใช้ ค่าของ Si/Ge/GaAs</li>
+<li>donor = หมู่อะไร ให้อะไร ได้สารชนิดไหน · acceptor = ?</li>
+<li>ทำไม dopant level ถึงตื้น (ตอบด้วย pseudo-hydrogen + ε<sub>r</sub>²)</li>
+<li>วาดกราฟ log n vs 1/T แล้วชี้ 3 ช่วงพร้อมอธิบาย</li>
+<li>E<sub>g</sub> ของ Ge / Si / GaAs ที่ 300 K = เท่าไร (0.66 / 1.12 / 1.42 eV)</li>
+</ol>
+</div>
+
+<div class="nextprev">
+  <a href="index.html">← กลับแผนอ่าน</a>
+  <a href="ch2.html">บทที่ 2 → พาหะเชิงสถิติ</a>
+</div>
+</main>
+</body>
+</html>
