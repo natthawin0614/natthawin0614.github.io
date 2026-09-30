@@ -33,7 +33,6 @@
     }
     main{ width:min(100%, 560px); display:grid; gap:18px; text-align:center; }
     h1{ font-family:'Fredoka', sans-serif; font-weight:700; font-size:clamp(28px, 8vw, 40px); color:#8f6fe0; }
-    .since{ font-weight:500; color:#8673b5; margin-top:-12px; }
     .cards{ display:grid; gap:14px; }
     .card{
       display:flex; align-items:center; gap:14px;
@@ -42,8 +41,9 @@
       box-shadow:0 0 0 2px var(--line) inset, 0 6px 0 var(--line);
       transition:transform .28s cubic-bezier(.34,1.56,.64,1), box-shadow .15s;
     }
-    .card--4{ --line:#ffc9d8; } .card--6{ --line:#d9ccff; }
+    .card--4{ --line:#ffc9d8; } .card--6{ --line:#d9ccff; } .card--v{ --line:#ffb3c1; }
     .card img{ width:64px; height:64px; object-fit:contain; flex:none; }
+    .card__emoji{ width:64px; flex:none; text-align:center; font-size:44px; line-height:64px; }
     .card b{ display:block; font-family:'Fredoka', sans-serif; font-size:21px; }
     .card span{ font-size:14px; color:#8673b5; }
     .card i{ margin-left:auto; font-style:normal; font-size:22px; }
@@ -54,7 +54,6 @@
 <body>
   <main>
     <h1>Us &amp; Opor</h1>
-    <p class="since">since 24.03.2026</p>
     <div class="cards">
       <a class="card card--6" href="./6-months/">
         <img src="./6-months/assets/decor/heart.png" alt="" />
@@ -65,6 +64,11 @@
         <img src="./4-months/media/favicon.png" alt="" />
         <div><b>4 Months</b><span>24.07.2026</span></div>
         <i>🎀</i>
+      </a>
+      <a class="card card--v" href="https://love-opor.netlify.app/">
+        <div class="card__emoji" aria-hidden="true">💌</div>
+        <div><b>Valentine's Day</b><span>14.02.2026</span></div>
+        <i>🌹</i>
       </a>
     </div>
   </main>
