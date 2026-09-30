@@ -2,7 +2,7 @@
    6 MONTHS WITH YOU — sticker book
    Sections, in order:
      1. sticker list + saved state
-     2. sound effects (Web Audio, no files)
+     2. sound effects (Web Audio, no files) + background song
      3. the isometric room (drawn as SVG)
      4. particles + background hearts
      5. tray, stickers, drag & drop
@@ -120,6 +120,7 @@
 
     return {
       unlock, setOn,
+      ctx: () => ctx,
       /* a page being turned: one long soft swish with a couple of flutters in it */
       paper() {
         noise({ d: .55, g: .22, f: 500, f2: 2600, q: .7, attack: .12 });
@@ -176,6 +177,57 @@
           tone({ f: f * 2, at: i * .11, d: .4, g: .025 });
         });
       },
+    };
+  })();
+
+  /* ---- background song ----
+     Plays quietly under the game from the moment the cover opens. It stops for
+     the voice note (so nothing talks over it), when the sound button is off,
+     and when the tab is hidden. */
+  const Bgm = (() => {
+    const el = $('#bgm'), LEVEL = .22;
+    let gain = null, hooked = false, want = false, ducked = false, vol = 0, raf = 0;
+
+    // iOS ignores audio.volume, so on a real site the song is routed through a
+    // gain node instead. From file:// that route is silent, so fall back there.
+    function hook() {
+      if (hooked) return;
+      hooked = true;
+      const ctx = Sfx.ctx();
+      if (!ctx || location.protocol === 'file:') return;
+      try {
+        gain = ctx.createGain(); gain.gain.value = 0;
+        ctx.createMediaElementSource(el).connect(gain);
+        gain.connect(ctx.destination);
+      } catch (_) { gain = null; }
+    }
+    function setVol(v) { vol = v; if (gain) gain.gain.value = v; else el.volume = v; }
+    function fadeTo(target, ms, done) {
+      cancelAnimationFrame(raf);
+      const from = vol, t0 = performance.now();
+      const step = now => {
+        const k = Math.min(1, (now - t0) / ms);
+        setVol(from + (target - from) * k);
+        if (k < 1) raf = requestAnimationFrame(step); else if (done) done();
+      };
+      raf = requestAnimationFrame(step);
+    }
+    function sync() {
+      if (!el) return;
+      if (want && state.sound && !ducked && !document.hidden) {
+        hook();
+        if (el.paused) { setVol(0); const p = el.play(); if (p && p.catch) p.catch(() => {}); }
+        fadeTo(LEVEL, 1400);
+      } else if (!el.paused) {
+        if (document.hidden) { cancelAnimationFrame(raf); el.pause(); }   // no frames while hidden
+        else fadeTo(0, 450, () => el.pause());
+      }
+    }
+    document.addEventListener('visibilitychange', sync);
+    return {
+      start() { want = true; sync(); },
+      duck(on) { ducked = on; sync(); },
+      sync,
     };
   })();
 
@@ -683,7 +735,7 @@
   paintSound();
   soundBtn.addEventListener('click', () => {
     state.sound = !state.sound;
-    Sfx.unlock(); Sfx.setOn(state.sound);
+    Sfx.unlock(); Sfx.setOn(state.sound); Bgm.sync();
     paintSound(); save();
     if (state.sound) Sfx.tick();
   });
@@ -718,7 +770,7 @@
 
   cover.addEventListener('click', () => {
     if (cover.classList.contains('is-open')) return;
-    Sfx.unlock(); Sfx.paper();
+    Sfx.unlock(); Sfx.paper(); Bgm.start();
     bookFloat.classList.remove('is-floating');
     book.classList.remove('is-closed');
     cover.classList.add('is-open');
@@ -829,6 +881,8 @@
   $('#voiceStop').addEventListener('click', stopVoice);
   ['play', 'pause', 'ended', 'timeupdate', 'loadedmetadata'].forEach(ev => audio.addEventListener(ev, paintVoice));
   audio.addEventListener('error', () => toast('โหลดไฟล์เสียงไม่ได้'), true);
+  audio.addEventListener('play', () => Bgm.duck(true));
+  ['pause', 'ended'].forEach(ev => audio.addEventListener(ev, () => Bgm.duck(false)));
   voiceBar.addEventListener('pointerdown', e => {
     const r = voiceBar.getBoundingClientRect();
     if (isFinite(audio.duration)) { audio.currentTime = clamp((e.clientX - r.left) / r.width, 0, 1) * audio.duration; paintVoice(); }
