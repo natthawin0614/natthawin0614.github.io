@@ -867,7 +867,7 @@
     g.strokeStyle = '#8f6fe0'; g.lineWidth = 12; g.strokeText('6 Months with you', W / 2, 84);
     g.fillStyle = '#fff'; g.fillText('6 Months with you', W / 2, 84);
     g.font = '600 32px Fredoka, Mali, sans-serif';
-    g.fillStyle = '#6b4fa8'; g.fillText('Us & Opor  ·  24.03.2026 → 24.09.2026', W / 2, 134);
+    g.fillStyle = '#6b4fa8'; g.fillText('Us & Opor  ·  01.04.2026 → 01.10.2026', W / 2, 134);
 
     const blob = await new Promise(res => c.toBlob(res, 'image/png'));   // throws if the canvas is tainted
     if (!blob) throw new Error('no blob');
