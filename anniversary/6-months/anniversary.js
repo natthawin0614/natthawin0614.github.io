@@ -181,12 +181,12 @@
   })();
 
   /* ---- background song ----
-     Plays quietly under the game from the moment the cover opens. It stops for
-     the voice note (so nothing talks over it), when the sound button is off,
-     and when the tab is hidden. */
+     Plays quietly under the game from the moment the cover opens. It stops on
+     the last page (the voice note there has its own music), when the sound
+     button is off, and when the tab is hidden. */
   const Bgm = (() => {
     const el = $('#bgm'), LEVEL = .22;
-    let gain = null, hooked = false, want = false, ducked = false, vol = 0, raf = 0;
+    let gain = null, hooked = false, want = false, quiet = false, vol = 0, raf = 0;
 
     // iOS ignores audio.volume, so on a real site the song is routed through a
     // gain node instead. From file:// that route is silent, so fall back there.
@@ -214,7 +214,7 @@
     }
     function sync() {
       if (!el) return;
-      if (want && state.sound && !ducked && !document.hidden) {
+      if (want && state.sound && !quiet && !document.hidden) {
         hook();
         if (el.paused) { setVol(0); const p = el.play(); if (p && p.catch) p.catch(() => {}); }
         fadeTo(LEVEL, 1400);
@@ -226,7 +226,7 @@
     document.addEventListener('visibilitychange', sync);
     return {
       start() { want = true; sync(); },
-      duck(on) { ducked = on; sync(); },
+      quiet(on) { quiet = on; sync(); },
       sync,
     };
   })();
@@ -789,6 +789,7 @@
     Sfx.chime();
     setTimeout(() => {
       Sfx.paper();
+      Bgm.quiet(true);
       resetPoem();
       endPage.setAttribute('aria-hidden', 'false');
       roomPage.classList.add('is-turned');
@@ -806,6 +807,7 @@
     stopVoice();
     clearTimeout(typeT);
     roomPage.classList.remove('is-turned');
+    Bgm.quiet(false);
     endPage.setAttribute('aria-hidden', 'true');
   });
 
@@ -881,8 +883,6 @@
   $('#voiceStop').addEventListener('click', stopVoice);
   ['play', 'pause', 'ended', 'timeupdate', 'loadedmetadata'].forEach(ev => audio.addEventListener(ev, paintVoice));
   audio.addEventListener('error', () => toast('โหลดไฟล์เสียงไม่ได้'), true);
-  audio.addEventListener('play', () => Bgm.duck(true));
-  ['pause', 'ended'].forEach(ev => audio.addEventListener(ev, () => Bgm.duck(false)));
   voiceBar.addEventListener('pointerdown', e => {
     const r = voiceBar.getBoundingClientRect();
     if (isFinite(audio.duration)) { audio.currentTime = clamp((e.clientX - r.left) / r.width, 0, 1) * audio.duration; paintVoice(); }
