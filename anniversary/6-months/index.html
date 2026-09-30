@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>💜 6 Months with you 💜</title>
+  <meta name="theme-color" content="#d9ccff" />
+
+  <!-- Same rule as the 4-month page: the link card gives away the title and
+       nothing else, so the poem is not spoiled in the chat preview. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://natthawin0614.github.io/anniversary/6-months/" />
+  <meta property="og:title" content="💜 6 Months with you 💜" />
+  <meta property="og:description" content="" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="robots" content="noindex, nofollow, noarchive, noimageindex" />
+  <link rel="icon" type="image/png" href="./assets/decor/heart.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Mali:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- ?v= is a cache key (GitHub Pages caches for 10 minutes). Bump it on both
+       lines whenever the css or js changes. -->
+  <link rel="stylesheet" href="./anniversary.css?v=1" />
+</head>
+<body>
+
+  <!-- faint hearts drifting up behind everything -->
+  <div class="sky" id="sky" aria-hidden="true"></div>
+
+  <main class="stage">
+    <div class="bookFloat" id="bookFloat">
+      <div class="book is-closed" id="book">
+
+        <!-- LAST PAGE — the poem, the voice note, the keepsake ---------------- -->
+        <section class="page page--end" id="endPage" aria-label="หน้าสุดท้าย" aria-hidden="true">
+          <div class="end">
+            <header class="end__head">
+              <img class="end__sticker" src="./assets/stickers/us-opor-holding-hands.png" alt="" draggable="false" />
+              <h2 class="end__title">Happy 6 Months</h2>
+              <p class="end__date">24.03.2026 → 24.09.2026</p>
+            </header>
+
+            <!-- The poem. Text lives here, one line per <p>; JS only reveals it. -->
+            <div class="poem" id="poem" aria-label="กลอน">
+              <p class="poem__line">สุขสันต์วันครบรอบหกเดือนนะออเจ้า</p>
+              <p class="poem__line">ถึงแม้เราจะอ้วนขึ้นไปบ้างก็ไม่เป็นไร</p>
+              <p class="poem__line">จะพยายามหล่อให้เท่าชิบิแมวเก่าของเจ้า</p>
+              <p class="poem__line">แฟนสุดที่รักของเราคนนี้</p>
+              <p class="poem__line">ถึงจะงอนบ้างเพราะรู้สึกห่างกัน</p>
+              <p class="poem__line">ทักกันน้อยลงเพราะแฟนเหนื่อยจากงาน</p>
+              <p class="poem__line">แต่เราก็จะรอและเข้าใจทุกอย่าง</p>
+              <p class="poem__line">เป็นกำลังใจให้เจ้าเสมอไม่เคยเปลี่ยนใจ 💕</p>
+            </div>
+
+            <div class="voice" id="voice">
+              <button class="btn btn--main" id="voicePlay" type="button">ฟังเสียงจากเรา 🎧</button>
+              <div class="voice__row">
+                <div class="voice__bar" id="voiceBar" role="slider" aria-label="ตำแหน่งเสียง" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                  <div class="voice__fill" id="voiceFill"></div>
+                </div>
+                <span class="voice__time" id="voiceTime">0:00</span>
+                <button class="btn btn--round btn--small" id="voiceStop" type="button" aria-label="หยุดเสียง">■</button>
+              </div>
+              <audio id="voiceAudio" preload="metadata">
+                <source src="./assets/audio/voice.mp3" type="audio/mpeg" />
+                <source src="./assets/audio/voice.m4a" type="audio/mp4" />
+              </audio>
+            </div>
+
+            <div class="end__actions">
+              <button class="btn" id="saveBtn" type="button">บันทึกภาพห้องของเรา 📸</button>
+              <button class="btn btn--ghost" id="backBtn" type="button">← กลับไปแปะต่อ</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- THE ROOM PAGE — the game itself --------------------------------- -->
+        <section class="page page--room" id="roomPage" aria-label="ห้องของเรา">
+          <header class="hud">
+            <div class="logo" aria-hidden="true">
+              <span class="logo__big">6 Months</span>
+              <span class="logo__small">with you</span>
+            </div>
+
+            <div class="progress" id="progress" aria-live="polite">
+              <div class="progress__head"><span class="progress__heart">💜</span> Our Progress</div>
+              <div class="progress__bar"><div class="progress__fill" id="progressFill"></div></div>
+              <div class="progress__count"><span id="progressCount">0</span> / 8 สติกเกอร์</div>
+            </div>
+
+            <div class="hud__btns">
+              <button class="btn btn--round" id="soundBtn" type="button" aria-label="เปิด/ปิดเสียง" aria-pressed="true">🔊</button>
+              <button class="btn btn--round" id="resetBtn" type="button" aria-label="ล้างเริ่มใหม่">🧹</button>
+            </div>
+          </header>
+
+          <div class="roomWrap" id="roomWrap">
+            <div class="room" id="room">
+              <!-- the isometric room is drawn into here by buildRoom() -->
+              <div class="room__hint" id="roomHint">ลากสติกเกอร์มาแปะในห้องได้เลย~</div>
+            </div>
+          </div>
+
+          <footer class="tray" id="tray">
+            <div class="tray__top">
+              <div class="tabs" role="tablist">
+                <button class="tab is-on" role="tab" aria-selected="true" data-tab="char" type="button">ตัวละคร</button>
+                <button class="tab" role="tab" aria-selected="false" data-tab="decor" type="button">ของตกแต่ง</button>
+              </div>
+              <button class="btn btn--main btn--done" id="doneBtn" type="button">เสร็จแล้ว 💜</button>
+            </div>
+            <div class="tray__grid" id="grid-char" data-tab="char"></div>
+            <div class="tray__grid" id="grid-decor" data-tab="decor" hidden></div>
+          </footer>
+        </section>
+
+        <!-- THE COVER — a real button, so it is tappable and focusable -------- -->
+        <button class="cover" id="cover" type="button" aria-label="เปิดสมุดสติกเกอร์">
+          <span class="cover__face cover__front">
+            <span class="cover__spine" aria-hidden="true"></span>
+            <span class="cover__stitch" aria-hidden="true"></span>
+            <span class="cover__label">Sticker Book</span>
+            <span class="cover__title">
+              <span class="cover__six">6</span><span class="cover__months">Months</span>
+              <span class="cover__with">with you</span>
+            </span>
+            <img class="cover__art" src="./assets/stickers/us-opor-holding-hands.png" alt="" draggable="false" />
+            <img class="cover__deco cover__deco--a" src="./assets/decor/sparkles.png" alt="" draggable="false" />
+            <img class="cover__deco cover__deco--b" src="./assets/decor/paw-prints.png" alt="" draggable="false" />
+            <img class="cover__deco cover__deco--c" src="./assets/decor/heart.png" alt="" draggable="false" />
+            <span class="cover__date">24.03.2026 → 24.09.2026</span>
+            <span class="cover__names">Us &amp; Opor</span>
+            <span class="cover__hint">แตะเพื่อเปิดสมุด ✨</span>
+          </span>
+          <span class="cover__face cover__back" aria-hidden="true"></span>
+        </button>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- the sticker being carried rides here, above everything -->
+  <div class="dragLayer" id="dragLayer" aria-hidden="true"></div>
+  <!-- sparkle / heart particles -->
+  <div class="fx" id="fx" aria-hidden="true"></div>
+
+  <div class="modal" id="confirm" hidden>
+    <div class="modal__card" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+      <img class="modal__img" src="./assets/stickers/opor-pouting.png" alt="" draggable="false" />
+      <p class="modal__title" id="confirmTitle">ล้างสติกเกอร์ทั้งหมดแล้วเริ่มใหม่เลยไหม?</p>
+      <p class="modal__sub">ห้องที่แต่งไว้จะหายหมดเลยน้า</p>
+      <div class="modal__btns">
+        <button class="btn btn--ghost" id="confirmNo" type="button">ยังก่อน</button>
+        <button class="btn btn--main" id="confirmYes" type="button">ล้างเลย</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="./anniversary.js?v=1"></script>
+</body>
+</html>
