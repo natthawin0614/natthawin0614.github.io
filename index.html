@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Natthawin Tamprasert · AI / ML Engineer</title>
-<meta name="description" content="Natthawin Tamprasert — AI & ML Engineer, Data Scientist, IoT Systems Engineer. Super AI Engineer S5 Bronze Medalist. Winner of 4 national AI hackathons.">
+<meta name="description" content="Natthawin Tamprasert — AI & ML Engineer, Data Scientist, IoT Systems Engineer. Super AI Engineer S5 Bronze Medalist. Winner of 4 national AI hackathons. BDI Hackathon 2026 finalist.">
 <meta name="author" content="Natthawin Tamprasert">
 <meta property="og:title" content="Natthawin Tamprasert · AI / ML Engineer">
 <meta property="og:description" content="Super AI Engineer S5 Bronze Medalist · 4× National Hackathon Winner · Time-Series, NLP, Computer Vision, RAG/LLM.">
@@ -28,6 +28,7 @@
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
+      <a href="#floodtir">Floodtir</a>
       <a href="#hackathons">Hackathons</a>
       <a href="#projects">Projects</a>
       <a href="#stack">Stack</a>
@@ -50,6 +51,7 @@
 <div class="mobile-sheet" id="mobileSheet">
   <a href="#about">About</a>
   <a href="#experience">Experience</a>
+  <a href="#floodtir">Floodtir</a>
   <a href="#hackathons">Hackathons</a>
   <a href="#projects">Projects</a>
   <a href="#stack">Stack</a>
@@ -106,9 +108,11 @@
 <div class="trust">
   <div class="container trust-inner">
     <span class="trust-label">Recognized by</span>
+    <a class="trust-item trust-feature" href="#ai-builders"><span class="tf-mark">AI</span>AI Builders</a>
+    <a class="trust-item trust-feature" href="#floodtir"><span class="tf-mark">BDI</span>Big Data Institute</a>
     <span class="trust-item">AIAT</span>
     <span class="trust-item">CP AXTRA</span>
-    <span class="trust-item">BOL</span>
+    <span class="trust-item">Business Online (BOL)</span>
     <span class="trust-item">Chula</span>
     <span class="trust-item">CPALL · 7-Eleven</span>
     <span class="trust-item">Sony</span>
@@ -157,7 +161,8 @@
         <span class="eyebrow">About me</span>
         <h2 class="section-title">AI engineer who turns research into shipped systems.</h2>
         <p>I'm <strong>Natthawin Tamprasert (ณัฐวินท์ แต้มประเสริฐ)</strong>, a dual-degree student in <strong>Industrial Physics</strong> and <strong>IoT Systems Engineering</strong> at KMITL, and a Bronze Medalist of the national <strong>Super AI Engineer Season 5</strong> program.</p>
-        <p>Across seven national hackathons with Team Pangpuriye I won four — spanning demand forecasting, Thai legal NLP, and medical imaging — and interned building an explainable Vision-AI pipeline for vehicle-damage assessment on 119K+ insurance claims.</p>
+        <p>My path into AI started at <strong>AI Builders (2022–23)</strong> with a rain-prediction model. Since then, across seven national hackathons with Team Pangpuriye I won four — spanning demand forecasting, Thai legal NLP, and medical imaging — and interned building an explainable Vision-AI pipeline for vehicle-damage assessment on 119K+ insurance claims.</p>
+        <p>Most recently I was the model architect of <strong>Floodtir</strong>, a <strong>BDI Hackathon 2026 Top-21 finalist</strong> that measures flood depth from a single street photo.</p>
         <div class="about-focus">
           <span class="chip">Time-Series Forecasting</span>
           <span class="chip">NLP</span>
@@ -207,6 +212,84 @@
   </div>
 </section>
 
+<!-- ============ FLOODTIR · BDI HACKATHON 2026 ============ -->
+<section class="section" id="floodtir">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Latest · BDI Hackathon 2026</span>
+      <h2 class="section-title">Floodtir — measuring floods from a single photo</h2>
+      <p class="section-lead">A crowdsourcing flood platform for Bangkok, built for the <strong>Big Data Institute (BDI) Hackathon 2026</strong>. Our team reached the <strong>Finalist round — Top 21 teams</strong>. I designed the AI model at its core.</p>
+    </div>
+
+    <!-- Problem -->
+    <div class="flood-problem reveal">
+      <div class="fp-text">
+        <h3>Why Bangkok still floods blind</h3>
+        <p>The Drainage and Sewerage Department runs 500+ water-level gauges (248 road + 314 canal), mostly on main roads. But <strong>45% of Bangkok's roads are dead-end sois</strong>, and in a basin-shaped city a few tens of centimetres of elevation change the water level a lot. The side streets where people are actually at risk have no data. That gap is what Floodtir closes.</p>
+        <div class="fp-target"><span>Target user</span> Bangkok Governor — the office overseeing the city's flood management and the Drainage and Sewerage Department</div>
+      </div>
+      <div class="fp-stats">
+        <div><b>2,000<i>+</i></b><span>lives lost to Thai floods in 20 years</span></div>
+        <div><b>฿2<i>T+</i></b><span>total flood damage nationwide</span></div>
+        <div><b>฿300<i>M</i></b><span>damage per hour in Bangkok at peak</span></div>
+        <div><b>120</b><span>rainy days per year in Bangkok</span></div>
+      </div>
+    </div>
+
+    <!-- Model card -->
+    <div class="exp-card flood-card reveal">
+      <div class="exp-left">
+        <div class="exp-tag">🌊 Finalist · Top 21 Teams · Jun – Jul 2026</div>
+        <h3>Model Architect — FAHRPF</h3>
+        <div class="exp-org">Flood Auto-Height Reference Point Finding · Floodtir</div>
+        <p class="exp-desc">Citizens send a photo through <strong>LINE OA</strong>; FAHRPF estimates the water height and GPS location, merges it with Drainage Department and HII (สสน.) data on a live dashboard, and a <strong>Thai LLM + RAG</strong> summarises the situation. No installed sensors needed: <strong>phone photos and news images become gauges</strong>.</p>
+        <div class="flood-metrics">
+          <div class="fm"><div class="fm-num">16.01<small>cm</small></div><div class="fm-lbl">MAE · FAHRPF</div></div>
+          <div class="fm"><div class="fm-num">−77.8<small>%</small></div><div class="fm-lbl">parameters vs 4B VLM</div></div>
+          <div class="fm"><div class="fm-num">0</div><div class="fm-lbl">labelled training images</div></div>
+        </div>
+        <div class="param-compare">
+          <div class="pc-row"><span class="pc-name">FAHRPF (ours)</span><span class="pc-bar"><span style="width:22.3%" class="ours"></span></span><span class="pc-val">893M · 16.01 cm</span></div>
+          <div class="pc-row"><span class="pc-name">Gemma 4-E4B VLM</span><span class="pc-bar"><span style="width:100%"></span></span><span class="pc-val">4B · 15.12 cm</span></div>
+          <div class="pc-note">Under 1 cm of accuracy traded for a model that runs on-premise and at the edge, where a 4B VLM cannot be deployed.</div>
+        </div>
+      </div>
+      <div class="exp-right">
+        <div class="pipeline">
+          <div class="pipe-step"><span class="n">1</span><div><div class="st-title">Water Mask → Waterline</div><div class="st-tech">SAM 3 · zero-shot water segmentation</div></div></div>
+          <div class="pipe-step"><span class="n">2</span><div><div class="st-title">Reference Objects</div><div class="st-tech">YOLO26 boxes + SAM 3 instance masks · cars, people</div></div></div>
+          <div class="pipe-step"><span class="n">3</span><div><div class="st-title">Monocular Depth</div><div class="st-tech">Depth Anything V2 (Small)</div></div></div>
+          <div class="pipe-step"><span class="n">4</span><div><div class="st-title">Per-object Depth</div><div class="st-tech">Depth<sub>i</sub> = submerged ratio<sub>i</sub> × object height<sub>i</sub></div></div></div>
+          <div class="pipe-step"><span class="n">✦</span><div><div class="st-title">Weighted Fusion</div><div class="st-tech">w<sub>i</sub> = depth<sub>i</sub> × confidence<sub>i</sub> · Σw·D / Σw</div></div></div>
+        </div>
+        <div class="exp-arch" data-full="image/FAHRPF_Architecture.png" data-cap="FAHRPF — Flood Auto-Height Reference Point Finding architecture">
+          <img src="image/FAHRPF_Architecture.png" alt="FAHRPF architecture: SAM 3, YOLO26 and Depth Anything V2 combined to estimate water height" loading="lazy">
+        </div>
+        <div class="exp-arch-cap">FAHRPF architecture — click to zoom</div>
+      </div>
+    </div>
+
+    <!-- What I did -->
+    <div class="flood-bottom">
+      <div class="flood-did reveal">
+        <h4>What I did</h4>
+        <ul>
+          <li><strong>Designed FAHRPF</strong>, which measures flood height from one street photo, removing the need for installed water-level sensors.</li>
+          <li><strong>Architected a fully zero-shot pipeline</strong> of three foundation models (SAM 3, YOLO26 + SAM 3, Depth Anything V2) with no labelled training data.</li>
+          <li><strong>Formulated the measurement method</strong>: everyday objects act as rulers, and a depth- and confidence-weighted average keeps it robust to occlusion and perspective.</li>
+          <li><strong>Benchmarked against a published VLM approach</strong> (Gemma 4-E4B, 4B params): 16.01 vs 15.12 cm MAE with 77.8% fewer parameters.</li>
+          <li><strong>Built the evaluation dataset from scratch</strong> by sourcing and annotating real Thai flood imagery from news reports.</li>
+        </ul>
+      </div>
+      <div class="flood-gallery reveal">
+        <div class="fg-item fg-wide" data-full="image/Floodtir_Dashboard.webp" data-cap="Floodtir data flow — DDS road &amp; canal gauges, HII, TMD rain forecasts and citizen photos → FastAPI → dashboard"><img src="image/Floodtir_Dashboard.webp" alt="Floodtir dashboard and data-source architecture" loading="lazy"><span class="gcap">🗺️ Data flow &amp; dashboard</span></div>
+        <div class="fg-item" data-full="image/Floodtir_BDI_Hackathon_Booth.webp" data-cap="Team Floodtir at the BDI Hackathon 2026 finals booth"><img src="image/Floodtir_BDI_Hackathon_Booth.webp" alt="Team Floodtir at the BDI Hackathon 2026 booth" loading="lazy"><span class="gcap">🏁 BDI Hackathon finals booth</span></div>
+        <div class="fg-item" data-full="image/Floodtir_Lat_Krabang_District_Office.webp" data-cap="Field research — meeting at the Lat Krabang District Office"><img src="image/Floodtir_Lat_Krabang_District_Office.webp" alt="Team meeting at the Lat Krabang District Office" loading="lazy"><span class="gcap">🏛️ Lat Krabang District Office visit</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ HACKATHONS ============ -->
 <section class="section" id="hackathons">
   <div class="container">
@@ -238,7 +321,7 @@
       </article>
 
       <article class="hack-card reveal">
-        <a class="hack-cert" data-full="image/Certificate_Crime_Charges_Analysis.png" data-cap="1st Place — Crime Charges Analysis, NLP (AIAT × BOL)">
+        <a class="hack-cert" data-full="image/Certificate_Crime_Charges_Analysis.png" data-cap="1st Place — Crime Charges Analysis, NLP (AIAT × Business Online PCL / BOL)">
           <img src="image/Certificate_Crime_Charges_Analysis.png" alt="Crime Charges Analysis certificate" loading="lazy">
           <span class="zoom-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>View</span>
         </a>
@@ -351,6 +434,37 @@
       <h2 class="section-title">Selected work</h2>
       <p class="section-lead">Open-source projects and research systems — full code and write-ups on GitHub.</p>
     </div>
+
+    <!-- AI Builders feature -->
+    <article class="aib-card reveal" id="ai-builders">
+      <div class="aib-photo" data-full="image/AI_Builder_You_with_the_poster.jpg" data-cap="AI Builders 2022–23 — presenting the rain-prediction poster">
+        <img src="image/AI_Builder_You_with_the_poster.jpg" alt="Natthawin presenting the rain-prediction poster at AI Builders" loading="lazy">
+      </div>
+      <div class="aib-body">
+        <div class="aib-badges">
+          <span class="aib-badge">AI Builders · 2022–23</span>
+          <span class="aib-badge ghost">Showcase Series #67</span>
+        </div>
+        <h3>Will it rain tomorrow? <span class="aib-sub">Where my AI journey started</span></h3>
+        <p class="aib-lead">A classifier that predicts tomorrow's rain from <strong>3,249 days × 20 variables</strong> of TMD weather-station data (Bang Na, 2014–2022). I revisited it after Super AI Engineer and lifted accuracy from <strong>67% to 82%</strong>.</p>
+        <div class="aib-acc">
+          <div class="aa-row"><span class="aa-lbl">AI Builders · 2023</span><span class="aa-bar"><span style="width:67%"></span></span><span class="aa-val">67%</span></div>
+          <div class="aa-row"><span class="aa-lbl">Revisited · post Super AI</span><span class="aa-bar"><span class="up" style="width:82%"></span></span><span class="aa-val up">82%</span></div>
+        </div>
+        <ul class="aib-list">
+          <li><strong>Caught a silent data leak</strong>: missing days made the model predict 2 days ahead instead of tomorrow. Rebuilt a complete 2014–2022 calendar, left-joined with a 1-day lag, and dropped unpredictable days.</li>
+          <li><strong>Feature engineering</strong>: 1- and 2-day lags of total rainfall, minimum pressure and minimum temperature, chosen from DecisionTree feature importance.</li>
+          <li><strong>Physically grounded</strong>: rain tends to persist day to day, while temperature and pressure drive the condensation that makes rain.</li>
+          <li>Logistic regression, evaluated on both random and time-ordered train/test splits.</li>
+        </ul>
+        <div class="proj-tags"><span>Classification</span><span>Time-Series</span><span>Feature Eng.</span><span>Weather</span></div>
+        <div class="aib-links">
+          <a class="proj-link" href="https://medium.com/@06148/%E0%B8%9E%E0%B8%A3%E0%B8%B8%E0%B9%89%E0%B8%87%E0%B8%99%E0%B8%B5%E0%B9%89%E0%B8%9D%E0%B8%99%E0%B8%88%E0%B8%B0%E0%B8%95%E0%B8%81%E0%B8%AB%E0%B8%A3%E0%B8%B7%E0%B8%AD%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B9%80%E0%B8%A3%E0%B8%B2%E0%B8%8A%E0%B9%88%E0%B8%A7%E0%B8%A2%E0%B8%84%E0%B8%B8%E0%B8%93%E0%B8%94%E0%B9%89%E0%B8%B2%E0%B8%A2%E0%B8%A2%E0%B8%A2-8855676ac857" target="_blank" rel="noopener">Read on Medium <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+          <a class="proj-link" href="https://github.com/natthawin0614/-Predict-rain" target="_blank" rel="noopener">View repo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+        </div>
+      </div>
+    </article>
+
     <div class="proj-grid">
 
       <article class="proj-card reveal">
@@ -403,17 +517,6 @@
         <div class="proj-foot">
           <a class="proj-link" href="https://github.com/natthawin0614/Chat-bot-Jar-neng" target="_blank" rel="noopener">View repo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
           <span class="proj-star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>2</span>
-        </div>
-      </article>
-
-      <article class="proj-card reveal">
-        <div class="proj-head"><div class="proj-icon">🌧️</div><span class="proj-lang"><span class="dot" style="background:#DA5B0B"></span>Jupyter</span></div>
-        <h3>Predict-rain</h3>
-        <p>Binary rain-prediction model trained on weather-station data (2014–2022), achieving <strong>67% accuracy</strong>.</p>
-        <div class="proj-tags"><span>Classification</span><span>Weather</span><span>ML</span></div>
-        <div class="proj-foot">
-          <a class="proj-link" href="https://github.com/natthawin0614/-Predict-rain" target="_blank" rel="noopener">View repo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
-          <span class="proj-star"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>1</span>
         </div>
       </article>
 
@@ -530,6 +633,7 @@
           <h5>Navigate</h5>
           <a href="#about">About</a>
           <a href="#experience">Experience</a>
+          <a href="#floodtir">Floodtir</a>
           <a href="#hackathons">Hackathons</a>
           <a href="#projects">Projects</a>
           <a href="#certs">Awards</a>
