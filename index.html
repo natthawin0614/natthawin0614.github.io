@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=20261010c">
+<link rel="stylesheet" href="assets/css/style.css?v=20261010d">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
 </head>
 <body>
@@ -189,16 +189,15 @@
         <h3>AI Research Intern</h3>
         <div class="exp-org">Dhipaya Insurance (ทิพยประกันภัย)</div>
         <p class="exp-desc">Developed an explainable <strong>4-stage Vision-AI pipeline</strong> addressing a <strong>17.5% valuation discrepancy</strong> across <strong>119,212 insurance claims</strong> — pairing deep-learning detectors with an LLM report generator for plain-language, auditable output.</p>
-        <div class="exp-metrics">
-          <div><b>119K<small>+</small></b><span>real claims analysed</span></div>
-          <div><b>17.5<small>%</small></b><span>insurer vs. repair-shop gap</span></div>
-          <div><b>20<small>+</small></b><span>damage types classified</span></div>
-        </div>
         <div class="exp-impact">
           <span class="pill">↑ Transparency</span>
           <span class="pill">↑ Negotiation leverage</span>
           <span class="pill coral">↓ Claim costs</span>
         </div>
+        <div class="exp-arch" data-full="image/Architecture_superai_ss5.png" data-cap="4-Stage Vehicle Damage Assessment Pipeline">
+          <img src="image/Architecture_superai_ss5.png" alt="Architecture diagram of the 4-stage vehicle damage assessment pipeline" loading="lazy">
+        </div>
+        <div class="exp-arch-cap">System architecture — click to zoom</div>
       </div>
       <div class="exp-right">
         <div class="pipeline">
@@ -208,13 +207,12 @@
           <div class="pipe-step"><span class="n">4</span><div><div class="st-title">Damage % Estimation</div><div class="st-tech">Geometric: A_crop = A_full / Z²</div></div></div>
           <div class="pipe-step"><span class="n">✦</span><div><div class="st-title">Report Generation</div><div class="st-tech">LLaMA 3.1-8B (4-bit) · plain-language output</div></div></div>
         </div>
-      </div>
-      <figure class="exp-figure">
-        <div class="exp-arch" data-full="image/Architecture_superai_ss5.png" data-cap="4-Stage Vehicle Damage Assessment Pipeline">
-          <img src="image/Architecture_superai_ss5.png" alt="Architecture diagram of the 4-stage vehicle damage assessment pipeline" loading="lazy">
+        <div class="exp-metrics">
+          <div><b>119K<small>+</small></b><span>real claims analysed</span></div>
+          <div><b>17.5<small>%</small></b><span>insurer vs. repair-shop gap</span></div>
+          <div><b>20<small>+</small></b><span>damage types classified</span></div>
         </div>
-        <figcaption class="exp-arch-cap">System architecture — click to zoom</figcaption>
-      </figure>
+      </div>
     </div>
   </div>
 </section>
@@ -642,6 +640,6 @@
   <div class="lightbox-cap" id="lbCap"></div>
 </div>
 
-<script src="assets/js/main.js?v=20261010c"></script>
+<script src="assets/js/main.js?v=20261010d"></script>
 </body>
 </html>
